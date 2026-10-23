@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四级作文速通 · 视频讲义 — 评分标准 / 写作模板 / 同义替换</title>
+<style>
+  :root{
+    --bg:#faf8f4; --panel:#fffdf9; --ink:#20242b; --ink2:#4d5665; --ink3:#636b78;
+    --line:#e6e0d5; --line2:#f0ebe1;
+    --accent:#1a6f5c; --accent2:#0d5c4a; --accent-bg:#e8f2ee;
+    --warn:#a4551f; --warn-bg:#fbf0e6;
+    --blue:#274e7d; --blue-bg:#eaf0f7;
+    --purple:#5c4383; --purple-bg:#f1ecf7;
+    --ok:#1c7a3d;
+    --code-bg:#22262e; --code-ink:#e8eaef;
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#15171c; --panel:#1c1f26; --ink:#e7e9ee; --ink2:#aab1bd; --ink3:#848c9a;
+      --line:#2e333d; --line2:#252932;
+      --accent:#4fc9a9; --accent2:#69d4b8; --accent-bg:#16302a;
+      --warn:#e0904f; --warn-bg:#2e2218;
+      --blue:#7aa5dc; --blue-bg:#1b2434;
+      --purple:#b195d9; --purple-bg:#251f31;
+      --ok:#57c47f;
+      --code-bg:#0f1115; --code-ink:#e8eaef;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:86px}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+    font-size:16.5px;line-height:1.85;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+
+  /* ---------- header ---------- */
+  header.hero{padding:64px 0 34px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:clamp(27px,4.4vw,44px);line-height:1.28;margin:.42em 0 .3em;letter-spacing:-.015em;font-weight:800}
+  .subtitle{font-size:19px;color:var(--ink2);max-width:44em;margin:0}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:26px}
+  .chip{font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink2)}
+  .chip b{color:var(--ink);font-weight:600}
+
+  /* ---------- TOC ---------- */
+  nav.toc{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 22px;margin:28px 0 40px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  nav.toc .toc-title{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:10px}
+  nav.toc ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:2px 18px}
+  nav.toc a{display:block;color:var(--ink2);text-decoration:none;font-size:14.5px;padding:5px 0;border-bottom:1px dashed transparent}
+  nav.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+  nav.toc a span.n{color:var(--accent);font-weight:700;margin-right:7px;font-variant-numeric:tabular-nums}
+
+  /* ---------- sections ---------- */
+  section{margin:0 0 54px}
+  h2{font-size:25px;line-height:1.3;margin:0 0 6px;letter-spacing:-.01em;font-weight:800;
+    padding-bottom:12px;border-bottom:2px solid var(--accent);display:flex;align-items:baseline;gap:12px}
+  h2 .no{font-size:15px;color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+  .lede{color:var(--ink2);font-size:16px;margin:14px 0 22px;max-width:56em}
+  h3{font-size:19px;margin:30px 0 10px;font-weight:750;letter-spacing:-.005em}
+  h4{font-size:16px;margin:22px 0 8px;font-weight:750;color:var(--accent2)}
+  p{margin:10px 0}
+  ul,ol{margin:10px 0;padding-left:1.35em}
+  li{margin:5px 0}
+  li>ul,li>ol{margin:5px 0}
+  strong{font-weight:700}
+  em{font-style:normal;color:var(--accent2);font-weight:650}
+  code{font-family:"JetBrains Mono","SF Mono",Consolas,"Noto Sans Mono",monospace;font-size:.88em;
+    background:var(--line2);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+
+  /* ---------- cards / notes ---------- */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin:18px 0}
+  .grid{display:grid;gap:16px}
+  .grid.c2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+  .grid.c3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card .k{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:6px}
+  .card .big{font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-.02em}
+  .card .big small{font-size:15px;font-weight:600;color:var(--ink2);letter-spacing:0}
+  .card p{margin:8px 0 0;font-size:14.5px;color:var(--ink2)}
+  .card.accent{border-color:var(--accent);background:var(--accent-bg)}
+  .card.blue{border-color:var(--blue);background:var(--blue-bg)}
+  .card.purple{border-color:var(--purple);background:var(--purple-bg)}
+  .card.warn{border-color:var(--warn);background:var(--warn-bg)}
+
+  .note{border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 10px 10px 0;padding:14px 18px;margin:18px 0}
+  .note.warn{border-left-color:var(--warn);background:var(--warn-bg)}
+  .note.blue{border-left-color:var(--blue);background:var(--blue-bg)}
+  .note .lbl{font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .note .lbl.warn{color:var(--warn)} .note .lbl.ok{color:var(--ok)} .note .lbl.blue{color:var(--blue)}
+  .note p{margin:4px 0 0} .note p+p{margin-top:8px}
+
+  /* ---------- tables ---------- */
+  .tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .tbl th{background:var(--line2);text-align:left;padding:11px 14px;font-weight:700;font-size:13.5px;
+    letter-spacing:.04em;color:var(--ink);border-bottom:1px solid var(--line)}
+  .tbl td{padding:11px 14px;border-bottom:1px solid var(--line2);vertical-align:top;color:var(--ink2)}
+  .tbl tr:last-child td{border-bottom:none}
+  .tbl td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+  .tbl tr:hover td{background:var(--line2)}
+
+  /* ---------- templates / code ---------- */
+  .tpl{background:var(--code-bg);color:var(--code-ink);border-radius:var(--radius);margin:16px 0;overflow:hidden;
+    border:1px solid var(--line);box-shadow:0 3px 14px rgba(0,0,0,.1)}
+  .tpl .bar{display:flex;justify-content:space-between;align-items:center;padding:9px 16px;
+    background:rgba(255,255,255,.06);font-size:12.5px;color:#98a0ad;letter-spacing:.06em;
+    border-bottom:1px solid rgba(255,255,255,.08)}
+  .tpl .bar .tag{background:rgba(79,201,169,.18);color:#6ad9bd;padding:2px 9px;border-radius:999px;font-weight:700;letter-spacing:.04em}
+  .tpl pre{margin:0;padding:16px 18px;overflow-x:auto;font-size:14.2px;line-height:1.95;
+    font-family:"JetBrains Mono","SF Mono",Consolas,monospace}
+  .tpl .en{color:#dfe3ea}
+  .tpl .zh{color:#8fa3b8;font-style:normal}
+  .tpl .hl{color:#6ad9bd;font-weight:600}
+  .tpl .fill{color:#e0a75f;font-weight:700;border-bottom:1px dashed rgba(224,167,95,.6)}
+  .tpl .com{color:#838da0;font-style:italic}
+
+  /* ---------- synonym pairs ---------- */
+  .syn{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 0;margin:16px 0;overflow:hidden}
+  .syn .row{display:grid;grid-template-columns:minmax(120px,170px) 1fr;gap:0;border-bottom:1px solid var(--line2)}
+  .syn .row:last-child{border-bottom:none}
+  .syn .term{padding:11px 16px;font-weight:700;color:var(--ink);font-size:15px;background:var(--line2)}
+  .syn .opts{padding:11px 16px;font-size:15px;color:var(--ink2)}
+  .syn .opts code{margin:2px 4px 2px 0;display:inline-block}
+  .syn .tagline{font-size:12.5px;color:var(--ink3);padding:0 16px 8px 16px;margin-top:-2px}
+
+  /* ---------- steps ---------- */
+  .steps{counter-reset:s;margin:18px 0}
+  .step{position:relative;padding:0 0 20px 54px}
+  .step:last-child{padding-bottom:0}
+  .step:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;
+    width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
+  .step:after{content:"";position:absolute;left:18.5px;top:42px;bottom:2px;width:2px;background:var(--line)}
+  .step:last-child:after{display:none}
+  .step h4{margin:2px 0 6px;color:var(--accent2)}
+  .step p{margin:6px 0;font-size:15.5px}
+
+  /* ---------- quiz / check ---------- */
+  .checks{list-style:none;padding:0;margin:14px 0}
+  .checks li{position:relative;padding-left:30px;margin:9px 0}
+  .checks li:before{content:"✓";position:absolute;left:0;top:0;color:var(--ok);font-weight:800}
+  .x{color:var(--warn);font-weight:700}
+  .ok{color:var(--ok);font-weight:700}
+
+  footer{border-top:1px solid var(--line);margin-top:60px;padding:28px 0 54px;color:var(--ink3);font-size:14px}
+  footer a{color:var(--accent);text-decoration:none}
+  .top{position:fixed;right:20px;bottom:22px;width:42px;height:42px;border-radius:50%;background:var(--accent);
+    color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;font-weight:700;
+    box-shadow:0 6px 18px rgba(0,0,0,.22);opacity:.9}
+  .top:hover{opacity:1}
+  @media(max-width:640px){
+    body{font-size:16px}
+    .wrap{padding:0 16px}
+    header.hero{padding:44px 0 26px}
+    h2{font-size:22px}
+    .syn .row{grid-template-columns:1fr}
+    .syn .term{background:var(--line2)}
+  }
+  @media print{
+    .top,nav.toc{display:none}
+    body{background:#fff;font-size:12px}
+    .tpl{box-shadow:none}
+    section{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a href="index.html" style="display:inline-block;font-size:13px;color:var(--ink3);text-decoration:none;margin-bottom:10px">← 四级速通讲义</a>
+    <div class="eyebrow">CET-4 Writing · Video Study Notes</div>
+    <h1>两小时速通四级作文<br>评分标准 · 写作模板 · 同义替换</h1>
+    <p class="subtitle">把 113 分钟的视频压缩成一页能直接用的讲义：先看判卷到底看什么，再背三段式模板，最后用 5W1H 把中间段填得漂亮。</p>
+    <div class="meta">
+      <span class="chip"><b>来源</b> 阿米诺斯build ·「六小时速通四级」写作课</span>
+      <span class="chip"><b>时长</b> 约 112 分钟 / 2869 条字幕</span>
+      <span class="chip"><b>适用</b> CET-4 写作 15 分 · 120–180 词 · 30 分钟</span>
+      <span class="chip"><b>结构</b> 题型综述 → 核心方法 → 实践题型 → 同义替换</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <div class="toc-title">目录 Contents</div>
+  <ol>
+    <li><a href="#s0"><span class="n">00</span>上手前：用 AI 批改 + 语法错题本</a></li>
+    <li><a href="#s1"><span class="n">01</span>评分标准：15 分五档怎么定的</a></li>
+    <li><a href="#s2"><span class="n">02</span>错误分级：什么叫「个别小错」</a></li>
+    <li><a href="#s3"><span class="n">03</span>三套判例：14 / 11 / 8 分差在哪</a></li>
+    <li><a href="#s4"><span class="n">04</span>套模板会被扣分吗 + 时间分配</a></li>
+    <li><a href="#s5"><span class="n">05</span>出题规律：三类题型与占比</a></li>
+    <li><a href="#s6"><span class="n">06</span>观点议论文 · 第一段 SQO 模型</a></li>
+    <li><a href="#s7"><span class="n">07</span>观点议论文 · 第二段 5W1H 论证</a></li>
+    <li><a href="#s8"><span class="n">08</span>观点议论文 · 第三段收尾</a></li>
+    <li><a href="#s9"><span class="n">09</span>应用文 · 格式与第一段三步</a></li>
+    <li><a href="#s10"><span class="n">10</span>应用文 · 提案模板与申请信套路</a></li>
+    <li><a href="#s11"><span class="n">11</span>活动类作文：booth 万能与保底写法</a></li>
+    <li><a href="#s12"><span class="n">12</span>同义替换速查表</a></li>
+    <li><a href="#s13"><span class="n">13</span>语法要点速查</a></li>
+    <li><a href="#s14"><span class="n">14</span>考前 10 分钟核对清单</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 00 ============ -->
+<section id="s0">
+  <h2><span class="no">00</span>上手前：用 AI 批改 + 语法错题本</h2>
+  <p class="lede">视频开头给的是一套「高效」而非「体系」的学习法：模板课打骨架，语法细节用 AI 补齐，自己写的错才记得住。</p>
+
+  <div class="card accent">
+    <div class="k">喂给 AI 的正确姿势</div>
+    <p>不要只丢一篇作文过去让它「帮我看看」。要先把<strong>四级评分标准原文截图</strong>发给 AI（搜「四六级考试大纲」就有，网上公开可下），让它先学会评分档位，再按标准给你打分。视频里打了个比方：这就像去医院不能只喊「哎呦疼给我治病」——医生啥也不知道怎么治。</p>
+    <p>顺便把判卷标准存下来反复对照，因为下文所有「几个错算几分」的结论都是从官方样卷反推出来的。</p>
+  </div>
+
+  <div class="grid c2">
+    <div class="card">
+      <div class="k">错题本原则</div>
+      <ul>
+        <li>不用整得正式，也不必归到完整语法体系里</li>
+        <li>英语是几千年约定俗成演变来的，很多规则<strong>本身就没逻辑</strong>，记规则比理解规则划算</li>
+        <li>每条记录：错在哪 → AI 给的解释 → 正确形式</li>
+        <li>随时能翻出来，比背语法规则本管用</li>
+      </ul>
+    </div>
+    <div class="card blue">
+      <div class="k">十篇作文计划</div>
+      <ul>
+        <li>离考试不到半个月，自己<strong>写满 10 篇</strong></li>
+        <li>写完丢给 AI 找语法错误，<em>有针对性的补齐</em>即可</li>
+        <li>课上听不懂的术语（定语从句、状语从句、补语…）直接问 AI</li>
+        <li>基础语法可借其他 UP 主补，主打高效——「对我有用即可」</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="lbl ok">视频里自己举例的两条</span>
+    <p><strong>a lot of 的主谓一致</strong>：看 of 后面接可数还是不可数。可数 → 名词加 s（a lot of <code>guests</code> flowed in）；不可数 → 保持原形（a lot of water <code>is</code> wasted）。</p>
+    <p><strong>状语从句省略</strong>：<code>when</code> 引导的状语从句含 be 动词时，可省略主语（主谓一致的省略形式）。</p>
+  </div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section id="s1">
+  <h2><span class="no">01</span>评分标准：15 分五档怎么定的</h2>
+  <p class="lede">四级作文满分 15 分，采用<strong>总体印象评分法</strong>——不是逐错扣分，而是先跟样卷比个高低。</p>
+
+  <div class="grid c3">
+    <div class="card"><div class="big">15<small> 分</small></div><p>作文单项满分，占全卷 15%</p></div>
+    <div class="card"><div class="big">5<small> 个档次</small></div><p>14 / 11 / 8 / 5 / 2 分五档，每档有档次描述</p></div>
+    <div class="card"><div class="big">40–50<small> 秒</small></div><p>每份卷子的判卷时间，<em>第一印象决定档次</em></p></div>
+  </div>
+
+  <h3>判卷是怎么走位的</h3>
+  <div class="steps">
+    <div class="step">
+      <h4>先分档，再看卷</h4>
+      <p>阅卷员先按地区或全国范围快速过一遍（约千人份），确定这批卷里<strong>最好的是哪份</strong>——比如 14 分样卷。</p>
+    </div>
+    <div class="step">
+      <h4>凭总体印象选档</h4>
+      <p>拿到你的卷子，凭总体印象在 14 与 11 之间选一个。感觉不错 → 先定 11。</p>
+    </div>
+    <div class="step">
+      <h4>跟同档例文比高下</h4>
+      <p>比你手里的 11 分样卷写得<strong>更好一点</strong> → 升到 12；<strong>差一点</strong> → 降到 10。分数就是这样在样卷上下浮动出来的。</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="lbl ok">这直接推出两条策略</span>
+    <p><strong>① 切题是硬门槛。</strong>看档次描述：只要「基本切题 + 语法无大错 + 勉强连贯」，哪怕错误<em>相当多</em>，也能拿到 <strong>15 × 69% ≈ 8 分档</strong>，直接及格。</p>
+    <p><strong>② 完全切题 = 11 分。</strong>完全满足题目要求、让它干啥就干啥，稳定拿到 11 分。想冲 14 以上才需要纠结内容的深度。</p>
+  </div>
+
+  <h3>五档与错误数量对照</h3>
+  <p>视频用官方判例逐个数出来的换算关系，<em>1 个严重错误 ≈ 3 个一般错误</em>：</p>
+  <table class="tbl">
+    <tr><th>分数</th><th>严重错误</th><th>一般错误（小错）</th></tr>
+    <tr><td>15 分</td><td>0</td><td>≤ 3</td></tr>
+    <tr><td>14 分</td><td>0</td><td>约 2</td></tr>
+    <tr><td>12 分</td><td>0</td><td>约 5</td></tr>
+    <tr><td>11 分</td><td>0</td><td>约 6</td></tr>
+    <tr><td>8 分</td><td>0～1</td><td>「相当多」，通常 6 个以上</td></tr>
+  </table>
+  <p style="font-size:14.5px;color:var(--ink3)">注：视频最后说「数这个意义不是很大」——目标应该是<em>保证自己写的每处都对</em>，而不是算还能错几个。对照表只是让你知道考官心里那把尺子长什么样（知己知彼）。</p>
+</section>
+
+<!-- ============ 02 ============ -->
+<section id="s2">
+  <h2><span class="no">02</span>错误分级：什么叫「个别小错」</h2>
+  <p class="lede">官方用词模糊——「个别小错」「少量语言错误」「错误相当多」。视频把它们翻译成能数的东西。</p>
+
+  <table class="tbl">
+    <tr><th>分级</th><th>官方描述</th><th>具体指什么</th><th>后果</th></tr>
+    <tr>
+      <td><span class="x">Fatal</span><br>严重错误</td>
+      <td>严重影响理解的语法错误</td>
+      <td>结构缺失、连写句、句子碎片、严重中式英语、影响理解的表达</td>
+      <td>3 个一般错误 = 1 个严重错误，直接掉档</td>
+    </tr>
+    <tr>
+      <td>General<br>一般错误</td>
+      <td>不影响理解的个别小错</td>
+      <td>介词、冠词、单复数、大小写、搭配不当</td>
+      <td>可容忍，15 分档允许 3 个</td>
+    </tr>
+  </table>
+
+  <h4>三个最容易被忽略的「致命」陷阱</h4>
+  <ul>
+    <li><strong>连写句</strong>：通篇全是 <code>and</code>、全用逗号连接（<code>and then and then and then</code>）。本质是<em>结构缺失</em>。</li>
+    <li><strong>句子碎片</strong>：缺主语或谓语的半截话。典型：<code>But something we ignored</code> → 应写 <code>But we ignored something</code>。完整句必须主+谓+宾。</li>
+    <li><strong>连写 ≠ 并列，but 的位置</strong>：逗号 + <code>but</code> 相当于句号。所以 <code>Although…, but we lost…</code> 一用句号/并列标记切断，<code>although</code> 就变成没有主句的「仆从」——<em>让步状语从句永远不带 but</em>。</li>
+  </ul>
+
+  <h4>英语的底层约束：形合 vs 义合</h4>
+  <div class="card purple">
+    <p><strong>parataxis（义合）= para（并列、在旁边）+ taxis（组织）</strong>——中文就是义合：「天冷了，多穿点」，因果连词全省，靠意思就能懂；「人不犯我，我不犯人」也一样。</p>
+    <p><strong>hypotaxis（形合）= hypo（之下、从属）+ taxis（组织）</strong>——英语是形合：必须有<em>明确的形式标记</em>把两句组织起来（连词、从句引导词）。</p>
+    <div class="note warn" style="margin-bottom:0">
+      <span class="lbl warn">必须记住的一条底层逻辑</span>
+      <p><strong>英语一句话里只有一个谓语</strong>，中文没有这个限制。「天冷了（谓语1）多穿点（谓语2）」在英语里必须用主从结构解决：选一句做主句（<code>you should wear more</code>），另一句用引导词降级为从句（<code>because it is cold</code> / <code>although…</code>）。这样才同时满足「一个谓语」和「形合」两条要求。所有从句错误都能追溯到这条。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section id="s3">
+  <h2><span class="no">03</span>三套判例：14 / 11 / 8 分差在哪</h2>
+  <p class="lede">题目都出自四六级大纲判例：<em>Describe the picture and comment on the child's understanding of going to school</em>（120–180 词）。图里小孩问妈妈：手机什么都知道，我为什么还要去上学？</p>
+
+  <div class="grid c2">
+    <div class="card accent">
+      <div class="k">14 分样卷 · 几乎无错</div>
+      <ul>
+        <li>三段完整：第一段描图 + 引出话题；第二段 <code>However, the child's understanding can be harmful</code> 明确表态；第三段 <code>For reasons above, it is high time that…</code></li>
+        <li>错误小到肉眼难辨：<code>besides</code> 后该用逗号却用了句号；<code>can not</code> 写成了两个词（<strong>cannot 中间无空格</strong>）</li>
+        <li>用了 <code>It is high time that + 虚拟/过去式</code>、<code>argue that</code>、<code>As is demonstrated in the picture</code> 等复合句</li>
+      </ul>
+      <p style="color:var(--ink3);font-size:13.5px">UP 主自评：这大概是 14～15 分的水平，判卷老师可能都看不出那个错。</p>
+    </div>
+    <div class="card warn">
+      <div class="k">11 分样卷 · 7 个小错</div>
+      <ul>
+        <li><code>cell phone</code> 拆开写了；名词单独出现没加冠词（<code>from cellphone</code> 应为 <code>cellphones</code> 或 <code>the cellphone</code>）</li>
+        <li><code>with internet</code> 缺 <code>the</code>；<code>that seems make sense</code> 漏了 <code>to</code></li>
+        <li><code>whereas</code> 用错（该用 <code>therefore</code>）；<code>in my perspective</code> 搭配错误；<code>turn it to</code> 应为 <code>into</code>；<code>conduct you</code> 应为 <code>teach / instruct you</code></li>
+        <li>结构上只有两段、没有收束——UP 主说这题可能只给 10 分</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card warn">
+    <div class="k">8 分样卷 · 在及格线挣扎</div>
+    <ul>
+      <li><strong>选错词</strong>：图里是漫画，写成 <code>cartoon</code>（该用 <code>comic</code>）；已经三单了的 <code>cartoon reviews</code> 语法没错但对象错</li>
+      <li><strong>amount vs number</strong>：<code>a greater amount of students</code> 错——<em>amount 只接不可数</em>，人得用 <code>a great number of</code></li>
+      <li><strong>词汇语义错误</strong>：<code>acknowledge information</code>（承认信息？）应为 <code>attain / obtain / garner / get</code></li>
+      <li><strong>结构错误</strong>：<code>But something we ignored</code>（句子碎片）；<code>Although…, but we lost…</code>（让步从句带 but）；去掉 but 又缺主语</li>
+      <li><strong>意义不明</strong>：口语化的「1+1&gt;2」放进正式作文，需要强上下文才能懂，老师没那个耐心</li>
+      <li>打眼一画黄线，几乎通篇都是——这就是「错误相当多」的直观样子</li>
+    </ul>
+  </div>
+
+  <div class="note blue">
+    <span class="lbl blue">判例带来的三条可迁移结论</span>
+    <p><strong>① 用不上就别用高级词。</strong>想不出 <code>conduct</code> 的用法就用 <code>teach</code>，<code>teach</code> 没有任何错。8 分卷的失误几乎全来自「想秀词却秀错」。</p>
+    <p><strong>② 论证别给自己挖坑。</strong>11 分卷写「老师可以教你怎么好好学习」——观众立刻反问「那为什么不去 B 站找老师？」。删掉这类弱环节，逻辑反而更硬。</p>
+    <p><strong>③ 三段式是隐形门槛。</strong>11 分卷只写了两段、结尾一句 <code>That's why we go to school</code> 就没了，被评为「结构不够完整」。</p>
+  </div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section id="s4">
+  <h2><span class="no">04</span>套模板会被扣分吗 + 时间分配</h2>
+  <p class="lede">先回答最关心的问题，再给 30 分钟怎么切。</p>
+
+  <div class="card accent">
+    <div class="k">套模板会被打低分吗？</div>
+    <p><strong>不会。</strong>即使阅卷老师看出模板不是你原创的，也只会<strong>按模板之外的部分给你打分</strong>。而且能背下来并套上去本身也是本事——四六级对「套模板」这件事基本不追究。</p>
+    <p style="margin-top:10px"><em>代价：</em>模板保证你<em>不会很低分</em>，但不保证很高。想在 13～15 分之间拉分，靠的是第二段观点的新颖度。</p>
+  </div>
+
+  <h3>30 分钟时间分配</h3>
+  <table class="tbl">
+    <tr><th>阶段</th><th>时长</th><th>做什么</th></tr>
+    <tr><td>构思</td><td>3 分钟</td><td>站队、定 S / Q / O、列 2–3 个论点（不要超过 3 分钟想观点）</td></tr>
+    <tr><td>写作</td><td>22 分钟</td><td>套模板写三段，中间段是重点</td></tr>
+    <tr><td>检查</td><td>5 分钟</td><td>对着「语法要点速查」过一遍：冠词、单复数、标点、时态、标点空格</td></tr>
+  </table>
+  <div class="note">
+    <span class="lbl ok">答题纸技巧</span>
+    <p>写 <strong>12–15 行</strong>即可。觉得写多了就把字行写得紧密一点，觉得少了就稀疏一点——字距是调节篇幅最快的手段。</p>
+  </div>
+
+  <h3>关于「选观点」的一条捷径</h3>
+  <p>不要花时间琢磨观点是什么。议论文的观点<em>基本是给定的</em>，写的时候：</p>
+  <ol>
+    <li>先写<strong>现行/主流做法</strong>——大家普遍认同什么、国家与社会政府现在怎么干，你就同意它；</li>
+    <li>再围绕这个观点找理由，别去站对面，也别想负面角度；</li>
+    <li>「先选边站，再 build opinions」——像讲座坐第一排，字最大看得最清；坐后排（骑墙、两边都写）反而看不清。</li>
+  </ol>
+</section>
+
+<!-- ============ 05 ============ -->
+<section id="s5">
+  <h2><span class="no">05</span>出题规律：三类题型与占比</h2>
+  <p class="lede">历年题里反复出现的关键词是「<strong>看法 / 观点</strong>」，所以观点议论文是大头。打蛇打七寸，先搞定它。</p>
+
+  <table class="tbl">
+    <tr><th>类型</th><th>典型指令</th><th>套路</th><th>优先级</th></tr>
+    <tr>
+      <td><strong>观点议论文</strong><br><span style="font-weight:400;color:var(--accent)">（大头）</span></td>
+      <td>是否……（要不要把大学语文设为必修）；请你论述……；谈谈对网课的看法</td>
+      <td>亮明观点 → 分点论证 → 总结/呼吁</td>
+      <td><span class="ok">必背</span></td>
+    </tr>
+    <tr>
+      <td><strong>应用文</strong></td>
+      <td>申请信（支教）、提案（改进图书馆）、回复</td>
+      <td>称呼 → 自我介绍 → 目的 → 正文 → 结尾客套</td>
+      <td>次优先</td>
+    </tr>
+    <tr>
+      <td><strong>记叙+总结型</strong></td>
+      <td>写一个令你印象深刻的校园活动；参加职业规划讲座的经过并总结收获</td>
+      <td>先叙事 → 再总结收获</td>
+      <td>了解即可</td>
+    </tr>
+  </table>
+
+  <div class="grid c2">
+    <div class="card blue">
+      <div class="k">观点议论文的三个子类型</div>
+      <ul>
+        <li><strong>是否型</strong>：要不要……→ 旗帜鲜明站队，<em>绝不骑墙</em></li>
+        <li><strong>给定观点型</strong>：题目已给结论，你只管论证</li>
+        <li><strong>双边讨论型</strong>：优缺点并说 + 最后必须写自己的观点（占少数）</li>
+      </ul>
+      <p style="font-size:14.5px;color:var(--ink3)">「是否型」写成了双边讨论 = 考官认为你没读懂题意，分数偏低。</p>
+    </div>
+    <div class="card">
+      <div class="k">时态分工（记叙型必背）</div>
+      <ul>
+        <li>叙事 → <strong>过去时</strong></li>
+        <li>升华 / 展望 → <strong>将来时</strong>，或 <code>in order to</code> 句式</li>
+        <li>表达观点 → <strong>一般现在时</strong></li>
+      </ul>
+      <p style="font-size:14.5px;color:var(--ink3)">内容层面还有固定三步走：<em>问题 → 影响 → 对策</em>，并且要把自己放进社会大背景里思考。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section id="s6">
+  <h2><span class="no">06</span>观点议论文 · 第一段 SQO 模型</h2>
+  <p class="lede">第一段要完成两件事：<strong>扣题 + 引出观点</strong>。三个角度挑着用：<em>S</em> 现状、<em>Q</em> 问题、<em>O</em> 观点。</p>
+
+  <div class="grid c3">
+    <div class="card"><div class="k">S — Situation</div><p>现状。写作顺序里第一个说，但<strong>思考顺序里最后推</strong>：从观点反推出现状，从而制造对比。</p></div>
+    <div class="card"><div class="k">Q — Question</div><p>问题。固定句式 <code>Therefore it draws public attention to whether…</code>，作用是<em>缓冲带</em>。</p></div>
+    <div class="card"><div class="k">O — Opinion</div><p>观点。<strong>永远放在最后</strong>，句式最固定，也最好背。</p></div>
+  </div>
+
+  <div class="note warn">
+    <span class="lbl warn">思考顺序 ≠ 书写顺序</span>
+    <p>写的时候从左到右顺写，但<strong>构思时倒过来</strong>：① 先定观点 O（要旗帜鲜明）→ ② 反推现状 S（要能跟 O 形成对比）→ ③ 中间补一个 Q 作缓冲。</p>
+  </div>
+
+  <h3>两种公式（按 S 与 O 的关系二选一）</h3>
+  <table class="tbl">
+    <tr><th>情况</th><th>公式</th><th>要点</th></tr>
+    <tr>
+      <td>S 与 O <strong>一致</strong></td>
+      <td><code>S（含对比）</code> → <code>（Q 可省）</code> → <code>O</code></td>
+      <td>S 内部要自带一个对比：<em>以前 vs 现在</em>，或 <em>多数地方 vs 部分地方</em>。因为 S、O 差别不大，可以不用 Q 调和</td>
+    </tr>
+    <tr>
+      <td>S 与 O <strong>相反</strong></td>
+      <td><code>S</code> → <code>Q（必须加）</code> → <code>O</code></td>
+      <td>冲突太强，直接拼接会显得突兀，<em>Q 就是缓冲带</em>。此时不必再写 <code>previously</code> 之类的对比，冲突本身已经足够</td>
+    </tr>
+  </table>
+
+  <h3>模板</h3>
+  <div class="tpl">
+    <div class="bar"><span>观点议论文 · 第一段</span><span class="tag">背下来</span></div>
+<pre class="en"><span class="com"># 公式一：S 与 O 一致 —— 对比放在 S 内部，Q 可省</span>
+<span class="en">Recently, <span class="fill">[some universities]</span> have <span class="fill">[added college Chinese to their compulsory syllabus]</span>,</span>
+<span class="en"><span class="hl">previously</span> a selective curriculum <span class="com">← 同位语，制造「以前 vs 现在」对比</span></span>
+<span class="en">(<span class="hl">Therefore, this phenomenon draws public attention to whether</span> <span class="fill">[…]</span>). <span class="com">← Q，可省</span></span>
+<span class="en"><span class="hl">From my standpoint, I firmly believe that</span> <span class="fill">[college Chinese should be upgraded to a compulsory course]</span>.</span>
+
+<span class="com"># 公式二：S 与 O 相反 —— Q 必须加</span>
+<span class="en">Recently, <span class="fill">[more and more universities have canceled the status of college Chinese as a compulsory class]</span>.</span>
+<span class="en"><span class="hl">Therefore, this phenomenon draws public attention to whether</span> <span class="fill">[…]</span>.</span>
+<span class="en"><span class="hl">From my standpoint, I firmly believe that</span> <span class="fill">[…]</span>.</span></pre>
+  </div>
+
+  <h4>S 的两个对比角度</h4>
+  <ul>
+    <li><strong>时间</strong>：<code>previously… now…</code>（以前是选修课，现在不是必修课）</li>
+    <li><strong>地点</strong>：<code>some universities… while others…</code>（有些大学设了，有些取消了）</li>
+  </ul>
+  <p>「现状」是从逻辑上反推出来的，<em>写真写假没人管</em>，只要逻辑通顺。为服务后面的观点，说别的地方发展慢也完全没问题。</p>
+
+  <h4>O 的六种开头</h4>
+  <p><code>From my perspective / From my standpoint / From my opinion</code> + <code>I firmly believe that / I firmly support / I am firmly convinced that</code>。<strong>注意</strong>：<code>in my perspective</code> 是判例里点名的搭配错误，不要用。</p>
+
+  <div class="note blue">
+    <span class="lbl blue">双边讨论型的第一段</span>
+    <p>不能和稀泥——你的观点有且只有一个：<strong>「我们要客观、全面地看待」</strong>（<code>we should evaluate this new item objectively</code>），再补一句「承认好处与坏处，并去改进（<code>refine</code>）」。</p>
+    <p>背景段照写现象即可，不需要放一个与观点相反的观点；<code>However, this phenomenon has sparked a debate over whether to keep online courses</code> → 然后引出你的客观立场。</p>
+  </div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section id="s7">
+  <h2><span class="no">07</span>观点议论文 · 第二段 5W1H 论证</h2>
+  <p class="lede">第二段是拉分重点：<strong>观点陈列 = 论点 + 论据</strong>，用 <code>first / in addition / furthermore</code> 分三点，每点一个模式。</p>
+
+  <div class="tpl">
+    <div class="bar"><span>观点议论文 · 第二段</span><span class="tag">观点 + 论据</span></div>
+<pre class="en"><span class="hl">First and foremost,</span> <span class="en">[论点1]</span> <span class="com">—— 观点</span></span>
+<span class="en">[论据1：推理 reasoning 或 例子 example]</span>
+
+<span class="hl">In addition,</span> <span class="en">[论点2]</span> <span class="com">—— 观点</span>
+<span class="en">[论据2：推理 或 例子]</span>
+
+<span class="hl">Furthermore,</span> <span class="en">[论点3]</span> <span class="com">—— 观点</span>
+<span class="en">[论据3：推理 或 例子]</span></pre>
+  </div>
+
+  <div class="note">
+    <span class="lbl ok">详略得当：篇幅要看出主次</span>
+    <p>三个论点里，<strong>与实践/改进措施相关的篇幅最长</strong>，其次是理论性的。写「图书馆有什么问题 + 如何改进」时，推荐结构：<em>1 个问题 + 2 条改进措施</em>，措施和它对应的问题合成一个大点。要让读者一眼看出你写了什么、重点在哪。</p>
+  </div>
+
+  <h3>5W1H：任何观点都按这个顺序展开</h3>
+  <div class="steps">
+    <div class="step">
+      <h4>What — 先下定义</h4>
+      <p>解释观点里<em>最核心的那个东西是什么</em>。两招：<strong>拆字法</strong>（大学语文 = 大学 + 语文）+ <strong>排除法</strong>（大学 ≠ 小学：更重逻辑思辨，不用再学认字；语文 ≠ 数学物理：是跟人打交道的工具）。</p>
+    </div>
+    <div class="step">
+      <h4>Why — 说明「它好在哪」，并从 when / where / who 分类</h4>
+      <p>好东西 = 重要。重要性一般包含：<em>有用性、基础性（没有它就没别的）、泛用性、稳定性、可预测性</em>。</p>
+      <p>分类三角度：<strong>who</strong>（对个人 / 对社会 / 对政府企业）、<strong>where</strong>（分场景：买菜砍价、说服他人、日常表达）、<strong>when</strong>（分阶段）。</p>
+    </div>
+    <div class="step">
+      <h4>How — 题目要求写「怎么解决」时才加</h4>
+      <p>题目没要求就别写，别自己加戏。</p>
+    </div>
+  </div>
+
+  <div class="card purple">
+    <div class="k">对齐颗粒度（上位概念 vs 下位概念）</div>
+    <p>「颗粒度」= 讨论的细致程度。筛子的孔要和颗粒一样大——<strong>你在同一个层级上讨论，才不会出现逻辑混乱</strong>。</p>
+    <ul>
+      <li>整篇只写「对个人」→ 全部用下位概念：培养逻辑能力 / 增强美学素养 / 提升专注力</li>
+      <li>要写「对个人 + 对社会 + 对政府」→ 对个人的那段就必须<em>概括</em>成上位概念（逻辑思考能力、分析能力），不要展开到「语言使用能力」「辩证思考能力」这种下位</li>
+      <li>对社会那段就写得宏观些：增强民族交流、培养爱国精神，<strong>不宜举太细的例子</strong></li>
+      <li>最常见的错：写了「对学生」「对上班族」，突然跳到「对社会」——层级乱跳</li>
+    </ul>
+  </div>
+
+  <h4>大学语文范文的第二段（三个主体，句式对仗）</h4>
+  <div class="tpl">
+    <div class="bar"><span>第二段示范 · 对个人 / 对社会 / 对政府</span><span class="tag">句式对仗</span></div>
+<pre class="en"><span class="hl">First and foremost, for students,</span> <span class="en">college Chinese is far more a language course</span>
+<span class="en">teaching vocabulary and pronunciation</span>
+<span class="en"><span class="hl">than a course emphasizing</span> logical thinking and analyzing <span class="com">— What（定义）</span></span>
+
+<span class="hl">In addition, for society,</span> <span class="en">this course, by presenting stories of China's development,</span>
+<span class="en">can <span class="hl">cultivate</span> patriotism and <span class="hl">strengthen</span> cultural confidence</span>
+<span class="en">among the young generation.</span>
+
+<span class="hl">Furthermore, for the government,</span> <span class="en">if citizens could master clearer and more <span class="hl">precise</span> Chinese,</span>
+<span class="en">they would understand policies much more deeply,</span>
+<span class="en">and a <span class="hl">benign</span> relationship between individuals and government would form.</span></pre>
+  </div>
+  <p style="font-size:14.5px;color:var(--ink3)">词汇补充：<code>benign</code> = 良性的（良性肿瘤即此义）；<code>cultivate / foster / strengthen / enhance / improve</code> 互为替换；<code>individuals → citizen / inhabitant / resident</code>；<code>government → administrator / authority</code>；<code>accurate → precise</code>。</p>
+
+  <div class="note">
+    <span class="lbl ok">优先级：审题 &gt; 思维清晰 &gt; 用词华丽</span>
+    <p>「你思维清晰比用词华丽更重要，而审题正确又比思维清晰更重要。」</p>
+  </div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section id="s8">
+  <h2><span class="no">08</span>观点议论文 · 第三段收尾</h2>
+  <p class="lede">第三段最死板：收束全文 + 提出展望，基本纯模板。</p>
+
+  <div class="tpl">
+    <div class="bar"><span>观点议论文 · 第三段</span><span class="tag">纯模板</span></div>
+<pre class="en"><span class="hl">In conclusion, / Overall,</span>
+<span class="en">we should <span class="fill">[take sth into account / make sth happen]</span>, <span class="com">← 也可用被动式替换 we should</span></span>
+<span class="en"><span class="hl">due to / because of</span> its <span class="fill">[irreplaceable influences to various entities]</span>,</span>
+<span class="en">which <span class="hl">leads to</span> <span class="fill">[prompt progress in society's literacy]</span>.</span></pre>
+  </div>
+
+  <div class="card">
+    <div class="k">范文结尾</div>
+    <p><code>In conclusion, universities should add college Chinese to their compulsory classes, due to its <strong>irreplaceable</strong> influences to <strong>various entities</strong>, which <strong>leads to</strong> prompt progress in society's literacy.</code></p>
+    <p style="font-size:14.5px;color:var(--ink3)">如果第二段是按人分类写的，<em>「对不同的主体都有不可替代的影响」这一句建议直接背下</em>——一句话把三个主体全部收回来。</p>
+  </div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section id="s9">
+  <h2><span class="no">09</span>应用文 · 格式与第一段三步</h2>
+  <p class="lede">应用文就是写信：申请信 / 提案 / 回复。格式极死，好处是最好背。</p>
+
+  <div class="note warn">
+    <span class="lbl warn">与议论文最大的格式区别</span>
+    <p><strong>应用文必须写标题</strong>（议论文不写标题）。看完历年卷子得到的结论是：标题 + 收信人，两者缺一不可，因为收信人往往是个团队、你不知道具体是谁。</p>
+  </div>
+
+  <div class="tpl">
+    <div class="bar"><span>应用文骨架 · 标题与称呼</span><span class="tag">固定格式</span></div>
+<pre class="en"><span class="hl">An Application for</span> <span class="fill">[teaching in remote rural areas]</span>          <span class="com">← 申请信</span>
+<span class="hl">A Proposal for</span> <span class="fill">[Improving Library Services]</span>                    <span class="com">← 提案</span>
+<span class="hl">In Reply to</span> <span class="fill">[Something]</span>                                          <span class="com">← 回复（后接 doing）</span>
+
+<span class="hl">To whom it may concern:</span>                        <span class="com">← 不知收信人是谁时</span>
+<span class="hl">Dear [Mr./Ms. X]:</span>                             <span class="com">← 知道是谁时替换成这个</span>
+
+<span class="hl">Hope this letter finds you well.</span>               <span class="com">← 见信安好，正文第一句固定</span></pre>
+  </div>
+
+  <h3>第一段三步</h3>
+  <div class="steps">
+    <div class="step">
+      <h4>① 固定开头</h4>
+      <p><code>Hope this letter finds you well.</code> 一句话完事。</p>
+    </div>
+    <div class="step">
+      <h4>② 说明「这东西有什么用」</h4>
+      <p>两个方向二选一：要么一句话解释重要性，要么直接指出现在有问题（具体是什么问题留给后面的段落展开）。</p>
+      <p>句式库：<code>A is closely related to B</code>（A 与 B 强相关）/ <code>A has a great impact on B</code>（A 对 B 影响很大）/ <code>A has a lot to do with B</code>（A 与 B 有关）</p>
+    </div>
+    <div class="step">
+      <h4>③ 亮明目的</h4>
+      <p><code>Learning that</code> + 从句（<em>表示「得知」，不要写 knowing</em>）→ 我建议 / 我决定 / 我申请……</p>
+      <p>变体：<code>the moment when I learned that…</code>（同 <code>learning that</code>）</p>
+    </div>
+  </div>
+
+  <h4>第一步的「问题句式」补充</h4>
+  <p><code>However, currently some deficits have emerged.</code> —— <strong>deficit = 缺点、缺陷</strong>。另外 <code>leave much to be desired</code>（还有很多急需改进的地方）是固定搭配，视频里点名建议记住。</p>
+
+  <h4>三个真实段落示范</h4>
+  <div class="grid c3">
+    <div class="card blue">
+      <div class="k">图书馆提案</div>
+      <p><code>Libraries have a great impact on students' campus life and are closely tied to their academic performance. However, the library services <strong>leave much to be desired</strong>. Therefore, I propose to <strong>facilitate</strong> library services from three aspects.</code></p>
+      <p style="font-size:13.5px;color:var(--ink3)">那个「three」是写完全文后回填的——先写 X，最后再填数字。</p>
+    </div>
+    <div class="card blue">
+      <div class="k">支教申请信</div>
+      <p><code>Hope this letter finds you well. We should <strong>give priority to</strong> education due to its irreplaceable status in students' overall development. Therefore, the moment when I learned that some students are selected to teach kids in remote rural areas during the upcoming vacation, I determined to <strong>give it a shot</strong>.</code></p>
+      <p style="font-size:13.5px;color:var(--ink3)">give priority to = 重视；give it a shot = 试一试（口语地道）。</p>
+    </div>
+    <div class="card blue">
+      <div class="k">迎新活动提案</div>
+      <p><code>Ice-breaking activities <strong>have a lot to do with</strong> students' upcoming development. I am writing this proposal to design an activity that helps freshmen accommodate to campus life.</code></p>
+      <p style="font-size:13.5px;color:var(--ink3)">题目里给的「目的、时间、人数、具体安排」<em>不要在第一段堆</em>，正文里再说。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="no">10</span>应用文 · 提案模板与申请信套路</h2>
+  <p class="lede">应用文主体段还是 5W1H，但句式模板高度固定。</p>
+
+  <h3>提案模板</h3>
+  <div class="tpl">
+    <div class="bar"><span>提案 · 主体段</span><span class="tag">问题 → 后果 → 措施</span></div>
+<pre class="en"><span class="hl">First,</span> <span class="en">[problem 1]</span> <span class="com">—— 问题</span>
+<span class="en">[which disrupts / reduces / …] <span class="com">← 用定语从句补一句「后果」</span></span>
+<span class="en"><span class="hl">To solve this problem, it is advisable to</span> <span class="fill">[measure]</span>.</span>
+
+<span class="hl">Moreover,</span> <span class="en">[problem 2]</span>, <span class="en">so [consequence].</span>
+<span class="en"><span class="hl">In order to tackle this problem,</span> <span class="fill">[measure]</span> <span class="hl">should be added.</span>
+<span class="en">Or alternatively, <span class="fill">[another measure]</span> should be introduced,</span>
+<span class="en">thus <span class="hl">listening</span> <span class="com">（削减）</span> the time students waste on endless waiting.</span></pre>
+  </div>
+
+  <div class="note warn">
+    <span class="lbl warn">提案的铁律：建议必须多于问题</span>
+    <p>通篇讲问题不给方案 = <em>抱怨 / 投诉</em>，不是提案。提出问题的能力 &lt; 解决问题的能力——至少在四级考试里是这样。所以「1 个问题 + 2 条措施」而不是「1 个问题 + 1 条措施」。</p>
+  </div>
+
+  <h4>提案句式替换</h4>
+  <div class="syn">
+    <div class="row"><div class="term">提建议</div><div class="opts"><code>suggest doing</code><code>advise sb to do</code><code>propose doing</code><code>counsel sb to do</code></div></div>
+    <div class="row"><div class="term">to solve</div><div class="opts"><code>tackle</code><code>handle</code><code>settle</code><code>deal with</code></div></div>
+    <div class="row"><div class="term">in order to</div><div class="opts"><code>for the sake of</code><code>so as to</code><code>for the purpose of</code><code>for fear of</code></div></div>
+    <div class="row"><div class="term">advisable</div><div class="opts"><code>sensible</code><code>wise</code></div></div>
+  </div>
+  <p style="font-size:14.5px;color:var(--ink3)"><code>for fear of</code> 是「唯恐」——用的时候把 <code>in order to</code> 后面想做的事<em>反过来</em>表达即可。</p>
+
+  <h3>申请信套路：为什么参加 + 能做什么</h3>
+  <div class="note">
+    <span class="lbl ok">篇幅分配</span>
+    <p>「<strong>能为孩子做什么</strong>」比「为什么想参加」更重要：前者是客观能力（有经验、有技能，需要论证），后者是主观动机（怎么写都有道理）。篇幅要给前者。</p>
+  </div>
+
+  <div class="card purple">
+    <div class="k">主观动机的绝招：我也曾被帮助过</div>
+    <p>志愿类申请信万能模板——<em>我曾经接受过帮助，所以想把这份善意传递出去</em>。两个版本：</p>
+    <ul>
+      <li><strong>城里长大版</strong>：<code>Despite the fact that I was born and raised in the downtown, I have received complimentary and selfless guidance and support from a lot of strangers.</code> → <code>Therefore, I would cherish every opportunity to light up others' lives with my knowledge.</code></li>
+      <li><strong>山区长大版</strong>（更真情实感）：<code>Born and raised in a mountainous region of Yunnan Province, I have received guidance and support both financially and spiritually from volunteers and teachers since primary school.</code></li>
+    </ul>
+    <p style="font-size:14.5px;color:var(--ink3)"><code>cherish → appreciate</code>；<code>light up → enlighten</code>（启发，比较高级）；<code>born and raised</code> = 生在哪长在哪。</p>
+  </div>
+
+  <h4>客观能力：为什么我有资格</h4>
+  <p><code>Besides, I'm well qualified for this position.</code> 然后接学历 / 专业 / 个人特质：</p>
+  <div class="tpl">
+    <div class="bar"><span>申请信 · 能力段</span><span class="tag">学历 + 技能 + 经历</span></div>
+<pre class="en"><span class="en">As an <span class="fill">English major</span>, I have a good command of oral English</span>
+<span class="en">and abundant teaching skills, which <span class="hl">enables</span> me to make my lectures</span>
+<span class="en">both <span class="hl">engaging</span> and professional.</span>
+
+<span class="en">I have participated in many volunteer activities, which <span class="hl">endow</span>ed me</span>
+<span class="en">with patience and an easy-going character, contributing to</span>
+<span class="en">good relationships formed with students.</span>
+
+<span class="en">I am good at communicating with children effectively</span>
+<span class="en">and designing interesting activities for them.</span></pre>
+  </div>
+  <p style="font-size:14.5px;color:var(--ink3)"><code>interesting → engaging / captivating</code>（吸引人）；<code>make sb + adj → endow sb with</code>（赋予，很高级）；<code>swear</code> 可用于 <code>I swear that my lectures will be…</code>。</p>
+
+  <h3>结尾段：两个词都选一个</h3>
+  <div class="tpl">
+    <div class="bar"><span>应用文 · 结尾</span><span class="tag">礼貌收束</span></div>
+<pre class="en"><span class="en">I would be grateful if you could take my application <span class="hl">into consideration</span>.</span>
+<span class="en">I'm looking forward to <span class="hl">an</span> early reply.</span>
+
+<span class="hl">Sincerely,</span>
+<span class="en">Li Ming</span></pre>
+  </div>
+  <p style="font-size:14.5px;color:var(--ink3)"><code>take sth into consideration</code> / <code>take sth into account</code> = 考虑某事——好用且小众，不容易撞车。</p>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="no">11</span>活动类作文：booth 万能与保底写法</h2>
+  <p class="lede">题目要求写活动的「目的、时间、参加人员、具体安排」时，越给得越多越好写——照着填空即可。</p>
+
+  <div class="grid c2">
+    <div class="card accent">
+      <div class="k">万能活动形式：booth（摆摊）</div>
+      <p>「百试不爽」——因为一个活动不可能从头到尾保持一致，摆摊位天然就有多个环节、多种内容。</p>
+      <p><code>All student clubs and associations will set up booths on the main square, where they can display posters and photographs, introduce their regular activities to attract new members, and even hold short performances.</code></p>
+      <p style="font-size:14.5px;color:var(--ink3)">booth 一词同时解决了「具体安排」和「地点」两个要点。</p>
+    </div>
+    <div class="card">
+      <div class="k">保底写法：lecture（讲座）</div>
+      <p>最无聊，但最稳——肯定能及格，只是不精彩。结构：<code>Students will attend a lecture regarding [topic 1] and [topic 2]</code>。</p>
+      <p>安全话题：<em>how to balance club life and study</em>；<em>how to plan one's career</em>；<em>problems freshmen commonly face</em>。</p>
+      <p style="font-size:14.5px;color:var(--ink3)">「regarding / concerning / about」是同一伙的，随便换。</p>
+    </div>
+  </div>
+
+  <h3>六种可选活动形式</h3>
+  <table class="tbl">
+    <tr><th>活动</th><th>英文</th><th>说明</th></tr>
+    <tr><td>讲座</td><td>lecture</td><td>最保底，一个人上面讲</td></tr>
+    <tr><td>音乐会</td><td>concert</td><td>常规</td></tr>
+    <tr><td>运动会</td><td>sports meeting</td><td>常规</td></tr>
+    <tr><td>跳蚤市场</td><td>swapping market</td><td>以物易物</td></tr>
+    <tr><td>电竞比赛</td><td>esports competition</td><td>偏创新</td></tr>
+    <tr><td>社团开放日</td><td>club opening day</td><td>有的学校叫「百团大战」，各社团展示拿手技能</td></tr>
+  </table>
+
+  <div class="note">
+    <span class="lbl ok">万能句：任何活动形式都能接这一句</span>
+    <p><code>…, which can boost relationships between freshmen and other students.</code></p>
+    <p>六种活动有一个共性：都能增强大一新生和其他学生之间的联系。选任何活动形式都能说得出口。</p>
+  </div>
+
+  <h4>信息类要点一句话搞定</h4>
+  <ul>
+    <li><strong>时间</strong>：<code>on the second weekend after registration, and will last for one full day</code></li>
+    <li><strong>地点</strong>：<code>on the main square</code></li>
+    <li><strong>目的</strong>：第一段已经写过（<code>has a lot to do with students' upcoming / overall development</code>）</li>
+    <li><strong>人员</strong>：<code>all student clubs and associations</code>、<code>information desks run by the student union</code></li>
+  </ul>
+  <p style="font-size:14.5px;color:var(--ink3)">定语从句写得太多时可以改成非谓语结构，句式会显得更丰富。</p>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="s12">
+  <h2><span class="no">12</span>同义替换速查表</h2>
+  <p class="lede">视频里整理的免费版替换表（完整版在评论区）。原则：<strong>用不上就别用</strong>——替换是为了词汇丰富度，不是为了炫技翻车。</p>
+
+  <h4>表意类</h4>
+  <div class="syn">
+    <div class="row"><div class="term">important<br>重要</div><div class="opts"><code>necessary</code><code>essential</code><code>crucial</code><code>critical</code><code>irreplaceable</code></div></div>
+    <div class="row"><div class="term">helpful</div><div class="opts"><code>instrumental</code></div></div>
+    <div class="row"><div class="term">accurate</div><div class="opts"><code>precise</code></div></div>
+    <div class="row"><div class="term">interesting</div><div class="opts"><code>engaging</code><code>captivating</code></div></div>
+    <div class="row"><div class="term">wise / sensible</div><div class="opts"><code>advisable</code></div></div>
+    <div class="row"><div class="term">良性</div><div class="opts"><code>benign</code></div></div>
+    <div class="row"><div class="term">缺点 / 缺陷</div><div class="opts"><code>deficit</code></div></div>
+    <div class="row"><div class="term">文化素养</div><div class="opts"><code>literacy</code> <span style="color:var(--ink3);font-size:13px">（原指识字能力）</span></div></div>
+    <div class="row"><div class="term">实体 / 主体</div><div class="opts"><code>entity</code></div></div>
+  </div>
+
+  <h4>动词类</h4>
+  <div class="syn">
+    <div class="row"><div class="term">lead to<br>导致</div><div class="opts"><code>result in</code><code>culminate in</code><code>wind up with</code></div></div>
+    <div class="row"><div class="term">cultivate<br>培养</div><div class="opts"><code>foster</code><code>strengthen</code><code>enhance</code><code>improve</code></div></div>
+    <div class="row"><div class="term">solve<br>解决</div><div class="opts"><code>tackle</code><code>handle</code><code>settle</code><code>deal with</code></div></div>
+    <div class="row"><div class="term">make sb + adj<br>使某人……</div><div class="opts"><code>endow sb with</code></div></div>
+    <div class="row"><div class="term">cherish</div><div class="opts"><code>appreciate</code></div></div>
+    <div class="row"><div class="term">light up</div><div class="opts"><code>enlighten</code><span style="color:var(--ink3);font-size:13px">（启发）</span></div></div>
+    <div class="row"><div class="term">improve<br>改进</div><div class="opts"><code>refine</code></div></div>
+    <div class="row"><div class="term">提升 / 改善</div><div class="opts"><code>enhance</code><code>strengthen</code><code>boost</code></div></div>
+  </div>
+  <p style="font-size:14.5px;color:var(--ink3)">注意 <code>culminate in</code> / <code>wind up with</code> 给的是原形，实际用时要看语法补 -ing。</p>
+
+  <h4>名词类</h4>
+  <div class="syn">
+    <div class="row"><div class="term">individuals<br>个人</div><div class="opts"><code>citizen</code><code>inhabitant</code><code>resident</code></div></div>
+    <div class="row"><div class="term">government</div><div class="opts"><code>administrator</code><code>authority</code></div></div>
+    <div class="row"><div class="term">course / class<br>课程</div><div class="opts"><code>syllabus</code><span style="color:var(--ink3);font-size:13px">（教学大纲，避免重复用 course/class）</span></div></div>
+  </div>
+
+  <h4>固定搭配（背下来直接用）</h4>
+  <table class="tbl">
+    <tr><th>含义</th><th>表达</th></tr>
+    <tr><td>与……有关</td><td><code>has a lot to do with</code> / <code>is closely related to</code> / <code>has a great impact on</code> / <code>is closely tied to</code></td></tr>
+    <tr><td>亟待改进</td><td><code>leave much to be desired</code></td></tr>
+    <tr><td>见信安好</td><td><code>Hope this letter finds you well.</code></td></tr>
+    <tr><td>考虑某事</td><td><code>take sth into consideration</code> / <code>take sth into account</code></td></tr>
+    <tr><td>重视</td><td><code>give priority to</code></td></tr>
+    <tr><td>试一试</td><td><code>give it a shot</code></td></tr>
+    <tr><td>生在哪长在哪</td><td><code>born and raised in</code></td></tr>
+    <tr><td>是时候……了</td><td><code>It is high time that…</code></td></tr>
+    <tr><td>如图所示</td><td><code>As is demonstrated in the picture</code></td></tr>
+    <tr><td>引发公众关注是否……</td><td><code>This phenomenon draws public attention to whether…</code></td></tr>
+    <tr><td>从三个角度提升</td><td><code>facilitate … from three aspects</code></td></tr>
+    <tr><td>与……呈强相关</td><td><code>be closely tied to</code></td></tr>
+  </table>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="s13">
+  <h2><span class="no">13</span>语法要点速查</h2>
+  <p class="lede">都是判例里真实扣分的地方，考前 5 分钟检查时逐条扫一遍。</p>
+
+  <table class="tbl">
+    <tr><th>要点</th><th>规则</th><th>反面例子</th></tr>
+    <tr>
+      <td><strong>让步状语从句不带 but</strong></td>
+      <td><code>Although…, we…</code>（逗号后直接主句）</td>
+      <td><span class="x">Although it is convenient, but we lost…</span></td>
+    </tr>
+    <tr>
+      <td><strong>一句话一个谓语</strong></td>
+      <td>两个动作必须用主从结构或并列结构组织</td>
+      <td>中文式「天冷了多穿点」直译</td>
+    </tr>
+    <tr>
+      <td><strong>amount vs number</strong></td>
+      <td>amount + 不可数；number + 可数</td>
+      <td><span class="x">a great amount of students</span> → <code>a great number of students</code></td>
+    </tr>
+    <tr>
+      <td><strong>专有名词冠词</strong></td>
+      <td><code>the Internet</code>（20 多年专有名词）</td>
+      <td><span class="x">with internet</span></td>
+    </tr>
+    <tr>
+      <td><strong>名词不能裸奔</strong></td>
+      <td>可数名词单数前必须加 a/an/the</td>
+      <td><span class="x">from cellphone</span> → <code>from cellphones / the cellphone</code></td>
+    </tr>
+    <tr>
+      <td><strong>不能拼写的复合词</strong></td>
+      <td><code>cannot</code>（无空格）、<code>cell phone</code>（cl 不分开）</td>
+      <td><span class="x">can not</span> / <span class="x">cellphone</span></td>
+    </tr>
+    <tr>
+      <td><strong>情态后接原形</strong></td>
+      <td><code>seem to do</code></td>
+      <td><span class="x">that seems make sense</span> → <code>seems to make sense</code></td>
+    </tr>
+    <tr>
+      <td><strong>whereas 的用法</strong></td>
+      <td>连接两个对称比较的分句；中间不加逗号，或放句首</td>
+      <td><span class="x">Whereas, in my perspective…</span> → 该用 <code>Therefore,</code></td>
+    </tr>
+    <tr>
+      <td><strong>perspective 搭配</strong></td>
+      <td><code>from my perspective / standpoint</code></td>
+      <td><span class="x">in my perspective</span></td>
+    </tr>
+    <tr>
+      <td><strong>turn into</strong></td>
+      <td>变成 = <code>turn into</code></td>
+      <td><span class="x">turn it to</span></td>
+    </tr>
+    <tr>
+      <td><strong>listening 不及物</strong></td>
+      <td><code>listen to</code></td>
+      <td><span class="x">listening his question</span> → <code>listening to his question</code></td>
+    </tr>
+    <tr>
+      <td><strong>句子碎片</strong></td>
+      <td>完整句 = 主语 + 谓语 + 宾语</td>
+      <td><span class="x">But something we ignored</span> → <code>But we ignored something</code></td>
+    </tr>
+    <tr>
+      <td><strong>定语从句省略 that</strong></td>
+      <td>that 在从句中作宾语时可省略</td>
+      <td><code>something (that) we ignored</code> 省略正确——错在语序而非省略</td>
+    </tr>
+    <tr>
+      <td><strong>宾语从句省略 that</strong></td>
+      <td>that 引导的宾语从句可省；<code>It is not necessary (that)…</code> 这里其实是定语从句而非省略形式</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>how about vs how to</strong></td>
+      <td><code>how about + 名词/动名词</code>；问方式用 <code>how to do</code></td>
+      <td><span class="x">how about improve…</span> → <code>how to improve…</code> 或 <code>how about improving…</code></td>
+    </tr>
+    <tr>
+      <td><strong>时态选择</strong></td>
+      <td>现在完成进行时 = 从过去持续到现在（强调延续）；现在完成时不含强调</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>12AM / 12PM</strong></td>
+      <td>12AM = 凌晨 12 点（午夜）；12PM = 中午 12 点</td>
+      <td>手机闹钟设反</td>
+    </tr>
+    <tr>
+      <td><strong>alternatively</strong></td>
+      <td>几乎只能放在 <code>or</code> 后面（<code>or alternatively,…</code>），可用来补一个字</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>conduct 的歧义</strong></td>
+      <td>常见义是「进行 / 指挥」，不能当「教」用</td>
+      <td><span class="x">conduct you how to learn</span> → <code>teach / instruct</code></td>
+    </tr>
+    <tr>
+      <td><strong>漫画 vs 卡通</strong></td>
+      <td>漫画 = <code>comic</code>；卡通 = <code>cartoon</code></td>
+      <td><span class="x">the cartoon reviews</span>（描述漫画题时用 comic）</td>
+    </tr>
+  </table>
+
+  <div class="note blue">
+    <span class="lbl blue">同位语（Appositive）</span>
+    <p>A = B 结构，用来修饰名词性成分：<code>Some universities, <strong>previously</strong> a selective curriculum, have added college Chinese…</code></p>
+    <p>形式：名词性成分 + 逗号 + 修饰内容 + 逗号 + 谓语/宾语。放在主语位就是修饰主语，放在宾语位就是修饰宾语。这是制造「以前 vs 现在」对比最省字数的写法。</p>
+  </div>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="s14">
+  <h2><span class="no">14</span>考前 10 分钟核对清单</h2>
+  <p class="lede">视频结尾没给清单，这里按全片内容整理。写作时贴在草稿纸上勾。</p>
+
+  <div class="card">
+    <div class="k">切题（决定及格与否）</div>
+    <ul class="checks">
+      <li>题目要求的每个要点都写到了（描述图片 / 评论 / 谈影响 / 给对策）</li>
+      <li>是否型题目已<strong>旗帜鲜明站队</strong>，没有骑墙和稀泥</li>
+      <li>双边讨论型最后落回了<strong>自己的观点</strong>（客观评价 + 改进）</li>
+      <li>观点议论文写标题了吗？——<strong>没有</strong>；应用文写标题了吗？——<strong>必须写</strong></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="k">结构</div>
+    <ul class="checks">
+      <li>三段式齐全：背景引观点 → 论证 → 收束展望</li>
+      <li>第二段有 <code>first / in addition / furthermore</code> 三个标记，层次分明</li>
+      <li>三个论点篇幅有主次，实践/措施类最长</li>
+      <li>分类讨论<strong>层级一致</strong>（没有「对学生、对上班族、对社会」乱跳）</li>
+      <li>应用文：标题 → To whom it may concern → 见信安好 → 三步开头 → 主体 → 落款</li>
+      <li>提案中<strong>措施数量多于问题</strong></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="k">语法与拼写（对照第 13 节扫一遍）</div>
+    <ul class="checks">
+      <li>没有 <code>Although…, but…</code></li>
+      <li>没有连写句（and 串联到底）和句子碎片</li>
+      <li>可数名词没裸奔；<code>the Internet</code>；<code>a number of</code> 而非 <code>amount of</code></li>
+      <li><code>cannot</code> 没拆开；<code>seems to do</code> 带 to；<code>turn into</code></li>
+      <li>时态对：叙事过去时、观点现在时、展望将来时</li>
+      <li>标点检查：逗号后有空格；<code>besides,</code> 后是逗号不是句号</li>
+      <li>字数 120–180，答题纸 12–15 行</li>
+    </ul>
+  </div>
+
+  <div class="note">
+    <span class="lbl ok">最后一条</span>
+    <p>不要花费太多时间思考观点应该是什么——<strong>观点基本是给定的</strong>，把时间花在把句子写对、把结构写完整上，回报率高得多。</p>
+  </div>
+</section>
+
+<footer>
+  <p>本讲义根据视频字幕（2869 条 / 约 112 分钟）整理，保留原片观点与示例，仅做结构化与去口语化处理。原片提到的完整版同义替换表在 UP 主评论区获取。</p>
+  <p>建议用法：<a href="#s1">01–02 节</a> 理解判卷逻辑 → <a href="#s6">06–08 节</a> 背观点议论文三段模板 → <a href="#s9">09–10 节</a> 背应用文格式 → <a href="#s12">12–13 节</a> 考前速查。配合 <a href="#s0">00 节</a> 的 10 篇作文 + AI 批改流程落地。</p>
+</footer>
+</div>
+
+<a class="top" href="#" title="回到顶部">↑</a>
+
+</body>
+</html>

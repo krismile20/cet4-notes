@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#1f2329">
+<meta name="description" content="四级速通讲义：写作与翻译两门课的完整速通笔记，评分标准、模板、同义替换、底层逻辑与实战。」
+<title>四级速通讲义 · CET-4 Study Notes</title>
+<style>
+  :root{
+    --bg:#faf8f4; --panel:#fffdf9; --ink:#20242b; --ink2:#4d5665; --ink3:#636b78;
+    --line:#e6e0d5; --line2:#f0ebe1;
+    --write:#1a6f5c; --write-bg:#e8f2ee;
+    --trans:#9a4a1c; --trans-bg:#f7ece3;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14161b; --panel:#1c1f26; --ink:#e7e9ee; --ink2:#aab1bd; --ink3:#848c9a;
+      --line:#2e333d; --line2:#252932;
+      --write:#4fc9a9; --write-bg:#16302a;
+      --trans:#e0904f; --trans-bg:#2e2218;
+    }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+    font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased;min-height:100vh}
+  .wrap{max-width:820px;margin:0 auto;padding:56px 20px 64px}
+  .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);font-weight:700}
+  h1{font-size:clamp(26px,5vw,38px);line-height:1.25;margin:.4em 0 .3em;font-weight:800;letter-spacing:-.015em}
+  .lead{color:var(--ink2);font-size:16px;margin:0 0 36px;max-width:40em}
+  .cards{display:grid;gap:16px;grid-template-columns:1fr}
+  @media(min-width:640px){.cards{grid-template-columns:1fr 1fr}}
+  .course{display:block;background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:22px 22px 18px;text-decoration:none;color:inherit;transition:transform .15s ease,border-color .15s ease}
+  .course:hover{border-color:var(--accent-c);transform:translateY(-2px)}
+  .course:focus-visible{outline:3px solid var(--accent-c);outline-offset:2px}
+  .course.write{--accent-c:var(--write)}
+  .course.trans{--accent-c:var(--trans)}
+  .course .badge{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.1em;
+    padding:3px 10px;border-radius:999px;margin-bottom:12px}
+  .course.write .badge{background:var(--write-bg);color:var(--write)}
+  .course.trans .badge{background:var(--trans-bg);color:var(--trans)}
+  .course h2{font-size:21px;margin:0 0 8px;font-weight:800;line-height:1.3;color:var(--accent-c)}
+  .course p{margin:0 0 16px;color:var(--ink2);font-size:14.5px;line-height:1.7}
+  .links{display:flex;flex-wrap:wrap;gap:10px}
+  .links a{display:inline-flex;align-items:center;justify-content:center;
+    min-height:44px;padding:0 18px;border-radius:10px;font-size:14.5px;font-weight:700;
+    text-decoration:none;border:1px solid var(--accent-c);color:var(--accent-c);background:transparent}
+  .links a.primary{background:var(--accent-c);color:#fff}
+  footer{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);color:var(--ink3);font-size:13px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">CET-4 Study Notes</div>
+  <h1>四级速通讲义</h1>
+  <p class="lead">把视频课整成可以直接查的笔记：评分标准、写作模板、同义替换、翻译底层逻辑与完整真题实战。每门课都有桌面版与手机版。</p>
+
+  <div class="cards">
+    <div class="course write">
+      <span class="badge">WRITING · 15 分</span>
+      <h2>四级作文速通</h2>
+      <p>评分标准与判例、SQO 第一段模型、5W1H 论证、应用文三段模板、同义替换速查、考前核对清单。</p>
+      <div class="links">
+        <a class="primary" href="writing.html">桌面版</a>
+        <a href="writing-mobile.html">手机版</a>
+      </div>
+    </div>
+
+    <div class="course trans">
+      <span class="badge">TRANSLATION · 15 分</span>
+      <h2>四级翻译速通</h2>
+      <p>义合 vs 形合、三步走（分句→定主干→降级）、九种状语从句、非谓语与 with 复合结构、袁隆平真题逐句拆解。</p>
+      <div class="links">
+        <a class="primary" href="translation.html">桌面版</a>
+        <a href="translation-mobile.html">手机版</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    根据「阿米诺斯」四级速通系列视频整理 · 内容为学习笔记，仅供备考参考。
+  </footer>
+</div>
+</body>
+</html>

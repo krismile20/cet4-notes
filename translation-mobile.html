@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#9a4a1c">
+<title>四级翻译速通 · 手机版</title>
+<style>
+  :root{
+    --bg:#f7f5f0; --panel:#fffdf8; --ink:#1f2329; --ink2:#4d5665; --ink3:#636b78;
+    --line:#e6e0d4; --line2:#f0ebe1;
+    --accent:#9a4a1c; --accent2:#b85826; --accent-bg:#f7ece3;
+    --blue:#274e7d; --blue-bg:#eaf0f7;
+    --green:#1c6e3d; --green-bg:#e7f1ea;
+    --purple:#5c4383; --purple-bg:#f1ecf7;
+    --warn:#a4351f; --warn-bg:#f7e6e0;
+    --code-bg:#23262e; --code-ink:#e8eaef;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14161b; --panel:#1c1f26; --ink:#e7e9ee; --ink2:#aab1bd; --ink3:#848c9a;
+      --line:#2e333d; --line2:#252932;
+      --accent:#e0904f; --accent2:#f0a060; --accent-bg:#2e2218;
+      --blue:#7aa5dc; --blue-bg:#1b2434;
+      --green:#57c47f; --green-bg:#15281f;
+      --purple:#b195d9; --purple-bg:#251f31;
+      --warn:#e0904f; --warn-bg:#2e2218;
+      --code-bg:#0f1115; --code-ink:#e8eaef;
+    }
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+    font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased;
+    overflow-wrap:break-word;word-break:break-word}
+  .wrap{max-width:680px;margin:0 auto;padding:0 16px}
+
+  /* ---------- 顶部固定栏 ---------- */
+  .topbar{position:sticky;top:0;z-index:50;background:var(--panel);
+    border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(0,0,0,.06);
+    backdrop-filter:saturate(180%) blur(8px)}
+  .topbar .inner{max-width:680px;margin:0 auto;padding:10px 16px;
+    display:flex;align-items:center;gap:12px;min-height:52px}
+  .topbar .brand{font-weight:800;font-size:16px;color:var(--ink);line-height:1.2;flex:1}
+  .topbar .brand small{display:block;font-size:11px;color:var(--ink3);font-weight:600;letter-spacing:.04em}
+  .menu-btn{background:var(--accent-bg);border:1px solid var(--accent);color:var(--accent);
+    border-radius:10px;padding:9px 14px;font-size:14px;font-weight:700;
+    min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+
+  /* ---------- 抽屉式目录 ---------- */
+  .drawer{position:fixed;inset:0 0 0 auto;width:min(82vw,360px);z-index:100;
+    background:var(--panel);border-left:1px solid var(--line);
+    transform:translateX(100%);transition:transform .25s ease;
+    overflow-y:auto;padding:18px 18px 60px}
+  .drawer.open{transform:translateX(0)}
+  .drawer-backdrop{position:fixed;inset:0;z-index:99;background:rgba(0,0,0,.4);
+    opacity:0;pointer-events:none;transition:opacity .25s ease}
+  .drawer-backdrop.open{opacity:1;pointer-events:auto}
+  .drawer h4{margin:0 0 10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink3);font-weight:700}
+  .drawer ol{margin:0;padding:0;list-style:none}
+  .drawer a{display:block;color:var(--ink2);text-decoration:none;font-size:15px;
+    padding:11px 8px;border-bottom:1px solid var(--line2);line-height:1.4}
+  .drawer a:active{background:var(--accent-bg);color:var(--accent)}
+  .drawer a span.n{color:var(--accent);font-weight:700;margin-right:8px;font-variant-numeric:tabular-nums}
+  .drawer .close{position:absolute;top:14px;right:14px;width:40px;height:40px;
+    border:none;background:var(--line2);color:var(--ink);border-radius:10px;font-size:20px;font-weight:700}
+
+  /* ---------- hero ---------- */
+  header.hero{padding:30px 0 22px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:26px;line-height:1.28;margin:.4em 0 .3em;letter-spacing:-.01em;font-weight:800}
+  .subtitle{font-size:15px;color:var(--ink2);margin:0;line-height:1.7}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+  .chip{font-size:11.5px;padding:5px 10px;border:1px solid var(--line);border-radius:999px;
+    background:var(--panel);color:var(--ink2);line-height:1.3}
+  .chip b{color:var(--ink);font-weight:600}
+
+  section{margin:0 0 36px}
+  h2{font-size:21px;line-height:1.3;margin:0 0 4px;letter-spacing:-.005em;font-weight:800;
+    padding-bottom:10px;border-bottom:2px solid var(--accent);display:flex;align-items:baseline;gap:10px}
+  h2 .no{font-size:13px;color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums}
+  .lede{color:var(--ink2);font-size:15px;margin:12px 0 18px;line-height:1.7}
+  h3{font-size:18px;margin:24px 0 8px;font-weight:750}
+  h4{font-size:15.5px;margin:18px 0 6px;font-weight:750;color:var(--accent2)}
+  p{margin:10px 0;font-size:15.5px;line-height:1.85}
+  ul,ol{margin:8px 0;padding-left:1.3em}
+  li{margin:5px 0;font-size:15.5px;line-height:1.75}
+  li>ul,li>ol{margin:4px 0}
+  strong{font-weight:700}
+  em{font-style:normal;color:var(--accent2);font-weight:650}
+  code{font-family:"JetBrains Mono","SF Mono",Consolas,"Noto Sans Mono",monospace;font-size:.86em;
+    background:var(--line2);border:1px solid var(--line);border-radius:4px;padding:1px 5px;
+    word-break:break-all}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+  .card .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:5px}
+  .card .big{font-size:26px;font-weight:800;line-height:1.15;letter-spacing:-.01em}
+  .card .big small{font-size:14px;font-weight:600;color:var(--ink2)}
+  .card p{margin:6px 0 0;font-size:14px;color:var(--ink2)}
+  .card.accent{border-color:var(--accent);background:var(--accent-bg)}
+  .card.blue{border-color:var(--blue);background:var(--blue-bg)}
+  .card.purple{border-color:var(--purple);background:var(--purple-bg)}
+  .card.green{border-color:var(--green);background:var(--green-bg)}
+  /* 卡片网格在手机上单列 */
+  .grid{display:grid;gap:12px;grid-template-columns:1fr;margin:14px 0}
+
+  .note{border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 10px 10px 0;
+    padding:12px 14px;margin:14px 0}
+  .note.warn{border-left-color:var(--warn);background:var(--warn-bg)}
+  .note.blue{border-left-color:var(--blue);background:var(--blue-bg)}
+  .note.green{border-left-color:var(--green);background:var(--green-bg)}
+  .note .lbl{font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    display:block;margin-bottom:4px;color:var(--accent)}
+  .note.warn .lbl{color:var(--warn)} .note.blue .lbl{color:var(--blue)} .note.green .lbl{color:var(--green)}
+  .note p{margin:4px 0 0;font-size:14.5px;line-height:1.75} .note p+p{margin-top:6px}
+
+  /* 表格横向滚动 */
+  .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0;
+    border:1px solid var(--line);border-radius:10px}
+  .tbl{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel);min-width:480px}
+  .tbl th{background:var(--line2);text-align:left;padding:10px 12px;font-weight:700;font-size:13px;
+    color:var(--ink);border-bottom:1px solid var(--line);position:sticky;top:0}
+  .tbl td{padding:10px 12px;border-bottom:1px solid var(--line2);vertical-align:top;color:var(--ink2);line-height:1.6}
+  .tbl tr:last-child td{border-bottom:none}
+  .tbl td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+  .tbl td code{font-size:.85em}
+
+  /* 代码块 */
+  .tpl{background:var(--code-bg);color:var(--code-ink);border-radius:12px;margin:14px 0;overflow:hidden;
+    border:1px solid var(--line)}
+  .tpl .bar{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;
+    background:rgba(255,255,255,.06);font-size:11.5px;color:#98a0ad;letter-spacing:.04em;
+    border-bottom:1px solid rgba(255,255,255,.08)}
+  .tpl .bar .tag{background:rgba(224,144,79,.18);color:#f0a060;padding:2px 8px;border-radius:999px;font-weight:700}
+  .tpl pre{margin:0;padding:14px;overflow-x:auto;font-size:13px;line-height:1.85;
+    font-family:"JetBrains Mono","SF Mono",Consolas,monospace;
+    white-space:pre-wrap;word-break:break-word;-webkit-overflow-scrolling:touch}
+  .tpl .en{color:#dfe3ea}
+  .tpl .zh{color:#8fa3b8}
+  .tpl .hl{color:#f0a060;font-weight:600}
+  .tpl .fill{color:#e0a75f;font-weight:700}
+  .tpl .com{color:#838da0;font-style:italic}
+
+  .steps{counter-reset:s;margin:14px 0}
+  .step{position:relative;padding:0 0 16px 44px}
+  .step:last-child{padding-bottom:0}
+  .step:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;
+    width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+  .step:after{content:"";position:absolute;left:15.5px;top:36px;bottom:0;width:2px;background:var(--line)}
+  .step:last-child:after{display:none}
+  .step h4{margin:0 0 4px;color:var(--accent2);font-size:15.5px}
+  .step p{margin:5px 0;font-size:14.5px}
+
+  .x{color:var(--warn);font-weight:700}
+  .ok{color:var(--green);font-weight:700}
+  .checks{list-style:none;padding:0;margin:12px 0}
+  .checks li{position:relative;padding-left:26px;margin:7px 0;font-size:14.5px;line-height:1.7}
+  .checks li:before{content:"✓";position:absolute;left:0;top:0;color:var(--green);font-weight:800}
+
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 0 80px;color:var(--ink3);font-size:13.5px;line-height:1.7}
+  footer a{color:var(--accent);text-decoration:none;display:inline-block;padding:2px 0}
+  .fab{position:fixed;right:14px;bottom:14px;width:44px;height:44px;border-radius:50%;
+    background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;
+    text-decoration:none;font-size:18px;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.25);
+    opacity:.92;z-index:40}
+  .fab:active{opacity:1;transform:scale(.95)}
+
+  /* 大屏手机/小平板时启用两列卡片 */
+  @media(min-width:560px){
+    .grid{grid-template-columns:1fr 1fr}
+    h1{font-size:29px}
+    h2{font-size:23px}
+  }
+  @media(min-width:680px){
+    .grid{grid-template-columns:1fr 1fr 1fr}
+    .topbar .menu-btn{display:none}
+    .drawer{transform:translateX(0);position:static;width:auto;border-left:none;
+      box-shadow:none;overflow:visible;padding:0 0 4px}
+    .drawer-backdrop{display:none}
+    .drawer .close{display:none}
+  }
+  @media print{
+    .topbar,.fab,.drawer-backdrop{display:none}
+    .drawer{position:static;transform:none;width:auto}
+    body{font-size:11px;background:#fff}
+    .tpl{box-shadow:none}
+    section{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <div class="brand">四级翻译速通<small>CET-4 Translation</small></div>
+    <button class="menu-btn" id="menuBtn" aria-label="打开目录">目录</button>
+  </div>
+</div>
+
+<div class="drawer-backdrop" id="backdrop"></div>
+<aside class="drawer" id="drawer">
+  <button class="close" id="closeBtn" aria-label="关闭">×</button>
+  <h4>目录 Contents</h4>
+  <a href="index.html" style="display:block;font-size:14px;padding:11px 8px;color:var(--accent);text-decoration:none;font-weight:700;border-bottom:1px solid var(--line2)">← 返回首页</a>
+  <ol>
+    <li><a href="#s0"><span class="n">00</span>两个问题：词汇与语法</a></li>
+    <li><a href="#s1"><span class="n">01</span>时间安排与评分标准</a></li>
+    <li><a href="#s2"><span class="n">02</span>判例拆解：8 分卷错在哪</a></li>
+    <li><a href="#s3"><span class="n">03</span>出题规律与三大常考句型</a></li>
+    <li><a href="#s4"><span class="n">04</span>备考：10 套真题 + 错题本</a></li>
+    <li><a href="#s5"><span class="n">05</span>底层逻辑：义合 vs 形合</a></li>
+    <li><a href="#s6"><span class="n">06</span>三步走：分句 → 定主干 → 降级</a></li>
+    <li><a href="#s7"><span class="n">07</span>逗号原则与并列谓语</a></li>
+    <li><a href="#s8"><span class="n">08</span>九种状语从句速查</a></li>
+    <li><a href="#s9"><span class="n">09</span>非谓语：doing / done / to do</a></li>
+    <li><a href="#s10"><span class="n">10</span>独立主格与 with 复合结构</a></li>
+    <li><a href="#s11"><span class="n">11</span>非限制性定语从句</a></li>
+    <li><a href="#s12"><span class="n">12</span>状语从句的省略</a></li>
+    <li><a href="#s13"><span class="n">13</span>插入语 vs 同位语</a></li>
+    <li><a href="#s14"><span class="n">14</span>介词前置与关系代词/副词</a></li>
+    <li><a href="#s15"><span class="n">15</span>把状语从句写成非谓语</a></li>
+    <li><a href="#s16"><span class="n">16</span>词汇自救：拆字 · 同义 · 解释</a></li>
+    <li><a href="#s17"><span class="n">17</span>实战：2025 年 6 月袁隆平题</a></li>
+    <li><a href="#s18"><span class="n">18</span>三条终极总结 + 考前清单</a></li>
+  </ol>
+</aside>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">CET-4 Translation · Mobile</div>
+    <h1>两小时速通四级翻译<br>底层逻辑 · 句法降级 · 高级句型</h1>
+    <p class="subtitle">把 127 分钟的视频压缩成手机能看的一页讲义：义合→形合的鸿沟、三步走、非谓语与 with 复合结构、完整真题实战。</p>
+    <div class="meta">
+      <span class="chip"><b>来源</b> 阿米诺斯stud</span>
+      <span class="chip"><b>时长</b> 128 分钟</span>
+      <span class="chip"><b>满分</b> 15 分</span>
+      <span class="chip"><b>结构</b> 综述→方法→实战</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ============ 00 ============ -->
+<section id="s0">
+  <h2><span class="no">00</span>两个问题：词汇与语法</h2>
+  <p class="lede">翻译两大拦路虎——其中一个不是问题，另一个才是。</p>
+
+  <div class="card green">
+    <div class="k">问题一 · 词汇（不是问题）</div>
+    <p>出题者本来就没想让你认识所有单词——考的是<em>解决问题的能力</em>。三招兜底：</p>
+    <ul>
+      <li>用<strong>从句</strong>解释词（<code>a thing that is good for health</code>）</li>
+      <li>用<strong>上位概念</strong>替代（集装箱 → <code>a big box</code>）</li>
+      <li>用<strong>同义词/近义词</strong>（<code>important → crucial</code>）</li>
+    </ul>
+  </div>
+
+  <div class="card accent">
+    <div class="k">问题二 · 语法（真正的问题）</div>
+    <p>连「定语从句」是什么都不知道就有点危险。<strong>语法特别容易补齐</strong>——学了一定能用上。</p>
+    <p>本课讲<strong>底层逻辑 + 常用语法</strong>，不是「常用句式」——句式背了不一定用得上，语法学了肯定能用上。</p>
+  </div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section id="s1">
+  <h2><span class="no">01</span>时间安排与评分标准</h2>
+  <p class="lede">翻译 15 分，25 分钟，和作文共用同一套评分逻辑。</p>
+
+  <div class="grid">
+    <div class="card"><div class="big">25<small> 分钟</small></div><p>翻译总时长</p></div>
+    <div class="card"><div class="big" style="font-size:20px">2/5/8/11/14</div><p>五档分数</p></div>
+    <div class="card"><div class="big">~30<small> 秒</small></div><p>每份判卷时间</p></div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th>阶段</th><th>时长</th><th>做什么</th></tr>
+      <tr><td>审题</td><td>很短</td><td>数几句，每个句号后画横线</td></tr>
+      <tr><td>写</td><td>20 分</td><td>按三步走翻译</td></tr>
+      <tr><td>检查</td><td>5 分</td><td>时态、主谓一致、替换高级词</td></tr>
+    </table>
+  </div>
+
+  <div class="note">
+    <span class="lbl">5 分钟检查重点</span>
+    <p><strong>① 时态</strong>：叙述全写成一般过去时（除 <code>already</code> 等明确标完成时的词），最后统一回扫。</p>
+    <p><strong>② 主谓一致</strong>：<code>a lot of</code>——后接可数复数 → 动词不加 s；接不可数 → 动词加 s。</p>
+  </div>
+
+  <h3>评分与错误换算</h3>
+  <p>评分和作文完全一样：<em>1 个严重错误 = 3 个小错</em>。判卷员先瞥一眼像哪档例文，再浮动 1 分。</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th>错误类型</th><th>指什么</th><th>举例</th></tr>
+      <tr><td><span class="x">严重错误</span></td><td>与原文有特别大偏差，或句子不完整</td><td>主谓宾缺一；介词后加整句话</td></tr>
+      <tr><td>小错</td><td>冠词、单复数、时态、介词、用词不贴切</td><td><code>doubt</code> 与 <code>suspect</code> 混用（意思相反）</td></tr>
+    </table>
+  </div>
+
+  <div class="note blue">
+    <span class="lbl blue">分句数量</span>
+    <p>15 分满分答案<strong>分句数和原文一致</strong>。多分几句官方<em>不扣分</em>，但建议尽量一致——对仗工整能得更高分。</p>
+  </div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section id="s2">
+  <h2><span class="no">02</span>判例拆解：8 分卷错在哪</h2>
+  <p class="lede">原文讲中国快递业，共 7 句。8 分例文错 7 处（1 大错 + 6 小错 = 3 大错），7 句对 4 句，正好 7–9 分档。</p>
+
+  <div class="card">
+    <div class="k">7 处错误</div>
+    <ol>
+      <li><strong>限制性 vs 非限制性定从</strong>：原文该用非限制性（带逗号），写成限制性。<span class="x">小错</span></li>
+      <li><strong><code>beat</code> 用词不贴切</strong>：「超越」应用 <code>surpass</code> 或 <code>overtake</code>。<span class="x">小错</span></li>
+      <li><strong><code>cover</code> vs <code>contain</code></strong>：包裹装商品要用 <code>contain</code>（具体物理包含）。<span class="x">小错</span></li>
+      <li><strong><code>for</code> 当介词后接整句话</strong>：<code>for China gives…</code>——介词后加名词不能再加动词。即使硬解成连词「因为」逻辑也读不通。<span class="x">大错</span></li>
+      <li><strong><code>in competitive prices</code></strong>：应为 <code>at</code>。<span class="x">小错</span></li>
+      <li><strong><code>in this day</code></strong>：具体某天用 <code>on</code>。<span class="x">小错</span></li>
+      <li><strong><code>9 billion prices</code></strong>：price 是「价签」，应为 <code>worth more than 9 billion</code>。还有 <code>floor</code> 当平台、<code>consuming day</code> 当购物日。<span class="x">小错</span></li>
+    </ol>
+  </div>
+
+  <div class="note green">
+    <span class="lbl green">三个用词辨析</span>
+    <p><strong>超过</strong>：<code>surpass</code>（最通用）/ <code>overtake</code>（发展超过，标答用）/ <code>exceed</code>（超数字/规则，<em>不接国家</em>）。</p>
+    <p><strong>包含</strong>：<code>contain</code>（具体物理）/ <code>include</code>、<code>cover</code>（抽象）。</p>
+    <p><strong>怀疑</strong>：<code>doubt</code>（怀疑是假）/ <code>suspect</code>（怀疑是真），完全相反。</p>
+  </div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section id="s3">
+  <h2><span class="no">03</span>出题规律与三大常考句型</h2>
+  <p class="lede">内容就两类：中国过去太厉害（传统文化）+ 中国现在太厉害（当代成就）。真正要背的是三个「钉子户」句型。</p>
+
+  <div class="card accent">
+    <div class="k">句型一 · 重视与强调</div>
+    <p class="big" style="font-size:16px"><code>attach great importance to</code></p>
+    <p>注意主语单复数决定动词加不加 s。</p>
+  </div>
+  <div class="card accent">
+    <div class="k">句型二 · 随着……的发展</div>
+    <p class="big" style="font-size:16px"><code>with the rapid development of …</code></p>
+    <p>或 <code>with the continuous improvement of …</code>。本质是<strong>独立主格结构</strong>。</p>
+  </div>
+  <div class="card accent">
+    <div class="k">句型三 · 做出贡献</div>
+    <p class="big" style="font-size:16px"><code>make significant contributions to</code></p>
+    <p>几乎都在结尾用——杂交水稻、新能源汽车题都能套。</p>
+  </div>
+
+  <div class="note">
+    <span class="lbl">统计范围</span>
+    <p>UP 主统计了 <strong>2023.6–2025.6</strong> 三年所有翻译题，反复出现的就这几个。背下来命中率极高。</p>
+  </div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section id="s4">
+  <h2><span class="no">04</span>备考：10 套真题 + 错题本</h2>
+  <p class="lede">刷真题不是为了押题（不可能），而是为了<em>发现自己语法差在哪</em>。不动手做永远不知道。</p>
+
+  <div class="card green">
+    <div class="k">10 套计划</div>
+    <ul>
+      <li>一套 25 分钟，给半小时预算 → 10 套 = 5 小时</li>
+      <li>用电脑打字写（比手写快，能复制粘贴）</li>
+      <li>写完丢给 AI 判，指出语法错误</li>
+      <li>还剩一周完全来得及——5 小时能解决</li>
+    </ul>
+  </div>
+
+  <div class="card blue">
+    <div class="k">错题本格式</div>
+    <ol>
+      <li>第一行：英文原文</li>
+      <li>第二行：你的翻译</li>
+      <li>第三行：翻译技巧 / 学到的东西</li>
+      <li>（可选）再写一遍修正版</li>
+    </ol>
+    <p>例：修饰谁不清楚的一堆时间状语全放开头（<code>more than 6000 years ago, …</code>）；动词翻译成使动词时把结构打开（<code>necessitate</code> → <code>make … necessary</code>）。</p>
+  </div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section id="s5">
+  <h2><span class="no">05</span>底层逻辑：义合 vs 形合</h2>
+  <p class="lede">英专生学的核心概念，整堂课的根基。汉语和英语最根本的差异。</p>
+
+  <div class="card purple">
+    <div class="k">词源拆解</div>
+    <p><strong>taxis</strong> = arrangement，军队排兵布阵 → 「组织、排列」</p>
+    <p><strong>para</strong> = beside（在旁边）→ <strong>parataxis</strong> = 并排排列</p>
+    <p><strong>hypo</strong> = under（在下面，如 hypoglycemia 低血糖）→ <strong>hypotaxis</strong> = 上下排列</p>
+  </div>
+
+  <div class="card accent">
+    <div class="k">parataxis · 义合（汉语）</div>
+    <p>两句话用逗号隔开，<em>不加逻辑词</em>也能懂——地位完全平等。</p>
+    <p><code>天冷了，多穿点。</code>（隐含因果，但「因为所以」全省）</p>
+    <p><code>人不犯我，我不犯人。</code>（隐含条件，但「如果就」全省）</p>
+  </div>
+
+  <div class="card blue">
+    <div class="k">hypotaxis · 形合（英语）</div>
+    <p>两句话有俩谓语时，<em>必须</em>一个主句、一个从句——上下级关系。必须有<strong>形式标记</strong>（连词、引导词）。</p>
+  </div>
+
+  <div class="note warn">
+    <span class="lbl">核心难点 & 核心解法</span>
+    <p>中文→英文最难的就是跨过这条鸿沟。但<strong>最好解决</strong>：只要掌握<strong>九种逻辑关系（= 九种状语从句）</strong>就能完成跨越。</p>
+    <p>底层逻辑：<strong>英语一句话里只有一个谓语</strong>。中文「天冷了多穿点」两个谓语，翻成英文必须用主从结构——选一句做主句，另一句用引导词降级为从句。</p>
+  </div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section id="s6">
+  <h2><span class="no">06</span>三步走：分句 → 定主干 → 降级</h2>
+  <p class="lede">把中文安全运过「义合→形合」鸿沟的可操作步骤。</p>
+
+  <div class="steps">
+    <div class="step">
+      <h4>Step 1 · 分句</h4>
+      <p>每个句号后画横线。一句英文对应一句中文。实在不会再撇成两句，<em>能用一句就一句</em>。</p>
+    </div>
+    <div class="step">
+      <h4>Step 2 · 定主干</h4>
+      <p>中文一堆动词，挑<strong>一个最重要的</strong>作英文谓语。挑不出来随便挑，<em>再不济挑第一个</em>。</p>
+      <p>例：「天冷了多穿点」——选「天冷」做主句：<code>It is so cold outside that you should wear more.</code></p>
+    </div>
+    <div class="step">
+      <h4>Step 3 · 降级</h4>
+      <p>主句定了，剩下所有动词<strong>降级</strong>。三种去向：</p>
+      <ul>
+        <li><strong>从句</strong>（状/定/名词性）</li>
+        <li><strong>非谓语</strong>（doing / done / to do）——从句的简化形式</li>
+        <li><strong>介词短语</strong>（with 复合结构、by / through）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note warn">
+    <span class="lbl">下下策</span>
+    <p>不能保证断句一致就<em>放弃</em>合句，写成两句。还有「挑会写的写」也是下下策——不会的词拆开凑（营养丰富 → <code>has a lot of nutrition</code> → 不会 nutrition 就 <code>a lot of things that are good for health</code>）。低分打法，保 8–9 分及格。</p>
+  </div>
+
+  <h4>实战：袁隆平题第一句</h4>
+  <div class="tpl">
+    <div class="bar"><span>三步走示范</span><span class="tag">主谓宾 → 降级</span></div>
+<pre class="en"><span class="zh"># 被誉为杂交水稻之父的袁隆平和团队克服困难，研发出超级杂交水稻。</span>
+
+<span class="com"># Step 2：主语=袁隆平和团队，两谓语候选：克服、研发。选克服做主句。</span>
+<span class="com"># Step 3：研发 → 降级。可作结果状从或目的状从。</span>
+
+<span class="hl">Yuan Longping</span> and his research team <span class="hl">overcame</span> numerous difficulties
+<span class="hl">such</span> a lot of difficulties <span class="hl">that</span> they <span class="fill">invented</span> a kind of super hybrid rice.
+<span class="com"># 也可：...overcame numerous difficulties in order to develop a super hybrid rice variety.</span>
+
+<span class="com"># 大结局：研发当主句也行——时间状语</span>
+<span class="hl">Yuan Longping</span> and his team <span class="hl">developed</span> a super hybrid rice variety
+<span class="hl">after overcoming</span> numerous difficulties.
+<span class="com"># after 是介词，后加宾语 → overcoming（动名词）</span></pre>
+  </div>
+  <p>两种译法都对——中文义合导致多种理解空间，<em>没有标准答案</em>。关键是你选的状从类型要你会写。</p>
+</section>
+
+<!-- ============ 07 ============ -->
+<section id="s7">
+  <h2><span class="no">07</span>逗号原则与并列谓语</h2>
+  <p class="lede">中文可一逗到底，英文不行——逗号有原则。</p>
+
+  <div class="note warn">
+    <span class="lbl">错误示范</span>
+    <p><span class="x"><code>I entered the room, and I saw him.</code></span> —— 两个独立句用逗号+and 连接不规范。</p>
+  </div>
+
+  <div class="card green">
+    <div class="k">改法一：拆两句</div>
+    <p><code>I entered the room. I saw him.</code></p>
+    <p>删 and，逗号改句号。</p>
+  </div>
+  <div class="card green">
+    <div class="k">改法二：并列谓语</div>
+    <p><code>I entered the room and saw him.</code></p>
+    <p>用 <code>and</code> 连<strong>两个谓语</strong>，<em>中间不写逗号</em>，第二个谓语不重复主语。</p>
+  </div>
+
+  <div class="note">
+    <span class="lbl">规则</span>
+    <p><code>and</code> 表示<strong>谓语并列</strong>时，不写逗号 <code>and</code>，后面直接接另一个谓语（共享主语）：<code>I woke up and drank a cup of coffee.</code></p>
+    <p>阅读里见到 <code>, and I...</code> 不算错，但<strong>自己别这么写</strong>——特别冗余。</p>
+  </div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section id="s8">
+  <h2><span class="no">08</span>九种状语从句速查</h2>
+  <p class="lede">降级为从句时，概率最高的是状语从句。九种逻辑对应九种状从。</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th>逻辑</th><th>引导词</th><th>难度</th></tr>
+      <tr><td>时间</td><td><code>when / after / before</code></td><td>易</td></tr>
+      <tr><td>地点</td><td><code>where</code></td><td>易</td></tr>
+      <tr><td>原因</td><td><code>because / since</code></td><td>易</td></tr>
+      <tr><td>条件</td><td><code>if</code></td><td>易</td></tr>
+      <tr><td>目的</td><td><code>in order to / so that</code></td><td>中</td></tr>
+      <tr><td>让步</td><td><code>although</code></td><td>中</td></tr>
+      <tr><td><strong>比较</strong></td><td><code>as...as / than</code></td><td>需注意</td></tr>
+      <tr><td><strong>结果</strong></td><td><code>so...that / such...that</code></td><td>需注意</td></tr>
+      <tr><td><strong>方式</strong></td><td><code>as / as if</code></td><td>需注意</td></tr>
+    </table>
+  </div>
+
+  <h3>三个「需注意」</h3>
+
+  <div class="card blue">
+    <div class="k">结果状从（很重要）</div>
+    <p><strong>so + 形容词 + that</strong>：<code>The weather is so cold that you need to wear more.</code></p>
+    <p><strong>such + 名词 + that</strong>：<code>It is such a cold weather that you need to wear more.</code></p>
+    <p>同一句话，词性不同选不同结构。可替换 <code>leading to</code>。</p>
+  </div>
+
+  <div class="card blue">
+    <div class="k">比较状从</div>
+    <p><code>as...as</code>（和……一样）：<code>as effective as</code></p>
+    <p><code>than</code>——<em>看清谁比谁</em>：<code>A is more beautiful than B</code> = A 比 B 漂亮。</p>
+  </div>
+
+  <div class="card blue">
+    <div class="k">方式状从（含省略）</div>
+    <p><code>as</code>：<code>We should treat cultural heritage as we would (treat) a fragile heirloom.</code></p>
+    <p><strong>从句里的动词可省略</strong>——主句已有 <code>treat</code>。中文「像对待家人一样对待朋友」两个「对待」在英文从句可省一个。</p>
+    <p><code>as if</code>：<code>The global economy is behaving as if it were on the brink of a major recession.</code></p>
+  </div>
+
+  <div class="note green">
+    <span class="lbl green">谓语不是逻辑</span>
+    <p>状从种类和谓语本身无关。<strong>判断不出该用哪种状从，就写非谓语</strong>，尤其 <code>doing</code> 作伴随——基本准没错。</p>
+  </div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section id="s9">
+  <h2><span class="no">09</span>非谓语：doing / done / to do</h2>
+  <p class="lede">非谓语是状从的简化形式，翻译里最好用的万能钥匙。</p>
+
+  <div class="card accent"><div class="k">doing</div><p><strong>主动</strong>关系。频率最高——不知道用啥就用 <code>doing</code>。</p></div>
+  <div class="card accent"><div class="k">done</div><p><strong>被动</strong>关系。</p></div>
+  <div class="card accent"><div class="k">to do</div><p><strong>将来</strong>要做的事 / <strong>目的</strong>。只有目的状从用 <code>to do</code>。</p></div>
+
+  <div class="note">
+    <span class="lbl">使用规则（极简）</span>
+    <p><strong>不用管动作发生时间</strong>，只管<strong>和逻辑主语是主动还是被动</strong>。主动 → <code>doing</code>；被动 → <code>done</code>；表目的/将来 → <code>to do</code>。</p>
+    <p><strong>逻辑主语</strong>不是句子主语——一般指<em>挨着非谓语最近的人/物</em>。</p>
+  </div>
+
+  <h4>doing 作伴随状语（最高频）</h4>
+  <div class="tpl">
+    <div class="bar"><span>实战：袁隆平题第二句</span><span class="tag">doing 伴随</span></div>
+<pre class="en"><span class="zh"># 水稻抗旱抗病能力更强，能适应不同气候土壤，产量提高 20%-30%。</span>
+
+<span class="hl">The ability to fight against drought and diseases is stronger,</span>
+<span class="hl">adapting to</span> different climates and soil conditions,
+<span class="hl">leading to</span> output increased by 20% to 30%.
+
+<span class="com"># adapting / leading 都是 doing，主语都是水稻/能力，主动关系</span>
+<span class="com"># 不知道前后什么逻辑关系 → 用 doing 伴随，暴力解决</span></pre>
+  </div>
+
+  <div class="note green">
+    <span class="lbl green">非谓语的魅力</span>
+    <p><strong>不用考虑状语种类、不用考虑时态</strong>，只考虑主被动。它什么成分都能做（状语、定语、名词性成分）。</p>
+  </div>
+
+  <h4>having done（进阶）</h4>
+  <p><code>having done</code> 表示动作在<strong>主句谓语之前</strong>发生——相对时间，不是绝对时间。例：<code>Having implemented the compulsory education law, China achieved great success.</code></p>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="no">10</span>独立主格与 with 复合结构</h2>
+  <p class="lede">非谓语的升级版——当非谓语的逻辑主语<strong>和主句主语不一致</strong>时，用独立主格。</p>
+
+  <div class="card">
+    <div class="k">非谓语（逻辑主语 = 主句主语）</div>
+    <p><code>Having done this work, he went home.</code></p>
+    <p>「做完工作」的发出者 = <code>he</code>，和主句主语一致。</p>
+  </div>
+  <div class="card purple">
+    <div class="k">独立主格（逻辑主语 ≠ 主句主语）</div>
+    <p><code>With the problem settled, he went home.</code></p>
+    <p><code>the problem</code> 是<strong>主格</strong>（独立于主句存在）——和 <code>he</code>/<code>home</code> 毫无内容关系。<code>settled</code> 是被动。</p>
+  </div>
+
+  <h3>with 复合结构公式</h3>
+  <div class="tpl">
+    <div class="bar"><span>with + 宾语 + 宾语补足语</span><span class="tag">万能公式</span></div>
+<pre class="en"><span class="hl">with</span> + <span class="fill">[宾语 O]</span> + <span class="fill">[宾语补足语 OC]</span>
+
+<span class="com"># 补足语可以是：</span>
+<span class="en">  - <span class="hl">doing</span>（主动） / <span class="hl">done</span>（被动） / <span class="hl">to do</span></span>
+<span class="en">  - <span class="hl">形容词</span> / <span class="hl">介词短语</span> / <span class="hl">名词</span></span>
+
+<span class="com"># 检验法：O 和 OC 中间加 is，构成主系表则成立</span>
+<span class="com"># 例：鲁迅 fought against the enemy with a pen as his weapon.</span>
+<span class="com">#     （a pen is his weapon ✓）</span></pre>
+  </div>
+
+  <div class="note">
+    <span class="lbl">铁律</span>
+    <p><code>with</code> 是介词，<strong>介词后面一定要加宾语</strong>。写完一个名词后，再想办法用非谓语修饰这个名词。</p>
+  </div>
+
+  <h4>实战：新能源汽车产量题</h4>
+  <div class="tpl">
+    <div class="bar"><span>with 复合结构实战</span><span class="tag">主句 + 独立主格</span></div>
+<pre class="en"><span class="zh"># 中国新能源汽车年产量飙升千万辆，占比超全球 60%，出口量不断创出新高。</span>
+
+<span class="hl">The annual output of new energy vehicles in China has soared to 10 million,</span>
+<span class="hl">accounting for</span> more than 60% of the global market,
+<span class="hl">with</span> its export volume <span class="hl">reaching</span> new highs.
+
+<span class="com"># accounting for = doing 伴随（主动）</span>
+<span class="com"># with + export volume（宾语）+ reaching（doing 补足语，主动）</span></pre>
+  </div>
+
+  <h4>最常见的独立主格</h4>
+  <p><code>with the development of modern cities</code> —— <code>with</code> 后只要跟一个名词性成分就算过关。</p>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="no">11</span>非限制性定语从句</h2>
+  <p class="lede">逗号 <code>, which</code> 是翻译神器——能代表<em>前面一整句话</em>。</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th>类型</th><th>形式</th><th>作用</th></tr>
+      <tr><td>限制性</td><td>无逗号</td><td>大概念<strong>限缩</strong>为小概念</td></tr>
+      <tr><td>非限制性</td><td>带逗号</td><td>小概念<strong>补充</strong>说明</td></tr>
+    </table>
+  </div>
+
+  <div class="note green">
+    <span class="lbl green">非限定从的特异功能</span>
+    <p>逗号后的 <code>which</code> 可以代表<strong>前面一整句话</strong>，而非某个具体单词。</p>
+    <p>口诀：<strong>逗号后面缺主语，且这个主语 = 前面一整件事</strong> → 写 <code>, which</code>。</p>
+  </div>
+
+  <h4>实战：哈尔滨冰雪大世界题</h4>
+  <div class="tpl">
+    <div class="bar"><span>, which 代表整句</span><span class="tag">非限定从</span></div>
+<pre class="en"><span class="zh"># 哈尔滨利用冰雪资源打造冰雪大世界，让游客欣赏冰雪之美的同时体验民俗文化。</span>
+
+<span class="hl">Harbin has created the Ice and Snow World</span> by using its abundant ice and snow resources,
+<span class="hl">, which enables</span> visitors to appreciate the beauty of ice and snow...
+
+<span class="com"># , which 代表「哈尔滨打造冰雪大世界」整件事</span>
+<span class="com"># 前面整件事相当于 it（单数），enables 要加 s</span>
+<span class="com"># enable 可换 allow / make（别写 let，太口语）</span></pre>
+  </div>
+
+  <div class="note warn">
+    <span class="lbl">两个 which 不能连用</span>
+    <p>前面已有 <code>which</code>，后面就不能再 <code>, which</code>。两解：① 后面用 <code>it</code>；② 把前面的定语改前置（<code>distinctive</code> 而非 <code>which has local features</code>）。</p>
+  </div>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="s12">
+  <h2><span class="no">12</span>状语从句的省略</h2>
+  <p class="lede">两条件同时满足时可省主语 + be 动词。</p>
+
+  <div class="card accent">
+    <div class="k">省略两条件（同时满足）</div>
+    <ol>
+      <li>从句和主句<strong>主语相同</strong></li>
+      <li>都含有 <strong>be 动词</strong>（被动 / 进行时 / 主系表）</li>
+    </ol>
+    <p>省略时<em>连人带 be 一起端走</em>。</p>
+  </div>
+
+  <div class="card green">
+    <div class="k">普通省略</div>
+    <p><code>Although tired, he kept working.</code>（省 <code>he was</code>）</p>
+    <p><code>When asked about the plan, he smiled.</code>（省 <code>he was</code>）</p>
+  </div>
+  <div class="card green">
+    <div class="k">实战：生活圈题</div>
+    <p><code>..., while better meeting the needs of diverse everyday services of urban dwellers.</code></p>
+    <p>省的是 <code>these living circles are</code>（现在进行时 <code>are better meeting</code>）。</p>
+  </div>
+
+  <h4>条件状从的三种特殊省略</h4>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th>形式</th><th>展开</th><th>说明</th></tr>
+      <tr><td><code>if any</code></td><td><code>if there are any errors</code></td><td><code>there be</code> 是倒装，<code>there</code> 占位，省主语后占位也没用</td></tr>
+      <tr><td><code>if possible</code></td><td><code>if it is possible</code></td><td>固定简略，记住即可</td></tr>
+      <tr><td><code>if so</code></td><td>—</td><td><code>Do you like English? If so, watch my video.</code></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="s13">
+  <h2><span class="no">13</span>插入语 vs 同位语</h2>
+  <p class="lede">两者都夹在句中，但形态和用法不同。</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th></th><th>插入语</th><th>同位语</th></tr>
+      <tr><td>词性</td><td>从句（定从 <code>who/which</code>）</td><td>名词</td></tr>
+      <tr><td>公式</td><td>主语 <code>, who ... ,</code> 谓语</td><td>A = B</td></tr>
+      <tr><td>例</td><td>Yuan Longping <code>, who is honored as ... ,</code></td><td>Yuan Longping <code>, the father of ... ,</code></td></tr>
+      <tr><td>语义</td><td>保留「被誉为」（被动）</td><td>直接 <code>is</code>，丢失「被誉为」</td></tr>
+    </table>
+  </div>
+
+  <div class="note warn">
+    <span class="lbl">关键区别</span>
+    <p>同位语 <code>A = B</code> 相当于 <code>Yuan Longping is the father</code>——丢失「被誉为」被动义。要保留就用插入语 <code>, who is honored as ... ,</code>。</p>
+    <p><strong>插入语两边都要加逗号</strong>——否则 <code>and his research team</code> 容易断句错误。</p>
+  </div>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="s14">
+  <h2><span class="no">14</span>介词前置与关系代词/副词</h2>
+  <p class="lede">定从中介词的位置，以及关系代词与关系副词的区分。</p>
+
+  <h4>介词前置</h4>
+  <div class="tpl">
+    <div class="bar"><span>介词前置</span><span class="tag">定从</span></div>
+<pre class="en"><span class="hl">The pen</span> <span class="hl">with which</span> I usually write
+<span class="hl">is a birthday gift from my best friend.</span>
+
+<span class="com"># 两种：</span>
+<span class="com"># 1. 必须前置：in which / at which 能合成 where → 不能放最后</span>
+<span class="com"># 2. 可前置：普通关系代词 → 前置或后置都行，前置永远不错</span></pre>
+  </div>
+
+  <h4>关系代词 vs 关系副词</h4>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th></th><th>关系代词</th><th>关系副词</th></tr>
+      <tr><td>词性</td><td>名词性（<code>who/which/whom</code>）</td><td>修饰性（<code>when/where</code>）</td></tr>
+      <tr><td>从句完整？</td><td><strong>不完整</strong>——缺主/宾</td><td><strong>完整</strong>——只缺时/地状</td></tr>
+      <tr><td>判断法</td><td>去引导词，从句缺成分</td><td>去引导词，从句仍完整</td></tr>
+    </table>
+  </div>
+
+  <div class="note blue">
+    <span class="lbl blue">判断示例</span>
+    <p><code>the summer <strong>where</strong> I lived in the countryside</code> —— 去掉 <code>where</code>，<code>I lived in the countryside</code> 主谓状齐全，<strong>完整</strong> → 关系副词 <code>where</code>（= <code>in which</code>）。</p>
+    <p><code>a summer <strong>which</strong> is very hot</code> —— 去掉 <code>which</code>，<code>is very hot</code> 缺主语，<strong>不完整</strong> → 关系代词。</p>
+  </div>
+</section>
+
+<!-- ============ 15 ============ -->
+<section id="s15">
+  <h2><span class="no">15</span>把状语从句写成非谓语</h2>
+  <p class="lede">非谓语没有绝对时间（只有相对时间），用起来极简——只看主被动。</p>
+
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th>原状从</th><th>非谓语</th><th>条件</th></tr>
+      <tr><td>原因（because）</td><td><code>doing / having done</code></td><td>主语一致</td></tr>
+      <tr><td>时间（after）</td><td><code>after + doing</code></td><td>after 是介词</td></tr>
+      <tr><td>条件（if）</td><td><code>done</code>（被动）</td><td>主语一致</td></tr>
+      <tr><td>让步（although）</td><td><code>done / doing</code></td><td>although 词不能去掉</td></tr>
+      <tr><td>目的</td><td><code>to do</code></td><td>只有目的状从用 to do</td></tr>
+      <tr><td>结果</td><td><code>doing</code>（如 <code>accounting for</code>）</td><td>可省 <code>leading to</code></td></tr>
+      <tr><td>方式/伴随</td><td><code>doing</code></td><td>最暴力万能</td></tr>
+    </table>
+  </div>
+
+  <h4>实战改写三例</h4>
+  <div class="tpl">
+    <div class="bar"><span>状从 → 非谓语</span><span class="tag">改写</span></div>
+<pre class="en"><span class="com"># 1. 原因状从 → doing</span>
+<span class="zh"># 因为四合院有独特建筑风格，所以对中国历史研究意义重大</span>
+<span class="x">Because siheyuan has a unique architectural style, it is significant...</span>
+<span class="ok">Having a unique architectural style, siheyuan is significant to the study of Chinese history.</span>
+
+<span class="com"># 2. 条件状从 → done（被动）</span>
+<span class="zh"># 如果数字技术被恰当利用，它能帮助游客了解莫高窟文化</span>
+<span class="ok">Digital technology, <span class="hl">used properly</span>, can help tourists know the culture of Mogao Caves.</span>
+<span class="com"># 升级：used → utilized；know → understand</span>
+
+<span class="com"># 3. 目的状从 → to do</span>
+<span class="zh"># 家家户户贴福字来庆祝春节</span>
+<span class="ok">Every family posts the character Fu <span class="hl">to celebrate</span> the Spring Festival.</span></pre>
+  </div>
+</section>
+
+<!-- ============ 16 ============ -->
+<section id="s16">
+  <h2><span class="no">16</span>词汇自救：拆字 · 同义 · 解释</h2>
+  <p class="lede">不会的词别空着——三招凑出意思。低分打法，保 8–9 分及格。</p>
+
+  <div class="card green">
+    <div class="k">招式一 · 拆字法</div>
+    <p><strong>营养丰富</strong>：营养 + 丰富 → <code>has a lot of nutrition</code></p>
+    <p><strong>口感更佳</strong>：口感 + 更佳 → <code>and a better taste</code></p>
+    <p>不会 taste？再拆：<code>a good feeling in my mouth</code>。</p>
+  </div>
+  <div class="card green">
+    <div class="k">招式二 · 同义词/上位词</div>
+    <p><strong>一系列</strong> → <code>a lot of</code></p>
+    <p><strong>有效的</strong> → <code>good</code></p>
+    <p><strong>措施</strong> → <code>measures / approaches</code></p>
+    <p><strong>丰富</strong> → <code>abundant / a lot of</code></p>
+  </div>
+  <div class="card green">
+    <div class="k">招式三 · 从句解释</div>
+    <p><strong>营养丰富</strong>（营养都不会）→ <code>a lot of things that are good for our health</code></p>
+    <p><strong>研发</strong> = 研究 + 发明 → 选更重要的 <code>invent</code></p>
+  </div>
+
+  <div class="note">
+    <span class="lbl">独家秘诀：动词不会就写 develop</span>
+    <p>15 套题里 <code>develop</code> 出现 <strong>18 次</strong>——几乎每套题都有一个动词可用 <code>develop</code>。它像中文里的「整」「搞」。<em>不会写动词就写 develop，肯定没错。</em></p>
+  </div>
+
+  <h4>关键辨析词</h4>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <tr><th>中文</th><th>选项</th><th>辨析</th></tr>
+      <tr><td>超过</td><td><code>surpass/overtake/exceed</code></td><td>surpass 通用；overtake 发展超过；exceed 超数字，不接国家</td></tr>
+      <tr><td>包含</td><td><code>contain/include/cover</code></td><td>contain 具体物理；include/cover 抽象</td></tr>
+      <tr><td>使……</td><td><code>make+adj / -ate 动词</code></td><td>make 形容词 → 想能否变动词（<code>necessary→necessitate</code>）</td></tr>
+      <tr><td>让</td><td><code>make/enable/allow</code></td><td><span class="x">别写 let</span>——太口语</td></tr>
+      <tr><td>一致</td><td><code>unanimous/consistent/consensus</code></td><td>形容词/形容词/名词</td></tr>
+      <tr><td>吸引人</td><td><code>attractive/compelling/engaging</code></td><td>同义替换</td></tr>
+      <tr><td>飙升</td><td><code>soar / has increased</code></td><td>—</td></tr>
+      <tr><td>适应</td><td><code>adapt to / accommodate to</code></td><td>accommodate 稍超纲</td></tr>
+      <tr><td>居住</td><td><code>dwell(动) / resident(名)</code></td><td>dwell 替换 resident</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 17 ============ -->
+<section id="s17">
+  <h2><span class="no">17</span>实战：2025 年 6 月袁隆平题</h2>
+  <p class="lede">完整一套真题演示三步走 + 各种句型的综合应用。</p>
+
+  <h3>第一句</h3>
+  <div class="tpl">
+    <div class="bar"><span>句 1 · 插入语 + 时间状语</span><span class="tag">完整译法</span></div>
+<pre class="en"><span class="zh"># 被誉为杂交水稻之父的袁隆平和团队克服重重困难，研发出一种超级杂交水稻。</span>
+
+<span class="hl">Yuan Longping</span>, <span class="hl">who is honored as</span> the father of hybrid rice,
+and his research team <span class="hl">developed</span> a kind of super hybrid rice
+<span class="hl">after experiencing</span> a lot of difficulties.
+
+<span class="com"># 被誉为 → 插入语 who is honored as（两边逗号）</span>
+<span class="com"># 主句谓语 = developed（过去时）</span>
+<span class="com"># 克服 → after + doing（after 是介词）</span>
+<span class="com"># who is honored as 用一般现在时——他永远是「之父」，客观事实</span></pre>
+  </div>
+
+  <h3>第二句</h3>
+  <div class="tpl">
+    <div class="bar"><span>句 2 · 现完 + 定从 + 伴随</span><span class="tag">综合</span></div>
+<pre class="en"><span class="zh"># 这项技术获得了举世公认的巨大成功。通过这项技术的应用，水稻抗旱抗病能力更强，
+#  能适应不同气候土壤，产量提高 20%-30%。</span>
+
+<span class="hl">This technique has acquired</span> a huge success,
+<span class="hl">which is acknowledged</span> by the world.
+<span class="com"># 现在完成时 has acquired（注意 has 第三人称单数）</span>
+<span class="com"># 举世公认 → which is acknowledged by the world（定从，被动）</span>
+
+<span class="hl">With the application of this technique,</span>
+the ability <span class="hl">to fight against</span> drought and diseases is stronger,
+<span class="hl">adapting to</span> different climates and soil conditions,
+<span class="hl">leading to</span> output <span class="hl">increased</span> by 20% to 30%.
+
+<span class="com"># 通过... → with 复合结构</span>
+<span class="com"># 抗旱抗病能力 → the ability to fight against...（ability 后接 to，因 able 后接 to）</span>
+<span class="com"># 能适应 → adapting to（doing 伴随，主动）</span>
+<span class="com"># 产量提高 → leading to output increased（leading to 后接名词，再用 done 修饰）</span></pre>
+  </div>
+
+  <h3>第三句</h3>
+  <div class="tpl">
+    <div class="bar"><span>句 3 · 并列 + 词汇自救</span><span class="tag">营养口感</span></div>
+<pre class="en"><span class="zh"># 营养丰富，口感更佳。</span>
+
+<span class="hl">It is nutritious,</span> and has a better taste.
+<span class="com"># nutritious = 富有营养的（从 nutrition 派生）</span>
+<span class="com"># 不会 nutritious → has a lot of nutrition</span>
+<span class="com"># 不会 nutrition → has a lot of material which is good for human health</span></pre>
+  </div>
+
+  <h3>第四句</h3>
+  <div class="tpl">
+    <div class="bar"><span>句 4 · 被动 + 伴随 + 贡献句型</span><span class="tag">收尾</span></div>
+<pre class="en"><span class="zh"># 目前这项技术已经在许多国家得到广泛应用，为全球粮食安全做出巨大贡献。</span>
+
+<span class="hl">Currently, this technique has been widely applied</span> in many countries,
+<span class="hl">contributing to</span> the global food security greatly.
+
+<span class="com"># 得到应用 → has been widely applied（被动 + 现完）</span>
+<span class="com"># 做出贡献 → contributing to（doing 伴随，主动）</span>
+<span class="com">#   也可用句型三：make significant contributions to</span></pre>
+  </div>
+</section>
+
+<!-- ============ 18 ============ -->
+<section id="s18">
+  <h2><span class="no">18</span>三条终极总结 + 考前清单</h2>
+  <p class="lede">视频结尾的三句话总结，再加一份考前核对清单。</p>
+
+  <div class="card accent">
+    <div class="k">三条终极总结</div>
+    <ol>
+      <li><strong>能写状语从句，就写状语从句。</strong></li>
+      <li><strong>写不了状语从句，写非谓语。</strong>（什么成分都能做）</li>
+      <li><strong>遇到「……的……」且「……」里有动词，用定语从句。</strong></li>
+    </ol>
+    <p>非谓语三种：<code>doing</code>（主动）/ <code>done</code>（被动）/ <code>to do</code>（目的，只有目的状从用这个）。</p>
+  </div>
+
+  <div class="card">
+    <div class="k">考前核对清单</div>
+    <ul class="checks">
+      <li>每个句号后画了横线，分句清楚</li>
+      <li>每句都<strong>定了主干</strong>，其余动词都降级了</li>
+      <li>降级去向明确：从句 / 非谓语 / 介词短语</li>
+      <li>逗号规范——没有 <code>I did X, and I did Y.</code></li>
+      <li><code>although</code> 从句不带 <code>but</code></li>
+      <li>介词后面<strong>只接名词</strong>，要接动词就加 -ing</li>
+      <li>非谓语只看主被动</li>
+      <li><code>with + 宾语 + 补足语</code> 结构正确</li>
+      <li><code>, which</code> 代表整句话时，动词用第三人称单数</li>
+      <li>插入语两边都加了逗号</li>
+      <li>时态：叙述过去时、客观事实现在时、already 现完</li>
+      <li>主谓一致：<code>a lot of</code> 看后面名词可数不可数</li>
+      <li>三大常考句型能默写</li>
+      <li>动词不会写就写 <code>develop</code></li>
+      <li>分句数尽量和原文一致</li>
+    </ul>
+  </div>
+
+  <div class="note green">
+    <span class="lbl green">UP 主最后的自白</span>
+    <p>独立主格和 with 复合结构这块讲得可能不够清楚，可以去 B 站搜其他老师补充。这节课主要是讲翻译，强行揉进了很多语法点，确实比较困难。</p>
+    <p>四级全部备考指南到此结束（六小时）。<strong>明年六级再见。</strong></p>
+  </div>
+</section>
+
+<footer>
+  <p>本讲义根据视频字幕（3165 条 / 约 128 分钟）整理，保留原片观点与示例，仅做结构化与去口语化处理。</p>
+  <p>建议：<a href="#s5">05</a> 义合/形合 → <a href="#s6">06</a> 三步走 → <a href="#s9">09–10</a> 非谓语与 with → <a href="#s17">17</a> 真题实战 → <a href="#s18">18</a> 考前清单。配合 <a href="#s4">04</a> 的 10 套真题 + AI 批改。</p>
+</footer>
+</div>
+
+<a class="fab" href="#top" title="回顶">↑</a>
+<div id="top" style="position:absolute;top:0"></div>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn');
+  var drawer=document.getElementById('drawer');
+  var bd=document.getElementById('backdrop');
+  var close=document.getElementById('closeBtn');
+  function open(){drawer.classList.add('open');bd.classList.add('open');document.body.style.overflow='hidden'}
+  function shut(){drawer.classList.remove('open');bd.classList.remove('open');document.body.style.overflow=''}
+  btn.addEventListener('click',open);
+  bd.addEventListener('click',shut);
+  close.addEventListener('click',shut);
+  drawer.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){setTimeout(shut,120)});
+  });
+})();
+</script>
+
+</body>
+</html>
