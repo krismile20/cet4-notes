@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大学英语四级（CET-4）翻译 · 主题词汇库（6 大类）</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --ink:#1f2933; --muted:#5b6b7b;
+    --accent:#2563eb; --accent-bg:#eef4ff; --accent-solid:#2563eb; --en:#0f766e; --line:#e4e9f0;
+    --th-bg:#f1f5fb; --chip:#fff4e5; --note-ink:#9a5b00;
+  }
+  body.dark{
+    --bg:#0e1620; --card:#19222e; --ink:#e6edf3; --muted:#93a1b3;
+    --accent:#8fa5ff; --accent-bg:#16273d; --accent-solid:#3d6fe3; --en:#5fd6c8; --line:#2a3543;
+    --th-bg:#16202d; --chip:#3a2f16; --note-ink:#f0c274;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
+  #progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:40}
+  .topbar{position:sticky;top:0;z-index:20;background:#0f2747;color:#fff;padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+  body.dark .topbar{background:#0a1019}
+  .topbar h1{font-size:18px;font-weight:600;letter-spacing:.5px}
+  .topbar .meta{font-size:13px;opacity:.72}
+  .theme-btn{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);
+    padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;transition:.15s}
+  .theme-btn:hover{background:rgba(255,255,255,.22)}
+  .layout{display:flex;align-items:flex-start;max-width:1180px;margin:0 auto;padding:22px}
+  nav{position:sticky;top:74px;width:212px;flex:0 0 212px;align-self:flex-start;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 10px;max-height:calc(100vh - 100px);overflow:auto}
+  nav h2{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:6px 8px 10px}
+  nav a{display:block;padding:7px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:13.5px;margin-bottom:2px;transition:.15s}
+  nav a:hover{background:var(--accent-bg);color:var(--accent)}
+  nav a.active{background:var(--accent-bg);color:var(--accent);font-weight:600}
+  nav a .num{color:var(--accent);font-weight:700;margin-right:7px}
+  main{flex:1;margin-left:22px;min-width:0}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:20px;scroll-margin-top:80px}
+  section h3{font-size:19px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  section h3 .badge{background:var(--accent-solid);color:#fff;font-size:13px;width:28px;height:28px;border-radius:8px;
+    display:inline-flex;align-items:center;justify-content:center;flex:0 0 28px}
+  section h3 .count{font-size:12.5px;color:var(--muted);font-weight:400}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  thead th{background:var(--th-bg);color:var(--muted);font-size:12.5px;font-weight:700;letter-spacing:1px;
+    text-align:left;padding:9px 14px;border-bottom:2px solid var(--line)}
+  tbody td{padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--accent-bg)}
+  td.zh{width:38%;font-weight:500}
+  td.en{color:var(--en);line-height:1.6}
+  .better{display:inline-block;margin-left:8px;background:var(--chip);color:var(--note-ink);
+    font-size:12px;font-weight:600;padding:1px 8px;border-radius:6px;line-height:1.6}
+  .tip{margin-top:14px;background:var(--chip);color:var(--note-ink);font-size:13px;padding:8px 12px;border-radius:8px}
+  .method{background:var(--accent-bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;
+    padding:12px 16px;margin-bottom:18px;font-size:14.5px;color:#1e3a5f}
+  body.dark .method{color:#bcd4f0}
+  .method b{color:var(--accent)}
+  .method ul{margin:7px 0 0;list-style:none}
+  .method li{font-size:14px;margin-top:5px;padding-left:15px;position:relative}
+  .method li:before{content:"▪";position:absolute;left:0;color:var(--accent)}
+  .ex{border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin-bottom:9px;background:#fcfdff;transition:.15s}
+  body.dark .ex{background:#141c27}
+  .ex:hover{border-color:var(--accent)}
+  .ex .zh{font-size:15.5px;font-weight:500}
+  .ex .en{font-size:15px;color:var(--en);margin-top:5px;padding-left:18px;position:relative;line-height:1.6}
+  .ex .en:before{content:"→";position:absolute;left:0;color:#94a3b8;font-weight:700}
+  .ex .note{display:block;background:var(--chip);color:var(--note-ink);font-size:12.5px;
+    padding:3px 10px;border-radius:6px;margin-top:8px;margin-left:18px;width:max-content;max-width:100%}
+  footer{max-width:1180px;margin:0 auto;padding:8px 28px 44px;color:var(--muted);font-size:13px;line-height:1.8}
+  @media(max-width:780px){.layout{flex-direction:column}nav{position:static;width:100%;margin-bottom:16px;max-height:none}main{margin-left:0}td.zh{width:42%}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="topbar">
+  <h1>大学英语四级（CET-4）翻译 · 主题词汇库（6 大类）</h1>
+  <span class="meta">历史文化 · 自然风光 · 饮食文化＆传统佳节 · 社会发展 · 科技教育 · 医疗健康 · 2026-10-14</span>
+  <button id="themeBtn" class="theme-btn">切换亮色</button>
+</div>
+
+<div class="layout">
+  <nav>
+    <h2>目录</h2>
+    <a href="#c1"><span class="num">1</span>历史文化类</a>
+    <a href="#c2"><span class="num">2</span>自然风光类</a>
+    <a href="#c3"><span class="num">3</span>饮食文化＆传统佳节</a>
+    <a href="#c4"><span class="num">4</span>社会发展</a>
+    <a href="#c5"><span class="num">5</span>科技教育</a>
+    <a href="#c6"><span class="num">6</span>医疗健康</a>
+  </nav>
+
+  <main>
+    <section id="c1">
+      <h3><span class="badge">1</span>历史文化类 <span class="count">44 词</span></h3>
+      <table>
+        <thead><tr><th>中文</th><th>英文表达</th></tr></thead>
+        <tbody>
+          <tr><td class="zh">源于</td><td class="en">originate from / in；derive from；stem from（均无被动）</td></tr>
+          <tr><td class="zh">社会地位</td><td class="en">social status</td></tr>
+          <tr><td class="zh">为了纪念……</td><td class="en">in memory of sb.（置于句首）；commemorate（动词）</td></tr>
+          <tr><td class="zh">以……命名</td><td class="en">be named after</td></tr>
+          <tr><td class="zh">构成</td><td class="en">constitute；make up；consist of（三者均用主动形式，无被动）</td></tr>
+          <tr><td class="zh">必不可少的</td><td class="en">essential；indispensable；fundamental</td></tr>
+          <tr><td class="zh">古代</td><td class="en">(in) ancient times</td></tr>
+          <tr><td class="zh">随着时间的推移</td><td class="en">as time goes by</td></tr>
+          <tr><td class="zh">悠久的历史</td><td class="en">with a long history；have a long history</td></tr>
+          <tr><td class="zh">深远的影响</td><td class="en">profound / significant influence / impact</td></tr>
+          <tr><td class="zh">大量</td><td class="en">a large number of；a multitude of；a great many</td></tr>
+          <tr><td class="zh">影响</td><td class="en">affect；impact；influence</td></tr>
+          <tr><td class="zh">……的象征</td><td class="en">the symbol of</td></tr>
+          <tr><td class="zh">追溯到</td><td class="en">date back to；trace back to</td></tr>
+          <tr><td class="zh">兴盛于</td><td class="en">prosper in（+ 时间 / 地点）<span class="better">更地道：flourish in</span></td></tr>
+          <tr><td class="zh">……的基石</td><td class="en">the cornerstone of</td></tr>
+          <tr><td class="zh">据记载</td><td class="en">according to historical records</td></tr>
+          <tr><td class="zh">文化交流</td><td class="en">cultural exchange</td></tr>
+          <tr><td class="zh">各地差异很大</td><td class="en">vary from region to region (place to place)</td></tr>
+          <tr><td class="zh">风俗习惯</td><td class="en">customs</td></tr>
+          <tr><td class="zh">传统节日</td><td class="en">traditional festivals</td></tr>
+          <tr><td class="zh">传统手工艺</td><td class="en">traditional handicrafts</td></tr>
+          <tr><td class="zh">民间艺术</td><td class="en">folk art</td></tr>
+          <tr><td class="zh">色彩丰富</td><td class="en">rich colors</td></tr>
+          <tr><td class="zh">风格独特</td><td class="en">unique style</td></tr>
+          <tr><td class="zh">享誉全球</td><td class="en">be very famous throughout the world<span class="better">更地道：enjoy a worldwide reputation / be renowned worldwide</span></td></tr>
+          <tr><td class="zh">笔墨纸砚</td><td class="en">writing brush, ink stick, paper, and inkstone</td></tr>
+          <tr><td class="zh">封建社会</td><td class="en">feudal society</td></tr>
+          <tr><td class="zh">皇帝</td><td class="en">emperor</td></tr>
+          <tr><td class="zh">宗教信仰</td><td class="en">religious beliefs</td></tr>
+          <tr><td class="zh">思想学派</td><td class="en">school of thought</td></tr>
+          <tr><td class="zh">思想核心</td><td class="en">the core of the ideology<span class="better">更地道：the core of the philosophy / thought</span></td></tr>
+          <tr><td class="zh">代表人物</td><td class="en">representative<span class="better">更地道：representative figure / leading figure</span></td></tr>
+          <tr><td class="zh">文学作品</td><td class="en">literary works</td></tr>
+          <tr><td class="zh">儒家思想</td><td class="en">Confucianism</td></tr>
+          <tr><td class="zh">儒家文化</td><td class="en">Confucian culture</td></tr>
+          <tr><td class="zh">道家</td><td class="en">Taoism</td></tr>
+          <tr><td class="zh">法家</td><td class="en">Legalism</td></tr>
+          <tr><td class="zh">传统美德</td><td class="en">traditional virtues</td></tr>
+          <tr><td class="zh">尊敬老人</td><td class="en">respect the elderly</td></tr>
+          <tr><td class="zh">尊老爱幼</td><td class="en">respect the old and love the young</td></tr>
+          <tr><td class="zh">礼物馈赠</td><td class="en">give presents<span class="better">更地道：gift-giving（名词）</span></td></tr>
+          <tr><td class="zh">脚踏实地</td><td class="en">be down-to-earth</td></tr>
+          <tr><td class="zh">道德</td><td class="en">morality</td></tr>
+        </tbody>
+      </table>
+
+    </section>
+    <section id="c2">
+      <h3><span class="badge">2</span>自然风光类 <span class="count">38 词</span></h3>
+      <table>
+        <thead><tr><th>中文</th><th>英文表达</th></tr></thead>
+        <tbody>
+          <tr><td class="zh">享有……的声誉</td><td class="en">enjoy a high / good reputation for...</td></tr>
+          <tr><td class="zh">蓬勃发展</td><td class="en">boom；flourish；thrive</td></tr>
+          <tr><td class="zh">被誉为</td><td class="en">be honored / crowned as<span class="better">更地道：be hailed as / be acclaimed as / be known as</span></td></tr>
+          <tr><td class="zh">占据重要地位</td><td class="en">occupy a significant place；play a significant role</td></tr>
+          <tr><td class="zh">与……密不可分</td><td class="en">be closely associated with；be intertwined with</td></tr>
+          <tr><td class="zh">增进友谊</td><td class="en">enhance friendship</td></tr>
+          <tr><td class="zh">位于、坐落于</td><td class="en">be located in / at</td></tr>
+          <tr><td class="zh">雄伟壮观</td><td class="en">magnificent / glorious / spectacular</td></tr>
+          <tr><td class="zh">海拔</td><td class="en">above sea level<span class="better">更地道：altitude / elevation</span></td></tr>
+          <tr><td class="zh">幅员辽阔</td><td class="en">have a vast territory</td></tr>
+          <tr><td class="zh">距离……公里</td><td class="en">kilometers away from...</td></tr>
+          <tr><td class="zh">水域面积</td><td class="en">water area<span class="better">更地道：water-covered area</span></td></tr>
+          <tr><td class="zh">发源于</td><td class="en">originate in</td></tr>
+          <tr><td class="zh">发祥地</td><td class="en">birthplace</td></tr>
+          <tr><td class="zh">诞生地</td><td class="en">cradle</td></tr>
+          <tr><td class="zh">流经</td><td class="en">run through<span class="better">更地道：flow through（河流）</span></td></tr>
+          <tr><td class="zh">注入</td><td class="en">empty into</td></tr>
+          <tr><td class="zh">古代文明</td><td class="en">ancient civilization</td></tr>
+          <tr><td class="zh">繁荣地区</td><td class="en">prosperous region</td></tr>
+          <tr><td class="zh">栖息地</td><td class="en">habitat</td></tr>
+          <tr><td class="zh">宏大</td><td class="en">splendid；grand</td></tr>
+          <tr><td class="zh">气候湿润／温暖／干燥／温和</td><td class="en">humid / warm / dry / mild climate</td></tr>
+          <tr><td class="zh">干旱</td><td class="en">drought</td></tr>
+          <tr><td class="zh">风景独特</td><td class="en">unique scenery</td></tr>
+          <tr><td class="zh">蜿蜒</td><td class="en">wind through</td></tr>
+          <tr><td class="zh">传奇神秘</td><td class="en">legendary and mysterious</td></tr>
+          <tr><td class="zh">稀有的</td><td class="en">scarce；rare</td></tr>
+          <tr><td class="zh">自然景色</td><td class="en">natural beauty / scenery</td></tr>
+          <tr><td class="zh">丝绸之路</td><td class="en">the Silk Road</td></tr>
+          <tr><td class="zh">文化遗迹</td><td class="en">cultural heritage<span class="better">更地道：cultural sites（heritage 更接近“文化遗产”）</span></td></tr>
+          <tr><td class="zh">文物古迹</td><td class="en">cultural relics and historic sites</td></tr>
+          <tr><td class="zh">保存最完好的</td><td class="en">best-preserved</td></tr>
+          <tr><td class="zh">濒危物种</td><td class="en">endangered species</td></tr>
+          <tr><td class="zh">景点</td><td class="en">scenic site<span class="better">更地道：scenic spot / attraction</span></td></tr>
+          <tr><td class="zh">旅游景点／目的地</td><td class="en">tourist spots；tourist destination</td></tr>
+          <tr><td class="zh">度假</td><td class="en">take a vacation</td></tr>
+          <tr><td class="zh">开阔视野</td><td class="en">broaden one's horizon</td></tr>
+          <tr><td class="zh">翻山越岭</td><td class="en">climb mountains and hills</td></tr>
+        </tbody>
+      </table>
+
+    </section>
+    <section id="c3">
+      <h3><span class="badge">3</span>饮食文化＆传统佳节 <span class="count">26 词</span></h3>
+      <table>
+        <thead><tr><th>中文</th><th>英文表达</th></tr></thead>
+        <tbody>
+          <tr><td class="zh">探亲访友</td><td class="en">pay a visit to relatives and friends</td></tr>
+          <tr><td class="zh">扫尘</td><td class="en">sweep the dust</td></tr>
+          <tr><td class="zh">买年货</td><td class="en">buy necessities for the Spring Festival</td></tr>
+          <tr><td class="zh">欢度</td><td class="en">celebrate... / the celebration of</td></tr>
+          <tr><td class="zh">驱除厄运</td><td class="en">get rid of bad luck</td></tr>
+          <tr><td class="zh">年夜饭</td><td class="en">the dinner on New Year's Eve<span class="better">更地道：New Year's Eve dinner</span></td></tr>
+          <tr><td class="zh">团圆饭</td><td class="en">family reunion dinner</td></tr>
+          <tr><td class="zh">团聚</td><td class="en">family reunion</td></tr>
+          <tr><td class="zh">红包</td><td class="en">red envelope</td></tr>
+          <tr><td class="zh">发红包</td><td class="en">hand out red envelopes</td></tr>
+          <tr><td class="zh">美好祝福</td><td class="en">good wishes；blessings</td></tr>
+          <tr><td class="zh">中国菜</td><td class="en">Chinese cuisine / food</td></tr>
+          <tr><td class="zh">饮食文化</td><td class="en">food culture</td></tr>
+          <tr><td class="zh">色香味</td><td class="en">color, aroma, and taste</td></tr>
+          <tr><td class="zh">菜系</td><td class="en">cooking style<span class="better">更地道：cuisine（八大菜系 eight major cuisines）</span></td></tr>
+          <tr><td class="zh">烹饪方法</td><td class="en">cooking technique</td></tr>
+          <tr><td class="zh">传统习俗</td><td class="en">traditional custom</td></tr>
+          <tr><td class="zh">象征</td><td class="en">symbolize / signify</td></tr>
+          <tr><td class="zh">团结</td><td class="en">unity</td></tr>
+          <tr><td class="zh">繁荣兴旺</td><td class="en">prosperity</td></tr>
+          <tr><td class="zh">仪式</td><td class="en">ritual</td></tr>
+          <tr><td class="zh">礼仪</td><td class="en">manners<span class="better">更地道：etiquette</span></td></tr>
+          <tr><td class="zh">优雅</td><td class="en">elegance / elegant</td></tr>
+          <tr><td class="zh">农历</td><td class="en">lunar calendar</td></tr>
+          <tr><td class="zh">灯谜</td><td class="en">lantern riddles</td></tr>
+          <tr><td class="zh">赏月</td><td class="en">enjoy the moon（注：欣赏景色一般用 enjoy）</td></tr>
+        </tbody>
+      </table>
+
+    </section>
+    <section id="c4">
+      <h3><span class="badge">4</span>社会发展 <span class="count">44 词</span></h3>
+      <table>
+        <thead><tr><th>中文</th><th>英文表达</th></tr></thead>
+        <tbody>
+          <tr><td class="zh">近年来</td><td class="en">in recent years；over the last few years</td></tr>
+          <tr><td class="zh">随着……的发展／提高</td><td class="en">with the development / improvement of...</td></tr>
+          <tr><td class="zh">出现</td><td class="en">emergence；rise；advent</td></tr>
+          <tr><td class="zh">显著地</td><td class="en">dramatically</td></tr>
+          <tr><td class="zh">极大地</td><td class="en">greatly；significantly；tremendously；dramatically</td></tr>
+          <tr><td class="zh">稳步（地）</td><td class="en">steadily</td></tr>
+          <tr><td class="zh">增长</td><td class="en">increase；rise；grow</td></tr>
+          <tr><td class="zh">调查显示</td><td class="en">according to surveys；surveys show that</td></tr>
+          <tr><td class="zh">商品</td><td class="en">commodity</td></tr>
+          <tr><td class="zh">付款</td><td class="en">make a payment；pay a bill</td></tr>
+          <tr><td class="zh">成本／费用／开支</td><td class="en">cost<span class="better">更地道：expense / expenditure（分别对应 费用 / 开支）</span></td></tr>
+          <tr><td class="zh">增长率</td><td class="en">growth rate</td></tr>
+          <tr><td class="zh">可持续发展</td><td class="en">sustainable development</td></tr>
+          <tr><td class="zh">最发达地区</td><td class="en">the most developed regions</td></tr>
+          <tr><td class="zh">面积和人口</td><td class="en">size and population</td></tr>
+          <tr><td class="zh">聚集区</td><td class="en">gathering area<span class="better">更地道：cluster / hub（视语境）</span></td></tr>
+          <tr><td class="zh">改革开放</td><td class="en">reform and opening up</td></tr>
+          <tr><td class="zh">主要经济区域</td><td class="en">leading regional economies</td></tr>
+          <tr><td class="zh">制造中心</td><td class="en">manufacturing centers</td></tr>
+          <tr><td class="zh">主要交通工具</td><td class="en">main means of transportation</td></tr>
+          <tr><td class="zh">具有……的优点</td><td class="en">have the advantages of...</td></tr>
+          <tr><td class="zh">高铁</td><td class="en">high-speed train</td></tr>
+          <tr><td class="zh">地铁站</td><td class="en">subway station</td></tr>
+          <tr><td class="zh">公共交通</td><td class="en">public transport</td></tr>
+          <tr><td class="zh">见证</td><td class="en">witness</td></tr>
+          <tr><td class="zh">超过</td><td class="en">exceed</td></tr>
+          <tr><td class="zh">费用</td><td class="en">expense</td></tr>
+          <tr><td class="zh">基础设施</td><td class="en">infrastructure</td></tr>
+          <tr><td class="zh">生活水平</td><td class="en">living standard<span class="better">更地道：standard of living</span></td></tr>
+          <tr><td class="zh">平均收入</td><td class="en">average income</td></tr>
+          <tr><td class="zh">购买力</td><td class="en">purchasing power</td></tr>
+          <tr><td class="zh">网购</td><td class="en">online shopping</td></tr>
+          <tr><td class="zh">电商巨头</td><td class="en">e-commerce giants</td></tr>
+          <tr><td class="zh">打折</td><td class="en">give / offer a discount</td></tr>
+          <tr><td class="zh">用现金／信用卡付款</td><td class="en">pay by cash / credit card<span class="better">更地道：pay in cash / by credit card</span></td></tr>
+          <tr><td class="zh">快递</td><td class="en">express delivery</td></tr>
+          <tr><td class="zh">消费方式</td><td class="en">pattern of consumption</td></tr>
+          <tr><td class="zh">消除贫困</td><td class="en">alleviate poverty / poverty alleviation</td></tr>
+          <tr><td class="zh">跟团游</td><td class="en">package tour</td></tr>
+          <tr><td class="zh">自由行</td><td class="en">independent travel</td></tr>
+          <tr><td class="zh">社会保障</td><td class="en">social security</td></tr>
+          <tr><td class="zh">就业</td><td class="en">employment</td></tr>
+          <tr><td class="zh">外出务工人员</td><td class="en">migrant workers</td></tr>
+          <tr><td class="zh">理财</td><td class="en">financial management；manage finance</td></tr>
+        </tbody>
+      </table>
+
+    </section>
+    <section id="c5">
+      <h3><span class="badge">5</span>科技教育 <span class="count">36 词</span></h3>
+      <table>
+        <thead><tr><th>中文</th><th>英文表达</th></tr></thead>
+        <tbody>
+          <tr><td class="zh">通信网络</td><td class="en">communication network</td></tr>
+          <tr><td class="zh">快速发展</td><td class="en">fast / rapid development / growth</td></tr>
+          <tr><td class="zh">阅读方式</td><td class="en">way of reading；reading habit</td></tr>
+          <tr><td class="zh">因此</td><td class="en">as a result；consequently</td></tr>
+          <tr><td class="zh">移动支付</td><td class="en">mobile payment</td></tr>
+          <tr><td class="zh">手机购物</td><td class="en">mobile shopping；shopping on mobile phones</td></tr>
+          <tr><td class="zh">拓宽</td><td class="en">broaden；expand；enlarge</td></tr>
+          <tr><td class="zh">考研热</td><td class="en">post-graduate mania<span class="better">更地道：the craze for the postgraduate entrance exam</span></td></tr>
+          <tr><td class="zh">竞争激烈</td><td class="en">fierce competition</td></tr>
+          <tr><td class="zh">考研</td><td class="en">take the entrance exams for postgraduate schools</td></tr>
+          <tr><td class="zh">必修课</td><td class="en">compulsory course</td></tr>
+          <tr><td class="zh">专业课</td><td class="en">specialized course</td></tr>
+          <tr><td class="zh">课外活动</td><td class="en">extracurricular activities</td></tr>
+          <tr><td class="zh">自我修养</td><td class="en">self-cultivation</td></tr>
+          <tr><td class="zh">改善设施</td><td class="en">improve facilities</td></tr>
+          <tr><td class="zh">专注于</td><td class="en">be devoted to<span class="better">更地道：focus on / concentrate on</span></td></tr>
+          <tr><td class="zh">不遗余力</td><td class="en">spare no effort / do one's best</td></tr>
+          <tr><td class="zh">因材施教</td><td class="en">teach students in accordance with their aptitude</td></tr>
+          <tr><td class="zh">过度依赖</td><td class="en">over-reliance / over-dependence on；rely too heavily on</td></tr>
+          <tr><td class="zh">人工智能</td><td class="en">artificial intelligence (AI)</td></tr>
+          <tr><td class="zh">人脸识别</td><td class="en">facial recognition</td></tr>
+          <tr><td class="zh">高等教育</td><td class="en">higher education</td></tr>
+          <tr><td class="zh">网络课程</td><td class="en">online course</td></tr>
+          <tr><td class="zh">在线学习</td><td class="en">online learning</td></tr>
+          <tr><td class="zh">教育公平</td><td class="en">education equality<span class="better">更地道：educational equity / equal access to education</span></td></tr>
+          <tr><td class="zh">智能手机用户</td><td class="en">smartphone user</td></tr>
+          <tr><td class="zh">电子设备</td><td class="en">electronic device</td></tr>
+          <tr><td class="zh">对……上瘾</td><td class="en">be addicted to...</td></tr>
+          <tr><td class="zh">虚拟世界</td><td class="en">virtual world</td></tr>
+          <tr><td class="zh">新兴的</td><td class="en">emerging</td></tr>
+          <tr><td class="zh">网民</td><td class="en">netizen</td></tr>
+          <tr><td class="zh">发展潜力</td><td class="en">development / growth potential；potential to develop / grow</td></tr>
+          <tr><td class="zh">创新</td><td class="en">innovation</td></tr>
+          <tr><td class="zh">即时通讯</td><td class="en">instant communication / instant messaging (IM)</td></tr>
+          <tr><td class="zh">兼职</td><td class="en">part-time jobs</td></tr>
+          <tr><td class="zh">积累经验</td><td class="en">accumulate experience</td></tr>
+        </tbody>
+      </table>
+      <div class="tip">原文中「驰创」一条疑为误植，未收入；如需补充请提供正确词条。</div>
+    </section>
+    <section id="c6">
+      <h3><span class="badge">6</span>医疗健康 <span class="count">17 词</span></h3>
+      <table>
+        <thead><tr><th>中文</th><th>英文表达</th></tr></thead>
+        <tbody>
+          <tr><td class="zh">导致</td><td class="en">cause；result in；lead to；give rise to</td></tr>
+          <tr><td class="zh">有助于</td><td class="en">help (to)</td></tr>
+          <tr><td class="zh">治愈</td><td class="en">cure / heal</td></tr>
+          <tr><td class="zh">交通拥堵</td><td class="en">traffic congestion</td></tr>
+          <tr><td class="zh">节能环保</td><td class="en">energy saving and environmental protection</td></tr>
+          <tr><td class="zh">社交</td><td class="en">socializing；social interactions</td></tr>
+          <tr><td class="zh">医保</td><td class="en">medical insurance</td></tr>
+          <tr><td class="zh">有氧运动</td><td class="en">aerobics</td></tr>
+          <tr><td class="zh">减肥</td><td class="en">lose weight</td></tr>
+          <tr><td class="zh">锻炼</td><td class="en">physical exercise</td></tr>
+          <tr><td class="zh">节食</td><td class="en">be on a diet</td></tr>
+          <tr><td class="zh">手术</td><td class="en">operation</td></tr>
+          <tr><td class="zh">体检</td><td class="en">physical examination / checkup</td></tr>
+          <tr><td class="zh">医护人员</td><td class="en">medical staff</td></tr>
+          <tr><td class="zh">症状</td><td class="en">symptom</td></tr>
+          <tr><td class="zh">草药</td><td class="en">herbal medicine</td></tr>
+          <tr><td class="zh">中医</td><td class="en">Traditional Chinese Medicine (TCM)</td></tr>
+        </tbody>
+      </table>
+
+    </section>
+  </main>
+</div>
+
+<footer>
+  共 6 大类 205 词。建议用法：遮住英文列，看中文默译，再对照检查；「更地道」chip 为更优表达，与原译对照记忆。可配合《CET4翻译词汇句型宝典.md》《CET4翻译19大结构精讲.html》一起使用。
+</footer>
+<script>
+  var btn=document.getElementById('themeBtn');
+  var bar=document.getElementById('progress');
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function apply(dark){
+    document.body.classList.toggle('dark',dark);
+    btn.textContent=dark?'切换亮色':'切换暗色';
+    try{localStorage.setItem('cet4-theme',dark?'dark':'light');}catch(e){}
+  }
+  try{apply(localStorage.getItem('cet4-theme')!=='light');}catch(e){apply(true);}
+  btn.addEventListener('click',function(){apply(!document.body.classList.contains('dark'));});
+  function onScroll(){
+    var h=document.documentElement;
+    var p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+    bar.style.width=(p>100?100:p)+'%';
+    var pos=window.scrollY+100,cur=secs[0];
+    for(var i=0;i<secs.length;i++){if(secs[i]&&secs[i].offsetTop<=pos)cur=secs[i];}
+    links.forEach(function(a){a.classList.toggle('active',cur&&a.getAttribute('href')==='#'+cur.id);});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+</script>
+</body>
+</html>

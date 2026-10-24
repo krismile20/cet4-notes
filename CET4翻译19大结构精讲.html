@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大学英语四级（CET-4）翻译 · 19 大句法结构精讲</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --ink:#1f2933; --muted:#5b6b7b;
+    --accent:#2563eb; --accent-bg:#eef4ff; --accent-solid:#2563eb; --en:#0f766e; --line:#e4e9f0;
+    --th-bg:#f1f5fb; --chip:#fff4e5; --note-ink:#9a5b00;
+  }
+  body.dark{
+    --bg:#0e1620; --card:#19222e; --ink:#e6edf3; --muted:#93a1b3;
+    --accent:#8fa5ff; --accent-bg:#16273d; --accent-solid:#3d6fe3; --en:#5fd6c8; --line:#2a3543;
+    --th-bg:#16202d; --chip:#3a2f16; --note-ink:#f0c274;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.75;font-size:16px}
+  #progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:40}
+  .topbar{position:sticky;top:0;z-index:20;background:#0f2747;color:#fff;padding:14px 28px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+  body.dark .topbar{background:#0a1019}
+  .topbar h1{font-size:18px;font-weight:600;letter-spacing:.5px}
+  .topbar .meta{font-size:13px;opacity:.72}
+  .theme-btn{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);
+    padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;transition:.15s}
+  .theme-btn:hover{background:rgba(255,255,255,.22)}
+  .layout{display:flex;align-items:flex-start;max-width:1180px;margin:0 auto;padding:22px}
+  nav{position:sticky;top:74px;width:212px;flex:0 0 212px;align-self:flex-start;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 10px;max-height:calc(100vh - 100px);overflow:auto}
+  nav h2{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin:6px 8px 10px}
+  nav a{display:block;padding:7px 10px;border-radius:8px;color:var(--ink);text-decoration:none;font-size:13.5px;margin-bottom:2px;transition:.15s}
+  nav a:hover{background:var(--accent-bg);color:var(--accent)}
+  nav a.active{background:var(--accent-bg);color:var(--accent);font-weight:600}
+  nav a .num{color:var(--accent);font-weight:700;margin-right:7px}
+  main{flex:1;margin-left:22px;min-width:0}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin-bottom:20px;scroll-margin-top:80px}
+  section h3{font-size:19px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  section h3 .badge{background:var(--accent-solid);color:#fff;font-size:13px;width:28px;height:28px;border-radius:8px;
+    display:inline-flex;align-items:center;justify-content:center;flex:0 0 28px}
+  section h3 .count{font-size:12.5px;color:var(--muted);font-weight:400}
+  table{width:100%;border-collapse:collapse;font-size:15px}
+  thead th{background:var(--th-bg);color:var(--muted);font-size:12.5px;font-weight:700;letter-spacing:1px;
+    text-align:left;padding:9px 14px;border-bottom:2px solid var(--line)}
+  tbody td{padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--accent-bg)}
+  td.zh{width:38%;font-weight:500}
+  td.en{color:var(--en);line-height:1.6}
+  .better{display:inline-block;margin-left:8px;background:var(--chip);color:var(--note-ink);
+    font-size:12px;font-weight:600;padding:1px 8px;border-radius:6px;line-height:1.6}
+  .tip{margin-top:14px;background:var(--chip);color:var(--note-ink);font-size:13px;padding:8px 12px;border-radius:8px}
+  .method{background:var(--accent-bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;
+    padding:12px 16px;margin-bottom:18px;font-size:14.5px;color:#1e3a5f}
+  body.dark .method{color:#bcd4f0}
+  .method b{color:var(--accent)}
+  .method ul{margin:7px 0 0;list-style:none}
+  .method li{font-size:14px;margin-top:5px;padding-left:15px;position:relative}
+  .method li:before{content:"▪";position:absolute;left:0;color:var(--accent)}
+  .ex{border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin-bottom:9px;background:#fcfdff;transition:.15s}
+  body.dark .ex{background:#141c27}
+  .ex:hover{border-color:var(--accent)}
+  .ex .zh{font-size:15.5px;font-weight:500}
+  .ex .en{font-size:15px;color:var(--en);margin-top:5px;padding-left:18px;position:relative;line-height:1.6}
+  .ex .en:before{content:"→";position:absolute;left:0;color:#94a3b8;font-weight:700}
+  .ex .note{display:block;background:var(--chip);color:var(--note-ink);font-size:12.5px;
+    padding:3px 10px;border-radius:6px;margin-top:8px;margin-left:18px;width:max-content;max-width:100%}
+  footer{max-width:1180px;margin:0 auto;padding:8px 28px 44px;color:var(--muted);font-size:13px;line-height:1.8}
+  @media(max-width:780px){.layout{flex-direction:column}nav{position:static;width:100%;margin-bottom:16px;max-height:none}main{margin-left:0}td.zh{width:42%}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="topbar">
+  <h1>大学英语四级（CET-4）翻译 · 19 大句法结构精讲</h1>
+  <span class="meta">每个结构 = 处理方法 + 例句中英对照 · 2026-10-14</span>
+  <button id="themeBtn" class="theme-btn">切换亮色</button>
+</div>
+
+<div class="layout">
+  <nav>
+    <h2>目录</h2>
+    <a href="#s1"><span class="num">1</span>“是”字结构</a>
+    <a href="#s2"><span class="num">2</span>“的”字结构</a>
+    <a href="#s3"><span class="num">3</span>“有”字结构</a>
+    <a href="#s4"><span class="num">4</span>“随着”结构</a>
+    <a href="#s5"><span class="num">5</span>“之一”结构</a>
+    <a href="#s6"><span class="num">6</span>句中无动词</a>
+    <a href="#s7"><span class="num">7</span>句中无主语</a>
+    <a href="#s8"><span class="num">8</span>长名词处理</a>
+    <a href="#s9"><span class="num">9</span>两大必考时态</a>
+    <a href="#s10"><span class="num">10</span>隐藏被动关系</a>
+    <a href="#s11"><span class="num">11</span>双动词处理</a>
+    <a href="#s12"><span class="num">12</span>定语从句</a>
+    <a href="#s13"><span class="num">13</span>语序原则</a>
+    <a href="#s14"><span class="num">14</span>三动词提后</a>
+    <a href="#s15"><span class="num">15</span>删减无效信息</a>
+    <a href="#s16"><span class="num">16</span>难词写对</a>
+    <a href="#s17"><span class="num">17</span>数字翻译</a>
+    <a href="#s18"><span class="num">18</span>时间朝代</a>
+    <a href="#s19"><span class="num">19</span>河流山脉</a>
+  </nav>
+
+  <main>
+    <section id="s1">
+      <h3><span class="badge">1</span>“是”字结构</h3>
+      <div class="method"><b>处理：</b>「是」= be (is/am/are/was/were) + 名词/形容词。多用于「S + be + 表语」。也可译为 serve as / represent / act as（当"是"表"作为/象征"时）。注意与第 5 节"之一"、第 2 节"的"配合。</div>
+      <div class="ex"><div class="zh">中国是文明古国，拥有悠久历史。</div><div class="en">China is an ancient civilization with a long history.</div></div>
+      <div class="ex"><div class="zh">爆竹（firecrackers）是中国传统文化中的重要元素之一。它在中国有悠久的历史。</div><div class="en">Firecrackers are one of the important elements in traditional Chinese culture. They have a long history in China.</div></div>
+      <div class="ex"><div class="zh">重庆是一座山城，备受游客喜爱。</div><div class="en">Chongqing is a mountain city, deeply loved by tourists.</div></div>
+      <div class="ex"><div class="zh">我是一名大学生，主修人文学科。</div><div class="en">I am a college student, majoring in humanities.</div></div>
+    </section>
+    <section id="s2">
+      <h3><span class="badge">2</span>“的”字结构</h3>
+      <div class="method"><b>处理：</b>「的」= 英语的 of 短语或前置定语，按类型转换：<ul><li>类型一（修饰语 + 的 + N）：译为 "N + of + 修饰语" 或前置形容词。</li><li>类型二（形容词 + 的 + N）：直接前置形容词。</li><li>类型三（动宾/被动 + 的 + N）：译为 <b>分词作定语</b>（loved / gained / received / criticized）或定语从句。</li><li>类型四（有着…的 + N）：译为 "N + with + 名词"。</li></ul></div>
+      <div class="ex"><div class="zh">中国文化的一个重要元素</div><div class="en">an important element of Chinese culture</div></div>
+      <div class="ex"><div class="zh">环保意识的增强</div><div class="en">the enhancement of environmental awareness</div></div>
+      <div class="ex"><div class="zh">爆竹的使用</div><div class="en">the use of firecrackers</div></div>
+      <div class="ex"><div class="zh">悠久的历史</div><div class="en">a long history</div></div>
+      <div class="ex"><div class="zh">灿烂美丽的文化</div><div class="en">a brilliant and beautiful culture</div></div>
+      <div class="ex"><div class="zh">高度发达的产业</div><div class="en">a highly developed industry</div></div>
+      <div class="ex"><div class="zh">受人们喜爱的小说人物</div><div class="en">a fictional character loved by people</div></div>
+      <div class="ex"><div class="zh">获得财富的小男孩</div><div class="en">the little boy who gained wealth</div></div>
+      <div class="ex"><div class="zh">收到礼物的小朋友</div><div class="en">the child who received a gift</div></div>
+      <div class="ex"><div class="zh">被父母批评的孩子</div><div class="en">the child criticized by his parents</div></div>
+      <div class="ex"><div class="zh">有着花园的房子</div><div class="en">a house with a garden</div></div>
+      <div class="ex"><div class="zh">对婚姻有着偏见的人们</div><div class="en">people with prejudice against marriage</div></div>
+    </section>
+    <section id="s3">
+      <h3><span class="badge">3</span>“有”字结构</h3>
+      <div class="method"><b>处理：</b>「有」三种译法：<ul><li>类型一（拥有）：have。</li><li>类型二（存在，无明确所属）：<b>There be</b> 句型。</li><li>类型三（伴随/附带，作补充说明）：<b>with + 名词</b> 短语。</li></ul></div>
+      <div class="ex"><div class="zh">中国有 14 亿人口。</div><div class="en">China has a population of 1.4 billion.</div></div>
+      <div class="ex"><div class="zh">唐代诗人有许多著作。</div><div class="en">Poets of the Tang Dynasty had many works.</div></div>
+      <div class="ex"><div class="zh">在美国，有高度发达的芯片技术。</div><div class="en">In the US, there is highly developed chip technology.</div></div>
+      <div class="ex"><div class="zh">2008 年有一场地震。</div><div class="en">In 2008, there was an earthquake.</div></div>
+      <div class="ex"><div class="zh">他是一名著名的主持人，有着很多粉丝。</div><div class="en">He is a famous host with many fans.</div></div>
+      <div class="ex"><div class="zh">中国十分重视环境保护，有许多相关的政策。</div><div class="en">China attaches great importance to environmental protection, with many related policies.</div></div>
+    </section>
+    <section id="s4">
+      <h3><span class="badge">4</span>“随着”结构</h3>
+      <div class="method"><b>处理：</b>「随着」= <b>With + 名词短语</b>（把动词名词化），或 <b>As + 从句</b>（保留动词）。<ul><li>类型一（随着 + 名词）：With + N。</li><li>类型二（随着 + 句子）：As + 从句。</li></ul></div>
+      <div class="ex"><div class="zh">随着环保意识的增强</div><div class="en">With the enhancement of environmental awareness</div></div>
+      <div class="ex"><div class="zh">随着人们兴趣的增加</div><div class="en">With the increase of people's interest</div></div>
+      <div class="ex"><div class="zh">随着收入的减少</div><div class="en">With the decrease of income</div></div>
+      <div class="ex"><div class="zh">随着人们对中国传统文化越来越感兴趣</div><div class="en">As people become increasingly interested in traditional Chinese culture</div></div>
+      <div class="ex"><div class="zh">随着当地政府开始重视人们的生活质量</div><div class="en">As the local government begins to value people's quality of life</div></div>
+    </section>
+    <section id="s5">
+      <h3><span class="badge">5</span>“之一”结构</h3>
+      <div class="method"><b>处理：</b>「…之一」= <b>one of + 复数名词</b>。注意 one of 后必须接复数，且前面动词用单数。</div>
+      <div class="ex"><div class="zh">重庆大学是众多高等院校之一。</div><div class="en">Chongqing University is one of the many institutions of higher education.</div></div>
+      <div class="ex"><div class="zh">山东是中国众多省份之一。</div><div class="en">Shandong is one of China's many provinces.</div></div>
+      <div class="ex"><div class="zh">国画是中国文化艺术种类之一。</div><div class="en">Traditional Chinese painting is one of the categories of Chinese culture and art.</div></div>
+      <div class="ex"><div class="zh">中国传统文化中的重要元素之一。</div><div class="en">one of the important elements in traditional Chinese culture.</div></div>
+    </section>
+    <section id="s6">
+      <h3><span class="badge">6</span>句中无动词处理方法</h3>
+      <div class="method"><b>处理：</b>中文"名词 + 形容词"可无动词，英文必须补 <b>be 动词</b>（is/are），或用 <b>with</b> 结构，或转化为 "has + 名词"。</div>
+      <div class="ex"><div class="zh">中国幅员辽阔，人口众多。</div><div class="en">China has a vast territory and a large population.</div><span class="note">或 China is vast in territory and large in population.</span></div>
+      <div class="ex"><div class="zh">海南雨水丰富，阳光充足，生物多样。</div><div class="en">Hainan is rich in rainfall, abundant in sunshine, and biodiverse.</div></div>
+      <div class="ex"><div class="zh">这部电影粉丝很多，口碑很好。</div><div class="en">This film has many fans and a good reputation.</div></div>
+    </section>
+    <section id="s7">
+      <h3><span class="badge">7</span>句中无主语的处理方法</h3>
+      <div class="method"><b>处理：</b>三选一——①补泛指主语 <b>people / we / one</b>；②改<b>被动语态</b>（最常用，尤其"建立/点燃"类）；③用 <b>There be / It is + 过去分词 + that</b>。</div>
+      <div class="ex"><div class="zh">人们认为，通过这么做，可以驱散厄运，带来好运吉祥。</div><div class="en">People believe that by doing so, bad luck can be dispelled and good fortune brought.</div></div>
+      <div class="ex"><div class="zh">战后改变了世界格局。</div><div class="en">The post-war period changed the world pattern.</div><span class="note">或 The world pattern was changed after the war.</span></div>
+      <div class="ex"><div class="zh">通过政府引导和社会参与，建立更多的养老机构。</div><div class="en">Through government guidance and social participation, more elderly care institutions should be established.</div></div>
+      <div class="ex"><div class="zh">灯笼内部点燃蜡烛。</div><div class="en">Candles are lit inside the lanterns.</div></div>
+    </section>
+    <section id="s8">
+      <h3><span class="badge">8</span>长名词的处理方法</h3>
+      <div class="method"><b>处理：</b>中文长名词串（N1N2N3…）最后一个是中心词，前面都是修饰。译为 <b>"中心词 + of + 修饰"</b> 或转化为 "adj + 中心词"；并列名词用 and 连接。</div>
+      <div class="ex"><div class="zh">农业生产活动</div><div class="en">agricultural production activities</div></div>
+      <div class="ex"><div class="zh">经济文化社会发展</div><div class="en">economic, cultural and social development</div></div>
+      <div class="ex"><div class="zh">社会实践活动</div><div class="en">social practice activities</div></div>
+      <div class="ex"><div class="zh">中国传统绘画历史十分悠久。</div><div class="en">The history of traditional Chinese painting is very long.</div><span class="note">或 Traditional Chinese painting has a very long history.</span></div>
+    </section>
+    <section id="s9">
+      <h3><span class="badge">9</span>两大必考时态</h3>
+      <div class="method"><b>处理：</b><ul><li><b>一般过去时</b>：有明确过去时间（唐代 / 1999 年 / 古代）→ 动词用过去式。</li><li><b>现在完成时 / 完成进行时</b>：含"一直 / 自…以来 / 过去 N 年"→ have/has done；被动完成用 have/has been done。</li></ul></div>
+      <div class="ex"><div class="zh">唐代，经济繁荣，人们生活幸福，进出口产业发达。</div><div class="en">In the Tang Dynasty, the economy was prosperous, people lived happily, and the import-export industry was developed.</div></div>
+      <div class="ex"><div class="zh">1999 年，世界经历了巨大变化。</div><div class="en">In 1999, the world experienced tremendous changes.</div></div>
+      <div class="ex"><div class="zh">在古代，人们崇尚尊师重道。</div><div class="en">In ancient times, people valued respecting teachers and honoring the way.</div></div>
+      <div class="ex"><div class="zh">他已经被说服去洗碗了。</div><div class="en">He has been persuaded to do the dishes.</div></div>
+      <div class="ex"><div class="zh">中国一直践行绿色发展的方针。</div><div class="en">China has always practiced the policy of green development.</div></div>
+      <div class="ex"><div class="zh">自 2000 年以来，中国驶入经济发展快车道。</div><div class="en">Since 2000, China has entered a fast lane of economic development.</div></div>
+      <div class="ex"><div class="zh">在过去 20 年里，他饱经沧桑，阅人无数，深谙人生之道。</div><div class="en">In the past 20 years, he has experienced many vicissitudes, met countless people, and deeply understood the way of life.</div></div>
+    </section>
+    <section id="s10">
+      <h3><span class="badge">10</span>隐藏的被动关系</h3>
+      <div class="method"><b>处理：</b>中文常用主动形式表达被动含义（"可采摘 / 种植 / 确定 / 制定"）。英文必须显化 <b>be + 过去分词</b>。</div>
+      <div class="ex"><div class="zh">铁观音一年四季均可采摘。</div><div class="en">Tieguanyin can be picked all year round.</div></div>
+      <div class="ex"><div class="zh">粮食一般在春天种植，秋天收获，冬天储存。</div><div class="en">Grain is generally planted in spring, harvested in autumn, and stored in winter.</div></div>
+      <div class="ex"><div class="zh">你的行程确定后，一定要告诉我。</div><div class="en">After your itinerary is confirmed, be sure to tell me.</div></div>
+      <div class="ex"><div class="zh">新规则制定后，大家一定要遵守。</div><div class="en">After the new rules are formulated, everyone must obey them.</div></div>
+    </section>
+    <section id="s11">
+      <h3><span class="badge">11</span>双动词如何处理</h3>
+      <div class="method"><b>处理：</b>一句两动词，常用：① <b>and</b> 连接两个并列谓语；② 第二个动词变 <b>分词</b>（V-ing 表伴随 / V-ed 表被动）；③ 转化为 "to do" 表目的。</div>
+      <div class="ex"><div class="zh">他飞越了大半个地球，去到了梦想中的地方。</div><div class="en">He flew across most of the globe and arrived at the place of his dreams.</div><span class="note">或 …to reach the place of his dreams.</span></div>
+      <div class="ex"><div class="zh">她接听了电话，变得十分沮丧。</div><div class="en">She answered the phone and became very depressed.</div></div>
+      <div class="ex"><div class="zh">熊猫是十分可爱的动物，深受世界各地的人们喜爱。</div><div class="en">Pandas are very lovely animals, deeply loved by people around the world.</div></div>
+      <div class="ex"><div class="zh">他们跟你建立了深厚的感情，不希望你离开。</div><div class="en">They have built deep affection with you and don't want you to leave.</div></div>
+    </section>
+    <section id="s12">
+      <h3><span class="badge">12</span>定语从句的使用</h3>
+      <div class="method"><b>处理：</b><ul><li>类型一（逗号隔开，修饰前面名词）：<b>非限制性定语从句</b>，用 which / who。</li><li>类型二（"的"后接宾语，从句缺宾语）：限制性定语从句 that / which（作宾语可省略）。</li><li>类型三（which 指代前面整句话）：<b>非限制性 which</b> 指代整个主句。</li></ul></div>
+      <div class="ex"><div class="zh">我喜欢这枚闪闪发光的戒指，它真的很漂亮。</div><div class="en">I like this sparkling ring, which is really beautiful.</div></div>
+      <div class="ex"><div class="zh">人总是不愿意遵守规则，规则最终也被人们打破。</div><div class="en">People are always unwilling to obey rules, which are eventually broken by people.</div></div>
+      <div class="ex"><div class="zh">中国有很多艺术家，他们十分有才华。</div><div class="en">China has many artists, who are very talented.</div></div>
+      <div class="ex"><div class="zh">中国有很多艺术家，他们中的大部分有才华。</div><div class="en">China has many artists, most of whom are talented.</div></div>
+      <div class="ex"><div class="zh">他从不吃他讨厌的食物。</div><div class="en">He never eats the food (that) he hates.</div></div>
+      <div class="ex"><div class="zh">Jacky 从来不听别人指出的缺点。</div><div class="en">Jacky never listens to the shortcomings (that) others point out.</div></div>
+      <div class="ex"><div class="zh">你应该多锻炼，这对你很重要。</div><div class="en">You should exercise more, which is very important to you.</div></div>
+      <div class="ex"><div class="zh">凡人多舛误，唯神能见宥，这是十分正确的。</div><div class="en">Mortals often err and only gods can forgive, which is very correct.</div></div>
+      <div class="ex"><div class="zh">中国坚持在保护环境中发展，在发展中保护环境，这获得了大多数国家的认可。</div><div class="en">China insists on developing while protecting the environment and protecting it while developing, which has been recognized by most countries.</div></div>
+    </section>
+    <section id="s13">
+      <h3><span class="badge">13</span>语序原则</h3>
+      <div class="method"><b>处理：</b>中文"状语 + 中心"常见，英文遵循 <b>主 + 谓 + 宾 +（地点/方式/时间放句尾）</b>。特别是"在…方面"→ "in…" 放句末或句首；"通过/根据"→ "through / based on" 放句首或句尾。</div>
+      <div class="ex"><div class="zh">中国古代的人们道德水平很高。</div><div class="en">People in ancient China had a high moral standard.</div></div>
+      <div class="ex"><div class="zh">张军在大数据方面表现十分优秀。</div><div class="en">Zhang Jun performs excellently in big data.</div></div>
+      <div class="ex"><div class="zh">它在众多中小型企业中不算突出。</div><div class="en">It is not outstanding among many small and medium-sized enterprises.</div></div>
+      <div class="ex"><div class="zh">在中国，很多人在互联网上当键盘侠。</div><div class="en">In China, many people act as keyboard warriors on the internet.</div></div>
+      <div class="ex"><div class="zh">你可以通过互联网获得很多信息。</div><div class="en">You can obtain a lot of information through the internet.</div></div>
+      <div class="ex"><div class="zh">科学家根据自然界的规律发明了很多科技。</div><div class="en">Scientists have invented a lot of technology based on the laws of nature.</div></div>
+    </section>
+    <section id="s14">
+      <h3><span class="badge">14</span>三大动词要提后</h3>
+      <div class="method"><b>处理：</b>「出现 / 发生 / 存在」这类"无主句"动词，英文要把真实主语<b>后置</b>，用 <b>There appeared / There occurred / There exist</b> 或把事件作主语放前面。</div>
+      <div class="ex"><div class="zh">宋代出现了火药爆竹。</div><div class="en">In the Song Dynasty, gunpowder firecrackers appeared.</div><span class="note">或 There appeared gunpowder firecrackers in the Song Dynasty.</span></div>
+      <div class="ex"><div class="zh">2030 年发生了断网停电。</div><div class="en">In 2030, a network outage and power failure occurred.</div><span class="note">或 There occurred…</span></div>
+      <div class="ex"><div class="zh">这片区域存在很多资源。</div><div class="en">There exist many resources in this area.</div><span class="note">或 Many resources exist in this area.</span></div>
+    </section>
+    <section id="s15">
+      <h3><span class="badge">15</span>如何对句子无效信息进行删减</h3>
+      <div class="method"><b>处理：</b>中文多四字格、同义反复（"彼此相互""彻底解决""息息相关"）。翻译只取<b>核心意思</b>，不逐字译；冗余合并或删去。</div>
+      <div class="ex"><div class="zh">中国的房价之所以一路飙升与购房观念息息相关。</div><div class="en">The soaring housing prices in China are closely related to the concept of home buying.</div></div>
+      <div class="ex"><div class="zh">一年四季的变化。</div><div class="en">The changes of the four seasons.</div><span class="note">或 seasonal changes</span></div>
+      <div class="ex"><div class="zh">南京长江大桥是中国设计、采用国产材料建造的铁路、公路两用桥。</div><div class="en">The Nanjing Yangtze River Bridge is a combined railway and highway bridge designed by China and built with domestic materials.</div></div>
+      <div class="ex"><div class="zh">我们要彻底解决缺水、营养不良的难题。</div><div class="en">We must thoroughly solve the problems of water shortage and malnutrition.</div></div>
+      <div class="ex"><div class="zh">我们要坚持"人民至上"的方针。</div><div class="en">We must adhere to the principle of "people first".</div></div>
+      <div class="ex"><div class="zh">它们彼此之间相互关联。</div><div class="en">They are interconnected.</div><span class="note">彼此相互 = 冗余</span></div>
+      <div class="ex"><div class="zh">推行家庭养老和社会养老相结合的模式。</div><div class="en">We should promote a model combining family and social elderly care.</div></div>
+    </section>
+    <section id="s16">
+      <h3><span class="badge">16</span>如何写对难度较高的单词或词组</h3>
+      <div class="method"><b>处理：</b>不会写难词就<b> paraphrase（释义/近义替换）</b>，或用简单词拆分：<ul><li>归属感 → sense of belonging</li><li>飞跃 → leap / great progress</li><li>总部 → headquarters</li><li>通道 → passage / corridor / channel</li><li>羊圈 → sheepfold（题目已给）</li></ul></div>
+      <div class="ex"><div class="zh">房子成为中国人有归属感的重要标志，并深入人心。</div><div class="en">Houses have become an important symbol of Chinese people's sense of belonging and are deeply rooted in their hearts.</div></div>
+      <div class="ex"><div class="zh">中国桥梁建设的一个飞跃。</div><div class="en">a leap in China's bridge construction.</div></div>
+      <div class="ex"><div class="zh">中央电视台总部设有一条穿过大楼的专用通道。</div><div class="en">The CCTV headquarters has a dedicated passage running through the building.</div></div>
+      <div class="ex"><div class="zh">夜间有狼钻进了羊圈（sheepfold）叼走了羊。</div><div class="en">At night, a wolf got into the sheepfold and took away the sheep.</div></div>
+    </section>
+    <section id="s17">
+      <h3><span class="badge">17</span>关于数字的翻译</h3>
+      <div class="method"><b>处理：</b>英文无"万/亿"直接对应词，需换算：<ul><li>万 = ten thousand（三万 = 30,000 = thirty thousand）</li><li>十万 = hundred thousand</li><li>百万 = million ｜ 千万 = ten million</li><li>亿 = hundred million（一亿 = 100,000,000）</li><li>分数：四分之三 = three fourths / three quarters；一半 = half</li></ul></div>
+      <div class="ex"><div class="zh">300 名游客</div><div class="en">300 tourists</div></div>
+      <div class="ex"><div class="zh">三千名游客</div><div class="en">3,000 tourists (three thousand)</div></div>
+      <div class="ex"><div class="zh">三万名游客</div><div class="en">30,000 tourists (thirty thousand)</div></div>
+      <div class="ex"><div class="zh">三十万名游客</div><div class="en">300,000 tourists (three hundred thousand)</div></div>
+      <div class="ex"><div class="zh">三十三万名游客</div><div class="en">330,000 tourists (three hundred and thirty thousand)</div></div>
+      <div class="ex"><div class="zh">两百万名游客</div><div class="en">2,000,000 tourists (two million)</div></div>
+      <div class="ex"><div class="zh">两千万名游客</div><div class="en">20,000,000 tourists (twenty million)</div></div>
+      <div class="ex"><div class="zh">两千三百万名游客</div><div class="en">23,000,000 tourists (twenty-three million)</div></div>
+      <div class="ex"><div class="zh">1 亿游客</div><div class="en">100,000,000 tourists (one hundred million)</div></div>
+      <div class="ex"><div class="zh">55 亿游客</div><div class="en">5,500,000,000 tourists (five billion five hundred million)</div></div>
+      <div class="ex"><div class="zh">你需要抽出你四分之三的时间。</div><div class="en">You need to spare three fourths of your time.</div></div>
+      <div class="ex"><div class="zh">给我一半的钱。</div><div class="en">Give me half of the money.</div></div>
+    </section>
+    <section id="s18">
+      <h3><span class="badge">18</span>关于各种时间朝代的翻译</h3>
+      <div class="method"><b>处理：</b><ul><li>朝代：the + X + Dynasty（首字母大写）。</li><li>时期：the + X + Period。</li><li>公元前：3000 BC（或 B.C.E.）｜ 公元：AD / CE（通常直接写年份）。</li><li>节日：the + 节日名（首字母大写）。</li></ul></div>
+      <div class="ex"><div class="zh">唐朝</div><div class="en">the Tang Dynasty</div></div>
+      <div class="ex"><div class="zh">宋朝</div><div class="en">the Song Dynasty</div></div>
+      <div class="ex"><div class="zh">元朝</div><div class="en">the Yuan Dynasty</div></div>
+      <div class="ex"><div class="zh">唐宋时期</div><div class="en">the Tang and Song dynasties / the Tang-Song period</div></div>
+      <div class="ex"><div class="zh">春秋时期</div><div class="en">the Spring and Autumn Period</div></div>
+      <div class="ex"><div class="zh">公元前 3000 年</div><div class="en">3000 BC</div></div>
+      <div class="ex"><div class="zh">公元 2009 年</div><div class="en">2009 AD</div><span class="note">通常直接写 2009</span></div>
+      <div class="ex"><div class="zh">春节</div><div class="en">the Spring Festival</div></div>
+      <div class="ex"><div class="zh">元宵节</div><div class="en">the Lantern Festival</div></div>
+      <div class="ex"><div class="zh">2010 年</div><div class="en">the year 2010 / in 2010</div></div>
+    </section>
+    <section id="s19">
+      <h3><span class="badge">19</span>关于河流山脉的翻译</h3>
+      <div class="method"><b>处理：</b><ul><li>江河：the + X + River（长江/黄河需加 the；长江也可写 the Changjiang River）。</li><li>山：Mount + X（单座）；山脉用 Mountains。</li><li>湖：X + Lake（太湖 Taihu Lake）。</li><li>海/湾：the + X + Sea / Bay（渤海 the Bohai Sea）。</li></ul></div>
+      <div class="ex"><div class="zh">长江</div><div class="en">the Yangtze River</div><span class="note">或 the Changjiang River</span></div>
+      <div class="ex"><div class="zh">黄河</div><div class="en">the Yellow River</div></div>
+      <div class="ex"><div class="zh">珠江</div><div class="en">the Pearl River</div></div>
+      <div class="ex"><div class="zh">黄山</div><div class="en">Mount Huang</div><span class="note">或 Huangshan Mountain</span></div>
+      <div class="ex"><div class="zh">太湖</div><div class="en">Taihu Lake</div></div>
+      <div class="ex"><div class="zh">渤海</div><div class="en">the Bohai Sea</div></div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  建议用法：每个结构先记"处理方法"，再把例句英文背熟、反向默写成中文，效果最佳。配合前面《CET4翻译词汇句型宝典.md》一起用。
+</footer>
+<script>
+  var btn=document.getElementById('themeBtn');
+  var bar=document.getElementById('progress');
+  var links=[].slice.call(document.querySelectorAll('nav a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  function apply(dark){
+    document.body.classList.toggle('dark',dark);
+    btn.textContent=dark?'切换亮色':'切换暗色';
+    try{localStorage.setItem('cet4-theme',dark?'dark':'light');}catch(e){}
+  }
+  try{apply(localStorage.getItem('cet4-theme')!=='light');}catch(e){apply(true);}
+  btn.addEventListener('click',function(){apply(!document.body.classList.contains('dark'));});
+  function onScroll(){
+    var h=document.documentElement;
+    var p=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+    bar.style.width=(p>100?100:p)+'%';
+    var pos=window.scrollY+100,cur=secs[0];
+    for(var i=0;i<secs.length;i++){if(secs[i]&&secs[i].offsetTop<=pos)cur=secs[i];}
+    links.forEach(function(a){a.classList.toggle('active',cur&&a.getAttribute('href')==='#'+cur.id);});
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+</script>
+</body>
+</html>

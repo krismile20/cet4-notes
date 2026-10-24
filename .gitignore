@@ -1,3 +1,15 @@
 .edgeone/
 *.log
 .DS_Store
+
+# Python（build_html.py / anki_build）
+__pycache__/
+*.pyc
+
+# 非笔记文件（不随仓库分发）
+.workbuddy/
+017489_嘉实信息产业股票发起式C_基金档案.html
+cachyos-mindmap-tools.html
+open-source-modern-mindmap.html
+minder-themes.xml
+_check.js
