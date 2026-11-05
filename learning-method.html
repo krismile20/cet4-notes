@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>这可能是全网最好的学习方法 · 视频讲义 — 兴趣 · 时间 · 本质 · 地图 · 慢学</title>
+<style>
+  :root{
+    --bg:#f7f5f0; --panel:#fffdf8; --ink:#1f2329; --ink2:#4d5665; --ink3:#636b78;
+    --line:#e6e0d4; --line2:#f0ebe1;
+    --accent:#9a4a1c; --accent2:#b85826; --accent-bg:#f7ece3;
+    --blue:#274e7d; --blue-bg:#eaf0f7;
+    --green:#1c6e3d; --green-bg:#e7f1ea;
+    --warn:#a4351f; --warn-bg:#f7e6e0;
+    --purple:#5c4383; --purple-bg:#f1ecf7;
+    --code-bg:#23262e; --code-ink:#e8eaef;
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#14161b; --panel:#1c1f26; --ink:#e7e9ee; --ink2:#aab1bd; --ink3:#848c9a;
+      --line:#2e333d; --line2:#252932;
+      --accent:#e0904f; --accent2:#f0a060; --accent-bg:#2e2218;
+      --blue:#7aa5dc; --blue-bg:#1b2434;
+      --green:#57c47f; --green-bg:#15281f;
+      --warn:#e0904f; --warn-bg:#2e2218;
+      --purple:#b195d9; --purple-bg:#251f31;
+      --code-bg:#0f1115; --code-ink:#e8eaef;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:86px}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+    font-size:16.5px;line-height:1.85;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+  header.hero{padding:64px 0 34px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:clamp(27px,4.4vw,44px);line-height:1.28;margin:.42em 0 .3em;letter-spacing:-.015em;font-weight:800}
+  .subtitle{font-size:19px;color:var(--ink2);max-width:44em;margin:0}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:26px}
+  .chip{font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink2)}
+  .chip b{color:var(--ink);font-weight:600}
+
+  nav.toc{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 22px;margin:28px 0 40px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  nav.toc .toc-title{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:10px}
+  nav.toc ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:2px 18px}
+  nav.toc a{display:block;color:var(--ink2);text-decoration:none;font-size:14.5px;padding:5px 0;border-bottom:1px dashed transparent}
+  nav.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+  nav.toc a span.n{color:var(--accent);font-weight:700;margin-right:7px;font-variant-numeric:tabular-nums}
+
+  section{margin:0 0 54px}
+  h2{font-size:25px;line-height:1.3;margin:0 0 6px;letter-spacing:-.01em;font-weight:800;
+    padding-bottom:12px;border-bottom:2px solid var(--accent);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  h2 .no{font-size:15px;color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+  h2 .ts{font-size:13px;font-weight:600;color:var(--ink3);margin-left:auto;font-variant-numeric:tabular-nums}
+  .lede{color:var(--ink2);font-size:16px;margin:14px 0 22px;max-width:56em}
+  h3{font-size:19px;margin:30px 0 10px;font-weight:750;letter-spacing:-.005em}
+  h4{font-size:16px;margin:22px 0 8px;font-weight:750;color:var(--accent2)}
+  p{margin:10px 0}
+  ul,ol{margin:10px 0;padding-left:1.35em}
+  li{margin:5px 0}
+  li>ul,li>ol{margin:5px 0}
+  strong{font-weight:700}
+  em{font-style:normal;color:var(--accent2);font-weight:650}
+  code{font-family:"JetBrains Mono","SF Mono",Consolas,"Noto Sans Mono",monospace;font-size:.88em;
+    background:var(--line2);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin:18px 0}
+  .grid{display:grid;gap:16px}
+  .grid.c2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+  .grid.c3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card .k{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:6px}
+  .card .big{font-size:28px;font-weight:800;line-height:1.25;letter-spacing:-.02em;margin:2px 0}
+  .card .big small{font-size:15px;font-weight:600;color:var(--ink2);letter-spacing:0}
+  .card p{margin:8px 0 0;font-size:14.5px;color:var(--ink2)}
+  .card ul{margin:8px 0 0;font-size:14.5px;color:var(--ink2)}
+  .card.accent{border-color:var(--accent);background:var(--accent-bg)}
+  .card.blue{border-color:var(--blue);background:var(--blue-bg)}
+  .card.purple{border-color:var(--purple);background:var(--purple-bg)}
+  .card.green{border-color:var(--green);background:var(--green-bg)}
+  .card.warn{border-color:var(--warn);background:var(--warn-bg)}
+
+  .note{border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 10px 10px 0;padding:14px 18px;margin:18px 0}
+  .note.warn{border-left-color:var(--warn);background:var(--warn-bg)}
+  .note.blue{border-left-color:var(--blue);background:var(--blue-bg)}
+  .note.green{border-left-color:var(--green);background:var(--green-bg)}
+  .note .lbl{font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px;color:var(--accent)}
+  .note.warn .lbl{color:var(--warn)} .note.blue .lbl{color:var(--blue)} .note.green .lbl{color:var(--green)}
+  .note p{margin:4px 0 0} .note p+p{margin-top:8px}
+
+  .tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .tbl th{background:var(--line2);text-align:left;padding:11px 14px;font-weight:700;font-size:13.5px;
+    letter-spacing:.04em;color:var(--ink);border-bottom:1px solid var(--line)}
+  .tbl td{padding:11px 14px;border-bottom:1px solid var(--line2);vertical-align:top;color:var(--ink2)}
+  .tbl tr:last-child td{border-bottom:none}
+  .tbl td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+  .tbl.wrap1 td:first-child{white-space:normal}
+  .tbl tr:hover td{background:var(--line2)}
+
+  .steps{counter-reset:s;margin:18px 0}
+  .step{position:relative;padding:0 0 20px 54px}
+  .step:last-child{padding-bottom:0}
+  .step:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;
+    width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
+  .step:after{content:"";position:absolute;left:18.5px;top:42px;bottom:2px;width:2px;background:var(--line)}
+  .step:last-child:after{display:none}
+  .step h4{margin:2px 0 6px;color:var(--accent2)}
+  .step p{margin:6px 0;font-size:15.5px}
+
+  .x{color:var(--warn);font-weight:700}
+  .ok{color:var(--green);font-weight:700}
+  .checks{list-style:none;padding:0;margin:14px 0}
+  .checks li{position:relative;padding-left:30px;margin:9px 0}
+  .checks li:before{content:"✓";position:absolute;left:0;top:0;color:var(--green);font-weight:800}
+
+  /* 引语 */
+  .quote{margin:22px 0;padding:18px 24px;border-left:4px solid var(--accent);background:var(--panel);
+    border-radius:0 12px 12px 0;font-size:20px;line-height:1.6;font-weight:700;letter-spacing:-.01em}
+  .quote small{display:block;font-size:13.5px;font-weight:600;color:var(--ink3);margin-top:6px;letter-spacing:0;font-variant-numeric:tabular-nums}
+
+  /* 地图示意 */
+  .map{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin:20px 0;text-align:center}
+  .map svg{max-width:100%;height:auto}
+  .map .cap{font-size:13.5px;color:var(--ink3);margin-top:6px}
+
+  /* 时间预算条 */
+  .budget{display:flex;height:38px;border-radius:10px;overflow:hidden;margin:12px 0 6px;border:1px solid var(--line)}
+  .budget div{display:flex;align-items:center;justify-content:center;font-size:13.5px;font-weight:700;color:#fff;white-space:nowrap}
+  .budget .a{flex:3;background:var(--accent)} .budget .b{flex:7;background:var(--blue)}
+
+  footer{border-top:1px solid var(--line);margin-top:60px;padding:28px 0 54px;color:var(--ink3);font-size:14px}
+  footer a{color:var(--accent);text-decoration:none}
+  .top{position:fixed;right:20px;bottom:22px;width:42px;height:42px;border-radius:50%;background:var(--accent);
+    color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;font-weight:700;
+    box-shadow:0 6px 18px rgba(0,0,0,.22);opacity:.9}
+  .top:hover{opacity:1}
+  @media(max-width:640px){
+    body{font-size:16px}
+    .wrap{padding:0 16px}
+    header.hero{padding:44px 0 26px}
+    h2{font-size:22px}
+    h2 .ts{margin-left:0;width:100%}
+    .tbl{font-size:14px}
+    .tbl td,.tbl th{padding:9px 10px}
+    .tbl td:first-child{white-space:normal}
+  }
+  @media print{
+    .top,nav.toc{display:none}
+    body{background:#fff;font-size:12px}
+    section{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Learning Method · Video Study Notes</div>
+    <h1>这可能是全网最好的学习方法<br>兴趣 · 时间 · 本质 · 地图 · 慢学</h1>
+    <p class="subtitle">一个完整的「学什么、怎么学」框架：先讲清学习前该知道的三件事（兴趣从哪来、一天怎么安排、慢为什么反而快），再用「学习 = 从 A 点走到 B 点」的地图模型看穿学习的本质，最后落到一套可操作的方法——创造者心态、少听课多思考、抓重点、勤复习。</p>
+    <div class="meta">
+      <span class="chip"><b>来源</b> B 站视频 ·「这可能是全网最好的学习方法」</span>
+      <span class="chip"><b>时长</b> 约 62 分钟 / 1400 条字幕</span>
+      <span class="chip"><b>适用</b> 学生、考研党、自学党、想提升学习效率的成年人</span>
+      <span class="chip"><b>结构</b> 要点 → 学习前 → 本质 → 准备 → 学习中 → 学习后</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <div class="toc-title">目录 Contents</div>
+  <ol>
+    <li><a href="#s0"><span class="n">00</span>一页速览：整个方法论</a></li>
+    <li><a href="#s1"><span class="n">01</span>开场三要点</a></li>
+    <li><a href="#s2"><span class="n">02</span>兴趣：理解的深度 × 无聊的积累</a></li>
+    <li><a href="#s3"><span class="n">03</span>时间：一天里的三种脑</a></li>
+    <li><a href="#s4"><span class="n">04</span>慢学：为什么越追求快越慢</a></li>
+    <li><a href="#s5"><span class="n">05</span>基于时间，而非目标</a></li>
+    <li><a href="#s6"><span class="n">06</span>学习的本质：理论 + 应用</a></li>
+    <li><a href="#s7"><span class="n">07</span>地图模型：掌握与精通</a></li>
+    <li><a href="#s8"><span class="n">08</span>学什么：需要，而非喜欢</a></li>
+    <li><a href="#s9"><span class="n">09</span>准备：创造者心态</a></li>
+    <li><a href="#s10"><span class="n">10</span>准备：资料与听课</a></li>
+    <li><a href="#s11"><span class="n">11</span>学习中：构建学习 &amp; 费曼</a></li>
+    <li><a href="#s12"><span class="n">12</span>三大难点与解法</a></li>
+    <li><a href="#s13"><span class="n">13</span>学习后：复习与记忆</a></li>
+    <li><a href="#s14"><span class="n">14</span>三个细节：预习 · 重点 · 复习</a></li>
+    <li><a href="#s15"><span class="n">15</span>总结与行动清单</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 00 ============ -->
+<section id="s0">
+  <h2><span class="no">00</span>一页速览：整个方法论</h2>
+  <p class="lede">如果只看一页，就看这一页。整条逻辑是：<strong>用需要代替喜欢</strong> → <strong>用时间代替目标</strong> → <strong>吃透原理而不是背细节</strong> → <strong>抓主干、勤复习</strong>。</p>
+
+  <div class="grid c2">
+    <div class="card accent">
+      <div class="k">法则一</div>
+      <div class="big">学慢一点</div>
+      <p>追求快会带来压力和焦虑，压力占走注意力；差一点就跟不上，然后彻底摆烂。允许慢，没有完美主义陷阱，反而更容易持续、更快学会。</p>
+    </div>
+    <div class="card green">
+      <div class="k">法则二</div>
+      <div class="big">没有无聊，就没有兴趣</div>
+      <p>兴趣不是天生的。它来自两处：理解得足够深、足够透；以及在无聊中熬过足够久之后，终于遇到「对味」的东西。沙漠里的水最甜。</p>
+    </div>
+    <div class="card blue">
+      <div class="k">法则三</div>
+      <div class="big">基于时间，而非目标</div>
+      <p>目标是一张地图，看地图到不了目的地。用「今天下午 2 小时学 X」替代「今天必须搞定 X」，压力没了，心才安定。</p>
+    </div>
+    <div class="card purple">
+      <div class="k">法则四</div>
+      <div class="big">知识只是工具</div>
+      <p>知识、老师、权威都不是「在你头上」的存在，而是「在你下面」、可以随取随用的工具。用创造者的心态去学，别跪着学。</p>
+    </div>
+  </div>
+
+  <div class="quote">学习只有两件事：一是<em>理解理论</em>——多角度、多实践地去理解定义；二是<em>应用理论</em>——在有限场景里反复练。「学得快」是一个想法，「学」才是行动，两者是两回事。
+    <small>— 大意来自视频 00:16 – 01:50 / 15:00</small>
+  </div>
+
+  <h3>学习流程一览</h3>
+  <table class="tbl">
+    <thead><tr><th>阶段</th><th>核心问题</th><th>关键动作</th></tr></thead>
+    <tbody>
+      <tr><td>学习前</td><td>兴趣从哪来？什么时间学？学什么？</td><td>靠理解与「熬过无聊」养兴趣；按生物钟分配任务；只学<strong>需要</strong>的，而不是喜欢/讨厌的</td></tr>
+      <tr><td>准备</td><td>用什么心态？看什么资料？</td><td>创造者心态 + 动态选材；视频约占 30%，70% 时间自己思考</td></tr>
+      <tr><td>学习中</td><td>怎么走完 A → B？</td><td>构建学习 / 费曼法搭主线；抽象就具体化，复杂就拆分，量大就复习</td></tr>
+      <tr><td>学习后</td><td>怎么记得住？</td><td>默写大纲、在实践中复习、按艾宾浩斯定期回顾</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <span class="lbl">怎么用这份讲义</span>
+    <p>想快速上手，直接跳到 <a href="#s15">15 节行动清单</a>。想理解「为什么」，按顺序读 01–07 节的理念部分，它们解释了后面所有操作背后的逻辑。</p>
+  </div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section id="s1">
+  <h2><span class="no">01</span>开场三要点<span class="ts">00:23 – 01:42</span></h2>
+  <p class="lede">视频开头先定调：这个学习法<strong>不追求快</strong>，而追求<strong>理解</strong>。两个看似矛盾的点，后面都有解释。</p>
+
+  <div class="grid c3">
+    <div class="card warn">
+      <div class="k">要点一 · 不要追求快</div>
+      <p>「想学得快」会让你焦虑、痛苦。这个念头并不能让你的行动变快——<em>因为想法和行动是两回事</em>。</p>
+    </div>
+    <div class="card blue">
+      <div class="k">要点二 · 追求理解</div>
+      <p><em>理解的深度决定兴趣的深度</em>。真正理解之后，你会清楚哪些重要、哪些是干扰性的细枝末节——于是既学得开心，也学得更快。</p>
+    </div>
+    <div class="card green">
+      <div class="k">要点三 · 排除干扰</div>
+      <p>理解帮你筛掉噪音，把有限的时间用在主线上。这是「理解 → 快」的完整链条。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section id="s2">
+  <h2><span class="no">02</span>兴趣：理解的深度 × 无聊的积累<span class="ts">01:53 – 06:30</span></h2>
+  <p class="lede">「为什么别人对学习有兴趣，我却没有？」视频从浅到深给了两个角度。</p>
+
+  <div class="steps">
+    <div class="step">
+      <h4>浅层：你擅长，所以你喜欢</h4>
+      <p>你喜欢跑步，是因为你跑得比别人好；你喜欢数学，是因为数学特别好；你喜欢英语，是因为英语特别好。</p>
+      <p>→ 你对一个学科<strong>足够理解、足够精通</strong>，你自然就有兴趣。</p>
+    </div>
+    <div class="step">
+      <h4>深层：兴趣不是凭空产生的</h4>
+      <p><em>你在某件事上的兴趣，取决于你在这件事上忍受了多少无聊。</em></p>
+      <p><strong>没有无聊，就没有兴趣。</strong>兴趣是熬过无聊之后才长出来的。</p>
+    </div>
+  </div>
+
+  <div class="quote">没有无聊，就没有兴趣。<small>— 03:31</small></div>
+
+  <h3>两个比喻</h3>
+  <div class="grid c2">
+    <div class="card">
+      <div class="k">沙漠中的一瓶水</div>
+      <p>在沙漠里渴极了，找到一瓶水，你觉得它是世上最好喝的饮料。回到家里喝同一瓶水，却觉得「一点都不甜」——还是冰饮料好。</p>
+      <p>水没变，<strong>变的是你的身体对水的需求</strong>。你觉得好喝，是因为你先前忍受了渴的痛苦。</p>
+    </div>
+    <div class="card">
+      <div class="k">最好的老师</div>
+      <p>如果一开始就跟顶尖老师学，没有比较，你不会觉得他讲得好，也不会有兴趣。</p>
+      <p>只有当你在学校听一位老师讲，怎么也听不懂，忍了非常多无聊和不理解之后，再遇到一个讲得清楚明白的老师，你才会觉得「这是最好的老师」。</p>
+    </div>
+  </div>
+
+  <div class="note green">
+    <span class="lbl">实践含义</span>
+    <p>1）遇到「无聊期」不要慌，它正是兴趣的原料；2）学不下去时，先想办法<strong>学得更深</strong>——理解透了，兴趣会自己长出来；3）「把不喜欢的东西变成喜欢的东西」是一种能力（见 <a href="#s8">08 节</a>）。</p>
+  </div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section id="s3">
+  <h2><span class="no">03</span>时间：一天里的三种脑<span class="ts">06:33 – 11:01</span></h2>
+  <p class="lede">「人是有周期的。」视频讲者在白天会困，晚上 11–12 点也会困。与其问「什么时间学习好」，不如学会<strong>跟着身体状态安排任务</strong>。</p>
+
+  <table class="tbl">
+    <thead><tr><th>时段</th><th>脑的状态</th><th>最适合做什么</th><th>例子</th></tr></thead>
+    <tbody>
+      <tr><td>凌晨 4–6 点</td><td>接纳能力最好<br><small style="color:var(--ink3);font-weight:400">（原文 03–06 点）</small></td><td>学<strong>新东西</strong></td><td>接触全新知识。此时外界干扰少，大脑里还没装下「今天要做的事」，接纳能力最好</td></tr>
+      <tr><td>上午 8–11 点</td><td><em>逻辑脑</em></td><td>有任务就执行；循规蹈矩、流程化</td><td>学生：刷题、听老师讲、照着练；上班：把今天派来的任务处理掉</td></tr>
+      <tr><td>下午</td><td><em>发散脑</em></td><td>应用；攻克难题；发散类的事</td><td>应用上午学到的东西；思考难题（注意力散、视角多，反而容易有突破口）；写作/语言这类需要发散的活。不睡午觉时这个特征更明显</td></tr>
+      <tr><td>晚上</td><td>精力耗尽、困</td><td>归纳总结</td><td>今天学了什么、干了什么，明天要做什么——只做整理，不再啃新东西</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note warn">
+    <span class="lbl">纠误</span>
+    <p>字幕在此处识别有误：08:02 字幕写作「这是一年的开始」，按上下文应为「这是一天的开始」（年度开头、天刚亮、干扰最少）。另外 07:18 讲者说的是「3~6 点」，07:29 又说「一般 4~6 点」——这是他个人经验，<strong>并非统一标准</strong>（他在结尾也强调过）。</p>
+  </div>
+
+  <h4>下午「刷题」的限定</h4>
+  <p>下午所说的刷题<strong>不是机械刷数量</strong>，而是「应用这个知识」——把上午学的东西拿出来用，不会的回去翻。</p>
+
+  <div class="note blue">
+    <span class="lbl">一天模板（可自由安排时）</span>
+    <p><strong>清晨</strong>学新知识 → <strong>上午</strong>做任务/刷题 → <strong>下午</strong>应用 + 攻难题 → <strong>晚上</strong>总结归纳，规划明天。</p>
+  </div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section id="s4">
+  <h2><span class="no">04</span>慢学：为什么越追求快越慢<span class="ts">11:01 – 13:20</span></h2>
+  <p class="lede">「学得慢才学得好，学得快往往学不好。」这不是躺平，而是说：<strong>慢的节奏更容易带来快的最终结果</strong>。</p>
+
+  <div class="grid c2">
+    <div class="card warn">
+      <div class="k">追求快的时候</div>
+      <ul>
+        <li>伴随目标 → 产生<strong>压力</strong></li>
+        <li>一边学一边扛压力，大脑没法把全部精力放在学习上</li>
+        <li>状态稍差（没睡好、遇到点事）就跟不上</li>
+        <li>跟不上 → 「反正今天完不成了」→ <em>彻底摆烂</em></li>
+        <li>这就是<strong>完美主义陷阱</strong></li>
+      </ul>
+    </div>
+    <div class="card green">
+      <div class="k">允许自己慢的时候</div>
+      <ul>
+        <li>没有压力压在头上</li>
+        <li>思考问题更全面</li>
+        <li>思考全面 → <strong>更容易产生兴趣</strong></li>
+        <li>有兴趣 → 愿意增加学习时间</li>
+        <li>有兴趣 → 专注力更集中（讨厌学时，脑子里想的却是打游戏）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="quote">学习慢 → 没压力 → 思考更全面 → 产生兴趣 → 投入更多时间 + 更专注 → 真正学得快。</div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section id="s5">
+  <h2><span class="no">05</span>基于时间，而非目标<span class="ts">13:20 – 14:23</span></h2>
+  <p class="lede">在这个「慢」的逻辑上，视频给出一条可操作的模型：<strong>任务导向改为时间导向</strong>。</p>
+
+  <div class="grid c2">
+    <div class="card">
+      <div class="k">基于目标</div>
+      <div class="big">「今天要把 X 搞明白」</div>
+      <p>适合<strong>冲刺状态</strong>、状态好的时候；在校期间常见。</p>
+    </div>
+    <div class="card accent">
+      <div class="k">基于时间</div>
+      <div class="big">「今天下午 2 小时学 X」</div>
+      <p>在家的长期学习更需要这种。<strong>更容易坚持</strong>，先能坚持，才能长出兴趣，再由<em>兴趣驱动</em>而不是目标驱动。</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="lbl">例外</span>
+    <p>如果目标感非常强、实在没办法——比如两天后就是期末考试——那就用目标。视频结尾说：基于时间属于长期主义，但「这两天就要考了，那没办法呀」。</p>
+  </div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section id="s6">
+  <h2><span class="no">06</span>学习的本质：理论 + 应用<span class="ts">14:23 – 17:00 / 45:23</span></h2>
+  <p class="lede">看清本质，学习就不神秘，不会让人产生畏惧。</p>
+
+  <div class="grid c2">
+    <div class="card blue">
+      <div class="k">组成部分一 · 理论</div>
+      <p>核心是<strong>定义、操作、规定</strong>——它是抽象的。</p>
+      <p>→ 学习第一步：去理解这个定义、这个理论（如何多角度理解，见 <a href="#s12">12 节</a>）。</p>
+    </div>
+    <div class="card green">
+      <div class="k">组成部分二 · 应用</div>
+      <p>应用于实践。实践的场景<strong>无论怎样都是有限的</strong>。</p>
+      <p>→ 在有限场景里反复练，直到能自动调用。</p>
+    </div>
+  </div>
+
+  <h3>脑子就像肌肉</h3>
+  <p>想长肌肉，就不断训练它——练得越多，肌肉细胞越强。脑袋也一样：同一个东西思考得越多，就越容易、越熟练。<strong>体力和脑力，本质上是差不多的东西。</strong></p>
+
+  <div class="note green">
+    <span class="lbl">推论</span>
+    <p>「学」只包括两件事：<strong>理解理论</strong>与<strong>应用理论</strong>，「就两个，没有其他的东西」。任何学习法都要能落回这两件事上。</p>
+  </div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section id="s7">
+  <h2><span class="no">07</span>地图模型：掌握与精通<span class="ts">16:42 – 23:06</span></h2>
+  <p class="lede">这是全片最核心的一个比喻。把学习想象成「从 A 点到达 B 点」的寻宝过程。</p>
+
+  <div class="map">
+    <svg viewBox="0 0 720 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="地图模型：从 A 点沿老师给的一条路线到达 B 点；精通者知道森林里的所有路线">
+      <defs>
+        <marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+          <path d="M0,0 L9,4.5 L0,9 z" fill="currentColor"/>
+        </marker>
+      </defs>
+      <g fill="none" stroke="currentColor" stroke-opacity=".25" stroke-width="2" stroke-dasharray="4 6">
+        <path d="M70,170 C180,40 420,200 640,60"/>
+        <path d="M70,170 C200,220 380,10 640,60"/>
+        <path d="M70,170 C260,150 300,230 640,60"/>
+        <path d="M70,170 C120,60 560,220 640,60"/>
+      </g>
+      <path d="M70,170 C200,90 360,120 470,95 S590,90 640,60" fill="none" stroke="var(--accent)" stroke-width="3.5" marker-end="url(#arr)" color="var(--accent)"/>
+      <circle cx="70" cy="170" r="17" fill="var(--blue)"/>
+      <text x="70" y="176" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">A</text>
+      <circle cx="640" cy="60" r="17" fill="var(--green)"/>
+      <text x="640" y="66" text-anchor="middle" fill="#fff" font-size="16" font-weight="800">B</text>
+      <text x="70" y="208" text-anchor="middle" fill="var(--ink2)" font-size="13">起点 · 你现在的水平</text>
+      <text x="640" y="36" text-anchor="middle" fill="var(--ink2)" font-size="13">终点 · 掌握了 / 会用了</text>
+      <text x="330" y="108" fill="var(--accent)" font-size="13" font-weight="700">老师指的那条路（一条）</text>
+      <text x="300" y="200" fill="var(--ink3)" font-size="13">这片森林里无数条路（虚线）</text>
+    </svg>
+    <div class="cap">实线：老师带你走的那一条路线　·　虚线：同一领域的其他路径</div>
+  </div>
+
+  <h3>三个概念的区别</h3>
+  <table class="tbl">
+    <thead><tr><th>概念</th><th>地图上的含义</th><th>怎么判断自己到了</th></tr></thead>
+    <tbody>
+      <tr><td>掌握</td><td>你能走通老师指的那<strong>一条路</strong></td><td>不看课本、没有老师，自己一步步操作出来（例：独立写出程序，屏幕显示出一个点）</td></tr>
+      <tr><td>听懂</td><td>你能认出老师留下的<strong>路标</strong>，自己走一遍</td><td>听课时，能根据讲者给的关键点自己走过去</td></tr>
+      <tr><td>精通</td><td>你知道这是一片<strong>森林</strong>，把所有路都走过</td><td>再要从 A 到 B，你能有 N 种方法，随便怎么走都行</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <span class="lbl">纠误</span>
+    <p>字幕中多次把「<strong>精通</strong>」识别为「京东」（如 19:26、19:32），上下文可确认是「精通」。19:24「它和京东还是有点不一样的」指「理解」与「掌握」不同。</p>
+  </div>
+
+  <h3>老师的作用</h3>
+  <p>没有老师，自己瞎撞，很难从 A 走到 B。<strong>老师的作用是帮你节省时间</strong>：先告诉你 B 在哪、哪条路能走过去。</p>
+
+  <div class="note blue">
+    <span class="lbl">推论：听课重不重要？</span>
+    <p>重要，但<strong>听课只等于老师给你讲了一条路</strong>。要真正学懂，还得自己把路走一遍、把周边摸清楚。</p>
+  </div>
+
+  <h4>「只听一个老师」vs「多听几个老师」</h4>
+  <p>每个老师是一条路线，不同老师给不同路线。为省时间可以先只跟一个，但遇到一个概念讲不清时，<strong>完全可以同时参考多个老师</strong>——多个维度看同一个定义，更容易看到本质。</p>
+
+  <h4>这个视频本身也是一张地图</h4>
+  <p>讲者坦言视频「又臭又长、废话多」，但它依然只是<strong>主线路线，不是全部</strong>。你可以在这个基础上自己整理、延伸，站在前人的肩膀上。</p>
+</section>
+
+<!-- ============ 08 ============ -->
+<section id="s8">
+  <h2><span class="no">08</span>学什么：需要，而非喜欢<span class="ts">23:06 – 28:59</span></h2>
+  <p class="lede">「需要」= 你的学习场景真正要求的东西。不同场景，重点不同。</p>
+
+  <table class="tbl">
+    <thead><tr><th>场景</th><th>主要目标</th><th>知识的角色</th><th>怎么学</th></tr></thead>
+    <tbody>
+      <tr><td>大学以前（学生）</td><td><strong>做题</strong></td><td>工具性的东西，不是主要目标——目标是分高</td><td>重点放在题目上</td></tr>
+      <tr><td>大学及以后 · 知识</td><td><strong>理解知识本身</strong>（论文/研究）</td><td>主要目标</td><td>结合实践 + 多学科视角，尽可能多角度理解本质</td></tr>
+      <tr><td>实践类（健身、马拉松）</td><td><strong>在应用里变强</strong></td><td>理论作用有限</td><td>跑得足够多才厉害；腿酸就忍过去；做题提高分数「没有捷径」</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    <span class="lbl">原则</span>
+    <p>不同阶段一定有不同的主要东西。<strong>把杠杆放在当下真正需要的东西上</strong>，其余当成工具。</p>
+  </div>
+
+  <h3>注意点一：别用「喜欢/不喜欢」来决定学不学</h3>
+  <div class="grid c2">
+    <div class="card">
+      <div class="k">情况 A · 逃课去打游戏</div>
+      <p>「喜欢」和「需要」会冲突。需要是强迫性的——它就在那里。你逃课去打游戏，并<strong>不会心安理得</strong>，因为「该学习」的念头会在潜意识里一直运转。</p>
+    </div>
+    <div class="card">
+      <div class="k">情况 B · 硬逼自己学英语</div>
+      <p>已毕业，听说英语好、多一条路，就强迫自己学——可自己并不喜欢。<strong>为什么要强迫自己？等真的需要了再学不行吗？</strong></p>
+    </div>
+  </div>
+
+  <div class="note green">
+    <span class="lbl">需要的——把它变成喜欢的</span>
+    <p>如果它是你确实需要的东西（比如学生必须学英语），最好的办法是<strong>把不喜欢的东西变成喜欢的东西</strong>。这是能力，也有技巧；重要技巧之一就是充分利用 <a href="#s2">「无聊」</a>。</p>
+  </div>
+
+  <h3>注意点二：目标 ≠ 行动</h3>
+  <p>目标是<strong>想法</strong>，学习是<strong>行动</strong>。光看地图到不了目的地，光「想学」也推不动你。</p>
+  <div class="quote">真正推动人行动的，往往不是「想要」，而是「不想要」。<small>— 30:17 – 30:32</small></div>
+  <ul>
+    <li>你想好好学习，是因为不想成绩变差、不想将来干体力活；</li>
+    <li>你不吃垃圾食品，不是因为不好吃，而是不想变胖。</li>
+  </ul>
+
+  <h3>目标的代价</h3>
+  <div class="grid c3">
+    <div class="card warn">
+      <div class="k">① 不能让你真正行动</div>
+      <p>想要 → 事实，中间隔着行动。指望「想要」直接变成结果，往往不奏效。</p>
+    </div>
+    <div class="card warn">
+      <div class="k">② 禁果效应</div>
+      <p>越强调某样东西，反而越容易反向。</p>
+    </div>
+    <div class="card warn">
+      <div class="k">③ 制造痛苦</div>
+      <p>目标 = 「当下不完美」：你有目标，就是在说此刻不够好。一直强调不完美，人就一直不满、痛苦。</p>
+    </div>
+  </div>
+  <div class="quote">每次你说「我有一个目标」，你都在说「我当下不完美」。<small>— 32:19 – 32:33</small></div>
+
+  <div class="note">
+    <span class="lbl">自检：学得很痛苦怎么办</span>
+    <p>大概率是你的大脑在提醒：① 你在学不需要的「垃圾」内容；② 你在用一种「垃圾」的方式学（死记、硬听）。检查清单：<strong>是不是过度强调目标？节奏是不是太快？学的是不是真正需要的东西？</strong>——当然，也可能你真的只是累了，那就去休息。</p>
+  </div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section id="s9">
+  <h2><span class="no">09</span>准备：创造者心态<span class="ts">34:03 – 37:51</span></h2>
+  <p class="lede">学习的心态决定你能不能真正专注、遇到困难时是「挑战者」还是「探索者」，也直接影响学习效果。</p>
+
+  <div class="quote">没有任何人是你的老师。当成这些知识是我自己造出来的——把它当成一场游戏。</div>
+
+  <table class="tbl">
+    <thead><tr><th>创造者心态</th><th>含义</th></tr></thead>
+    <tbody>
+      <tr><td>没有权威</td><td>不崇拜任何人、任何书。不把别人的观点当成「比你高的存在」</td></tr>
+      <tr><td>没有压力</td><td>没有外在压力逼着你</td></tr>
+      <tr><td>主动</td><td>没人逼，你自己在「造」</td></tr>
+      <tr><td>没有墙</td><td>你可以从任何角度、用任何方法去考虑这个问题</td></tr>
+    </tbody>
+  </table>
+
+  <div class="grid c2">
+    <div class="card warn">
+      <div class="k">跪着学</div>
+      <p>知识、老师、权威都在你头上，你仰望、跪着。</p>
+    </div>
+    <div class="card green">
+      <div class="k">俯视工具</div>
+      <p><em>所有知识都是为人服务的工具，在你下面。</em>老师、教材都是你的工具——这种感觉对学习者非常重要。</p>
+    </div>
+  </div>
+  <p>当然也不是凭空造：知识和老师还是要吃的、要用的，凭空造浪费时间。心态是「我在使用工具」，而不是「我在朝圣」。</p>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="no">10</span>准备：资料与听课<span class="ts">37:51 – 44:56</span></h2>
+  <p class="lede">资料的核心原则只有一条：<strong>少听课，多自己思考。</strong></p>
+
+  <h3>时间配比：30% 听课 / 70% 思考</h3>
+  <div class="budget">
+    <div class="a" style="flex-basis:30%">视频/听课 30%</div>
+    <div class="b" style="flex-basis:70%">自己思考 70%</div>
+  </div>
+  <p style="font-size:14.5px;color:var(--ink2)">原文的例子：要学「100 分」的内容（大约 2 小时），可能只花 30 分钟听课，剩下约 70–90 分钟用来思考课程内容。</p>
+
+  <h3>为什么课程不宜太长</h3>
+  <table class="tbl">
+    <thead><tr><th>原因</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>信息密度低</td><td>花大量时间讲完的内容，往往塞了很多冗余——「水货多」</td></tr>
+      <tr><td>浪费时间、学得慢</td><td>—</td></tr>
+      <tr><td>学了后面忘前面</td><td>跨度太长，记忆衔接不上</td></tr>
+      <tr><td>产生厌学</td><td>听课本质是「重复」：老师给一个东西、你接住；给一个、接住。干重复的事情就会无聊</td></tr>
+    </tbody>
+  </table>
+
+  <h4>好课 vs 坏课</h4>
+  <div class="grid c2">
+    <div class="card green">
+      <div class="k">好课</div>
+      <p>你能理解老师讲的内容，并且他能带动你思考——你的脑子在转，不容易无聊；状态好、老师好、氛围好时，甚至能进入<em>心流</em>。</p>
+    </div>
+    <div class="card warn">
+      <div class="k">坏课</div>
+      <p>老师讲一个、你记一个，大脑只做一件事：不断记、不断记——谁都会无聊。</p>
+    </div>
+  </div>
+
+  <div class="note warn">
+    <span class="lbl">结论：听课的时机</span>
+    <p>好老师很少（很厉害的人通常没时间当老师，他们去创造了），所以 <strong>尽量只在自己遇到问题时才去听课</strong>；其他时候不要听。</p>
+  </div>
+
+  <h3>资料什么时候准备？——动态准备</h3>
+  <p>很多人纠结「该买哪本教材、听谁的课」。<strong>为什么非要现在就决定？</strong> 这背后其实还是「跪着学」的心态。</p>
+  <div class="steps">
+    <div class="step"><h4>先选一本/一门「底本」</h4><p>作为主线，节省时间。</p></div>
+    <div class="step"><h4>卡住时，横向找资料</h4><p>某个概念没讲清，就同时去找其他几份资料/几个老师，「多几个维度」看同一件事，更容易看到本质。</p></div>
+    <div class="step"><h4>拼起来，解决问题</h4><p>教材和老师都成了你的工具，随取随用。</p></div>
+  </div>
+  <div class="note">
+    <span class="lbl">纠误</span>
+    <p>原文说「完全可以听七个老师的课」，指「多个老师同时参考」；开头也说过「尽量只听一个老师的课，节省时间」。两者是<strong>主线一个 + 卡点多个</strong>的关系。</p>
+  </div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="no">11</span>学习中：构建学习 &amp; 费曼<span class="ts">45:23 – 49:01</span></h2>
+  <p class="lede">学习过程的核心，视频认为就是<strong>费曼学习法</strong>——他觉得它本质上是「<strong>构建学习</strong>」。</p>
+
+  <h3>用地图理解费曼</h3>
+  <div class="grid c2">
+    <div class="card blue">
+      <div class="k">它是一个「构建」</div>
+      <p>不是被动接收，而是自己把从 A 到 B 的路线<strong>重新搭一遍</strong>：遇到路标，讲清楚「为什么从这里走、下一步往哪」。</p>
+    </div>
+    <div class="card purple">
+      <div class="k">它也是一个「检测标准」</div>
+      <p>从头讲一遍，卡住的地方就是没懂的地方。学习的知识就是地图上的「路标」：为什么清楚，才能往下走。</p>
+    </div>
+  </div>
+
+  <div class="quote">能从最开始的东西一路推导出来——就像从 1+1 开始，推到小学数学、初中、高中、大学——而且完全是自己造出来的。</div>
+
+  <h4>构建学习与「横向探索」</h4>
+  <p>除了 A → B 的主线，还尽量向两侧探索，把周边也搭进体系里。但它<strong>非常耗时间</strong>，所以：</p>
+  <div class="note warn">
+    <span class="lbl">规则</span>
+    <p><strong>忽略细节，抓住重点。</strong>不重要的东西不是不学——<strong>用到时再学，或学有余力时再学</strong>。先抓住主线。</p>
+  </div>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="s12">
+  <h2><span class="no">12</span>三大难点与解法<span class="ts">49:01 – 55:26</span></h2>
+  <p class="lede">走路途中总会遇到「不好记的路标」。视频把学习难点归为三类，各配一招。</p>
+
+  <table class="tbl">
+    <thead><tr><th>难点</th><th>表现</th><th>解法</th><th>视频例子</th></tr></thead>
+    <tbody>
+      <tr><td>① 抽象</td><td>概念很虚，不好理解</td><td><strong>具体化</strong>：找实例、特例</td><td>用「路程÷时间 = 速度」理解导数：导数就是某一点的<em>瞬时速度</em>；再把「路程-时间」坐标抽象回 x-y</td></tr>
+      <tr><td>② 复杂</td><td>关系错综复杂</td><td><strong>拆分</strong>：一块一块剥开</td><td>拆开后发现某块不会 → 见下方分支</td></tr>
+      <tr><td>③ 记忆量大</td><td>记不住</td><td>复习与记忆策略（见 <a href="#s13">13 节</a>）</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h4>拆出来的「不会的那块」怎么处理</h4>
+  <div class="grid c2">
+    <div class="card">
+      <div class="k">学过但忘了</div>
+      <p>系统化地复习一遍。</p>
+    </div>
+    <div class="card">
+      <div class="k">从没学过</div>
+      <p>把它当成<strong>必要材料</strong>，和当前内容<strong>一起解决</strong>——哪怕涉及其他学科也一样。</p>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="lbl">关键：同步学，而不是「先补完基础」</span>
+    <p>不要把「先把基础学完再学这个」当成铁律。碰到缺的基础，<strong>用到哪个补哪个</strong>。知识像字典：你不会把整本字典背完才开始读书，哪个字不会就查哪个。</p>
+  </div>
+  <p>同时要克制：时间有限，不能多学；强行学往往很无聊——一门学科可能只有少数几个点有意思，其余都很枯燥。</p>
+
+  <div class="note green">
+    <span class="lbl">顺带复习</span>
+    <p>学新东西时常常会碰到「由旧东西拼成」的内容。学新知识时，<strong>顺手把涉及的旧知识复习一下</strong>——以前学会但忘了的，这时候复习最佳。</p>
+  </div>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="s13">
+  <h2><span class="no">13</span>学习后：复习与记忆<span class="ts">56:38 – 57:29</span></h2>
+  <p class="lede">学完不要马上走人。用费曼/构建学习法把知识「默写」回来。</p>
+
+  <div class="steps">
+    <div class="step">
+      <h4>默写大纲，整理思路</h4>
+      <p>合上书，自己把大纲写一遍——从 1+1 推到整个数学。</p>
+    </div>
+    <div class="step">
+      <h4>系统性复习</h4>
+      <p>在复习阶段，系统地再过一遍体系与逻辑。</p>
+    </div>
+    <div class="step">
+      <h4>在实践中复习</h4>
+      <p>背单词不如直接做题、读阅读；哪篇文章、哪个词不会，就去查、去用。</p>
+    </div>
+    <div class="step">
+      <h4>艾宾浩斯曲线：定期回顾</h4>
+      <p>按遗忘曲线的节奏定期回顾。（视频原话：「这个懂得都懂。」）</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="s14">
+  <h2><span class="no">14</span>三个细节：预习 · 重点 · 复习<span class="ts">57:29 – 59:10</span></h2>
+
+  <h3>① 听课前要预习</h3>
+  <p>听课是老师把你从 A 点领到 B 点。但人的注意力有限：如果整条路都陌生，大脑的内存压力很大——<strong>你不敢错过任何一步</strong>，错过就没有了。</p>
+  <div class="note blue">
+    <span class="lbl">预习的作用</span>
+    <p>让你提前有个<strong>大体印象</strong>、知道要学什么，从而<strong>只需关注真正不会的东西</strong>，减轻听课时的注意力压力。</p>
+  </div>
+
+  <h3>② 抓重点，不要平均用力</h3>
+  <p>学习时抓住重点的内容。一开始就把细节抠得太细，会觉得无聊、迷茫——而且不重要的东西往往用得少，还徒增记忆量。</p>
+
+  <h3>③ 勤复习</h3>
+  <p>「学习前有大体印象 → 学习时抓住重点 → 勤复习，结束了。」</p>
+</section>
+
+<!-- ============ 15 ============ -->
+<section id="s15">
+  <h2><span class="no">15</span>总结与行动清单<span class="ts">59:10 – 62:24</span></h2>
+  <p class="lede">视频最后的回顾，压缩成可以照着做的一张单子。</p>
+
+  <div class="grid c2">
+    <div class="card accent">
+      <div class="k">心法（为什么）</div>
+      <ul>
+        <li>兴趣 ≠ 天生：没有无聊就没有兴趣；理解越深，兴趣越深</li>
+        <li>允许学得慢：没有压力 → 思考更全 → 有兴趣 → 更投入</li>
+        <li>基于时间，而不是目标（冲刺除外）</li>
+        <li>知识只是工具，用创造者心态去用</li>
+        <li>学习的本质 = 理解理论 + 应用理论</li>
+      </ul>
+    </div>
+    <div class="card green">
+      <div class="k">操作（做什么）</div>
+      <ul class="checks">
+        <li>按生物钟排任务：早学新、上午执行、下午应用/攻难题、晚上总结</li>
+        <li>只学<strong>需要</strong>的，不凭喜欢/讨厌决定</li>
+        <li>先定一本底本，卡住时动态补充资料</li>
+        <li>视频/听课 ≤ 30%，70% 时间自己思考</li>
+        <li>用费曼法讲一遍、从源头推导一遍</li>
+        <li>抽象 → 具体化；复杂 → 拆分；缺基础 → 同步补</li>
+        <li>预出大体印象；学习中抓重点；结束后默写大纲</li>
+        <li>实践中复习 + 艾宾浩斯定期回顾</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="lbl">下一步</span>
+    <p>讲者最后说：「这节课就到这里结束。」他把它定位成一张<strong>主线地图</strong>，鼓励你在这个基础上自己去整理总结。</p>
+  </div>
+</section>
+
+<footer>
+  <p>本讲义根据视频字幕（1400 条 / 约 62 分钟）整理，保留原片观点与示例，只做结构化与去口语化处理；明显识别错误已在正文以「纠误」标出。讲义中的时间是视频原片时间戳，可直接定位到原视频。</p>
+  <p>建议用法：先看 <a href="#s0">00 节速览</a> → 顺着 <a href="#s2">02 兴趣</a>、<a href="#s3">03 时间</a>、<a href="#s7">07 地图模型</a> 理解原理 → 按 <a href="#s9">09</a>–<a href="#s14">14</a> 节调整日常做法 → 用 <a href="#s15">15 节清单</a> 做落地检查。</p>
+</footer>
+</div>
+
+<a class="top" href="#" title="回到顶部">↑</a>
+
+<a href="index.html" title="返回首页" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:999px;background:rgba(17,24,39,.86);color:#fff;text-decoration:none;font:600 13px/1 -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;box-shadow:0 4px 14px rgba(15,23,42,.28)">← 返回首页</a>
+</body>
+</html>

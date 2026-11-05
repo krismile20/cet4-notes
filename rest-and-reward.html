@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>可持续休息 &amp; 奖励系统 · 视频讲义 — 休息库 / 奖励库 / 三齿轮结构</title>
+<style>
+  :root{
+    --bg:#faf8f4; --panel:#fffdf9; --ink:#20242b; --ink2:#4d5665; --ink3:#636b78;
+    --line:#e6e0d5; --line2:#f0ebe1;
+    --accent:#1a6f5c; --accent2:#0d5c4a; --accent-bg:#e8f2ee;
+    --warn:#a4551f; --warn-bg:#fbf0e6;
+    --blue:#274e7d; --blue-bg:#eaf0f7;
+    --purple:#5c4383; --purple-bg:#f1ecf7;
+    --ok:#1c7a3d;
+    --code-bg:#22262e; --code-ink:#e8eaef;
+    --radius:14px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#15171c; --panel:#1c1f26; --ink:#e7e9ee; --ink2:#aab1bd; --ink3:#848c9a;
+      --line:#2e333d; --line2:#252932;
+      --accent:#4fc9a9; --accent2:#69d4b8; --accent-bg:#16302a;
+      --warn:#e0904f; --warn-bg:#2e2218;
+      --blue:#7aa5dc; --blue-bg:#1b2434;
+      --purple:#b195d9; --purple-bg:#251f31;
+      --ok:#57c47f;
+      --code-bg:#0f1115; --code-ink:#e8eaef;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:86px}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:"Inter","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+    font-size:16.5px;line-height:1.85;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+
+  /* ---------- header ---------- */
+  header.hero{padding:64px 0 34px;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:clamp(27px,4.4vw,44px);line-height:1.28;margin:.42em 0 .3em;letter-spacing:-.015em;font-weight:800}
+  h1 .thin{display:block;font-size:.56em;font-weight:650;color:var(--ink2);letter-spacing:0;margin-top:.5em;line-height:1.45}
+  .subtitle{font-size:19px;color:var(--ink2);max-width:46em;margin:0}
+  .meta{display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:26px}
+  .chip{font-size:13px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--ink2)}
+  .chip b{color:var(--ink);font-weight:600}
+
+  /* ---------- TOC ---------- */
+  nav.toc{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 22px;margin:28px 0 40px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  nav.toc .toc-title{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:10px}
+  nav.toc ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:2px 18px}
+  nav.toc a{display:block;color:var(--ink2);text-decoration:none;font-size:14.5px;padding:5px 0;border-bottom:1px dashed transparent}
+  nav.toc a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+  nav.toc a span.n{color:var(--accent);font-weight:700;margin-right:7px;font-variant-numeric:tabular-nums}
+
+  /* ---------- sections ---------- */
+  section{margin:0 0 54px}
+  h2{font-size:25px;line-height:1.3;margin:0 0 6px;letter-spacing:-.01em;font-weight:800;
+    padding-bottom:12px;border-bottom:2px solid var(--accent);display:flex;align-items:baseline;gap:12px}
+  h2 .no{font-size:15px;color:var(--accent);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+  .lede{color:var(--ink2);font-size:16px;margin:14px 0 22px;max-width:56em}
+  h3{font-size:19px;margin:30px 0 10px;font-weight:750;letter-spacing:-.005em}
+  h4{font-size:16px;margin:22px 0 8px;font-weight:750;color:var(--accent2)}
+  p{margin:10px 0}
+  ul,ol{margin:10px 0;padding-left:1.35em}
+  li{margin:5px 0}
+  li>ul,li>ol{margin:5px 0}
+  strong{font-weight:700}
+  em{font-style:normal;color:var(--accent2);font-weight:650}
+  code{font-family:"JetBrains Mono","SF Mono",Consolas,"Noto Sans Mono",monospace;font-size:.88em;
+    background:var(--line2);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+
+  /* ---------- cards / notes ---------- */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin:18px 0}
+  .grid{display:grid;gap:16px}
+  .grid.c2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+  .grid.c3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card .k{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700;margin-bottom:6px}
+  .card .big{font-size:34px;font-weight:800;line-height:1.15;letter-spacing:-.02em}
+  .card .big small{font-size:15px;font-weight:600;color:var(--ink2);letter-spacing:0}
+  .card p{margin:8px 0 0;font-size:14.5px;color:var(--ink2)}
+  .card ul,.card ol{font-size:14.5px;color:var(--ink2);padding-left:1.2em;margin:8px 0 0}
+  .card li{margin:4px 0}
+  .card li strong{color:var(--ink)}
+  .card.accent{border-color:var(--accent);background:var(--accent-bg)}
+  .card.blue{border-color:var(--blue);background:var(--blue-bg)}
+  .card.purple{border-color:var(--purple);background:var(--purple-bg)}
+  .card.warn{border-color:var(--warn);background:var(--warn-bg)}
+
+  .note{border-left:4px solid var(--accent);background:var(--accent-bg);border-radius:0 10px 10px 0;padding:14px 18px;margin:18px 0}
+  .note.warn{border-left-color:var(--warn);background:var(--warn-bg)}
+  .note.blue{border-left-color:var(--blue);background:var(--blue-bg)}
+  .note .lbl{font-weight:800;font-size:13px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .note .lbl.warn{color:var(--warn)} .note .lbl.ok{color:var(--ok)} .note .lbl.blue{color:var(--blue)}
+  .note p{margin:4px 0 0} .note p+p{margin-top:8px}
+
+  .quote{margin:22px 0;padding:20px 24px;background:var(--accent-bg);border:1px solid var(--accent);
+    border-radius:var(--radius);font-size:20px;line-height:1.7;font-weight:650;color:var(--accent2);text-align:center}
+  .quote small{display:block;font-size:13.5px;font-weight:600;color:var(--ink3);margin-top:8px;letter-spacing:.04em}
+
+  /* ---------- tables ---------- */
+  .tbl{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px;
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .tbl th{background:var(--line2);text-align:left;padding:11px 14px;font-weight:700;font-size:13.5px;
+    letter-spacing:.04em;color:var(--ink);border-bottom:1px solid var(--line)}
+  .tbl td{padding:11px 14px;border-bottom:1px solid var(--line2);vertical-align:top;color:var(--ink2)}
+  .tbl tr:last-child td{border-bottom:none}
+  .tbl td:first-child{font-weight:700;color:var(--ink);white-space:nowrap}
+  .tbl.auto td:first-child{white-space:normal}
+  .tbl tr:hover td{background:var(--line2)}
+
+  /* ---------- templates / code ---------- */
+  .tpl{background:var(--code-bg);color:var(--code-ink);border-radius:var(--radius);margin:16px 0;overflow:hidden;
+    border:1px solid var(--line);box-shadow:0 3px 14px rgba(0,0,0,.1)}
+  .tpl .bar{display:flex;justify-content:space-between;align-items:center;padding:9px 16px;
+    background:rgba(255,255,255,.06);font-size:12.5px;color:#98a0ad;letter-spacing:.06em;
+    border-bottom:1px solid rgba(255,255,255,.08)}
+  .tpl .bar .tag{background:rgba(79,201,169,.18);color:#6ad9bd;padding:2px 9px;border-radius:999px;font-weight:700;letter-spacing:.04em}
+  .tpl pre{margin:0;padding:16px 18px;overflow-x:auto;font-size:14.2px;line-height:1.95;
+    font-family:"JetBrains Mono","SF Mono",Consolas,"Noto Sans Mono CJK SC",monospace}
+  .tpl .en{color:#dfe3ea}
+  .tpl .hl{color:#6ad9bd;font-weight:600}
+  .tpl .com{color:#838da0;font-style:italic}
+
+  /* ---------- synonym / glossary ---------- */
+  .syn{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:6px 0;margin:16px 0;overflow:hidden}
+  .syn .row{display:grid;grid-template-columns:minmax(120px,170px) 1fr;gap:0;border-bottom:1px solid var(--line2)}
+  .syn .row:last-child{border-bottom:none}
+  .syn .term{padding:11px 16px;font-weight:700;color:var(--ink);font-size:15px;background:var(--line2)}
+  .syn .opts{padding:11px 16px;font-size:15px;color:var(--ink2)}
+  .syn .tagline{font-size:12.5px;color:var(--ink3);padding:0 16px 8px 16px;margin-top:-2px}
+
+  /* ---------- steps ---------- */
+  .steps{counter-reset:s;margin:18px 0}
+  .step{position:relative;padding:0 0 20px 54px}
+  .step:last-child{padding-bottom:0}
+  .step:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;
+    width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
+  .step:after{content:"";position:absolute;left:18.5px;top:42px;bottom:2px;width:2px;background:var(--line)}
+  .step:last-child:after{display:none}
+  .step h4{margin:2px 0 6px;color:var(--accent2)}
+  .step p{margin:6px 0;font-size:15.5px}
+
+  /* ---------- quiz / check ---------- */
+  .checks{list-style:none;padding:0;margin:14px 0}
+  .checks li{position:relative;padding-left:30px;margin:9px 0}
+  .checks li:before{content:"✓";position:absolute;left:0;top:0;color:var(--ok);font-weight:800}
+  .x{color:var(--warn);font-weight:700}
+  .ok{color:var(--ok);font-weight:700}
+
+  footer{border-top:1px solid var(--line);margin-top:60px;padding:28px 0 54px;color:var(--ink3);font-size:14px}
+  footer a{color:var(--accent);text-decoration:none}
+  .top{position:fixed;right:20px;bottom:22px;width:42px;height:42px;border-radius:50%;background:var(--accent);
+    color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;font-weight:700;
+    box-shadow:0 6px 18px rgba(0,0,0,.22);opacity:.9}
+  .top:hover{opacity:1}
+  @media(max-width:640px){
+    body{font-size:16px}
+    .wrap{padding:0 16px}
+    header.hero{padding:44px 0 26px}
+    h2{font-size:22px}
+    .syn .row{grid-template-columns:1fr}
+    .syn .term{background:var(--line2)}
+  }
+  @media print{
+    .top,nav.toc{display:none}
+    body{background:#fff;font-size:12px}
+    .tpl{box-shadow:none}
+    section{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Personal Ops · Video Study Notes / 个人管理工具 · 视频讲义</div>
+    <h1>可持续休息 &amp; 奖励系统
+      <span class="thin">在累之前就休息，而不是累垮了才休息；坦然地给自己放假、发奖金</span>
+    </h1>
+    <p class="subtitle">把约 51 分钟的视频压缩成一页能直接落地的方法论：先分清「休息」和「奖励」，再用番茄钟把说不清的目标换成可量化的投入承诺，最后用「休息库 + 奖励库 + 抽卡机制」把好好休息做成一套能自动运转的系统。</p>
+    <div class="meta">
+      <span class="chip"><b>来源</b> 西和 ·「个人管理工具」系列（自媒体「土豆人」）</span>
+      <span class="chip"><b>时长</b> 约 51 分钟 / 1641 条字幕</span>
+      <span class="chip"><b>核心</b> 休息库 · 奖励库 · 番茄工作法 · 状态追踪</span>
+      <span class="chip"><b>结构</b> 缘起 → 区分 → 三齿轮 → 两个库 → 落地清单</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <div class="toc-title">目录 Contents</div>
+  <ol>
+    <li><a href="#s0"><span class="n">00</span>一页总览：三个隐喻与系统流程</a></li>
+    <li><a href="#s1"><span class="n">01</span>缘起：已有的工具，缺的那一块</a></li>
+    <li><a href="#s2"><span class="n">02</span>系统全景：五个组成部分 + 术语速查</a></li>
+    <li><a href="#s3"><span class="n">03</span>全片最重要的一条：休息 ≠ 奖励</a></li>
+    <li><a href="#s4"><span class="n">04</span>短期休息选择要解决的三个问题</a></li>
+    <li><a href="#s5"><span class="n">05</span>底层逻辑与执行要点</a></li>
+    <li><a href="#s6"><span class="n">06</span>系统的三个齿轮</a></li>
+    <li><a href="#s7"><span class="n">07</span>信号系统与抽卡发放机制</a></li>
+    <li><a href="#s8"><span class="n">08</span>休息库 · 核心原则：做相反的事</a></li>
+    <li><a href="#s9"><span class="n">09</span>真休息 vs 假休息（避坑）</a></li>
+    <li><a href="#s10"><span class="n">10</span>休息方式库 · 六大类</a></li>
+    <li><a href="#s11"><span class="n">11</span>奖励库：即时、额外、按心理重量分级</a></li>
+    <li><a href="#s12"><span class="n">12</span>落地清单与结尾</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 00 ============ -->
+<section id="s0">
+  <h2><span class="no">00</span>一页总览：三个隐喻与系统流程</h2>
+  <p class="lede">全片只在回答一个问题：怎么让「休息」像工作一样被计划、被保证、被兑现，而不是等到崩盘才被动补假。</p>
+
+  <div class="grid c3">
+    <div class="card"><div class="big">2<small> 个库</small></div><p><strong>休息库</strong>（无条件的保底）+ <strong>奖励库</strong>（挣来的额外）</p></div>
+    <div class="card"><div class="big">3<small> 个齿轮</small></div><p>投入承诺 → 日常恢复 → 长期恢复，层层托底</p></div>
+    <div class="card accent"><div class="big">1<small> 条底线</small></div><p><em>状态差，也是值得玩的。</em>及时止损，执行保底，而不是奖励</p></div>
+  </div>
+
+  <div class="quote">
+    有些人看起来能做的事情很多，并不是因为他「电池容量大」，<br>而是他知道规律地放电和充电，可以让这块电池用得更久、工作时状态更好。
+    <small>—— 全片的出发点</small>
+  </div>
+
+  <div class="grid c3">
+    <div class="card blue"><div class="k">电池</div><p>要的不是完全休息，而是规律充放电；不要等累了才休息，就像不要等渴了才喝水。</p></div>
+    <div class="card warn"><div class="k">信用卡</div><p>超时工作像刷信用卡：一时高强度 → 情绪低落 → 被迫放假，连本带利还，还不知道自己什么时候垮。</p></div>
+    <div class="card purple"><div class="k">北极星</div><p>愉悦是目标导航，不是每一次的及格线；保持舒服，而不是保持活着。</p></div>
+  </div>
+
+  <h3>系统流程（一张图看懂）</h3>
+  <div class="tpl">
+    <div class="bar"><span>Sustainable Rest System · 主链路</span><span class="tag">背下这条线</span></div>
+<pre class="en"><span class="hl">[齿轮一] 投入承诺</span>  每天约 10 个番茄钟（可微调），标准 = 25 分钟全身心专注
+      <span class="com">→ 达标即「任务完成得很好 / 很有底气」</span>
+      <span class="com">→ 解锁「休息不欠债」状态，本来就有的享受能力自动上线</span>
+              ↓
+<span class="hl">[齿轮二] 日常恢复</span>  每天 1–2h 小玩（<span class="hl">无条件保底</span>，状态差照给）
+              + 每周一个硬性的「休息期权」（必须歇，日期可容错）
+              ↓
+<span class="hl">[追踪系统]</span>  每天标识：成就感 / 平静的喜悦感 / 奖励的量
+      <span class="com">→ 上升：正常执行</span>
+      <span class="com">→ 连续下降：触发预警，进入齿轮三</span>
+              ↓
+<span class="hl">[齿轮三] 长期恢复</span>  抽一张休息卡，一整天纯玩 / 及时止损
+              ↑
+<span class="hl">[奖励信号]</span>  任务达标或超标 → 从奖励库<span class="hl">即时</span>发一张
+              <span class="com">不囤、不画大饼；兑现不了的进「未来池」</span></pre>
+  </div>
+
+  <div class="note">
+    <span class="lbl ok">一句话记住整套系统</span>
+    <p>休息是<strong>做到了才有的选的奖励 + 相应的保底</strong>，而不是「撑不住才歇的补偿」。工作是投入承诺，休息是天然权利，奖励才是挣来的额外。</p>
+  </div>
+</section>
+
+<!-- ============ 01 ============ -->
+<section id="s1">
+  <h2><span class="no">01</span>缘起：已有的工具，缺的那一块</h2>
+  <p class="lede">讲者已经有追踪系统、番茄工作法、待办系统——事情基本都能执行，状态也有反馈。但「好几天之后，就会因为休息得少而状态不佳」。</p>
+
+  <div class="grid c2">
+    <div class="card">
+      <div class="k">已经有的三块</div>
+      <ul>
+        <li><strong>追踪系统</strong>：检测、记录自己的状态，起「状态兜底」的作用</li>
+        <li><strong>番茄工作法</strong>：以「天」为单位安排工作 / 休息（25 分钟工作 + 5 分钟微休息）</li>
+        <li><strong>待办系统</strong>：配合番茄，管「谁先做谁后做、怎么记录、怎么分类」，也接进追踪系统</li>
+      </ul>
+    </div>
+    <div class="card warn">
+      <div class="k">还缺的那一块</div>
+      <ul>
+        <li>番茄钟只解决<em>一天之内</em>；一周每天都按这个周期高强度跑，人会力竭</li>
+        <li>目标不清晰、难以量化 → 觉得做得太慢、达不到效果 → <strong>舍不得休息</strong></li>
+        <li>恶性循环：高强度工作 → 休息不够 → 情绪低落 → 被迫放假</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="lbl ok">想实现的目标</span>
+    <p>评论区小伙伴说的「<em>计划性休息、积极休息</em>」：在累之前就去休息，而不是累了、累垮了才休息。于是做了这套「可持续休息系统」的框架。</p>
+  </div>
+
+  <h3>亲身经历：为什么休息系统比工作系统更难</h3>
+  <div class="card purple">
+    <ul>
+      <li><strong>考研时期的「生存状态」</strong>：营养均衡就行、能吃就行、去食堂要快；睡好、及时上厕所、洗眼镜……一切都服务于「让我坐在那里做题的状态是好的」。</li>
+      <li><strong>周二下午公休</strong>跑出校门买好吃的时候「我靠好好吃」——这才意识到，原来是把日常常态压成了苦行僧状态。</li>
+      <li><strong>短期苦行是可以的</strong>：考研、应试、期末、证书考试都有明确目标和一个准备期（半年一年、几个月甚至三周），但这个状态<em>不能持续太久</em>，否则身体会垮。</li>
+      <li><strong>二战考完后身体极度虚弱</strong> → 意识到「工作系统上其实没什么问题，<strong>休息系统有问题</strong>：我不知道怎么休息，不知道怎么平衡工作和休息」。</li>
+      <li>本质就是一块<em>放电太多、充电太少</em>的电池：亏电、状态不佳。这就是这套系统想解决的问题。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section id="s2">
+  <h2><span class="no">02</span>系统全景：五个组成部分 + 术语速查</h2>
+  <p class="lede">系统包含「长期休息习惯」和「短期休息选择」两部分。本期重点放在短期，因为长期习惯需要时间培养、更适合用追踪系统跟进；而未实现的关键部分正是<strong>奖励库、休息库，以及调用这两个库的方法</strong>。</p>
+
+  <table class="tbl auto">
+    <tr><th>组成</th><th>作用</th><th>本期</th></tr>
+    <tr><td>健康管理</td><td>睡觉、起床、早睡早起的作息流程要定下来。睡不着就把睡觉当成「接纳区」的内容；能轻松入睡的话，把小习惯列入日常 SOP 去执行</td><td>略，后续系统更新</td></tr>
+    <tr><td>极简日常</td><td>人除了工作还要有日常生活：吃、睡之外，上厕所、洗眼镜（保养眼睛）、用聪明方法备菜以便轻松吃到香喷喷的菜……让日常事项不额外耗电</td><td>略，后续系统更新</td></tr>
+    <tr><td>番茄工作法</td><td>内嵌在工作流程里：25 分钟工作 + 5 分钟微休息，4 个番茄后来一次阶段性休息，形成充电 / 放电的节律</td><td>已有完整视频</td></tr>
+    <tr><td>状态追踪系统</td><td>每天标识自己的感受（成就感 / 喜悦感 / 奖励量），感知「我该不该休息、我能不能获得奖励」；觉察是改变的前置条件</td><td>已有完整视频</td></tr>
+    <tr><td><strong>奖励库 &amp; 休息库</strong></td><td>让「给自己放假、给自己发奖金、听从内心去做很多事」变成可选、可执行，形成良性的工作—休息—奖励循环</td><td><span class="ok">本期重点</span></td></tr>
+  </table>
+
+  <div class="note blue">
+    <span class="lbl blue">长期 vs 短期</span>
+    <p><strong>长期休息习惯</strong>：作息、睡眠、极简日常、内嵌的番茄工作法——靠时间培养，适合追踪系统跟进。<strong>短期休息选择</strong>：在番茄工作法之上叠加奖励库与休息库，并用追踪系统感知状态——这是本期要补齐的「休息节奏」功能。</p>
+  </div>
+
+  <h3>术语速查</h3>
+  <div class="syn">
+    <div class="row"><div class="term">投入承诺</div><div class="opts">把无法量化的「产出目标」换成可量化的番茄钟数；番茄钟 = 任务完成量 + 精力 + 时间三合一的单位</div></div>
+    <div class="row"><div class="term">小玩 / 保底</div><div class="opts">每天 1–2 小时无条件交给自己的玩乐时间；状态差也照给，属于「止损」而非奖励</div></div>
+    <div class="row"><div class="term">休息期权</div><div class="opts">每周一个硬性的下午休息额度：必须歇，但执行日期有容错，可换、可与下周合并成整天</div></div>
+    <div class="row"><div class="term">休息卡 / 奖励卡</div><div class="opts">候选池里反复被抽到、每次都很开心的项目，固定下来的常驻卡，用来减少决策</div></div>
+    <div class="row"><div class="term">未来池</div><div class="opts">暂时兑现不了的休息项 / 奖励项先放进去，之后慢慢把这个池子隔离掉</div></div>
+    <div class="row"><div class="term">齿轮三</div><div class="opts">状态连续下滑时触发的「被动休息 / 长期恢复」：抽一张休息卡快速止损</div></div>
+    <div class="row"><div class="term">接纳区 / 解决区</div><div class="opts">休息应放在「接纳区」被享受；当成「解决区」的任务去完成，就会越休息越累</div></div>
+    <div class="row"><div class="term">北极星</div><div class="opts">愉悦是整套系统的目标导航，不是每次必须及格的分数线</div></div>
+  </div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section id="s3">
+  <h2><span class="no">03</span>全片最重要的一条：休息 ≠ 奖励</h2>
+  <p class="lede">这是构建两个库和规则时「最有问题的点」：有意识收集来的休息和奖励，内容会重合。分清楚之后才意识到——</p>
+
+  <table class="tbl auto">
+    <tr><th></th><th>休息</th><th>奖励</th></tr>
+    <tr><td>前提</td><td><strong>无条件</strong></td><td>任务完成得很好，额外挣来的</td></tr>
+    <tr><td>性质</td><td>基本的、天然的；是「人要活着、活得久，而不是累死」本来就该有的</td><td>额外的、加成的、有激励性的</td></tr>
+    <tr><td>能否取消</td><td><strong>不可被取消</strong>：不管事情做得好还是不好，都应该有</td><td><strong>可以被取消</strong>：没做到目标就不能获得</td></tr>
+    <tr><td>归属</td><td>休息库</td><td>奖励库（休息库的升级版）</td></tr>
+    <tr><td>类比</td><td>本来就该休的那个周六</td><td>调休之后额外多出来的假</td></tr>
+  </table>
+
+  <div class="note warn">
+    <span class="lbl warn">调休比喻：为什么不能把休息设成奖励</span>
+    <p>我天然就该休这个周六，结果节假日给我调走了，我并没多休息——于是我就不觉得这个节假日是对我的奖励。<strong>把本来属于休息的内容列为奖励，等于把一个天然权利说成恩赐</strong>，奖励就失去了「额外 / 加成」的意义，也就没有激励性了。</p>
+    <p>同理，「讲义（奖励）」不能靠克扣基本休息来凑；把基本诉求变成奖励的一部分，是一种克扣自欺。</p>
+  </div>
+
+  <div class="card accent">
+    <div class="k">一句话判定法（收藏这一条就够）</div>
+    <p style="font-size:17px;color:var(--ink)"><strong>「没完成什么事情，我平常也会做吗？」</strong></p>
+    <ul>
+      <li><span class="ok">会</span> → 它是<strong>休息库</strong>的内容，无条件给</li>
+      <li><span class="x">不会</span> → 它是<strong>奖励库</strong>的内容，挣来的</li>
+      <li>会又不会 → 给它做个<strong>升级版</strong>（多花点钱、享受得更好），放进奖励池</li>
+    </ul>
+    <p>例：泡脚本来就是可以享受的事，若变成「你必须做到这这这，才能够拥有」，其实挺难受的。</p>
+  </div>
+</section>
+
+<!-- ============ 04 ============ -->
+<section id="s4">
+  <h2><span class="no">04</span>短期休息选择要解决的三个问题</h2>
+  <p class="lede">这一整套「短期选择」不是凭空设计的，而是对着三个具体的坑逐一点对点补出来的。</p>
+
+  <h3>① 目标不清晰、难以量化 → 恶性循环</h3>
+  <p>尤其在人生阶段切换、<em>转型阵痛期 / 探索期</em>：不知道自己的目标是什么，还在探索、试错，产出自然没法量化，于是「觉得做得太慢、达不到效果、舍不得休息」。</p>
+  <div class="card accent">
+    <div class="k">解法：把「产出目标」换成「投入承诺」</div>
+    <p>把<strong>无法量化的产出目标</strong>，转换成<strong>可以量化的投入承诺</strong>——用番茄钟造出「任务完成」的体系，然后说服自己：「我今天可以去休息 / 我今天要休息多久」。</p>
+    <p>番茄钟是个非常棒的单位：它不只是 25 分钟，而是 <em>25 分钟的专注投入</em>，是把<strong>任务完成量 + 精力 + 时间三合一</strong>的单位。（相关旧内容：任务优先级、探索期 vs 解决期）</p>
+  </div>
+
+  <h3>② 愉悦的休息是有规律的，分两层</h3>
+  <div class="grid c2">
+    <div class="card blue">
+      <div class="k">活动层 · 会不会休息</div>
+      <ul>
+        <li>知不知道什么是真正的休息</li>
+        <li>哪些活动能放松<strong>脑子 / 心情 / 精神 / 身体</strong>，能达到什么程度</li>
+        <li>→ 这就是<em>休息库</em>要回答的</li>
+      </ul>
+      <p>丰富的休息方式，用来提升休息质量。</p>
+    </div>
+    <div class="card">
+      <div class="k">结构层 · 有没有位置放</div>
+      <ul>
+        <li><strong>固定可信的休息时间 &amp; 空间</strong>：在某个时间段雷打不动地休息，而不是「有空再歇」——因为人可能会克扣自己</li>
+        <li><strong>自在感</strong>：觉得「该做的已经做了，我可以休息」，而不是「我完不成、我不能休息」</li>
+      </ul>
+      <p>时间 + 空间 + 底气，给休息一个位置、一份心理上的支持。</p>
+    </div>
+  </div>
+  <div class="note warn">
+    <span class="lbl warn">缺了结构层会怎样</span>
+    <p>躺着也会非常有负罪感，在「好急哦、我想工作哦 / 我要休息哦 / 我又想工作」之间反复纠结。所以光有活动不够，还得让休息<em>有地方放</em>。</p>
+  </div>
+
+  <h3>③ 缺乏自我关怀：一直在克扣自己</h3>
+  <p>很常见的一种状态：<strong>知道自己喜欢什么，却没给自己选择的机会</strong>。要从「克扣自己」转向「给自己系统性的选择」，先能识别什么是在苛待自己——不允许自己休息、觉得不配奖励、把本来属于我们的休息设成奖励、让基本诉求变成奖励的一部分、平时过得苦巴巴的，连休息时吃一点正常食物都觉得「很美味」。</p>
+  <p>这需要用追踪系统<em>提前抓住</em>，而不要等崩盘。追踪三个维度：</p>
+  <table class="tbl auto">
+    <tr><th>维度</th><th>下降时说明什么</th></tr>
+    <tr><td>成就感</td><td>「我没有底气」，可能就不想休息</td></tr>
+    <tr><td>平静的喜悦感</td><td>不开心，也许是有些地方克扣了自己、没有休息</td></tr>
+    <tr><td>奖励的量</td><td>每天给自己发奖励是多是少，用来识别「最近这个状态是不是奖励太多 / 太少造成的」</td></tr>
+  </table>
+  <div class="note">
+    <span class="lbl ok">为什么记录有用</span>
+    <p>系统看起来非常简单，落地才知道：这样一个小小的记录成本很低，却能让自己知道「我什么样的状态、什么样的心情」，会去关注自己、有意识地觉察自己。<strong>觉察是改变非常重要的前置条件</strong>——「多多的记录，自己会改变」；跟自己是超级好的朋友，才知道怎么驾驶自己这一套机甲。</p>
+  </div>
+</section>
+
+<!-- ============ 05 ============ -->
+<section id="s5">
+  <h2><span class="no">05</span>底层逻辑与执行要点</h2>
+  <p class="lede">把散落在全片的「怎么想」收成五条，是整套系统的操作系统。</p>
+
+  <div class="steps">
+    <div class="step">
+      <h4>状态差，也是值得玩的</h4>
+      <p>要记住这句话。从「不准自己玩 → 越耗越差 → 崩溃的痛」里反推出来：<em>及时止损，去执行自己的保底，而不是奖励</em>。总是苛责自己，反而会更加低落。</p>
+    </div>
+    <div class="step">
+      <h4>「有的选」会让人非常幸福</h4>
+      <p>固定的休息时间 / 空间给<strong>确定感</strong>，可选项给<strong>掌控感</strong>。所以在这套制度里要主动增加自己的可选空间，让自己开心起来。</p>
+    </div>
+    <div class="step">
+      <h4>番茄钟达成 → 解锁「休息不欠债」</h4>
+      <p>底层逻辑：番茄钟达成 = 我的任务完成得很好、很有底气 → 解锁一个休息不欠债的状态 → <em>本来就有的享受能力自动上线</em>。当你觉得自己做得超级棒，「我躺一躺 / 我要吃这个 / 我要去哪玩」都是理所应当的；而总在苛责自己的状态下，永远是「我不应该休息，我还没弄完呢」。</p>
+    </div>
+    <div class="step">
+      <h4>愉悦是北极星，不是及格线</h4>
+      <p>日常不应该限制自己想吃什么、想做什么：<strong>保持舒服，而不是保持活着</strong>。让日常有「生理重置」——脑子刷新、去休息、小憩、补充能量的保底；休息日则留给心流、探索或整块时间。</p>
+    </div>
+    <div class="step">
+      <h4>追踪系统负责扫描与触发</h4>
+      <p>扫描成就感与喜悦感：上升 → 按正常执行；有所下降 → 触发被动休息状态（齿轮三）。横向贯穿整条链路的是「发现信号 → 去休息或奖励 → 再进行抽选」。</p>
+    </div>
+  </div>
+
+  <div class="quote" style="font-size:18px">
+    休息是「做到了才有的选的奖励，以及相应的保底」，<br>而不是「撑不住才歇的补偿」。
+  </div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section id="s6">
+  <h2><span class="no">06</span>系统的三个齿轮</h2>
+  <p class="lede">结构一句话：通过番茄工作法投入承诺 → 达标后解锁日常恢复（每天小玩 + 每周恢复托底）→ 再得到长期恢复（每月纯玩 + 状态不好时的止损）。</p>
+
+  <div class="steps">
+    <div class="step">
+      <h4>齿轮一 · 投入承诺</h4>
+      <p>每天约 <strong>10 个番茄钟</strong>，可自己微调。关键是<em>标准</em>：25 分钟全身心投入、毫无杂念，内在打断与外在打断都记录——保质保量，才算对自己有了一个承诺。</p>
+      <p>目标要设得<strong>友好一点、符合实际、也可突破一点</strong>。这叫「调生活的篮球框」：玩游戏最开心的是「有点难，但我打过了」，努力一下能跨过去，不至于太简单也不至于太难。找到那个点，会带来平静的喜悦感、成就感和「我做得老棒了，我值得奖励」——于是休息时就能理所应当、尽情享受。</p>
+    </div>
+    <div class="step">
+      <h4>齿轮二 · 日常恢复</h4>
+      <p><strong>每天小玩保底 1–2 小时</strong>：不管工作几个番茄、不管状态差，都<em>无条件交给</em>——因为这是止损，能让你不至于太差。休息内容从休息库里选；在保底基础上，若番茄达标或效率高，就可以多玩，或从奖励库里抽选奖励。</p>
+      <p><strong>每周固定容器</strong>：一个硬性的休息时间和空间（讲者当时是学校周二下午公休），内容选休息库里「一个下午装得下」的。</p>
+      <p>撞了事就换本周任意下午；实在不行，下周把上午和下午拼在一起变成一整天。<strong>「必须歇，但日期有容错」</strong>——讲者用金融专业的说法把它叫「<em>休息期权</em>」：0.5 天 + 0.5 天 = 1 天。</p>
+    </div>
+    <div class="step">
+      <h4>齿轮三 · 长期恢复</h4>
+      <p>这是对之前恶性循环<em>点对点</em>的完善：当成就感与喜悦感<strong>连续下滑</strong>时，需要有一整天是纯玩的。怎么检测？靠追踪系统——每天标识自己的感受。</p>
+      <p>状态下滑时人是<strong>没有决策力</strong>的，所以不要临场想「玩什么」：直接抽一张<em>休息卡</em>快速止损去玩。</p>
+      <p>辅助规则：如果这一个月状态都很好、没有崩溃点，想哪天玩就哪天玩；如果一直没崩溃、也一直没去玩，就<strong>每月倒数第二天去玩</strong>，内容优先选心流 / 探索类。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 07 ============ -->
+<section id="s7">
+  <h2><span class="no">07</span>信号系统与抽卡发放机制</h2>
+  <p class="lede">什么时候该休息、什么时候该发奖励、怎么把「库」里的内容发到手——全靠信号 + 抽卡，避免状态差时还要做决策。</p>
+
+  <h3>四类信号</h3>
+  <table class="tbl auto">
+    <tr><th>信号</th><th>触发条件</th><th>动作</th></tr>
+    <tr><td>节律信号</td><td>到时间节点了</td><td>按节律去休息</td></tr>
+    <tr><td>身体信号</td><td>疲惫</td><td>去休息</td></tr>
+    <tr><td>预警信号</td><td>成就感 / 喜悦感 / 奖励的量下降</td><td>触发被动休息（齿轮三）</td></tr>
+    <tr><td>奖励信号</td><td>每天任务达标或超过</td><td>从奖励库里给自己发奖励</td></tr>
+  </table>
+  <div class="note"><span class="lbl ok">一条硬规则</span><p>不管是什么信号，<strong>每天的小玩都是照给的</strong>。</p></div>
+
+  <h3>怎么发：抽卡规则</h3>
+  <table class="tbl auto">
+    <tr><th>当下状态</th><th>抽法</th></tr>
+    <tr><td>累得不想决策</td><td>随便抽一张，<strong>抽到啥就干啥</strong></td></tr>
+    <tr><td>完成任务后累瘫了</td><td><strong>先休息，等状态好了再去奖励</strong>——状态很糟时其实很难执行那些奖励</td></tr>
+    <tr><td>还有决策力</td><td>抽三张选一张</td></tr>
+    <tr><td>完全自由决策</td><td>抽一张，<strong>必须执行、不换</strong>（防止「这个我不配、那个我不配」）</td></tr>
+  </table>
+  <div class="note blue">
+    <span class="lbl blue">休息与奖励在「执行」上的差别</span>
+    <p>休息是天然权利，必须给；奖励是可以选择执行的。但正因为讲者性格会克扣自己——「我是我的黑心老板，我给我自己画大饼，光囤奖励不执行，奖励就对我失效了」——所以奖励设了<strong>强制执行窗口</strong>：没去执行会作废、囤太多也会作废，逼自己积极地把奖励兑现掉。（自陈是「奖励型人格」的人，可能要把方向反过来修一修。）</p>
+  </div>
+
+  <h3>三个配套机制</h3>
+  <div class="grid c3">
+    <div class="card">
+      <div class="k">未来池</div>
+      <p>抽到暂时兑现不了的，就放到休息池 / 奖励池的「未来池」里，之后慢慢把这个池子隔离掉。</p>
+    </div>
+    <div class="card accent">
+      <div class="k">自清机制</div>
+      <p>候选池抽出来、休息或奖励完觉得很开心就攒起来；某项被反复抽到（约 5 次）且每次都非常开心，就固定成<strong>休息卡 / 奖励卡</strong>，常态性使用、减少决策。</p>
+    </div>
+    <div class="card purple">
+      <div class="k">最终形态</div>
+      <p>之所以要抽卡，是因为「收集了很多，但落地的少」，需要一个建立 / 沉淀机制。最后形成一套像扑克牌一样的卡，每天像皇帝翻绿头牌一样翻一张，美滋滋。</p>
+    </div>
+  </div>
+  <div class="note"><span class="lbl ok">奖励单 vs 奖励卡</span><p><strong>奖励单</strong>是单次的、消耗完就没的（临时写的、一次性的奖励）；<strong>奖励卡</strong>是能稳定带来快乐的「高级肯定」。</p></div>
+</section>
+
+<!-- ============ 08 ============ -->
+<section id="s8">
+  <h2><span class="no">08</span>休息库 · 核心原则：做相反的事</h2>
+  <p class="lede">高效的休息<strong>不是什么都不做</strong>，而是去觉察自己那些被过度使用的器官和大脑，换另外一套方式去做。</p>
+
+  <div class="card accent">
+    <div class="k">核心原则</div>
+    <p>脑力劳动者脑子非常疲惫时，就要切换到和忙的事情<strong>完全相反</strong>的内容上去。最好还能是「<em>掌控活动</em>」——对一个聪明的大脑来说，投入到「可以进步、能达到一定水平、但和平时的风格完全不一样」的事情上，会让人感觉特别好。</p>
+    <p>讲者的例子：日常工作文字多、图像少 → 转向<strong>画画</strong>，色彩丰富，感觉特别好。</p>
+  </div>
+
+  <h3>自检六问，然后做相反的</h3>
+  <p>先问自己：身体姿势是什么样、专注的器官是什么、待的空间是什么、做的事情是什么、特征是什么、听到的是什么——识别「我哪里累了」，再把这些特征组合起来，让休息到位。</p>
+  <table class="tbl auto">
+    <tr><th>维度</th><th>从 → 切换到</th></tr>
+    <tr><td>身体姿势</td><td>经常低头作业 → 抬头；久坐 → 拉伸、起身走走；常用眼 → 换成手</td></tr>
+    <tr><td>专注的器官</td><td>眼睛 / 耳朵 / 大脑被动接受 → 闭眼、用手做手工、用脚走路、用皮肤感受风</td></tr>
+    <tr><td>空间环境</td><td>室内、灯光固定、密闭 → 户外、有风、有植物；嘈杂 → 安静</td></tr>
+    <tr><td>活动特征</td><td>被动接受、多线程强刺激、无自主节奏 → 主动创造、专一专注、有节奏感</td></tr>
+    <tr><td>节奏与能量</td><td>时间节奏太快 → 变慢；精神消耗 &gt; 身体 → 对调</td></tr>
+    <tr><td>社交与掌控</td><td>高社交、被迫沟通、角色扮演 → 独处、自主的感官刺激；被动、被安排、无自主权 → 主动选择、有掌控感的事</td></tr>
+    <tr><td>感官与摄入</td><td>工作时没吃东西、没闻到气味、没怎么喝水 → 喜欢的气味、吃好吃的、喝点小饮料（听起来很像野餐）</td></tr>
+  </table>
+
+  <div class="note warn">
+    <span class="lbl warn">别等</span>
+    <p>我们需要的不是完全的休息，而是让这块电池<strong>规律地充电和放电</strong>。不要等累了再去休息，就跟不要等渴了再去喝水一样。</p>
+  </div>
+</section>
+
+<!-- ============ 09 ============ -->
+<section id="s9">
+  <h2><span class="no">09</span>真休息 vs 假休息（避坑）</h2>
+  <p class="lede">休息库建好之后，还要能分辨什么叫真正的休息、什么叫「看起来在休息」。</p>
+
+  <table class="tbl auto">
+    <tr><th></th><th>真休息</th><th>假休息</th></tr>
+    <tr><td>做法</td><td>用相反的模式切换过度使用的部分；按疲劳类型对症下药；进入心流 / 掌控的活动</td><td>刷手机碎片信息、一累就躺、靠甜食解决疲劳、把放松当「吃沙拉」</td></tr>
+    <tr><td>刷手机</td><td>—</td><td>大脑仍<strong>高度运转</strong>，只是「忘了」之前让你烦心的事；脑子没休息，本来脑子就烦会更累</td></tr>
+    <tr><td>只躺着</td><td>—</td><td>只解决身体，没有解决心理疲劳，休息不足。那是「心气不足」，而不是身体弱</td></tr>
+    <tr><td>甜食</td><td>—</td><td>获得瞬间的幸福感，但会因为血糖变化让人不舒服</td></tr>
+  </table>
+
+  <h3>四个心态坑</h3>
+  <div class="grid c2">
+    <div class="card">
+      <div class="k">破除娱乐的羞耻</div>
+      <p>有创造力的人都是比较会玩的人；聪明的人都是比较爱「偷懒」的人——本来该走路，想偷个懒，于是造了车；本来要翻山越岭，想偷个懒，于是造了飞机；本来这工作要自己做，于是造个 AI 帮着做。<strong>放松会给你充电，让你做得更好。</strong></p>
+    </div>
+    <div class="card warn">
+      <div class="k">别把基本关怀当奖励</div>
+      <p>那是一种「克扣自欺的精神形态」：泡脚本来就是可以享受的事，却变成「你要做到这这这才能拥有」，其实挺难受的。</p>
+    </div>
+    <div class="card warn">
+      <div class="k">别一休息就自责</div>
+      <p>「有这个时间不如多干活」——这种状态也需要被识别、被调过来。</p>
+    </div>
+    <div class="card purple">
+      <div class="k">不要严肃地对待休息</div>
+      <p>把休息切切实实当成「解决区」的任务去办，你就会像完成任务一样去完成休息项，而不是享受它 → <strong>越休息越累</strong>：因为你还在绷着、没放松、没接纳自己。要把它当「<em>接纳区</em>」的内容。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="s10">
+  <h2><span class="no">10</span>休息方式库 · 六大类</h2>
+  <p class="lede">休息可以有<strong>候选池</strong>，特别喜欢的常驻为「休息卡」写进日常小卡片。下面六类是讲者的分类自述（自己也说「这个词还不够完善」，欢迎补充）。</p>
+
+  <div class="grid c2">
+    <div class="card">
+      <div class="k">01 · 生理重置型</div>
+      <p style="margin-top:0"><strong>核心</strong>：让大脑刷新、给身体充能，时间成本低、随时能做。</p>
+      <ul>
+        <li>小睡 / 闭目养神（配合深呼吸更好）/ 倒置 / 拉伸 / 站起来走走</li>
+        <li>泡脚、冲个小澡、自己给自己按摩</li>
+        <li>剪刘海、洗头、洗眼睛、眼保健操（附加效果：想起小时候无忧无虑的时光）、用梳子梳头</li>
+        <li>闭眼做 keep 并叠加自己喜欢的歌；反向番茄钟</li>
+        <li>备菜（很无脑、挺轻松）、眺望风景、运动型爱好、放下手机</li>
+      </ul>
+    </div>
+
+    <div class="card blue">
+      <div class="k">02 · 感官切换 / 正念型</div>
+      <p style="margin-top:0"><strong>核心</strong>：把思绪拉回感官与当下。</p>
+      <ul>
+        <li>闭眼数呼吸、冥想；「微冥想」塞进等待时间：坐地铁、等电梯、打团排队、开会前</li>
+        <li><strong>正念饮食</strong>：专注地慢慢嚼，非常享受食物，还能帮你减肥、和食物做朋友（吃多了常是因为吃饭时在看别的东西、没在享受）</li>
+        <li>闭眼听喜欢的歌（存一份自己的歌单）</li>
+        <li><strong>发呆</strong>：注意力回落到当下的生活——看小猫、阳光洒下来、房间灰尘在闪烁、杯子的投影、家具细小的纹路，和当下事物纯粹待在一起</li>
+        <li>调动五感去感受世界：鼠标的质感、皮肤的感觉、闻到什么、听到什么、看到的细节</li>
+        <li>玩小时候的游戏、散步、做与工作 / 日常状态完全相反的事</li>
+      </ul>
+    </div>
+
+    <div class="card purple">
+      <div class="k">03 · 心流创造型</div>
+      <p style="margin-top:0"><strong>核心</strong>：用主动的创造去对冲被动的接收，深度恢复。</p>
+      <ul>
+        <li>手工、画画、陶艺、手帐等主动创作；创作输出其实是在「关上外界的门」，门槛并不高，人人都可以把自我向外发散、分享，从而发现自己的闪光点、更了解自己、和自己深度交流（像跟自己 date）</li>
+        <li>整理房间的秩序、做一顿饭、情绪书写</li>
+        <li><strong>自我关怀日记</strong>（见下方展开）</li>
+        <li>专注做小事：无决策的重复性劳动、写下三件自己能决定的小事去做、散步 + 费曼输出、做自己真正喜欢的事、培养兴趣爱好</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="k">04 · 自然空间转换型</div>
+      <p style="margin-top:0"><strong>核心</strong>：从室内到室外，换换环境、接触大自然。</p>
+      <ul>
+        <li>冥想散步、公园效应、骑车、慢跑、散步、去不一样的地方逛逛</li>
+        <li>没逛过的、朴朴素素的菜市场，看人很热闹的样子</li>
+        <li><strong>吹泡泡</strong>：来自一本教小宝宝情绪管理的绘本（作者爱看儿童心理学书，因为「教一张白纸」效率最高）。心里想说的事太多、脑子很满时，用吸管蘸泡泡水吹，把注意力专注在泡泡上，让内心的东西抒发出来——是一个释放的过程</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="k">05 · 连接型（情绪恢复）</div>
+      <p style="margin-top:0"><strong>核心</strong>：用人的连接来填满情绪。</p>
+      <ul>
+        <li>关系充电、找人聊天、与挚友 / 灵魂伴侣深度对话、在对话中静观与觉察自己、和老人聊天</li>
+        <li>撸小猫：「小猫在教会我怎么爱自己，小狗在教会我怎么爱别人」；它们更能从细小的碎片中感觉到快乐</li>
+        <li>行善 / 志愿服务：发现自己能帮到别人的地方也不少，有口水喝、有顿饭吃，就能让普通人当一天纯粹善良的人，很治愈</li>
+        <li>让自己笑：脱口秀、唱歌</li>
+        <li><strong>创造分享的输出爱好</strong>：自媒体「土豆人」。输出需求会逐级变大——身边人 → 扩大社交圈 / 找灵魂伴侣 → 评论区、写信（热门评论其实是在说出他人的心声）→ 用自媒体表达自己</li>
+        <li>联机合作游戏（讲者玩《漫威争锋》）</li>
+      </ul>
+    </div>
+
+    <div class="card accent">
+      <div class="k">06 · 探索成长型</div>
+      <p style="margin-top:0"><strong>核心</strong>：满足好奇心、做新的事，本质是「掌控活动」。</p>
+      <ul>
+        <li>看展览（尤其毕业季名校美院展：艺术非常治愈人心，能感到生命的厚度甚至意义感）、看戏剧</li>
+        <li>做没有目的的事；「变得怪异点」——对周围一切好奇，散步走另一个岔口、选另一个口味，生活会丰富无数倍</li>
+        <li>无目的地逛图书馆（像逛淘宝，哪个书名吸引就翻）、逛超市（新商品、闻香皂、没见过的水果、新品种蔬菜、新烘焙）、逛菜市场（便宜好吃、小时候的味道）</li>
+        <li>找好吃的菜谱、认知重构（电子收藏实体化、个人知识管理）、读书 + 费曼输出</li>
+        <li>旅行：当地博物馆 / 科技馆 / 图书馆 / 展览、当地人日常逛的商店（避开商业化太重的网红点）</li>
+        <li>学艺术、乐器、语言、瑜伽运动；研究「装修」让日常变开心（玄关、厨房摆放、柜子打几个打哪儿）；儿童绘本等精神型爱好；完善自己的「天国」/ 内心世界、个人愿景版；健康管理、极简日常、收纳、运动姿态矫正的书</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>自我关怀日记怎么写</h3>
+  <div class="card purple">
+    <ol>
+      <li>写下任何你觉得<strong>很糟糕的事情</strong>，再写下自己的感受：不用夸大、也不要评判，就是接纳它</li>
+      <li><strong>共通人性</strong>：去体验它和人类体验相互关联的地方，承认这是不完美的、所有人都可能会有这样的体验</li>
+      <li><strong>善待自己</strong>：像安慰自己的朋友一样，说一些友善的劝慰之词；每天给自己一些肯定的语言</li>
+      <li>聆听自己、安慰自己，并意识到「这件事并不是只有我一个人会做到」——<em>这一点不是为了给自己开脱，而是接纳</em>，之后才有可能流畅、自在地做得更好</li>
+    </ol>
+  </div>
+
+  <h3>事前自检 + 抽选 + 场所</h3>
+  <table class="tbl auto">
+    <tr><th>自检</th><th>判断</th><th>怎么选</th></tr>
+    <tr><td>厌烦</td><td>针对某个项目做太多了、或不喜欢、损耗到自我</td><td>换内容、换喜欢的或不同的事 → 偏<strong>心流创造</strong></td></tr>
+    <tr><td>疲惫</td><td>耗竭状态：身体疲惫 / 脑子疲惫 / 情绪低落 / 身体加脑子都疲惫</td><td>身体 → <strong>生理重置</strong>；脑子 → <strong>感官切换</strong>；情绪 → <strong>连接型</strong></td></tr>
+  </table>
+  <div class="note">
+    <span class="lbl ok">三条补充</span>
+    <p><strong>① 按体验选</strong>：就这一项休息，实际能让你脑子舒服、身体舒服、还是都舒服。<strong>② 抽选</strong>：累瘫不想决策 → 随便抽一张抽到啥干啥；还有决策力 → 抽三张选一张；能决策 → 按规则走。<strong>③ 微休息与阶段性休息</strong>（番茄钟内 5 分钟、4 个番茄后一次）都在番茄工作法里，不在此重复。</p>
+    <p><strong>休息场所 / 玩乐空间</strong>：还要有意识地给自己搭一个随时能休息、玩乐的物理或心理空间——一个小房间、一个秘密小基地，进去就能感到「全身心下班了、休息了」。<strong>休息库的扩充方式</strong>很简单：留意自己做哪些事开心就往里记，下次试试，就知道合不合适。</p>
+  </div>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="s11">
+  <h2><span class="no">11</span>奖励库：即时、额外、按心理重量分级</h2>
+  <p class="lede">奖励库是<strong>休息库的升级版和额外</strong>。最重要的一条：<em>实时、即时地奖励，不要给自己画大饼</em>。</p>
+
+  <div class="note warn">
+    <span class="lbl warn">不要让自己去问「什么是惊喜」</span>
+    <p>想想看自己为什么讨厌那些画大饼的 boss：说「哎给你怎么怎么样」，事实上没有，人就会 PTSD。所以别像《让子弹飞》里那样非要「翻译翻译，什么是惊喜」——<strong>奖励要给到自己，没吃到都不算</strong>。讲者自嘲：「我给我自己画大饼，我是一个黑心老板，光囤奖励不执行，奖励就对我失效了。」</p>
+  </div>
+
+  <h3>四条要点</h3>
+  <div class="grid c2">
+    <div class="card accent">
+      <div class="k">与休息分开</div>
+      <p>奖励是挣来的、额外的；休息是无条件的、基本的、不可被取消的。先判断它是不是休息库里的东西：<strong>是 → 移回休息库</strong>；觉得可以升级 → 给个升级版（多花钱、享受得更好）放进奖励库。</p>
+    </div>
+    <div class="card">
+      <div class="k">按心理重量规制</div>
+      <p>分级依据是「<strong>心理重量</strong>」而不是花了多少钱。由此分出日度池 / 周度池 / 月度池 / 未来池，和齿轮结构内嵌得很好。</p>
+    </div>
+    <div class="card blue">
+      <div class="k">核心法则：用时间奖励自己</div>
+      <p>允许自己在完成一段任务之后自由探索，或用「<strong>完成仪式</strong>」标记不同大小的事。讲者的例子：某件事完成得比较好，就去特别喜欢的那家台湾大叔开的店吃顿饭，「如同回了一个心灵净土」。</p>
+    </div>
+    <div class="card purple">
+      <div class="k">用体验替代物品</div>
+      <p>体验会成为你的一部分，比物品<strong>回甘更久</strong>：看展览演出、去没去过的地方、试那些没时间试的体验课。</p>
+    </div>
+  </div>
+
+  <h3>三种特殊奖励</h3>
+  <div class="grid c3">
+    <div class="card">
+      <div class="k">用创作来奖励</div>
+      <p>完成一件事后，允许自己做一些<strong>没有目的、不求质量、不求被看见</strong>的创作。它是深刻的自我对话：「允许自己只是做，而不是做得更好」，会连接到自己做事的初心。</p>
+    </div>
+    <div class="card">
+      <div class="k">微奖励</div>
+      <p>番茄工作法里，每个番茄钟过后把那个小方块<strong>涂满</strong>——涂满本身就是对自己的肯定：「我做的超级棒」。</p>
+    </div>
+    <div class="card">
+      <div class="k">奖励单 / 清单指针</div>
+      <p>临时想的、一次性的奖励按「<strong>奖励单</strong>」执行；各类清单（旅行目的地、愿望、发了工资想买什么）也可以直接作为抽选内容。</p>
+    </div>
+  </div>
+
+  <h3>分值系统：以心理重量为基石</h3>
+  <table class="tbl auto">
+    <tr><th>池</th><th>重量</th><th>内容示例</th></tr>
+    <tr><td>微奖励</td><td>即时</td><td>涂满番茄钟小方块、追踪系统里的记录</td></tr>
+    <tr><td>日度池</td><td>轻</td><td>采购小零食、「对我而言」逆天好吃的食物（配正念饮食）；有趣可爱的书单（《如何不切实际地解决实际问题》：天马行空、满是孩子气与好奇心）；小时候的事——吹泡泡、童年小零食、小时候爱逛的店；线香；买新皮肤</td></tr>
+    <tr><td>周度池</td><td>中</td><td>升级版：找好吃的菜谱、自制零食（费力一点）、展览 / 博物馆（花半天）、体验课</td></tr>
+    <tr><td>月度池</td><td>重</td><td>买拍摄道具、去更远一点的博物馆、旅行</td></tr>
+    <tr><td>未来池</td><td>暂时实现不了</td><td>先放进去，慢慢隔离掉</td></tr>
+  </table>
+  <div class="note blue">
+    <span class="lbl blue">两种载体 + 一条判定</span>
+    <p><strong>奖励单</strong>是单次的、消耗的；<strong>奖励卡</strong>是「稳定带来快乐」的高级肯定。奖励库同样靠记录「发自真心快乐的事」来扩充，奖励单可以临时写，再按收到奖励之后的体验慢慢升级。</p>
+    <p>归类时再问一次第 03 节那句：<em>没完成什么事情，我平常也会做吗？</em>会 → 休息；不会 → 奖励；会又不会 → 升级一下变成奖励池。讲者自陈：「<strong>我发奖励还在探索期</strong>。」</p>
+  </div>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="s12">
+  <h2><span class="no">12</span>落地清单与结尾</h2>
+  <p class="lede">视频结尾没有给清单，这里按全片内容整理成可以直接勾的落地项。</p>
+
+  <div class="card">
+    <div class="k">先立概念</div>
+    <ul class="checks">
+      <li>休息是<strong>无条件的保底</strong>，奖励是<strong>挣来的额外</strong>；绝不把基本休息设成奖励</li>
+      <li>休息归「接纳区」被享受，不归「解决区」被完成；愉悦是北极星，不是及格线</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="k">再搭节律</div>
+    <ul class="checks">
+      <li>每天定一个「友好、够得着、可突破一点」的番茄钟目标；达标即解锁「休息不欠债」</li>
+      <li>每天 1–2 小时<strong>小玩无条件照给</strong>，状态差也照给（这是止损，不是奖励）</li>
+      <li>每周一个硬性的「<strong>休息期权</strong>」：必须歇，日期可容错、可合并</li>
+      <li>每天标识成就感 / 平静的喜悦感 / 奖励的量；连续下滑 → 抽一张休息卡，一整天纯玩</li>
+      <li>整月没崩溃 → 想哪天玩就哪天玩；一直没去玩 → 每月倒数第二天补上</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="k">最后填两个库</div>
+    <ul class="checks">
+      <li>发奖励要<strong>即时</strong>：不囤、不画大饼；设强制执行窗口，不兑现就作废</li>
+      <li>抽卡按状态走：累瘫抽一张、有决策力抽三选一、状态好抽一张必须执行；兑现不了的进未来池</li>
+      <li>选休息先自检「<strong>厌烦还是疲惫</strong>」，再做相反的事；避开刷手机、只躺、靠甜食</li>
+      <li>留意让自己开心的事就记进库里，被反复抽中且每次都开心的固定成<strong>卡</strong></li>
+      <li>顺手搭一个能随时「下班」的玩乐空间（物理的或心理的）</li>
+    </ul>
+  </div>
+
+  <div class="quote">
+    我们能不能自己肯定自己，能不能自己给自己鼓掌，<br>能不能自己给自己发个小红花，我能不能给自己放个假——<strong>能吧</strong>。
+    <small>希望大家鼓起勇气，坚定、自在、坦然地给自己发奖励、让自己放假、好好享受生活，通过五感感受生活里的小确幸。</small>
+  </div>
+</section>
+
+<footer>
+  <p>本讲义根据视频字幕（1641 条 / 约 51 分钟）整理，保留原片观点与例子，仅做结构化、去重与去口语化处理。字幕为语音自动识别，个别词按上下文归一：<code>讲义</code>→<code>奖励</code>、<code>番茄中</code>→<code>番茄钟</code>、<code>小气</code>→<code>小憩</code>、<code>五观</code>→<code>五感</code>；原文时作「阅读追踪系统」者，统一作「状态追踪系统」。片中「SOOP」「六弯清单」等疑似识别有误且无法确证的说法，已按语义改写成通用表述。</p>
+  <p>建议用法：<a href="#s3">03 节</a> 先分清概念 → <a href="#s6">06–07 节</a> 搭结构与抽卡 → <a href="#s8">08–11 节</a> 填两个库 → <a href="#s12">12 节</a> 落地勾选。配合原有的番茄工作法与追踪系统视频一起用。</p>
+</footer>
+</div>
+
+<a class="top" href="#" title="回到顶部">↑</a>
+
+<a href="index.html" title="返回首页" style="position:fixed;left:12px;bottom:12px;z-index:2147483000;display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:999px;background:rgba(17,24,39,.86);color:#fff;text-decoration:none;font:600 13px/1 -apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;box-shadow:0 4px 14px rgba(15,23,42,.28)">← 返回首页</a>
+</body>
+</html>
