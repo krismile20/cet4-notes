@@ -201,6 +201,10 @@ body.searching .no-match{display:block}
   body.hide .row .en{color:var(--en)!important}
   body.hide .row .en::after{content:""!important}
 }
+.xnav{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:18px}
+.xnav a{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:#2d5c50;
+  text-decoration:none;border-bottom:1px dotted #9dbcb1;padding-bottom:2px;transition:.15s}
+.xnav a:hover{color:#1d3d35;border-bottom-color:#2d5c50}
 </style>
 </head>
 <body>
@@ -210,7 +214,10 @@ body.searching .no-match{display:block}
     <p class="kicker">CET-4 / CET-6 · Translation</p>
     <h1>四六级翻译 · 六大主题常考词<br>＋ <em>14 个句型技巧</em></h1>
     <p class="lede">六大高频主题词按「中 → 英」逐条对照，配 14 个真题级句型拆解（是字结构、有字结构、的字结构、随着、之一、词序……），最后附词汇升级与 73 条主题词。搜索、遮盖自测、打印皆可。</p>
-    <a href="translation-structures.html" style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:13.5px;color:#2d5c50;text-decoration:none;border-bottom:1px dotted #9dbcb1;padding-bottom:2px">下一讲：22 个句式进阶技巧 →</a>
+    <div class="xnav">
+      <a href="translation-structures.html">下一讲：22 个句式进阶技巧 →</a>
+      <a href="translation-advanced.html">词汇页：高级加分词汇 →</a>
+    </div>
     <div class="stats">
       <div class="stat"><b id="stat-words">231</b><span>六大主题词条</span></div>
       <div class="stat"><b>14</b><span>句型技巧</span></div>
@@ -1032,7 +1039,7 @@ body.searching .no-match{display:block}
 <div class="empty no-match" id="empty">没有匹配的词条，换个关键词试试。</div>
 
 <footer class="wrap">
-  <span>邹老师四六级 · 翻译六大主题词 + 14 个句型技巧</span>
+  <span>邹老师四六级 · 翻译六大主题词 + 14 个句型技巧<br>系列：<a href="translation-structures.html" style="color:#2d5c50">句式进阶 22 讲</a> · <a href="translation-advanced.html" style="color:#2d5c50">高级加分词汇</a></span>
   <span>共 <b id="total">—</b> 条词条 ｜ Ctrl/⌘ + P 可直接打印成讲义</span>
 </footer>
 
