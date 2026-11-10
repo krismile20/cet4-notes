@@ -165,6 +165,20 @@ body.searching .sec-head .cnt{display:none}
 body.searching .card::before{opacity:1}
 body.searching .no-match{display:block}
 
+/* 订正记录表 */
+.fixsec{margin-top:44px}
+.fixsec h2{font-size:20px;margin:0 0 6px;letter-spacing:-.2px}
+.fixsec .sub{color:var(--ink-3);font-size:13.5px;margin:0 0 16px}
+.fixtbl{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.fixtbl th{text-align:left;font-size:11.5px;letter-spacing:.1em;color:#a89272;font-weight:600;
+  background:#faf7f0;border-bottom:1px solid var(--line);padding:9px 12px;white-space:nowrap}
+.fixtbl td{padding:9px 12px;border-bottom:1px dashed #ece6d9;vertical-align:top;line-height:1.6}
+.fixtbl tr:last-child td{border-bottom:0}
+.fixtbl td.old{font-family:var(--font-en);color:#9a9282;text-decoration:line-through;text-decoration-color:#d9c7b8}
+.fixtbl td.new{font-family:var(--font-en);color:#1c5a45;font-weight:600}
+.fixtbl td.why{font-size:13px;color:var(--ink-2)}
+@media (max-width:640px){.fixtbl{font-size:13px}.fixtbl td,.fixtbl th{padding:7px 9px}}
 @media (max-width:820px){
   .grid{grid-template-columns:1fr;column-gap:0}
   .card{padding:6px 15px 14px}
@@ -237,11 +251,11 @@ body.searching .no-match{display:block}
   <div class="card">
     <div class="grid">
       <div>
-        <div class="row"><span class="cn">源于</span><span class="dots"></span><span class="en">be originated from / in；derive from <i>(无被动)</i></span></div>
+        <div class="row"><span class="cn">源于</span><span class="dots"></span><span class="en">originate from / in；derive from <i>(均无被动)</i></span></div>
         <div class="row"><span class="cn">社会地位</span><span class="dots"></span><span class="en">social status</span></div>
         <div class="row"><span class="cn">为了纪念……</span><span class="dots"></span><span class="en">in memory of sb.；commemorate <i>(v.)</i></span></div>
         <div class="row"><span class="cn">以……命名</span><span class="dots"></span><span class="en">be named after</span></div>
-        <div class="row"><span class="cn">构成</span><span class="dots"></span><span class="en">constitute / make up / consist of <i>(均主动)</i></span></div>
+        <div class="row"><span class="cn">构成</span><span class="dots"></span><span class="en">constitute / make up / consist of <i>(A consists of B 用主动；A is made up of B 亦可)</i></span></div>
         <div class="row"><span class="cn">必不可少的</span><span class="dots"></span><span class="en">essential / indispensable / fundamental</span></div>
         <div class="row"><span class="cn">古代</span><span class="dots"></span><span class="en">(in) ancient times</span></div>
         <div class="row"><span class="cn">随着时间的推移</span><span class="dots"></span><span class="en">as time goes by</span></div>
@@ -309,9 +323,9 @@ body.searching .no-match{display:block}
   <div class="card">
     <div class="grid">
       <div>
-        <div class="row"><span class="cn">享有……的声誉</span><span class="dots"></span><span class="en">enjoy a high reputation of…</span></div>
+        <div class="row"><span class="cn">享有……的声誉</span><span class="dots"></span><span class="en">enjoy a high reputation for…</span></div>
         <div class="row"><span class="cn">蓬勃发展</span><span class="dots"></span><span class="en">boom / flourish / thrive</span></div>
-        <div class="row"><span class="cn">被誉为</span><span class="dots"></span><span class="en">be honored / crowned as</span></div>
+        <div class="row"><span class="cn">被誉为</span><span class="dots"></span><span class="en">be honored / hailed as</span></div>
         <div class="row"><span class="cn">占据重要地位</span><span class="dots"></span><span class="en">occupy a significant place / play a significant role</span></div>
         <div class="row"><span class="cn">与……密不可分</span><span class="dots"></span><span class="en">be closely associated with / be intertwined with</span></div>
         <div class="row"><span class="cn">增进友谊</span><span class="dots"></span><span class="en">enhance friendship</span></div>
@@ -346,7 +360,7 @@ body.searching .no-match{display:block}
         <div class="row"><span class="cn">景点</span><span class="dots"></span><span class="en">scenic site</span></div>
         <div class="row"><span class="cn">旅游景点 / 目的地</span><span class="dots"></span><span class="en">tourist spots / tourist destination</span></div>
         <div class="row"><span class="cn">度假</span><span class="dots"></span><span class="en">take a vacation</span></div>
-        <div class="row"><span class="cn">开阔视野</span><span class="dots"></span><span class="en">broaden one's horizon</span></div>
+        <div class="row"><span class="cn">开阔视野</span><span class="dots"></span><span class="en">broaden one's horizons</span></div>
         <div class="row"><span class="cn">翻山越岭</span><span class="dots"></span><span class="en">climb mountains and hills</span></div>
         <div class="row"><span class="cn">自然景观 / 山水</span><span class="dots"></span><span class="en">landscapes</span></div>
         <div class="row"><span class="cn">淡水湖</span><span class="dots"></span><span class="en">freshwater lakes <i>(fresh water 淡水)</i></span></div>
@@ -439,13 +453,13 @@ body.searching .no-match{display:block}
         <div class="row"><span class="cn">见证</span><span class="dots"></span><span class="en">witness</span></div>
         <div class="row"><span class="cn">超过</span><span class="dots"></span><span class="en">exceed</span></div>
         <div class="row"><span class="cn">基础设施</span><span class="dots"></span><span class="en">infrastructure</span></div>
-        <div class="row"><span class="cn">生活水平</span><span class="dots"></span><span class="en">living standard</span></div>
+        <div class="row"><span class="cn">生活水平</span><span class="dots"></span><span class="en">living standards</span></div>
         <div class="row"><span class="cn">平均收入</span><span class="dots"></span><span class="en">average income</span></div>
         <div class="row"><span class="cn">购买力</span><span class="dots"></span><span class="en">purchasing power</span></div>
         <div class="row"><span class="cn">网购</span><span class="dots"></span><span class="en">online shopping</span></div>
         <div class="row"><span class="cn">电商巨头</span><span class="dots"></span><span class="en">e-commerce giants</span></div>
         <div class="row"><span class="cn">打折</span><span class="dots"></span><span class="en">give / offer a discount</span></div>
-        <div class="row"><span class="cn">用现金 / 信用卡付款</span><span class="dots"></span><span class="en">pay by cash / credit card</span></div>
+        <div class="row"><span class="cn">用现金 / 信用卡付款</span><span class="dots"></span><span class="en">pay in cash / by credit card</span></div>
         <div class="row"><span class="cn">快递</span><span class="dots"></span><span class="en">express delivery</span></div>
         <div class="row"><span class="cn">消费方式</span><span class="dots"></span><span class="en">pattern of consumption</span></div>
         <div class="row"><span class="cn">消除贫困</span><span class="dots"></span><span class="en">alleviate poverty / poverty alleviation</span></div>
@@ -454,7 +468,7 @@ body.searching .no-match{display:block}
         <div class="row"><span class="cn">社会保障</span><span class="dots"></span><span class="en">social security</span></div>
         <div class="row"><span class="cn">就业</span><span class="dots"></span><span class="en">employment</span></div>
         <div class="row"><span class="cn">外出务工人员</span><span class="dots"></span><span class="en">migrant workers</span></div>
-        <div class="row"><span class="cn">理财</span><span class="dots"></span><span class="en">financial management / manage finance</span></div>
+        <div class="row"><span class="cn">理财</span><span class="dots"></span><span class="en">financial management / manage one's finances</span></div>
         <div class="row"><span class="cn">共享单车</span><span class="dots"></span><span class="en">shared bikes</span></div>
         <div class="row"><span class="cn">城乡</span><span class="dots"></span><span class="en">in urban and rural areas</span></div>
         <div class="row"><span class="cn">高质量发展的</span><span class="dots"></span><span class="en">high-quality</span></div>
@@ -477,7 +491,7 @@ body.searching .no-match{display:block}
         <div class="row"><span class="cn">移动支付</span><span class="dots"></span><span class="en">mobile payment</span></div>
         <div class="row"><span class="cn">手机购物</span><span class="dots"></span><span class="en">mobile shopping / shopping on mobile phones</span></div>
         <div class="row"><span class="cn">拓宽</span><span class="dots"></span><span class="en">broaden / expand / enlarge</span></div>
-        <div class="row"><span class="cn">考研热</span><span class="dots"></span><span class="en">post-graduate mania</span></div>
+        <div class="row"><span class="cn">考研热</span><span class="dots"></span><span class="en">postgraduate mania</span></div>
         <div class="row"><span class="cn">竞争激烈</span><span class="dots"></span><span class="en">fierce competition</span></div>
         <div class="row"><span class="cn">考研</span><span class="dots"></span><span class="en">take the entrance exams for postgraduate schools</span></div>
         <div class="row"><span class="cn">读研</span><span class="dots"></span><span class="en">go to graduate school</span></div>
@@ -488,7 +502,7 @@ body.searching .no-match{display:block}
         <div class="row"><span class="cn">改善设施</span><span class="dots"></span><span class="en">improve facilities</span></div>
         <div class="row"><span class="cn">专注于</span><span class="dots"></span><span class="en">be devoted to</span></div>
         <div class="row"><span class="cn">不遗余力</span><span class="dots"></span><span class="en">spare no effort / do one's best</span></div>
-        <div class="row"><span class="cn">因材施教</span><span class="dots"></span><span class="en">individualized quality education</span></div>
+        <div class="row"><span class="cn">因材施教</span><span class="dots"></span><span class="en">teach students according to their aptitude</span></div>
       </div>
       <div>
         <div class="row"><span class="cn">过度依赖</span><span class="dots"></span><span class="en">over-reliance / over-dependence on</span></div>
@@ -523,7 +537,7 @@ body.searching .no-match{display:block}
     <div class="grid">
       <div>
         <div class="row"><span class="cn">导致</span><span class="dots"></span><span class="en">cause / result in / lead to / give rise to</span></div>
-        <div class="row"><span class="cn">有助于</span><span class="dots"></span><span class="en">help (to) / contribute to</span></div>
+        <div class="row"><span class="cn">有助于</span><span class="dots"></span><span class="en">help (to) do sth. / contribute to</span></div>
         <div class="row"><span class="cn">治愈</span><span class="dots"></span><span class="en">cure / heal</span></div>
         <div class="row"><span class="cn">交通拥堵</span><span class="dots"></span><span class="en">traffic congestion</span></div>
         <div class="row"><span class="cn">节能环保</span><span class="dots"></span><span class="en">energy saving and environmental protection</span></div>
@@ -536,7 +550,7 @@ body.searching .no-match{display:block}
       <div>
         <div class="row"><span class="cn">节食</span><span class="dots"></span><span class="en">on a diet</span></div>
         <div class="row"><span class="cn">手术</span><span class="dots"></span><span class="en">operation</span></div>
-        <div class="row"><span class="cn">体检</span><span class="dots"></span><span class="en">physical inspection / checkup</span></div>
+        <div class="row"><span class="cn">体检</span><span class="dots"></span><span class="en">physical examination / checkup</span></div>
         <div class="row"><span class="cn">医护人员</span><span class="dots"></span><span class="en">medical staff</span></div>
         <div class="row"><span class="cn">症状</span><span class="dots"></span><span class="en">symptom</span></div>
         <div class="row"><span class="cn">草药</span><span class="dots"></span><span class="en">herbal medicine</span></div>
@@ -973,6 +987,26 @@ body.searching .no-match{display:block}
       </div>
     </div>
   </div>
+</section>
+
+<section class="fixsec">
+  <h2>订正记录</h2>
+  <p class="sub">词表保留讲义原有说法（左列为原稿，划掉处为改动项），右列是订正后的写法与理由。其余 200 余条词条未改动。</p>
+  <table class="fixtbl">
+    <tr><th>词条</th><th>讲义原稿</th><th>订正</th><th>理由</th></tr>
+    <tr><td>源于</td><td class="old">be originated from / in</td><td class="new">originate from / in</td><td class="why">originate 是不及物动词，没有被动式；derive from 同理</td></tr>
+    <tr><td>构成</td><td class="old">constitute / make up / consist of（标注「均无被动」）</td><td class="new">A consists of B 用主动；A is made up of B 亦常用</td><td class="why">make up 的被动 be made up of 属固定搭配，不能一刀切说无被动</td></tr>
+    <tr><td>享有……的声誉</td><td class="old">enjoy a high reputation of</td><td class="new">enjoy a high reputation for</td><td class="why">reputation 后接 for，表示「因……而享有声誉」</td></tr>
+    <tr><td>被誉为</td><td class="old">be honored / crowned as</td><td class="new">be honored / hailed as</td><td class="why">hail sb./sth. as 是「誉为」的常规搭配，crowned as 语域偏窄</td></tr>
+    <tr><td>开阔视野</td><td class="old">broaden one's horizon</td><td class="new">broaden one's horizons</td><td class="why">该短语惯用复数</td></tr>
+    <tr><td>生活水平</td><td class="old">living standard</td><td class="new">living standards</td><td class="why">表示整体水平时习惯用复数</td></tr>
+    <tr><td>用现金 / 信用卡付款</td><td class="old">pay by cash / credit card</td><td class="new">pay in cash / by credit card</td><td class="why">现金用 in，卡、支票等用 by</td></tr>
+    <tr><td>理财</td><td class="old">manage finance</td><td class="new">manage one's finances</td><td class="why">finances 指个人财力，需复数</td></tr>
+    <tr><td>考研热</td><td class="old">post-graduate mania</td><td class="new">postgraduate mania</td><td class="why">学位词 postgraduate 不加连字符（连字符形式 post-graduate 多见于旧式拼写）</td></tr>
+    <tr><td>因材施教</td><td class="old">individualized quality education</td><td class="new">teach students according to their aptitude</td><td class="why">原译是「个性化素质教育」，与成语本义不符</td></tr>
+    <tr><td>有助于</td><td class="old">help (to)</td><td class="new">help (to) do sth. / contribute to</td><td class="why">help 后必须带宾语和动词原形，单独写不成词条</td></tr>
+    <tr><td>体检</td><td class="old">physical inspection</td><td class="new">physical examination</td><td class="why">inspection 指检查、视察，医学体检用 examination / checkup</td></tr>
+  </table>
 </section>
 
 <div class="empty no-match" id="empty">没有匹配的词条，换个关键词试试。</div>
