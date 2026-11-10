@@ -98,11 +98,17 @@ aside.toc{position:sticky;top:126px;font-size:13.5px}
 .ex .zh::before{content:"中";font-size:10.5px;color:#a3927a;border:1px solid #ded0ba;border-radius:3px;
   padding:0 3px;margin-right:7px;vertical-align:1px}
 .ex .en{font-family:var(--font-en);font-size:15.5px;color:#22333a;line-height:1.66;margin:0;position:relative}
-.ex .en::before{content:"EN";font-family:var(--font-cn);font-size:10px;letter-spacing:.08em;color:#9bb3a6;
+.ex .en::before{content:"原译";font-family:var(--font-cn);font-size:10px;letter-spacing:.08em;color:#9bb3a6;
   border:1px solid #cfe0d6;border-radius:3px;padding:0 3px;margin-right:7px;vertical-align:1px}
 .ex .en u{text-decoration:none;background:#e4efe8;border-radius:3px;padding:0 2px;box-decoration-break:clone}
 .ex .en s{color:#b0a898}
 .ex.alt{background:#f8faf7}
+.ex .fix{margin:8px 0 0;padding:7px 13px 7px 41px;background:#edf6f0;border-radius:8px;
+  font-family:var(--font-en);font-size:15.5px;line-height:1.66;color:#1c5a45;position:relative}
+.ex .fix::before{content:"订正";position:absolute;left:9px;top:8px;font-family:var(--font-cn);
+  font-size:10.5px;letter-spacing:.06em;color:#2f7a5f;border:1px solid #a9cbb9;background:#fff;
+  border-radius:3px;padding:0 3px;line-height:1.5}
+.ex .fix u{text-decoration:none;background:#cbe6d6;border-radius:3px;padding:0 2px}
 .note{font-size:13.5px;color:#6a6255;background:#fdf8ec;border:1px solid #f0e6cd;border-radius:9px;
   padding:9px 13px;margin-top:12px}
 .note b{color:#8a6b2c}
@@ -117,15 +123,19 @@ aside.toc{position:sticky;top:126px;font-size:13.5px}
 .lnk::after{content:"↗";font-size:11px;opacity:.7}
 
 /* 遮盖 */
-body.hide .ex .en{color:transparent;cursor:pointer;user-select:none}
-body.hide .ex .en u{color:transparent;background:transparent}
-body.hide .ex .en::after{content:"点击显示译文";position:absolute;left:34px;top:0;color:#a9b8ae;
-  font-family:var(--font-cn);font-size:12.5px;white-space:nowrap}
-body.hide .ex .en.open{color:#22333a}
-body.hide .ex .en.open u{color:inherit}
-body.hide .ex .en.open::after{content:""}
 body.hide .ex{cursor:pointer;transition:background .15s}
 body.hide .ex:hover{background:#f2f7f2}
+body.hide .ex .en,body.hide .ex .fix{color:transparent;user-select:none}
+body.hide .ex .en u,body.hide .ex .fix u{color:transparent;background:transparent}
+body.hide .ex .en::after{content:"点击显示译文";position:absolute;left:41px;top:0;color:#a9b8ae;
+  font-family:var(--font-cn);font-size:12.5px;white-space:nowrap}
+body.hide .ex .fix::after{content:"点击显示订正";position:absolute;left:41px;top:8px;color:#a3bdb0;
+  font-family:var(--font-cn);font-size:12px;white-space:nowrap}
+body.hide .ex.open .en{color:#22333a}
+body.hide .ex.open .fix{color:#1c5a45}
+body.hide .ex.open .en u{color:inherit;background:#e4efe8}
+body.hide .ex.open .fix u{color:inherit;background:#cbe6d6}
+body.hide .ex.open .en::after,body.hide .ex.open .fix::after{content:""}
 
 /* 命中 / 空态 */
 .t.hit{border-color:#bcd3c6;box-shadow:0 0 0 3px rgba(45,92,80,.07),var(--shadow)}
@@ -168,7 +178,7 @@ footer a{color:var(--ac);text-decoration:none}
   <div class="wrap">
     <p class="kicker">CET-4 / CET-6 · Translation Ⅱ</p>
     <h1>翻译句式进阶 · <em>22 个得分句型</em></h1>
-    <p class="lede">从「是字结构」到「冠词细节」，把真题里反复出现的句式模板拆成 22 讲。每讲只留三样东西：一句规则、一组原文对照、一个易错提醒。先自己译，再点开对照。</p>
+    <p class="lede">从「是字结构」到「冠词细节」，把真题里反复出现的句式模板拆成 22 讲。每讲只留三样东西：一句规则、一组原文对照、一个易错提醒。先自己译，再点开对照。<br><b style="color:#2d5c50">例句一律保留课程原译，绿色块为订正版</b>——原译里的笔误与搭配问题，正好当作改错练习看。</p>
     <a class="back" href="translation-topics.html">← 返回上一页：六大主题常考词 + 14 个句型基础</a>
   </div>
 </header>
@@ -250,11 +260,13 @@ footer a{color:var(--ac);text-decoration:none}
       </ul>
       <div class="ex">
         <p class="zh">杭州拥有两千多年的悠久历史和丰富的文化遗产，（杭州）是我国七大古都之一。</p>
-        <p class="en"><u>As one of the seven major ancient capitals in China</u>, Hangzhou has a long-standing history of over 2,000 years and rich cultural heritages.</p>
+        <p class="en">As/Being one of the seven major ancient capitals In China, it has a longstanding history of over 2000 years and rich cultural heritages.</p>
+        <p class="fix"><u>As one of the seven major ancient capitals in China</u>, Hangzhou has a long-standing history of over 2,000 years and a rich cultural heritage.</p>
       </div>
       <div class="ex alt">
         <p class="zh">针灸是中国传统医学的重要组成部分，（针灸）已有几千年的历史。</p>
-        <p class="en"><u>As an important part of traditional Chinese medicine</u>, acupuncture has <u>enjoyed</u> a history of thousands of years.</p>
+        <p class="en">As/Being an important part of transitional Chinese medicine, acupuncture has had/enjoyed a history of thousands of years.</p>
+        <p class="fix"><u>As an important part of traditional Chinese medicine</u>, acupuncture has <u>enjoyed</u> a history of thousands of years.</p>
       </div>
       <div class="note"><b>两个小升级：</b>① 原句用 it 指代，考场上首次出现的主语直接写 Hangzhou 更保险；② has enjoyed 比 has had 更地道，也不容易判成错。</div>
     </div>
@@ -274,11 +286,13 @@ footer a{color:var(--ac);text-decoration:none}
       </div>
       <div class="ex alt">
         <p class="zh">在茶文化的发展过程中，不仅产生了各种名茶，而且形成了独特的茶艺。</p>
-        <p class="en">In the development of tea culture, various kinds of famous tea <u>have been produced</u> and a unique tea ceremony <u>has been formed</u>.</p>
+        <p class="en">In the development of tea culture, all/various kinds of famous tea has been producted and a unique tea ceremony has been formed.</p>
+        <p class="fix">In the development of tea culture, various kinds of famous teas <u>have been produced</u> and a unique tea ceremony <u>has been formed</u>.</p>
       </div>
       <div class="ex">
         <p class="zh">人们相信，通过点燃爆竹，可以驱散厄运，带来好运。</p>
-        <p class="en"><u>There is a belief that</u> by lighting firecrackers, bad luck can be dispelled and good luck can be brought.</p>
+        <p class="en">There is a belief that by lighting firecrackers bad luck can be dispelled/dispersed and good luck can be brought in.</p>
+        <p class="fix"><u>There is a belief that</u> by lighting firecrackers, bad luck can be dispelled and good luck can be brought in.</p>
       </div>
       <div class="ex alt">
         <p class="zh">杭州（有）人文古迹众多。</p>
@@ -286,7 +300,8 @@ footer a{color:var(--ac);text-decoration:none}
       </div>
       <div class="ex">
         <p class="zh">中国白酒制作工艺复杂，原料丰富多样，是世界六大蒸馏酒之一。</p>
-        <p class="en">As one of the world's six major distilled liquors, Chinese white liquor <u>has</u> a complicated production process and various raw materials.</p>
+        <p class="en">As/Being one of the world's six major distilled liquors, Chinese white liquor has the complicated production process and a wide variety of raw materials.</p>
+        <p class="fix">As one of the world's six major distilled liquors, Chinese white liquor <u>has</u> a complicated production process and a wide variety of raw materials.</p>
       </div>
       <div class="warn"><b>易错：</b>kinds of + 名词作主语时视为复数，动词用 have，不是 has。</div>
     </div>
@@ -303,11 +318,13 @@ footer a{color:var(--ac);text-decoration:none}
       </ul>
       <div class="ex">
         <p class="zh">杭州通过其迷人的自然风光、繁荣的经济和优美的生活环境，吸引了越来越多来自世界各地的游客。</p>
-        <p class="en">It attracts <u>a growing number of</u> tourists from all over the world <u>by its enchanting landscapes, prosperous economy and gorgeous living environment</u>.</p>
+        <p class="en">It attracts growing number of tourists from all over the world with its enchanting landscapes, prosperous economy and pleasant living environment.</p>
+        <p class="fix">It attracts <u>a growing number of</u> tourists from all over the world <u>with its enchanting landscapes, prosperous economy and pleasant living environment</u>.</p>
       </div>
       <div class="ex alt">
         <p class="zh">它使用细长的针，穿刺人体的特定点位来调节身体的平衡和治疗许多疾病。</p>
-        <p class="en">It punctures specific points of the human body <u>with long needles</u> to adjust the balance of the body and treat numerous diseases.</p>
+        <p class="en">It punctures the specific points of the human body to adjust the balance of the body and cure/treat/kill numerous diseases with long needles.</p>
+        <p class="fix">It punctures specific points of the human body <u>with long needles</u> to adjust the balance of the body and treat numerous diseases.</p>
       </div>
       <a class="lnk" href="https://m.zmbg.com/yyzs/22474.html" target="_blank" rel="noopener">延伸：英语状语的分类</a>
       <a class="lnk" href="https://b23.tv/3kyTxyV" target="_blank" rel="noopener">延伸：秒懂语法之补语</a>
@@ -369,11 +386,13 @@ footer a{color:var(--ac);text-decoration:none}
       </div>
       <div class="ex">
         <p class="zh">在中国，活字印刷术已经出现了几个世纪。</p>
-        <p class="en">In China, it <u>has appeared / has been around</u> for centuries.</p>
+        <p class="en">In China, it has appeared/been around for centuries.</p>
+        <p class="fix">In China, it <u>has been around</u> for centuries.</p>
       </div>
       <div class="ex alt">
         <p class="zh">自宋代以来，白酒成为中国人饮用的主要酒类。</p>
-        <p class="en"><u>Since the Song Dynasty</u>, white liquor <u>has become</u> the main liquor consumed by Chinese people.</p>
+        <p class="en">Since the Song Dynasty, white liquor has become main wine/liquor/spirit consumed by Chinese people.</p>
+        <p class="fix"><u>Since the Song Dynasty</u>, white liquor <u>has become</u> the main liquor consumed by Chinese people.</p>
       </div>
       <div class="note"><b>反例提醒：</b>句子里一旦出现具体过去时间（in 2003、in the Tang Dynasty 作状语），就不能用现在完成时。</div>
     </div>
@@ -393,11 +412,13 @@ footer a{color:var(--ac);text-decoration:none}
       </div>
       <div class="ex alt">
         <p class="zh">在当代社会，饮酒文化得到了前所未有的丰富和发展。</p>
-        <p class="en">Liquor culture, in contemporary society, <u>is enriched and developed</u> as never before.</p>
+        <p class="en">Liquor culture, in contemporary society, is enriched and developed like/as never before.</p>
+        <p class="fix">Liquor culture, in contemporary society, <u>is enriched and developed</u> as never before.</p>
       </div>
       <div class="ex">
         <p class="zh">然而，随着人们环保意识的增强，爆竹的使用受到了限制。</p>
-        <p class="en">With that being said, following the enhancement of people's environmental awareness, the use of firecrackers <u>has been restricted</u>.</p>
+        <p class="en">With that being said, with/following the enhancement of people environmental awareness, the use of firecrackers is limited/restricted./has been restricted.</p>
+        <p class="fix">With that being said, following the enhancement of people's environmental awareness, the use of firecrackers <u>has been restricted</u>.</p>
       </div>
       <div class="ex alt">
         <p class="zh">大量有害物质排放到空气中。</p>
@@ -419,11 +440,13 @@ footer a{color:var(--ac);text-decoration:none}
 
       <div class="ex">
         <p class="zh">爆竹在中国历史上有着悠久的历史，并且在节日庆祝和喜庆场合被广泛使用。</p>
-        <p class="en">Firecrackers <u>enjoy</u> a long-standing history <u>and</u> are widely used in festival celebrations and on joyous occasions in China.</p>
+        <p class="en">Firecrackers have/enjoy a long-standing history and are widely used in festival celebration and joyous/festive occasions in the history of China.</p>
+        <p class="fix">Firecrackers <u>enjoy</u> a long-standing history <u>and</u> are widely used in festival celebrations and on joyous occasions in China.</p>
       </div>
       <div class="ex alt">
         <p class="zh">目前，环境治理已取得显著成效，大部分城市环境和农业生态环境得到了很大改善。</p>
-        <p class="en">At present, considerable progress has been made in environmental governance <u>and</u> most urban and agricultural ecological environments have been greatly improved.</p>
+        <p class="en">At present, considerable progress has been made in environmental governance and most urban environments and agricultural ecological environments are greatly improved.</p>
+        <p class="fix">At present, considerable progress has been made in environmental governance <u>and</u> most urban environments and agricultural eco-environments have been greatly improved.</p>
       </div>
 
       <h3 style="font-size:14px;margin:22px 0 2px;color:#5c7a6d;letter-spacing:.04em">② 非谓语：主动 ing</h3>
@@ -433,33 +456,39 @@ footer a{color:var(--ac);text-decoration:none}
       </div>
       <div class="ex alt">
         <p class="zh">此外，中国也在大力发展自然保护区，颁布了《环境保护法》。</p>
-        <p class="en">In addition, China is also vigorously developing nature reserves, <u>enacting</u> the Law on Environmental Protection.</p>
+        <p class="en">In addition, China is also considerably developing nature reserves, enacting the Law on Environmental Protection.</p>
+        <p class="fix">In addition, China is also vigorously developing nature reserves, <u>enacting</u> the Law on Environmental Protection.</p>
       </div>
 
       <h3 style="font-size:14px;margin:22px 0 2px;color:#5c7a6d;letter-spacing:.04em">② 非谓语：被动 ed</h3>
       <div class="ex">
         <p class="zh">故宫建筑群完美地体现了中国古代建筑的特点，被誉为世界建筑史上的经典。</p>
-        <p class="en">The building complex perfectly showcases the features of ancient Chinese architecture, <u>known / exalted as a classic</u> in the history of world architecture.</p>
+        <p class="en">The building perfectly showcases the features of ancient Chinese buildings, known/exalted as classic in the history of world architecture.</p>
+        <p class="fix">The building complex perfectly showcases the features of ancient Chinese architecture, <u>known / hailed as a classic</u> in the history of world architecture.</p>
       </div>
 
       <h3 style="font-size:14px;margin:22px 0 2px;color:#5c7a6d;letter-spacing:.04em">③ 非限制性定语从句</h3>
       <div class="ex">
         <p class="zh">它最初是为了照明，在寒冷的冬夜为中国北方的农民和渔夫的工作提供光源。</p>
-        <p class="en">It was originally used for lighting, <u>which provided light</u> for the work of farmers and fishermen in northern China on cold winter nights.</p>
+        <p class="en">It was originally used for lighting, which provided light for the work of farmers and fishmen in the north of China on cold winter nights.</p>
+        <p class="fix">It was originally used for lighting, <u>which provided light</u> for the work of farmers and fishermen in northern China on cold winter nights.</p>
       </div>
       <div class="ex alt">
         <p class="zh">中医药学历史悠久，在应对当代面临的严重健康挑战中可以发挥独特的优势和特色。</p>
-        <p class="en">Traditional Chinese Medicine enjoys a long-standing history, <u>which can play its unique advantages and features</u> in dealing with serious health challenges in modern times.</p>
+        <p class="en">Traditional Chinese Medicine enjoys a long-standing history, which can play its special advantages and features in dealing with the serious health challenges in modern times.</p>
+        <p class="fix">Traditional Chinese Medicine enjoys a long-standing history, <u>which can give full play to its unique advantages</u> in dealing with serious health challenges in modern times.</p>
       </div>
       <div class="ex">
         <p class="zh">中国是发展中国家中的大国，其工业化正在快速发展。</p>
-        <p class="en">China is a major country among developing countries, <u>where industrialization is prospering</u>.</p>
+        <p class="en">China is a major country in/among developing countries, where industrialization is prospering.</p>
+        <p class="fix">China is a <u>major developing country</u>, where industrialization is <u>booming</u>.</p>
       </div>
 
       <h3 style="font-size:14px;margin:22px 0 2px;color:#5c7a6d;letter-spacing:.04em">④ V₁, as 主语 V₂</h3>
       <div class="ex">
         <p class="zh">他将中国画的精华与时代精神完美地统一起来，使中国画得到了全世界的尊重。</p>
-        <p class="en">He perfectly unified the essence of Chinese painting with the spirit of the times, <u>as he made Chinese painting gain the respect of the whole world</u>.</p>
+        <p class="en">He perfect unified the essence of Chinese painting and the spirit of the times, as he made Chinese painting gain/get the respect for the whole world.</p>
+        <p class="fix">He perfectly unified the essence of Chinese painting with the spirit of the times, <u>thereby gaining worldwide respect</u>.</p>
       </div>
     </div>
   </article>
@@ -474,11 +503,13 @@ footer a{color:var(--ac);text-decoration:none}
       </ul>
       <div class="ex">
         <p class="zh">尽管如此，活字印刷术依然是我们珍贵的文化遗产，因为它记录了我们的历史、文化和思想。</p>
-        <p class="en">With that being said, movable-type printing remains our precious cultural heritage <u>for the reason that</u> it records our history, culture and thoughts.</p>
+        <p class="en">With that being said, the movable type printing is still/remains our precious cultural heritage for the reason that it records our history, culture and thoughts.</p>
+        <p class="fix">With that being said, movable-type printing remains our precious cultural heritage <u>for the reason that</u> it records our history, culture and thoughts.</p>
       </div>
       <div class="ex alt">
         <p class="zh">在中国古代，折扇常被用于书法、绘画和诗词创作，因为它代表了文人雅士的身份和品味。</p>
         <p class="en">In ancient China, folding fans were more often than not used for the creation of calligraphy, painting and poetry, <u>for the reason that</u> they represent the status and taste of scholars.</p>
+        <p class="fix">In ancient China, folding fans were more often than not used for the creation of calligraphy, painting and poetry, for the reason that they <u>represented</u> the status and taste of scholars.</p>
       </div>
       <div class="ex">
         <p class="zh">由于客家人以前生活在山区，他们建造土楼是为了免受土匪和野生动物的袭击。</p>
@@ -504,11 +535,13 @@ footer a{color:var(--ac);text-decoration:none}
       </div>
       <div class="ex alt">
         <p class="zh">自宋代以来，白酒成为中国人饮用的主要酒类。</p>
-        <p class="en">Since the Song Dynasty, white liquor has become the main liquor <u>consumed by Chinese people</u>.</p>
+        <p class="en">Since the Song Dynasty, white liquor has become main wine/liquor/spirit consumed by Chinese people.</p>
+        <p class="fix">Since the Song Dynasty, white liquor has become the main liquor <u>consumed by Chinese people</u>.</p>
       </div>
       <div class="ex">
         <p class="zh">他画的花、鸟、鱼、虾和虫受到广泛赞誉。</p>
-        <p class="en">The flowers, birds, fish, shrimp and insects <u>drawn by him</u> are widely acclaimed.</p>
+        <p class="en">The flowers, birds, fish, shrimp and insects drawn by him are widely exalted.</p>
+        <p class="fix">The flowers, birds, fish, shrimp and insects <u>drawn by him</u> are widely acclaimed.</p>
       </div>
       <div class="ex alt">
         <p class="zh">冰灯是中国北方广泛创造的冬季艺术品。</p>
@@ -520,7 +553,8 @@ footer a{color:var(--ac);text-decoration:none}
       </div>
       <div class="ex alt">
         <p class="zh">齐白石……发展了一套具有个人特色的艺术形式。</p>
-        <p class="en">Qi Baishi developed a set of artistic forms <u>with personal characteristics</u> through long-term practice.</p>
+        <p class="en">As/Being one of the greatest artists in modern China, Qi baishi developed a set of artistic form with personal features/characteristics through long-term practice.</p>
+        <p class="fix">Qi Baishi developed a set of artistic forms <u>with personal characteristics</u> through long-term practice.</p>
       </div>
     </div>
   </article>
@@ -560,7 +594,8 @@ footer a{color:var(--ac);text-decoration:none}
       </div>
       <div class="ex alt">
         <p class="zh">它不仅在印章文化中扮演着重要角色，同时也被视为中国传统艺术的一部分。</p>
-        <p class="en"><u>Apart from playing an important role in seal-cutting culture</u>, it is also regarded as part of traditional Chinese arts.</p>
+        <p class="en">Apart from playing an important role in seal cutting culture, it is also regarded as a part of traditional Chinese arts meanwhile.</p>
+        <p class="fix"><u>Apart from playing an important role in seal carving culture</u>, it is also regarded as part of traditional Chinese arts.</p>
       </div>
       <div class="note"><b>apart from 后面接动词要用 V-ing：</b>apart from <u>being</u> / apart from <u>playing</u>，不能接原形。</div>
     </div>
@@ -576,23 +611,28 @@ footer a{color:var(--ac);text-decoration:none}
       </ul>
       <div class="ex">
         <p class="zh">这段历史可以追溯到唐朝，当时客家人从中国中部迁徙到福建。</p>
-        <p class="en">This history can date back to the Tang Dynasty <u>when</u> Hakkas migrated from central China to Fujian.</p>
+        <p class="en">This history can be traced back to the Tang Dynasty when Hakkas moved/migrated from central China to Fujian.</p>
+        <p class="fix">This history can be traced back to the Tang Dynasty <u>when</u> Hakkas migrated from central China to Fujian.</p>
       </div>
       <div class="ex alt">
         <p class="zh">中国结最早起源于古代，当时没有文字，人们便在一根绳子上盘上不同的结来记录重要事件。</p>
-        <p class="en">Chinese knots first originated in ancient times <u>when</u> there were no characters, so people tied different knots on a rope to record important events.</p>
+        <p class="en">Chinese knots first originated in ancient times when there were no words, so people tied different knots on a rope in order to record important/crucial events.</p>
+        <p class="fix">Chinese knots first originated in ancient times <u>when</u> there were no characters, so people tied different knots on a rope to record important events.</p>
       </div>
       <div class="ex">
         <p class="zh">中国有很多优秀的白酒品牌，它们受到不同人群的喜爱。</p>
-        <p class="en">China is home to numerous excellent white liquor brands <u>that are favored by</u> different groups of people.</p>
+        <p class="en">China has/is home to numerous excellent white liquor brands which/that are favored by different people.</p>
+        <p class="fix">China is home to numerous excellent white liquor brands <u>that are favored by</u> different groups of people.</p>
       </div>
       <div class="ex alt">
         <p class="zh">1936 年元宵节期间，哈尔滨举办了首届冰灯博览会，在会上冰灯和冰花都由简单的工具制成，如结冰的盆和篮子。</p>
-        <p class="en">During the Lantern Festival in 1936, Harbin held the first Ice Lantern Expo <u>where</u> ice lanterns and ice flowers were made with simple tools, say, frozen pots and baskets.</p>
+        <p class="en">During the Lantern Festival in 1936, Harbin held the first Lce Lanterns Expo where ice lanterns and ice flowers were made of simple tools, such as frozen pots and baskets.</p>
+        <p class="fix">During the Lantern Festival in 1936, Harbin held the first Ice Lantern Expo <u>where</u> ice lanterns and ice flowers were made with simple tools, such as frozen pots and baskets.</p>
       </div>
       <div class="ex">
         <p class="zh">文房四宝是中国文人不可缺少的工具，中国文人给予其深厚的文化内涵。</p>
-        <p class="en">The Four Treasures of the Study are essential tools for Chinese scholars, <u>who</u> endow them with profound cultural connotations.</p>
+        <p class="en">Four Treasure of Study are the essential tools for Chinese scholars who endow it with profound/deep cultural connotations/meaning.</p>
+        <p class="fix">The Four Treasures of the Study are essential tools for Chinese scholars, <u>who</u> endow them with profound cultural connotations.</p>
       </div>
       <div class="note"><b>考场小技巧：</b>「当时」→ when；「在会上 / 在那里」→ where；「其 / 它们」→ which；「他们」→ who。中文的指示词其实就是连接词的提示。</div>
     </div>
@@ -612,7 +652,7 @@ footer a{color:var(--ac);text-decoration:none}
       </div>
       <div class="ex alt">
         <p class="zh">随着工业及运输业的不断发展，大量有害物质排放到空气中，使人们的健康受到威胁。</p>
-        <p class="en">Following the continuous boom of industry and transportation, numerous harmful substances are discharged into the air, <u>threatening people's health</u>.</p>
+        <p class="en">Following the continuous growth of industry and transportation, numerous harmful substances are discharged into the air, <u>threatening people's health</u>.</p>
       </div>
     </div>
   </article>
@@ -627,7 +667,8 @@ footer a{color:var(--ac);text-decoration:none}
       </ul>
       <div class="ex">
         <p class="zh">在当代社会，饮酒文化得到了前所未有的丰富和发展。</p>
-        <p class="en">Liquor culture, <u>in contemporary society</u>, is enriched and developed as never before.</p>
+        <p class="en">Liquor culture, in contemporary society, is enriched and developed like/as never before.</p>
+        <p class="fix">Liquor culture, <u>in contemporary society</u>, has been enriched and developed as never before.</p>
       </div>
     </div>
   </article>
@@ -642,7 +683,8 @@ footer a{color:var(--ac);text-decoration:none}
       </ul>
       <div class="ex">
         <p class="zh">齐白石是中国当代最伟大的艺术家之一，通过长期的练习，他发展了一套具有个人特色的艺术形式。</p>
-        <p class="en"><u>As one of the greatest artists in modern China</u>, Qi Baishi developed a set of artistic forms with personal characteristics through long-term practice.</p>
+        <p class="en">As/Being one of the greatest artists in modern China, Qi baishi developed a set of artistic form with personal features/characteristics through long-term practice.</p>
+        <p class="fix"><u>As one of the greatest artists in modern China</u>, Qi Baishi developed a set of artistic forms with personal characteristics through long-term practice.</p>
       </div>
       <div class="warn"><b>易错：</b>one of the greatest artist（缺 s）是最常见的扣分点，写完回头数一次名词。</div>
     </div>
@@ -714,11 +756,13 @@ footer a{color:var(--ac);text-decoration:none}
       </ul>
       <div class="ex">
         <p class="zh">在中国，结代表团结、友爱、和平和婚姻等。</p>
-        <p class="en">In China, knots stand for unity, friendship, peace and marriage.</p>
+        <p class="en">In China, knot stands for unity, friendship, peace and marriage.</p>
+        <p class="fix">In China, knots stand for unity, friendship, peace and marriage.</p>
       </div>
       <div class="ex alt">
         <p class="zh">中国画在内容和艺术创造上，体现了古人对自然、社会等方面的认识。</p>
-        <p class="en">Chinese painting showcases ancient people's insight into nature, society <u>and other aspects</u> in terms of content and artistic creation.</p>
+        <p class="en">Chinese painting showcase the insight of ancient people into nature, society and other aspects in terms of contents and artistic creation.</p>
+        <p class="fix">Chinese painting showcases ancient people's insight into nature, society <u>and other aspects</u> in terms of content and artistic creation.</p>
       </div>
     </div>
   </article>
@@ -733,7 +777,8 @@ footer a{color:var(--ac);text-decoration:none}
       </ul>
       <div class="ex">
         <p class="zh">黑龙江省省会哈尔滨市是中国冰雪艺术的发源地。</p>
-        <p class="en">Harbin, <u>the capital of Heilongjiang Province</u>, is the birthplace of ice and snow art in China.</p>
+        <p class="en">Harbin, the capital of Heilongjiang, is the birthplace of ice and snow arts in China.</p>
+        <p class="fix">Harbin, <u>the capital of Heilongjiang Province</u>, is the birthplace of ice and snow art in China.</p>
       </div>
       <div class="note"><b>与 as 结构的区别：</b>同位语是「补充说明身份」，as 是「以……的身份」，两者都能放在主语后，但同位语前必须有逗号。</div>
     </div>
@@ -804,12 +849,12 @@ footer a{color:var(--ac);text-decoration:none}
     const on = document.body.classList.toggle('hide');
     quiz.classList.toggle('on', on);
     quiz.lastChild.textContent = on ? '显示译文' : '遮盖译文自测';
-    document.querySelectorAll('.ex .en').forEach(e => e.classList.remove('open'));
+    document.querySelectorAll('.ex').forEach(e => e.classList.remove('open'));
   });
   document.addEventListener('click', e => {
     if(!document.body.classList.contains('hide')) return;
-    const en = e.target.closest('.ex .en') || e.target.closest('.ex')?.querySelector('.en');
-    if(en) en.classList.toggle('open');
+    const ex = e.target.closest('.ex');
+    if(ex) ex.classList.toggle('open');
   });
 
   /* 目录高亮 */
