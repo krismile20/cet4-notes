@@ -125,7 +125,8 @@ aside.toc{position:sticky;top:126px;font-size:13.5px}
 /* 遮盖 */
 body.hide .ex{cursor:pointer;transition:background .15s}
 body.hide .ex:hover{background:#f2f7f2}
-body.hide .ex .en,body.hide .ex .fix{color:transparent;user-select:none}
+body.hide .ex .en,body.hide .ex .fix{color:transparent;user-select:none;max-height:1.9em;overflow:hidden}
+body.hide .ex.open .en,body.hide .ex.open .fix{max-height:none;overflow:visible}
 body.hide .ex .en u,body.hide .ex .fix u{color:transparent;background:transparent}
 body.hide .ex .en::after{content:"点击显示译文";position:absolute;left:41px;top:0;color:#a9b8ae;
   font-family:var(--font-cn);font-size:12.5px;white-space:nowrap}
