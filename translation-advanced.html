@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四六级翻译 · 高级加分词汇</title>
+<style>
+:root{
+  --bg:#f6f4ef;--card:#fffdf8;--ink:#212630;--ink2:#576070;--ink3:#8b929e;
+  --line:#e4dfd4;--en:#2c3b52;
+  --accent:#5a4a86;
+  --shadow:0 1px 2px rgba(35,30,20,.05),0 9px 24px -14px rgba(35,30,20,.2);
+  --r:14px;
+  --cn:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --en-f:Charter,"Iowan Old Style",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:112px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--cn);font-size:16px;line-height:1.75;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+header.hero{padding:50px 0 30px;border-bottom:1px solid var(--line);background:
+  radial-gradient(900px 260px at 10% -10%,#eae6f0 0%,transparent 62%),
+  radial-gradient(760px 240px at 92% 0%,#eef0e6 0%,transparent 58%)}
+.kicker{font-size:12.5px;letter-spacing:.22em;color:#8d8a9c;margin:0 0 12px;text-transform:uppercase}
+h1{font-size:clamp(25px,4vw,37px);line-height:1.28;margin:0 0 12px;font-weight:800;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{color:var(--ink2);max-width:68ch;margin:0;font-size:15.5px}
+.note-line{margin:16px 0 0;font-size:13.5px;color:#6f6880}
+.stats{display:flex;gap:24px;margin-top:22px;flex-wrap:wrap}
+.stat b{display:block;font-family:var(--en-f);font-size:25px;color:var(--accent);line-height:1.2}
+.stat span{font-size:12px;color:var(--ink3);letter-spacing:.05em}
+
+.toolbar{position:sticky;top:0;z-index:40;background:rgba(246,244,239,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+.toolbar-in{display:flex;gap:12px;align-items:center;padding:11px 0}
+.search{position:relative;flex:1}
+.search input{width:100%;padding:10px 14px 10px 37px;border:1px solid var(--line);border-radius:10px;
+  background:#fffdf8;font-family:var(--cn);font-size:14px;outline:none;color:var(--ink);transition:.15s}
+.search input:focus{border-color:#c3bcd4;box-shadow:0 0 0 3px rgba(90,74,134,.12)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;
+  stroke:var(--ink3);fill:none;stroke-width:2}
+.btn{border:1px solid var(--line);background:#fffdf8;color:var(--ink2);border-radius:10px;padding:9px 13px;
+  font-size:13.5px;font-family:var(--cn);cursor:pointer;white-space:nowrap;display:inline-flex;gap:7px;
+  align-items:center;transition:.15s}
+.btn:hover{border-color:#c9c2d6}
+.btn.on{background:var(--accent);color:#faf9ff;border-color:var(--accent)}
+.btn i{width:7px;height:7px;border-radius:50%;background:#ccc6d8;display:block}
+.btn.on i{background:#c9b8ee}
+.nav{display:flex;gap:7px;overflow-x:auto;padding:0 0 11px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:0 0 auto;font-size:12.5px;color:var(--ink2);text-decoration:none;padding:5px 11px;
+  border:1px solid var(--line);border-radius:99px;background:#fffdf8;transition:.15s}
+.nav a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.nav a b{font-family:var(--en-f);font-weight:600;opacity:.55;margin-right:4px}
+
+section{padding:38px 0 6px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+.sec-head .no{font-family:var(--en-f);font-size:13px;color:#fff;background:var(--accent);border-radius:7px;
+  padding:2px 8px;transform:translateY(-2px)}
+.sec-head h2{font-size:21px;margin:0;font-weight:800;letter-spacing:-.2px}
+.sec-head .cnt{font-size:12.5px;color:var(--ink3);margin-left:auto}
+.sec-sub{color:var(--ink3);font-size:13.5px;margin:2px 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);
+  padding:6px 20px 16px;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--accent);opacity:.85}
+
+.row{display:grid;grid-template-columns:132px 1fr;gap:14px;padding:8px 2px;border-bottom:1px dashed #ece7db;
+  align-items:baseline}
+.row:last-child{border-bottom:0}
+.row .cn{font-size:14.5px;color:var(--ink);font-weight:600;line-height:1.6}
+.row .cn i{font-style:normal;font-family:var(--en-f);color:#b3a8c4;font-size:11.5px;margin-right:5px}
+.row .en{font-family:var(--en-f);font-size:14.8px;color:var(--en);line-height:1.7;word-break:break-word}
+.row .en s{color:#b9b2a5}
+.row .en b{font-weight:600;color:#4a3f6b;background:#f0ecf7;border-radius:3px;padding:0 3px}
+.row .en i{font-family:var(--cn);font-style:normal;font-size:12.5px;color:var(--ink3);margin-left:4px}
+.row.hit{background:#fdf8ea}
+
+/* 遮盖 */
+body.hide .row .en{color:transparent;cursor:pointer;user-select:none;position:relative;min-height:1.7em}
+body.hide .row .en *{color:transparent!important;background:transparent!important}
+body.hide .row .en .mark{color:#9a7b28!important;background:#fdf7e6!important;border-color:#dfc98f!important}
+body.hide .row .en::after{content:"点击显示";position:absolute;left:0;top:0;color:#b3bac2;
+  font-family:var(--cn);font-size:12.5px;white-space:nowrap}
+body.hide .row.open .en{color:var(--en)}
+body.hide .row.open .en *{color:inherit}
+body.hide .row.open .en::after{content:""}
+body.hide .row{cursor:pointer}
+body.hide .row:hover{background:#f7f4ee}
+
+/* 提示条 */
+.tips{display:grid;gap:8px;margin:12px 0 0}
+.tip{display:flex;gap:9px;font-size:13.5px;color:#5f5a6e;background:#f4f1f7;border:1px solid #e6e0ee;
+  border-radius:9px;padding:8px 12px;line-height:1.65}
+.tip b{color:#4a3f6b;white-space:nowrap}
+
+/* 订正表 */
+.fixtbl{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:6px}
+.fixtbl th{text-align:left;font-size:11.5px;letter-spacing:.1em;color:#a08f74;font-weight:600;
+  background:#faf7f0;border-bottom:1px solid var(--line);padding:9px 12px;white-space:nowrap}
+.fixtbl td{padding:9px 12px;border-bottom:1px dashed #ece6d9;vertical-align:top;line-height:1.6}
+.fixtbl tr:last-child td{border-bottom:0}
+.fixtbl td.cnc{font-weight:600;white-space:nowrap}
+.fixtbl td.old{font-family:var(--en-f);color:#9a9282;text-decoration:line-through;text-decoration-color:#d9c7b8}
+.fixtbl td.new{font-family:var(--en-f);color:#1c5a45;font-weight:600}
+.fixtbl td.why{font-size:13px;color:var(--ink2)}
+.mark{display:inline-block;font-size:10.5px;line-height:1.5;padding:0 3px;margin-left:5px;
+  border:1px solid #dfc98f;background:#fdf7e6;color:#9a7b28;border-radius:3px;text-decoration:none;vertical-align:1px}
+.mark:hover{background:#f7ebc9}
+
+footer{margin-top:44px;border-top:1px solid var(--line);padding:22px 0 56px;color:var(--ink3);font-size:12.5px;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+footer a{color:var(--accent);text-decoration:none}
+.empty{display:none;text-align:center;color:var(--ink3);font-size:14px;padding:44px 0}
+
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  .row{grid-template-columns:96px 1fr;gap:10px}
+  .row .cn{font-size:13.8px}
+  .row .en{font-size:14.2px}
+  .card{padding:4px 13px 12px}
+  .fixtbl{font-size:13px}
+  .fixtbl td,.fixtbl th{padding:7px 9px}
+}
+@media print{
+  .toolbar,.nav,.btn,.search{display:none!important}
+  body{background:#fff}
+  .card,.tip{box-shadow:none;break-inside:avoid}
+  body.hide .row .en{color:var(--en)!important}
+  body.hide .row .en::after{content:""!important}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">CET-4 / CET-6 · Translation</p>
+    <h1>翻译<em>高级加分词汇</em> · 五类替换 + 两组主题词</h1>
+    <p class="lede">同一个中文意思，写得「对」是及格，写得「高级」才拿分。按数词、形容词、名词、动词、短语五类给出替换链，另附传统文化与现代发展两组主题词。</p>
+    <p class="note-line">粗体＝最推荐的那一个；带 <b style="color:#9a7b28">订</b> 的条目有争议，页尾「订正记录」说明原因。</p>
+    <div class="stats">
+      <div class="stat"><b>82</b><span>五类替换词条</span></div>
+      <div class="stat"><b>110</b><span>主题扩展词</span></div>
+      <div class="stat"><b>21</b><span>订正记录</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="toolbar-in">
+      <div class="search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="搜中文或英文，例如：象征 / convey / 名胜" autocomplete="off">
+      </div>
+      <button class="btn" id="quiz"><i></i>遮盖英文自测</button>
+    </div>
+    <nav class="nav">
+      <a href="#c1"><b>01</b>数词</a>
+      <a href="#c2"><b>02</b>形容词</a>
+      <a href="#c3"><b>03</b>名词</a>
+      <a href="#c4"><b>04</b>动词</a>
+      <a href="#c5"><b>05</b>短语</a>
+      <a href="#c6"><b>06</b>传统文化</a>
+      <a href="#c7"><b>07</b>现代发展</a>
+      <a href="#c8"><b>08</b>订正记录</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- 01 数词 -->
+<section id="c1">
+  <div class="sec-head"><span class="no">01</span><h2>数词类</h2><span class="cnt">8 条</span></div>
+  <p class="sec-sub">数量表达最容易写「对」但不出彩，替换一次就能看出词汇量。</p>
+  <div class="card">
+    <div class="row"><span class="cn">大量的</span><span class="en"><b>a large number of</b> / a large amount of / a great deal of / numerous / a vast quantity of<i>（number 接可数，amount / deal 接不可数）</i></span></div>
+    <div class="row"><span class="cn">一些</span><span class="en">some / a few / several / a certain number of / a handful of</span></div>
+    <div class="row"><span class="cn">大多数</span><span class="en"><b>the majority of</b> / most of / the vast majority of</span></div>
+    <div class="row"><span class="cn">少部分</span><span class="en">a small proportion of / a minority of / a small percentage of</span></div>
+    <div class="row"><span class="cn">一系列</span><span class="en"><b>a series of</b> / a range of / a variety of / a sequence of</span></div>
+    <div class="row"><span class="cn">各种</span><span class="en">various / a variety of / all kinds of / diverse / manifold</span></div>
+    <div class="row"><span class="cn">大约</span><span class="en">approximately / around / about / roughly / an estimated + 数字<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn">多 / 余 / 超过</span><span class="en">more than / over / in excess of / exceeding / beyond</span></div>
+  </div>
+  <div class="tips">
+    <div class="tip"><b>搭配</b>a number of + 可数复数；an amount of / a deal of + 不可数。写成 a large number of water 立刻暴露。</div>
+    <div class="tip"><b>考场</b>数字前用 approximately 最稳；roughly 偏口语，in excess of 偏正式文书。</div>
+  </div>
+</section>
+
+<!-- 02 形容词 -->
+<section id="c2">
+  <div class="sec-head"><span class="no">02</span><h2>形容词类</h2><span class="cnt">19 条</span></div>
+  <p class="sec-sub">翻译里形容词决定「文气」，但别为了高级而生造搭配。</p>
+  <div class="card">
+    <div class="row"><span class="cn">传统的</span><span class="en"><b>traditional</b> / conventional / time-honored</span></div>
+    <div class="row"><span class="cn">重要的</span><span class="en">important / significant / crucial / essential / vital / of great importance</span></div>
+    <div class="row"><span class="cn">快速的</span><span class="en"><b>rapid</b> / swift / fast / speedy</span></div>
+    <div class="row"><span class="cn">繁荣的</span><span class="en">prosperous / booming / flourishing / thriving</span></div>
+    <div class="row"><span class="cn">稳定的</span><span class="en">stable / steady / constant</span></div>
+    <div class="row"><span class="cn">广泛的</span><span class="en">wide / extensive / broad / widespread</span></div>
+    <div class="row"><span class="cn">精致的</span><span class="en"><b>exquisite</b> / delicate / refined / elegant</span></div>
+    <div class="row"><span class="cn">宝贵的</span><span class="en">precious / valuable / invaluable</span></div>
+    <div class="row"><span class="cn">标志性的 / 象征性的</span><span class="en">iconic / symbolic / emblematic / representative</span></div>
+    <div class="row"><span class="cn">简洁的</span><span class="en">concise / brief / succinct / compact</span></div>
+    <div class="row"><span class="cn">巧妙的</span><span class="en">clever / ingenious / skillful / smart<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn">悠久的</span><span class="en"><b>long-standing</b> / long / age-old / time-honored</span></div>
+    <div class="row"><span class="cn">深厚的</span><span class="en">profound / deep / rich</span></div>
+    <div class="row"><span class="cn">现代的</span><span class="en">modern / contemporary / up-to-date</span></div>
+    <div class="row"><span class="cn">纯洁高雅的</span><span class="en">pure and elegant / noble and elegant / pure and graceful</span></div>
+    <div class="row"><span class="cn">丰富的</span><span class="en">rich / abundant / plentiful / ample</span></div>
+    <div class="row"><span class="cn">著名的</span><span class="en">famous / well-known / renowned / celebrated / distinguished</span></div>
+    <div class="row"><span class="cn">古老的</span><span class="en">ancient / old / age-old<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn">独特的</span><span class="en"><b>unique</b> / distinctive / special / one-of-a-kind</span></div>
+  </div>
+  <div class="tips">
+    <div class="tip"><b>语序</b>观点 → 大小 → 年龄 → 颜色 → 国籍 → 材料：traditional Chinese culture，不是 Chinese traditional culture。</div>
+  </div>
+</section>
+
+<!-- 03 名词 -->
+<section id="c3">
+  <div class="sec-head"><span class="no">03</span><h2>名词类</h2><span class="cnt">14 条</span></div>
+  <p class="sec-sub">名词决定句子的「主语」，选错了整句都别扭。</p>
+  <div class="card">
+    <div class="row"><span class="cn">人们</span><span class="en">people / individuals / the public<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn">发展</span><span class="en">development / progress / growth / evolution</span></div>
+    <div class="row"><span class="cn">全球</span><span class="en">the globe / the world / worldwide / global scale</span></div>
+    <div class="row"><span class="cn">全国</span><span class="en">the whole country / nationwide / across the country</span></div>
+    <div class="row"><span class="cn">影响</span><span class="en">influence / impact / effect<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn">期望 / 期盼</span><span class="en">expectation / hope / anticipation / aspiration</span></div>
+    <div class="row"><span class="cn">组成部分</span><span class="en">component / part / constituent / an integral part</span></div>
+    <div class="row"><span class="cn">特点 / 特色 / 特征</span><span class="en">characteristic / feature / trait / quality</span></div>
+    <div class="row"><span class="cn">成就</span><span class="en">achievement / accomplishment / success / attainment</span></div>
+    <div class="row"><span class="cn">魅力</span><span class="en">charm / appeal / glamour / attraction</span></div>
+    <div class="row"><span class="cn">方面</span><span class="en">aspect / dimension / respect / field / realm</span></div>
+    <div class="row"><span class="cn">地位</span><span class="en">status / position / standing / place</span></div>
+    <div class="row"><span class="cn">各地</span><span class="en">various places / different regions / all over the country</span></div>
+    <div class="row"><span class="cn">地区 / 区域</span><span class="en">region / area / district / zone</span></div>
+  </div>
+</section>
+
+<!-- 04 动词 -->
+<section id="c4">
+  <div class="sec-head"><span class="no">04</span><h2>动词类</h2><span class="cnt">26 条</span></div>
+  <p class="sec-sub">动词是句子的骨架。换一个动词，句子的「档次」立刻不同。</p>
+  <div class="card">
+    <div class="row"><span class="cn">是</span><span class="en">be / constitute / serve as</span></div>
+    <div class="row"><span class="cn">有</span><span class="en">have / possess / own / there be</span></div>
+    <div class="row"><span class="cn">承载</span><span class="en">carry / bear / shoulder / bear the weight of</span></div>
+    <div class="row"><span class="cn">体现</span><span class="en"><b>reflect</b> / embody / demonstrate / manifest / represent</span></div>
+    <div class="row"><span class="cn">成为</span><span class="en">become / turn into / develop into / grow into</span></div>
+    <div class="row"><span class="cn">使……</span><span class="en">make / cause / enable / allow / render<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn">建造</span><span class="en">build / construct / erect / establish</span></div>
+    <div class="row"><span class="cn">传承</span><span class="en">inherit / pass on / carry forward / transmit</span></div>
+    <div class="row"><span class="cn">发展</span><span class="en">develop / evolve / advance / grow</span></div>
+    <div class="row"><span class="cn">喜爱</span><span class="en">love / like / be fond of / be keen on / cherish</span></div>
+    <div class="row"><span class="cn">吸引</span><span class="en">attract / draw / appeal to / fascinate</span></div>
+    <div class="row"><span class="cn">减少</span><span class="en">reduce / decrease / diminish / cut down / decline</span></div>
+    <div class="row"><span class="cn">象征</span><span class="en"><b>symbolize</b> / represent / signify / stand for</span></div>
+    <div class="row"><span class="cn">影响</span><span class="en">influence / affect / impact / have an impact on</span></div>
+    <div class="row"><span class="cn">促进</span><span class="en">promote / boost / facilitate / advance / foster</span></div>
+    <div class="row"><span class="cn">积累</span><span class="en">accumulate / build up / gather / amass</span></div>
+    <div class="row"><span class="cn">形成</span><span class="en">form / take shape / shape / constitute</span></div>
+    <div class="row"><span class="cn">传递</span><span class="en"><b>convey</b> / pass on / transmit / deliver</span></div>
+    <div class="row"><span class="cn">涵盖</span><span class="en">cover / encompass / include / embrace</span></div>
+    <div class="row"><span class="cn">坐落于</span><span class="en">be located in / be situated in / lie in</span></div>
+    <div class="row"><span class="cn">追溯到</span><span class="en">date back to / trace back to / originate from</span></div>
+    <div class="row"><span class="cn">蕴含</span><span class="en">contain / embody / imply / hold / embrace</span></div>
+    <div class="row"><span class="cn">起源于</span><span class="en">originate from / originate in / stem from / date back to</span></div>
+    <div class="row"><span class="cn">突破</span><span class="en">break through / make a breakthrough / surpass / exceed<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn">保护</span><span class="en">protect / preserve / safeguard / conserve</span></div>
+    <div class="row"><span class="cn">普及</span><span class="en">popularize / spread / promote / gain popularity<a class="mark" href="#c8">订</a></span></div>
+  </div>
+  <div class="tips">
+    <div class="tip"><b>及物与不及物</b>originate、consist of、date back to 都是不及物，写成 be originated 就错。</div>
+    <div class="tip"><b>词义边界</b>preserve 偏「保存原貌」，conserve 偏「保护资源」，protect 偏「免受伤害」。</div>
+  </div>
+</section>
+
+<!-- 05 短语 -->
+<section id="c5">
+  <div class="sec-head"><span class="no">05</span><h2>动词短语类</h2><span class="cnt">15 条</span></div>
+  <p class="sec-sub">短语的分全在介词和搭配上，写错一个介词就白搭。</p>
+  <div class="card">
+    <div class="row"><span class="cn"><i>1</i>以……闻名</span><span class="en">be famous for / be known for / be renowned for / be celebrated for</span></div>
+    <div class="row"><span class="cn"><i>2</i>被视为……</span><span class="en">be regarded as / be considered / be seen as / be viewed as<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>3</i>与……紧密相关</span><span class="en">be closely related to / be closely associated with / be closely linked to</span></div>
+    <div class="row"><span class="cn"><i>4</i>在……发挥重要作用</span><span class="en">play an important role in / play a vital part in<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>5</i>满足……的需求</span><span class="en">meet the needs of / satisfy the demand for / fulfill the requirements of<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>6</i>起源于……</span><span class="en">originate from / date back to / stem from</span></div>
+    <div class="row"><span class="cn"><i>7</i>在……取得显著进步</span><span class="en">make remarkable progress in / achieve significant progress in</span></div>
+    <div class="row"><span class="cn"><i>8</i>加快……的步伐</span><span class="en">accelerate the pace of / speed up the pace of</span></div>
+    <div class="row"><span class="cn"><i>9</i>由……制成</span><span class="en">be made of / be made from / be made out of<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>10</i>由……组成</span><span class="en">be composed of / consist of / be made up of</span></div>
+    <div class="row"><span class="cn"><i>11</i>富含……</span><span class="en">be rich in / be abundant in / be full of</span></div>
+    <div class="row"><span class="cn"><i>12</i>努力……</span><span class="en">strive to / make efforts to / endeavor to / work hard to</span></div>
+    <div class="row"><span class="cn"><i>13</i>旨在……</span><span class="en">aim to / be intended to / be designed to / be aimed at</span></div>
+    <div class="row"><span class="cn"><i>14</i>防止……</span><span class="en">prevent … from / guard against / keep … from<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>15</i>高度重视……</span><span class="en">attach great importance to / place great emphasis on / value highly</span></div>
+  </div>
+  <div class="tip" style="margin-top:12px"><b>记忆法</b>把这些短语当成「一个不可拆的词」背，考场上直接整体搬；拆开改写介词，几乎必错。</div>
+</section>
+
+<!-- 06 传统文化 -->
+<section id="c6">
+  <div class="sec-head"><span class="no">06</span><h2>传统文化主题词</h2><span class="cnt">59 条</span></div>
+  <p class="sec-sub">翻译题库里反复出现的「专有说法」，会写就是白送分。</p>
+  <div class="card">
+    <div class="row"><span class="cn"><i>01</i>文化遗产</span><span class="en">cultural heritage</span></div>
+    <div class="row"><span class="cn"><i>02</i>发明</span><span class="en">invention；invent <i>(v.)</i></span></div>
+    <div class="row"><span class="cn"><i>03</i>中医</span><span class="en">traditional Chinese medicine (TCM)</span></div>
+    <div class="row"><span class="cn"><i>04</i>中国结</span><span class="en">Chinese knot；make a knot</span></div>
+    <div class="row"><span class="cn"><i>05</i>指南针</span><span class="en">compass</span></div>
+    <div class="row"><span class="cn"><i>06</i>民间艺术</span><span class="en">folk arts</span></div>
+    <div class="row"><span class="cn"><i>07</i>印刷术 / 造纸</span><span class="en">printing / paper-making</span></div>
+    <div class="row"><span class="cn"><i>08</i>烟花爆竹</span><span class="en">fireworks / firecrackers / cracker</span></div>
+    <div class="row"><span class="cn"><i>09</i>享有……美誉</span><span class="en">be hailed as / enjoy a high reputation for<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>10</i>习俗</span><span class="en">custom；the custom of doing</span></div>
+    <div class="row"><span class="cn"><i>11</i>文物</span><span class="en">cultural relics</span></div>
+    <div class="row"><span class="cn"><i>12</i>文人</span><span class="en">scholars / men of letters</span></div>
+    <div class="row"><span class="cn"><i>13</i>交流</span><span class="en">exchange</span></div>
+    <div class="row"><span class="cn"><i>14</i>欢庆 / 庆祝</span><span class="en">celebrate</span></div>
+    <div class="row"><span class="cn"><i>15</i>起源于</span><span class="en">originate in</span></div>
+    <div class="row"><span class="cn"><i>16</i>农历 / 阳历 / 公元前 / 公元</span><span class="en">lunar / solar / BC / AD<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>17</i>祭拜</span><span class="en">worship；worship gods<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>18</i>欢度</span><span class="en">celebrate</span></div>
+    <div class="row"><span class="cn"><i>19</i>汉字</span><span class="en">Chinese characters</span></div>
+    <div class="row"><span class="cn"><i>20</i>非物质文化遗产</span><span class="en">intangible cultural heritage</span></div>
+    <div class="row"><span class="cn"><i>21</i>艺术价值</span><span class="en">artistic value</span></div>
+    <div class="row"><span class="cn"><i>22</i>促进 / 推动</span><span class="en">promote / drive / stimulate</span></div>
+    <div class="row"><span class="cn"><i>23</i>工艺品 / 匠人 / 手艺</span><span class="en">handicraft / craftsman <i>(复 men)</i> / craftsmanship</span></div>
+    <div class="row"><span class="cn"><i>24</i>爱国的</span><span class="en">patriotic</span></div>
+    <div class="row"><span class="cn"><i>25</i>祖先</span><span class="en">ancestors / forefathers</span></div>
+    <div class="row"><span class="cn"><i>26</i>朝代</span><span class="en">dynasty</span></div>
+    <div class="row"><span class="cn"><i>27</i>山水</span><span class="en">landscape</span></div>
+    <div class="row"><span class="cn"><i>28</i>走廊</span><span class="en">corridor</span></div>
+    <div class="row"><span class="cn"><i>29</i>四大发明</span><span class="en">the Four Great Inventions（gunpowder / printing / paper-making / compass）</span></div>
+    <div class="row"><span class="cn"><i>30</i>装饰</span><span class="en">decorate；decoration <i>(n.)</i></span></div>
+    <div class="row"><span class="cn"><i>31</i>祈求</span><span class="en">pray for</span></div>
+    <div class="row"><span class="cn"><i>32</i>吉祥的</span><span class="en">auspicious；auspiciousness <i>(n.)</i></span></div>
+    <div class="row"><span class="cn"><i>33</i>辟邪</span><span class="en">ward off evil spirits<i>（是 ward，不是 word）</i></span></div>
+    <div class="row"><span class="cn"><i>34</i>瓷器</span><span class="en">porcelain</span></div>
+    <div class="row"><span class="cn"><i>35</i>皇帝</span><span class="en">emperor</span></div>
+    <div class="row"><span class="cn"><i>36</i>君主</span><span class="en">monarch</span></div>
+    <div class="row"><span class="cn"><i>37</i>文化底蕴</span><span class="en">cultural heritage / cultural depth<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>38</i>同根同源</span><span class="en">have the same roots</span></div>
+    <div class="row"><span class="cn"><i>39</i>节日庆祝 / 婚礼庆祝</span><span class="en">festival celebration / wedding celebration</span></div>
+    <div class="row"><span class="cn"><i>40</i>长寿</span><span class="en">longevity；enjoy longevity</span></div>
+    <div class="row"><span class="cn"><i>41</i>和谐</span><span class="en">harmony；harmonious <i>(adj.)</i></span></div>
+    <div class="row"><span class="cn"><i>42</i>古镇 / 古城</span><span class="en">ancient town</span></div>
+    <div class="row"><span class="cn"><i>43</i>旅游目的地</span><span class="en">tourist destination</span></div>
+    <div class="row"><span class="cn"><i>44</i>中心 / 枢纽</span><span class="en">center / hub</span></div>
+    <div class="row"><span class="cn"><i>45</i>诞生地 / 起源地</span><span class="en">birthplace</span></div>
+    <div class="row"><span class="cn"><i>46</i>灌溉</span><span class="en">irrigate；irrigation <i>(n.)</i></span></div>
+    <div class="row"><span class="cn"><i>47</i>原料</span><span class="en">raw materials</span></div>
+    <div class="row"><span class="cn"><i>48</i>艺术境界</span><span class="en">artistic level / artistic realm</span></div>
+    <div class="row"><span class="cn"><i>49</i>精致</span><span class="en">exquisite / delicate</span></div>
+    <div class="row"><span class="cn"><i>50</i>各地</span><span class="en">various parts；世界各地 = various parts of the world</span></div>
+    <div class="row"><span class="cn"><i>51</i>潜能</span><span class="en">potential</span></div>
+    <div class="row"><span class="cn"><i>52</i>内涵 / 寓意</span><span class="en">connotations</span></div>
+    <div class="row"><span class="cn"><i>53</i>据说</span><span class="en">It is said that / Word has it that<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>54</i>菜系</span><span class="en">cuisine；eight great cuisines<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>55</i>文学</span><span class="en">literature；literary <i>(adj.)</i></span></div>
+    <div class="row"><span class="cn"><i>56</i>制作工艺</span><span class="en">production process / craftsmanship</span></div>
+    <div class="row"><span class="cn"><i>57</i>对联 / 春联</span><span class="en">couplets / the Spring Festival couplets</span></div>
+    <div class="row"><span class="cn"><i>58</i>崇拜</span><span class="en">worship</span></div>
+    <div class="row"><span class="cn"><i>59</i>密切相关</span><span class="en">be closely related to<a class="mark" href="#c8">订</a></span></div>
+  </div>
+</section>
+
+<!-- 07 现代发展 -->
+<section id="c7">
+  <div class="sec-head"><span class="no">07</span><h2>现代发展主题词</h2><span class="cnt">51 条</span></div>
+  <p class="sec-sub">经济、科技、城市、农业四条线，近几年真题命中率最高。</p>
+  <div class="card">
+    <div class="row"><span class="cn"><i>01</i>创新</span><span class="en">innovation</span></div>
+    <div class="row"><span class="cn"><i>02</i>成果</span><span class="en">achievements / results</span></div>
+    <div class="row"><span class="cn"><i>03</i>科技</span><span class="en">science and technology</span></div>
+    <div class="row"><span class="cn"><i>04</i>新开发的……</span><span class="en">the newly-developed + 名词</span></div>
+    <div class="row"><span class="cn"><i>05</i>工业</span><span class="en">industry；industrial <i>(adj.)</i></span></div>
+    <div class="row"><span class="cn"><i>06</i>新能源</span><span class="en">new energy</span></div>
+    <div class="row"><span class="cn"><i>07</i>革命</span><span class="en">revolution</span></div>
+    <div class="row"><span class="cn"><i>08</i>探索</span><span class="en">explore；exploration <i>(n.)</i></span></div>
+    <div class="row"><span class="cn"><i>09</i>城市化</span><span class="en">urbanization；urban <i>(adj.)</i>；urban development</span></div>
+    <div class="row"><span class="cn"><i>10</i>产业</span><span class="en">industry</span></div>
+    <div class="row"><span class="cn"><i>11</i>贫困 / 脱贫</span><span class="en">poverty / get rid of poverty</span></div>
+    <div class="row"><span class="cn"><i>12</i>商业的 / 商业化</span><span class="en">commercial / commercialization</span></div>
+    <div class="row"><span class="cn"><i>13</i>企业 / 企业家</span><span class="en">enterprise / entrepreneur</span></div>
+    <div class="row"><span class="cn"><i>14</i>可持续发展</span><span class="en">sustainable development</span></div>
+    <div class="row"><span class="cn"><i>15</i>中产阶级</span><span class="en">middle class</span></div>
+    <div class="row"><span class="cn"><i>16</i>出口国 / 进口国 / 生产国</span><span class="en">exporter / importer / producer</span></div>
+    <div class="row"><span class="cn"><i>17</i>提供帮助</span><span class="en">provide support</span></div>
+    <div class="row"><span class="cn"><i>18</i>贫困的</span><span class="en">poor / less developed</span></div>
+    <div class="row"><span class="cn"><i>19</i>蓬勃发展</span><span class="en">be booming / flourish</span></div>
+    <div class="row"><span class="cn"><i>20</i>外资</span><span class="en">foreign investment</span></div>
+    <div class="row"><span class="cn"><i>21</i>城市人口 / 农村人口</span><span class="en">urban population / rural population</span></div>
+    <div class="row"><span class="cn"><i>22</i>经济繁荣</span><span class="en">economic prosperity</span></div>
+    <div class="row"><span class="cn"><i>23</i>发展理念</span><span class="en">development concept</span></div>
+    <div class="row"><span class="cn"><i>24</i>以人为本的发展理念</span><span class="en">people-oriented development concept</span></div>
+    <div class="row"><span class="cn"><i>25</i>大众健康</span><span class="en">public health</span></div>
+    <div class="row"><span class="cn"><i>26</i>医疗保健</span><span class="en">medical care</span></div>
+    <div class="row"><span class="cn"><i>27</i>发展道路</span><span class="en">development path</span></div>
+    <div class="row"><span class="cn"><i>28</i>坚持 / 倡导</span><span class="en">stick to / uphold / advocate</span></div>
+    <div class="row"><span class="cn"><i>29</i>实施 / 制定</span><span class="en">implement</span></div>
+    <div class="row"><span class="cn"><i>30</i>馒头</span><span class="en">steamed bread</span></div>
+    <div class="row"><span class="cn"><i>31</i>主食</span><span class="en">staple food</span></div>
+    <div class="row"><span class="cn"><i>32</i>化肥</span><span class="en">chemical fertilizer</span></div>
+    <div class="row"><span class="cn"><i>33</i>大米 / 小麦 / 面粉</span><span class="en">rice / wheat / flour</span></div>
+    <div class="row"><span class="cn"><i>34</i>作物 / 粮食</span><span class="en">crops</span></div>
+    <div class="row"><span class="cn"><i>35</i>生产</span><span class="en">production</span></div>
+    <div class="row"><span class="cn"><i>36</i>农产品</span><span class="en">agricultural products</span></div>
+    <div class="row"><span class="cn"><i>37</i>占重要地位</span><span class="en">play an important role in</span></div>
+    <div class="row"><span class="cn"><i>38</i>据估计</span><span class="en">It is estimated that</span></div>
+    <div class="row"><span class="cn"><i>39</i>消费</span><span class="en">consumption</span></div>
+    <div class="row"><span class="cn"><i>40</i>生活节奏</span><span class="en">pace of life</span></div>
+    <div class="row"><span class="cn"><i>41</i>旅游</span><span class="en">traveling / tourism</span></div>
+    <div class="row"><span class="cn"><i>42</i>旅游热潮</span><span class="en">tourism boom</span></div>
+    <div class="row"><span class="cn"><i>43</i>国内游 / 出境游</span><span class="en">domestic traveling / traveling overseas</span></div>
+    <div class="row"><span class="cn"><i>44</i>兴建</span><span class="en">build / construct；construction <i>(n.)</i></span></div>
+    <div class="row"><span class="cn"><i>45</i>景点</span><span class="en">tourist attractions</span></div>
+    <div class="row"><span class="cn"><i>46</i>消费者</span><span class="en">consumer</span></div>
+    <div class="row"><span class="cn"><i>47</i>历史名胜</span><span class="en">historic sites / places of interest<a class="mark" href="#c8">订</a></span></div>
+    <div class="row"><span class="cn"><i>48</i>自然风光</span><span class="en">natural scenery</span></div>
+    <div class="row"><span class="cn"><i>49</i>旅游目的地</span><span class="en">tourist destinations</span></div>
+    <div class="row"><span class="cn"><i>50</i>要求</span><span class="en">require；require sb. to do；requirement <i>(n.)</i></span></div>
+    <div class="row"><span class="cn"><i>51</i>需求</span><span class="en">demand；the demand for / the need for</span></div>
+  </div>
+</section>
+
+<!-- 08 订正 -->
+<section id="c8">
+  <div class="sec-head"><span class="no">08</span><h2>订正记录</h2><span class="cnt">21 条</span></div>
+  <p class="sec-sub">左列是原稿（划掉的即改动处），右列是订正写法与理由。左边保留原样，方便你对照老师原话。</p>
+  <table class="fixtbl">
+    <tr><th>词条</th><th>原稿</th><th>订正</th><th>理由</th></tr>
+    <tr><td class="cnc">大约</td><td class="old">an estimated</td><td class="new">an estimated + 数字</td><td class="why">estimated 是形容词，必须带所修饰的数量：an estimated 30 million</td></tr>
+    <tr><td class="cnc">巧妙的</td><td class="old">cunning</td><td class="new">clever / ingenious / skillful</td><td class="why">cunning 是「狡猾」，贬义，不能夸设计巧妙</td></tr>
+    <tr><td class="cnc">古老的</td><td class="old">antique</td><td class="new">ancient / old / age-old</td><td class="why">antique 只形容器物古董，不修饰文明、城市</td></tr>
+    <tr><td class="cnc">人们</td><td class="old">the masses</td><td class="new">the public / individuals</td><td class="why">the masses 带强烈政治色彩，翻译题里不宜用</td></tr>
+    <tr><td class="cnc">影响</td><td class="old">repercussion</td><td class="new">influence / impact / effect</td><td class="why">repercussion 多指负面后果，语义偏窄</td></tr>
+    <tr><td class="cnc">使……</td><td class="old">render</td><td class="new">render + 宾语 + 形容词</td><td class="why">render 后接形容词（render sth. possible），不能直接接动词</td></tr>
+    <tr><td class="cnc">突破</td><td class="old">surpass / exceed</td><td class="new">break through / make a breakthrough</td><td class="why">surpass、exceed 是「超过、胜过」，不等于「突破」</td></tr>
+    <tr><td class="cnc">普及</td><td class="old">universalize</td><td class="new">popularize / gain popularity</td><td class="why">universalize 生僻且偏哲学术语，考试用不到</td></tr>
+    <tr><td class="cnc">被视为</td><td class="old">be considered as</td><td class="new">be considered / be regarded as</td><td class="why">consider 后接 as 属冗余，规范写法是 consider sb. sth. 或 regard as</td></tr>
+    <tr><td class="cnc">发挥重要作用</td><td class="old">make a difference in</td><td class="new">play an important role in</td><td class="why">make a difference 意为「有影响、起作用」，不等于「发挥重要作用」</td></tr>
+    <tr><td class="cnc">满足需求</td><td class="old">fulfill the requirements of</td><td class="new">meet the needs of / satisfy the demand for</td><td class="why">requirements 是「要求」，不是「需求」</td></tr>
+    <tr><td class="cnc">由……制成</td><td class="old">be made up of</td><td class="new">be made of / from / out of</td><td class="why">be made up of 是「由…组成」，不是「制成」</td></tr>
+    <tr><td class="cnc">防止……</td><td class="old">protect … from</td><td class="new">prevent … from / guard against</td><td class="why">protect from 是「保护免受」，主语与宾语关系不同</td></tr>
+    <tr><td class="cnc">享有……美誉</td><td class="old">be exalted as</td><td class="new">be hailed as / enjoy a reputation for</td><td class="why">exalt 意为「颂扬、抬高」，不接 as 表「被誉为」</td></tr>
+    <tr><td class="cnc">农历八月初七</td><td class="old">the 7th day of lunar August</td><td class="new">the 7th day of the 8th lunar month</td><td class="why">农历月份不能说 lunar August，应是「第 8 个农历月」</td></tr>
+    <tr><td class="cnc">祭拜</td><td class="old">worship Gods</td><td class="new">worship gods</td><td class="why">泛指的「神」小写；只有一神教的 God 才大写</td></tr>
+    <tr><td class="cnc">文化底蕴</td><td class="old">cultural deposit</td><td class="new">cultural heritage / cultural depth</td><td class="why">deposit 是「存款、沉积物」，属直译生造</td></tr>
+    <tr><td class="cnc">据说</td><td class="old">Word has it that（that 不可省略）</td><td class="new">It is said that / Word has it that</td><td class="why">that 可以省略；且考试更常用 It is said that</td></tr>
+    <tr><td class="cnc">菜系</td><td class="old">eight major cuisines</td><td class="new">eight great cuisines</td><td class="why">固定说法是 the eight great cuisines；cuisine 作「菜系」时才可数</td></tr>
+    <tr><td class="cnc">密切相关</td><td class="old">be closely related with / to</td><td class="new">be closely related to</td><td class="why">related 后固定接 to，with 不成立</td></tr>
+    <tr><td class="cnc">历史名胜</td><td class="old">historical resorts</td><td class="new">historic sites / places of interest</td><td class="why">resort 是度假地；historic 才是「有历史意义的」</td></tr>
+  </table>
+</section>
+
+<div class="empty" id="empty">没有匹配的词条，换个关键词试试。</div>
+
+<footer class="wrap">
+  <span>四六级翻译 · 高级加分词汇　｜　配套：<a href="translation-topics.html">六大主题常考词</a> · <a href="translation-structures.html">22 个句式技巧</a></span>
+  <span>粗体为推荐首选；带「订」的条目见第 08 节</span>
+</footer>
+
+</main>
+
+<script>
+(function(){
+  const rows = Array.from(document.querySelectorAll('.row'));
+  const q = document.getElementById('q');
+  const empty = document.getElementById('empty');
+  const quiz = document.getElementById('quiz');
+  const norm = s => (s||'').toLowerCase().replace(/\s+/g,' ').trim();
+  rows.forEach(r => r.dataset.text = norm(r.textContent));
+  let t=null;
+
+  function run(){
+    const kw = norm(q.value);
+    if(!kw){
+      rows.forEach(r => { r.style.display=''; r.classList.remove('hit'); });
+      document.querySelectorAll('section').forEach(s => s.style.display='');
+      document.querySelectorAll('.card').forEach(c => c.style.display='');
+      empty.style.display='none'; return;
+    }
+    let n=0;
+    rows.forEach(r => {
+      const ok = r.dataset.text.includes(kw);
+      r.style.display = ok ? '' : 'none';
+      r.classList.toggle('hit', ok);
+      if(ok) n++;
+    });
+    document.querySelectorAll('.card').forEach(c => {
+      const any = Array.from(c.querySelectorAll('.row')).some(r => r.style.display!=='none');
+      c.style.display = any ? '' : 'none';
+    });
+    ['c1','c2','c3','c4','c5','c6','c7'].forEach(id => {
+      const sec = document.getElementById(id);
+      const vis = Array.from(sec.querySelectorAll('.card')).some(c => c.style.display!=='none');
+      sec.style.display = vis ? '' : 'none';
+    });
+    empty.style.display = n ? 'none' : 'block';
+  }
+  q.addEventListener('input', () => { clearTimeout(t); t=setTimeout(run,120); });
+  q.addEventListener('keydown', e => { if(e.key==='Escape'){ q.value=''; run(); } });
+
+  quiz.addEventListener('click', () => {
+    const on = document.body.classList.toggle('hide');
+    quiz.classList.toggle('on', on);
+    quiz.lastChild.textContent = on ? '显示英文' : '遮盖英文自测';
+    rows.forEach(r => r.classList.remove('open'));
+  });
+  document.addEventListener('click', e => {
+    if(!document.body.classList.contains('hide')) return;
+    const row = e.target.closest('.row');
+    if(row) row.classList.toggle('open');
+  });
+})();
+</script>
+</body>
+</html>
