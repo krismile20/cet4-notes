@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>邹老师四六级翻译 · 22 个句式进阶技巧</title>
+<style>
+:root{
+  --bg:#f5f4ef;
+  --card:#fffdf8;
+  --ink:#1f2428;
+  --ink-2:#575e66;
+  --ink-3:#8b9199;
+  --line:#e3ded3;
+  --ac:#2d5c50;
+  --ac-2:#3f7d6c;
+  --zh:#7a6a52;
+  --shadow:0 1px 2px rgba(35,30,20,.05),0 10px 26px -14px rgba(35,30,20,.2);
+  --r:14px;
+  --font-cn:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --font-en:Charter,"Iowan Old Style",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-cn);font-size:16px;line-height:1.72;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 22px}
+
+/* hero */
+header.hero{padding:52px 0 30px;border-bottom:1px solid var(--line);background:
+  radial-gradient(1000px 280px at 12% -10%,#e7ece4 0%,transparent 62%),
+  radial-gradient(800px 240px at 92% 0%,#efe8d9 0%,transparent 58%)}
+.kicker{font-size:12.5px;letter-spacing:.22em;color:#8f9a8b;margin:0 0 14px;text-transform:uppercase}
+h1{font-size:clamp(25px,4vw,38px);line-height:1.28;margin:0 0 12px;font-weight:800;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--ac)}
+.lede{color:var(--ink-2);max-width:66ch;margin:0;font-size:15.5px}
+.back{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:13.5px;color:var(--ac);
+  text-decoration:none;border-bottom:1px dotted #9dbcb1;padding-bottom:2px}
+.back:hover{color:#1d3d35}
+
+/* toolbar */
+.toolbar{position:sticky;top:0;z-index:40;background:rgba(245,244,239,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+.toolbar-in{display:flex;align-items:center;gap:12px;padding:11px 0}
+.search{position:relative;flex:1;min-width:150px}
+.search input{width:100%;padding:10px 14px 10px 37px;border:1px solid var(--line);border-radius:10px;
+  background:#fffdf8;font-family:var(--font-cn);font-size:14px;color:var(--ink);outline:none;transition:.15s}
+.search input:focus{border-color:#b6cabe;box-shadow:0 0 0 3px rgba(45,92,80,.12)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;
+  stroke:var(--ink-3);fill:none;stroke-width:2}
+.btn{border:1px solid var(--line);background:#fffdf8;color:var(--ink-2);border-radius:10px;padding:9px 13px;
+  font-size:13.5px;font-family:var(--font-cn);cursor:pointer;white-space:nowrap;transition:.15s;
+  display:inline-flex;align-items:center;gap:7px}
+.btn:hover{border-color:#c3cdc5}
+.btn.on{background:var(--ac);color:#f5faf7;border-color:var(--ac)}
+.btn .ind{width:7px;height:7px;border-radius:50%;background:#ccc6b8;transition:.15s}
+.btn.on .ind{background:#a9e0c6}
+.nav{display:flex;gap:7px;overflow-x:auto;padding:0 0 11px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:0 0 auto;font-size:12.5px;color:var(--ink-2);text-decoration:none;padding:5px 11px;
+  border:1px solid var(--line);border-radius:99px;background:#fffdf8;transition:.15s}
+.nav a:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+.nav a b{font-family:var(--font-en);font-weight:600;opacity:.55;margin-right:4px}
+
+/* layout */
+.shell{display:grid;grid-template-columns:196px minmax(0,1fr);gap:46px;align-items:start;padding:34px 0 0}
+aside.toc{position:sticky;top:126px;font-size:13.5px}
+.toc h4{font-size:11.5px;letter-spacing:.16em;color:#9aa39b;margin:0 0 12px;font-weight:600}
+.toc a{display:flex;gap:9px;padding:5px 8px;border-radius:7px;color:var(--ink-2);text-decoration:none;
+  border-left:2px solid transparent;line-height:1.5}
+.toc a b{font-family:var(--font-en);font-size:12px;color:#a8b3aa;font-weight:600;min-width:17px}
+.toc a:hover{background:#eef1ea;color:var(--ink)}
+.toc a.active{background:#e9efe9;color:var(--ac);border-left-color:var(--ac);font-weight:600}
+.toc a.active b{color:var(--ac-2)}
+
+/* cards */
+.t{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);
+  margin-bottom:20px;overflow:hidden;scroll-margin-top:100px}
+.t-h{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line);
+  background:linear-gradient(0deg,#faf8f2,#fffdf8)}
+.t-n{font-family:var(--font-en);font-size:13px;font-weight:700;color:#fff;background:var(--ac);
+  min-width:27px;height:27px;border-radius:7px;display:grid;place-items:center;letter-spacing:.02em}
+.t-h h2{margin:0;font-size:17px;font-weight:700;letter-spacing:-.1px}
+.t-tag{margin-left:auto;font-size:11.5px;letter-spacing:.05em;color:#5c7a6d;background:#eaf1ec;
+  border:1px solid #dbe7df;border-radius:99px;padding:2px 10px;white-space:nowrap}
+.t-b{padding:16px 20px 20px}
+
+.rules{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:7px}
+.rules li{position:relative;padding-left:17px;font-size:14.5px;color:var(--ink-2);line-height:1.65}
+.rules li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:2px;
+  background:var(--ac-2);transform:rotate(45deg);opacity:.75}
+.rules li b{color:var(--ink)}
+.rules li code{font-family:var(--font-en);background:#eef2ee;border-radius:4px;padding:1px 5px;font-size:14px;color:#2b4a41}
+
+/* example pair */
+.ex{margin-top:12px;border-left:3px solid #d7e2da;border-radius:0 10px 10px 0;background:#fbfcf9;padding:11px 15px}
+.ex .zh{font-size:14.5px;color:var(--zh);margin:0 0 7px;line-height:1.6}
+.ex .zh::before{content:"中";font-size:10.5px;color:#a3927a;border:1px solid #ded0ba;border-radius:3px;
+  padding:0 3px;margin-right:7px;vertical-align:1px}
+.ex .en{font-family:var(--font-en);font-size:15.5px;color:#22333a;line-height:1.66;margin:0;position:relative}
+.ex .en::before{content:"EN";font-family:var(--font-cn);font-size:10px;letter-spacing:.08em;color:#9bb3a6;
+  border:1px solid #cfe0d6;border-radius:3px;padding:0 3px;margin-right:7px;vertical-align:1px}
+.ex .en u{text-decoration:none;background:#e4efe8;border-radius:3px;padding:0 2px;box-decoration-break:clone}
+.ex .en s{color:#b0a898}
+.ex.alt{background:#f8faf7}
+.note{font-size:13.5px;color:#6a6255;background:#fdf8ec;border:1px solid #f0e6cd;border-radius:9px;
+  padding:9px 13px;margin-top:12px}
+.note b{color:#8a6b2c}
+.warn{font-size:13.5px;color:#8c4438;background:#fdf2f0;border:1px solid #f1dbd5;border-radius:9px;
+  padding:9px 13px;margin-top:10px}
+.warn b{color:#a23a2b}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.chip{font-size:12.5px;background:#f1f2ec;border:1px solid #e4e4d8;border-radius:99px;padding:3px 11px;color:#66614f}
+.lnk{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--ac);text-decoration:none;
+  border-bottom:1px dotted #a8c2b7;margin-top:10px;margin-right:14px}
+.lnk:hover{color:#1d3d35}
+.lnk::after{content:"↗";font-size:11px;opacity:.7}
+
+/* 遮盖 */
+body.hide .ex .en{color:transparent;cursor:pointer;user-select:none}
+body.hide .ex .en u{color:transparent;background:transparent}
+body.hide .ex .en::after{content:"点击显示译文";position:absolute;left:34px;top:0;color:#a9b8ae;
+  font-family:var(--font-cn);font-size:12.5px;white-space:nowrap}
+body.hide .ex .en.open{color:#22333a}
+body.hide .ex .en.open u{color:inherit}
+body.hide .ex .en.open::after{content:""}
+body.hide .ex{cursor:pointer;transition:background .15s}
+body.hide .ex:hover{background:#f2f7f2}
+
+/* 命中 / 空态 */
+.t.hit{border-color:#bcd3c6;box-shadow:0 0 0 3px rgba(45,92,80,.07),var(--shadow)}
+.empty{display:none;text-align:center;color:var(--ink-3);font-size:14px;padding:48px 0}
+#count{font-size:12.5px;color:var(--ink-3);margin-left:auto;white-space:nowrap;letter-spacing:.03em}
+
+footer{border-top:1px solid var(--line);margin-top:40px;padding:24px 0 56px;color:var(--ink-3);font-size:12.5px;
+  display:flex;gap:14px;justify-content:space-between;flex-wrap:wrap;line-height:1.8}
+footer a{color:var(--ac);text-decoration:none}
+
+@media (max-width:1000px){
+  .shell{grid-template-columns:1fr;gap:0}
+  aside.toc{display:none}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .hero{padding-top:34px}
+  .t-b{padding:14px 14px 17px}
+  .t-h{padding:12px 14px}
+  .t-h h2{font-size:15.5px}
+  .t-tag{display:none}
+  .ex{padding:10px 12px}
+  .ex .en{font-size:15px}
+  .rules li{font-size:14px}
+}
+@media print{
+  .toolbar,aside.toc,.back,.btn{display:none!important}
+  .shell{display:block;padding-top:0}
+  body{background:#fff}
+  .t{box-shadow:none;break-inside:avoid;margin-bottom:12px}
+  body.hide .ex .en{color:#22333a!important}
+  body.hide .ex .en::after{content:""!important}
+  .t.hit{box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">CET-4 / CET-6 · Translation Ⅱ</p>
+    <h1>翻译句式进阶 · <em>22 个得分句型</em></h1>
+    <p class="lede">从「是字结构」到「冠词细节」，把真题里反复出现的句式模板拆成 22 讲。每讲只留三样东西：一句规则、一组原文对照、一个易错提醒。先自己译，再点开对照。</p>
+    <a class="back" href="translation-topics.html">← 返回上一页：六大主题常考词 + 14 个句型基础</a>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="toolbar-in">
+      <div class="search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="搜技巧或例句，例如：被动 / 随着 / although" autocomplete="off">
+      </div>
+      <button class="btn" id="quiz"><span class="ind"></span>遮盖译文自测</button>
+    </div>
+    <nav class="nav">
+      <a href="#t01"><b>01</b>是字结构</a>
+      <a href="#t02"><b>02</b>成分缺失</a>
+      <a href="#t03"><b>03</b>找主谓</a>
+      <a href="#t04"><b>04</b>主题词复现</a>
+      <a href="#t05"><b>05</b>随着</a>
+      <a href="#t06"><b>06</b>现在完成</a>
+      <a href="#t07"><b>07</b>隐藏被动</a>
+      <a href="#t08"><b>08</b>一句多动</a>
+      <a href="#t09"><b>09</b>因为</a>
+      <a href="#t10"><b>10</b>的字结构</a>
+      <a href="#t11"><b>11</b>时间+来</a>
+      <a href="#t12"><b>12</b>不仅而且</a>
+      <a href="#t13"><b>13</b>定语从句</a>
+      <a href="#t14"><b>14</b>不必逐字</a>
+      <a href="#t15"><b>15</b>插入语</a>
+      <a href="#t16"><b>16</b>one of</a>
+      <a href="#t17"><b>17</b>大小写</a>
+      <a href="#t18"><b>18</b>形容词序</a>
+      <a href="#t19"><b>19</b>指代还原</a>
+      <a href="#t20"><b>20</b>等的译法</a>
+      <a href="#t21"><b>21</b>同位语</a>
+      <a href="#t22"><b>22</b>冠词</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+<div class="shell">
+
+  <aside class="toc">
+    <h4>本讲目录</h4>
+    <a href="#t01"><b>01</b>「是」字结构</a>
+    <a href="#t02"><b>02</b>成分缺失</a>
+    <a href="#t03"><b>03</b>见动词找主语</a>
+    <a href="#t04"><b>04</b>主题词多次出现</a>
+    <a href="#t05"><b>05</b>随着结构</a>
+    <a href="#t06"><b>06</b>现在完成时标志</a>
+    <a href="#t07"><b>07</b>隐藏的被动</a>
+    <a href="#t08"><b>08</b>一句多动词</a>
+    <a href="#t09"><b>09</b>「因为」的写法</a>
+    <a href="#t10"><b>10</b>「的」字结构</a>
+    <a href="#t11"><b>11</b>时间 + 来</a>
+    <a href="#t12"><b>12</b>不仅……而且</a>
+    <a href="#t13"><b>13</b>定语从句四选一</a>
+    <a href="#t14"><b>14</b>不必逐字对照</a>
+    <a href="#t15"><b>15</b>插入语</a>
+    <a href="#t16"><b>16</b>one of 提前</a>
+    <a href="#t17"><b>17</b>专有名词大小写</a>
+    <a href="#t18"><b>18</b>形容词排序</a>
+    <a href="#t19"><b>19</b>指代还原</a>
+    <a href="#t20"><b>20</b>「等」的翻译</a>
+    <a href="#t21"><b>21</b>同位语</a>
+    <a href="#t22"><b>22</b>冠词</a>
+  </aside>
+
+  <main>
+
+  <!-- 01 -->
+  <article class="t" id="t01">
+    <div class="t-h"><span class="t-n">01</span><h2>「是」字结构</h2><span class="t-tag">高频</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>中文把「是……之一 / 是……的重要组成部分」放在句首时，把它降级成 <b>As / Being + 名词短语</b>，主句留给真正的谓语。</li>
+        <li>一个句子只能有一个谓语，<b>「是」不译成 be，改译成 as</b>，后面再出现动词就自然合法了。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">杭州拥有两千多年的悠久历史和丰富的文化遗产，（杭州）是我国七大古都之一。</p>
+        <p class="en"><u>As one of the seven major ancient capitals in China</u>, Hangzhou has a long-standing history of over 2,000 years and rich cultural heritages.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">针灸是中国传统医学的重要组成部分，（针灸）已有几千年的历史。</p>
+        <p class="en"><u>As an important part of traditional Chinese medicine</u>, acupuncture has <u>enjoyed</u> a history of thousands of years.</p>
+      </div>
+      <div class="note"><b>两个小升级：</b>① 原句用 it 指代，考场上首次出现的主语直接写 Hangzhou 更保险；② has enjoyed 比 has had 更地道，也不容易判成错。</div>
+    </div>
+  </article>
+
+  <!-- 02 -->
+  <article class="t" id="t02">
+    <div class="t-h"><span class="t-n">02</span><h2>成分缺失</h2><span class="t-tag">补主语 / 补动词</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li><b>缺主语三招：</b>① 看上下文补（Although <code>it</code> is ancient…）；② 用「人们」补；③ 整句改被动。</li>
+        <li><b>缺动词一招：</b>中文的形容词谓语句，英文要补一个「有」—— <code>have / feature</code>。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">虽然古老，但并不落后。</p>
+        <p class="en">Although <u>it</u> is ancient, it is not backward.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">在茶文化的发展过程中，不仅产生了各种名茶，而且形成了独特的茶艺。</p>
+        <p class="en">In the development of tea culture, various kinds of famous tea <u>have been produced</u> and a unique tea ceremony <u>has been formed</u>.</p>
+      </div>
+      <div class="ex">
+        <p class="zh">人们相信，通过点燃爆竹，可以驱散厄运，带来好运。</p>
+        <p class="en"><u>There is a belief that</u> by lighting firecrackers, bad luck can be dispelled and good luck can be brought.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">杭州（有）人文古迹众多。</p>
+        <p class="en">The city <u>has / features</u> numerous cultural relics.</p>
+      </div>
+      <div class="ex">
+        <p class="zh">中国白酒制作工艺复杂，原料丰富多样，是世界六大蒸馏酒之一。</p>
+        <p class="en">As one of the world's six major distilled liquors, Chinese white liquor <u>has</u> a complicated production process and various raw materials.</p>
+      </div>
+      <div class="warn"><b>易错：</b>kinds of + 名词作主语时视为复数，动词用 have，不是 has。</div>
+    </div>
+  </article>
+
+  <!-- 03 -->
+  <article class="t" id="t03">
+    <div class="t-h"><span class="t-n">03</span><h2>见动词找主语，见主语找动词</h2><span class="t-tag">主干先行</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>先翻主干：<b>主语 + 动词 + 宾语</b>；定语、状语、补语全部往后挂。</li>
+        <li>方式状语（through / by / with 短语）习惯<b>后置</b>，别塞在主语和动词之间。</li>
+        <li>主语单数或不可数 → 动词加 s；主语复数 → 动词用原形。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">杭州通过其迷人的自然风光、繁荣的经济和优美的生活环境，吸引了越来越多来自世界各地的游客。</p>
+        <p class="en">It attracts <u>a growing number of</u> tourists from all over the world <u>by its enchanting landscapes, prosperous economy and gorgeous living environment</u>.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">它使用细长的针，穿刺人体的特定点位来调节身体的平衡和治疗许多疾病。</p>
+        <p class="en">It punctures specific points of the human body <u>with long needles</u> to adjust the balance of the body and treat numerous diseases.</p>
+      </div>
+      <a class="lnk" href="https://m.zmbg.com/yyzs/22474.html" target="_blank" rel="noopener">延伸：英语状语的分类</a>
+      <a class="lnk" href="https://b23.tv/3kyTxyV" target="_blank" rel="noopener">延伸：秒懂语法之补语</a>
+    </div>
+  </article>
+
+  <!-- 04 -->
+  <article class="t" id="t04">
+    <div class="t-h"><span class="t-n">04</span><h2>主题词多次出现怎么译</h2><span class="t-tag">换词不换意</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>第二次出现 → <b>代词</b>：Hangzhou → it（注意单复数，决定用 it 还是 they）。</li>
+        <li>第三次及以后 → <b>the + 身份词 / 地点词</b>：the city、the flower、the system。</li>
+        <li>第四次 → <b>the + 形容词 + 身份词</b>：the beautiful flower。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">杭州…… 杭州…… 杭州……</p>
+        <p class="en">Hangzhou … <u>it</u> … <u>the city</u> …</p>
+      </div>
+      <div class="note"><b>为什么值得练：</b>同一个名词反复出现，是阅卷老师判「词汇贫乏」最直接的证据；换成代词和上位词，句子立刻显得熟。</div>
+    </div>
+  </article>
+
+  <!-- 05 -->
+  <article class="t" id="t05">
+    <div class="t-h"><span class="t-n">05</span><h2>随着结构</h2><span class="t-tag">两种形态</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li><b>with / following + 名词短语</b>（真题主流）：短语里必须是一个抽象名词，如 development、interest、growth。</li>
+        <li><b>as + 句子</b>：后面接完整的主谓结构，适合「随着……越来越……」这类变化句。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">随着全球对中医的兴趣增加，……</p>
+        <p class="en"><u>With / Following the growing interest in TCM worldwide</u>, …</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">随着数字化的发展，……</p>
+        <p class="en"><u>With the development of digitalization</u>, …</p>
+      </div>
+      <div class="warn"><b>易错：</b>不能写成 with digitalization develops —— with 后面只能跟名词或名词短语，不能跟句子；要跟句子就用 as。</div>
+    </div>
+  </article>
+
+  <!-- 06 -->
+  <article class="t" id="t06">
+    <div class="t-h"><span class="t-n">06</span><h2>现在完成时的三个信号</h2><span class="t-tag">时态分</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>看到 <b>一直</b>、<b>已经</b>、<b>几千年来 / 自……以来</b>，一律考虑 have / has done。</li>
+        <li><b>for + 时间段</b>（for thousands of years）；<b>since + 时间点</b>（since the Song Dynasty）。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">几千年来，茶一直都是中国最受欢迎的饮品。</p>
+        <p class="en"><u>For thousands of years</u>, it <u>has been</u> the most popular drink in China.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">针灸……已有几千年的历史。</p>
+        <p class="en">…acupuncture <u>has had / has enjoyed</u> a history of thousands of years.</p>
+      </div>
+      <div class="ex">
+        <p class="zh">在中国，活字印刷术已经出现了几个世纪。</p>
+        <p class="en">In China, it <u>has appeared / has been around</u> for centuries.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">自宋代以来，白酒成为中国人饮用的主要酒类。</p>
+        <p class="en"><u>Since the Song Dynasty</u>, white liquor <u>has become</u> the main liquor consumed by Chinese people.</p>
+      </div>
+      <div class="note"><b>反例提醒：</b>句子里一旦出现具体过去时间（in 2003、in the Tang Dynasty 作状语），就不能用现在完成时。</div>
+    </div>
+  </article>
+
+  <!-- 07 -->
+  <article class="t" id="t07">
+    <div class="t-h"><span class="t-n">07</span><h2>隐藏的被动</h2><span class="t-tag">得到 / 受到</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>中文的「得到 + 动词」「受到 + 动词」，英文一律 <b>be + Ved</b>。</li>
+        <li>还有一类靠常识判断：把主语和动词勾出来，问「主语能不能发出这个动作」，发不出就是被动。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">针灸也逐渐在国际上得到认可和接受。</p>
+        <p class="en">Acupuncture <u>is also gradually recognized and accepted</u> internationally.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">在当代社会，饮酒文化得到了前所未有的丰富和发展。</p>
+        <p class="en">Liquor culture, in contemporary society, <u>is enriched and developed</u> as never before.</p>
+      </div>
+      <div class="ex">
+        <p class="zh">然而，随着人们环保意识的增强，爆竹的使用受到了限制。</p>
+        <p class="en">With that being said, following the enhancement of people's environmental awareness, the use of firecrackers <u>has been restricted</u>.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">大量有害物质排放到空气中。</p>
+        <p class="en">Numerous harmful substances <u>are discharged</u> into the air.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 08 -->
+  <article class="t" id="t08">
+    <div class="t-h"><span class="t-n">08</span><h2>一个句子多个动词</h2><span class="t-tag">四条出路</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li><b>① and 连接</b>：两个分句主语相同或不同都可以，最省事。</li>
+        <li><b>② V₁ 正常写，V₂ 用非谓语</b>：主动关系 ing，被动关系 ed，逗号连接 —— <b>要求两个分句主语相同</b>。</li>
+        <li><b>③ 非限制性定语从句</b>：which / where / when / who。</li>
+        <li><b>④ V₁, as + 主语 + V₂</b>：表示「于是、从而」的结果关系。</li>
+      </ul>
+
+      <div class="ex">
+        <p class="zh">爆竹在中国历史上有着悠久的历史，并且在节日庆祝和喜庆场合被广泛使用。</p>
+        <p class="en">Firecrackers <u>enjoy</u> a long-standing history <u>and</u> are widely used in festival celebrations and on joyous occasions in China.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">目前，环境治理已取得显著成效，大部分城市环境和农业生态环境得到了很大改善。</p>
+        <p class="en">At present, considerable progress has been made in environmental governance <u>and</u> most urban and agricultural ecological environments have been greatly improved.</p>
+      </div>
+
+      <h3 style="font-size:14px;margin:22px 0 2px;color:#5c7a6d;letter-spacing:.04em">② 非谓语：主动 ing</h3>
+      <div class="ex">
+        <p class="zh">随着全球对中医的兴趣增加，针灸也逐渐在国际上得到认可和接受，并成为一种流行的替代疗法。</p>
+        <p class="en">With the growing interest in TCM worldwide, acupuncture is also gradually recognized internationally, <u>becoming</u> a popular alternative therapy.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">此外，中国也在大力发展自然保护区，颁布了《环境保护法》。</p>
+        <p class="en">In addition, China is also vigorously developing nature reserves, <u>enacting</u> the Law on Environmental Protection.</p>
+      </div>
+
+      <h3 style="font-size:14px;margin:22px 0 2px;color:#5c7a6d;letter-spacing:.04em">② 非谓语：被动 ed</h3>
+      <div class="ex">
+        <p class="zh">故宫建筑群完美地体现了中国古代建筑的特点，被誉为世界建筑史上的经典。</p>
+        <p class="en">The building complex perfectly showcases the features of ancient Chinese architecture, <u>known / exalted as a classic</u> in the history of world architecture.</p>
+      </div>
+
+      <h3 style="font-size:14px;margin:22px 0 2px;color:#5c7a6d;letter-spacing:.04em">③ 非限制性定语从句</h3>
+      <div class="ex">
+        <p class="zh">它最初是为了照明，在寒冷的冬夜为中国北方的农民和渔夫的工作提供光源。</p>
+        <p class="en">It was originally used for lighting, <u>which provided light</u> for the work of farmers and fishermen in northern China on cold winter nights.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">中医药学历史悠久，在应对当代面临的严重健康挑战中可以发挥独特的优势和特色。</p>
+        <p class="en">Traditional Chinese Medicine enjoys a long-standing history, <u>which can play its unique advantages and features</u> in dealing with serious health challenges in modern times.</p>
+      </div>
+      <div class="ex">
+        <p class="zh">中国是发展中国家中的大国，其工业化正在快速发展。</p>
+        <p class="en">China is a major country among developing countries, <u>where industrialization is prospering</u>.</p>
+      </div>
+
+      <h3 style="font-size:14px;margin:22px 0 2px;color:#5c7a6d;letter-spacing:.04em">④ V₁, as 主语 V₂</h3>
+      <div class="ex">
+        <p class="zh">他将中国画的精华与时代精神完美地统一起来，使中国画得到了全世界的尊重。</p>
+        <p class="en">He perfectly unified the essence of Chinese painting with the spirit of the times, <u>as he made Chinese painting gain the respect of the whole world</u>.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 09 -->
+  <article class="t" id="t09">
+    <div class="t-h"><span class="t-n">09</span><h2>「因为」的写法</h2><span class="t-tag">书面增强</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>基础三连：<b>because / as / since</b>（because 语气最强，as、since 偏书面）。</li>
+        <li>升级：<b>for the reason that + 完整句子</b>，本质是同位语从句，用来解释一个抽象名词，长句里特别稳。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">尽管如此，活字印刷术依然是我们珍贵的文化遗产，因为它记录了我们的历史、文化和思想。</p>
+        <p class="en">With that being said, movable-type printing remains our precious cultural heritage <u>for the reason that</u> it records our history, culture and thoughts.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">在中国古代，折扇常被用于书法、绘画和诗词创作，因为它代表了文人雅士的身份和品味。</p>
+        <p class="en">In ancient China, folding fans were more often than not used for the creation of calligraphy, painting and poetry, <u>for the reason that</u> they represent the status and taste of scholars.</p>
+      </div>
+      <div class="ex">
+        <p class="zh">由于客家人以前生活在山区，他们建造土楼是为了免受土匪和野生动物的袭击。</p>
+        <p class="en"><u>For the reason that</u> Hakka people used to live in mountainous areas, they built earth buildings in an effort to protect themselves from bandits and wild animals.</p>
+      </div>
+      <div class="warn"><b>易错：</b>due to / because of 后面只能接名词短语；要接句子就用 because / for the reason that。</div>
+    </div>
+  </article>
+
+  <!-- 10 -->
+  <article class="t" id="t10">
+    <div class="t-h"><span class="t-n">10</span><h2>「的」字结构</h2><span class="t-tag">四种拆法</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li><b>名的名</b>：后名词先译，中间用 of —— 数字化的发展 → the development of digitalization。</li>
+        <li><b>动的名</b>：译成非谓语（Ved / Ving）后置 —— 中国人饮用的酒 → the liquor consumed by Chinese people。</li>
+        <li><b>人物 + 动作 + 的 + 名词</b>：名词 + for sb. to do —— 人民推动文化交流的载体 → a carrier for people to promote cultural exchanges。</li>
+        <li><b>「有……的」+ 名词</b>：用 with 短语 —— 具有个人特色的艺术形式 → a set of artistic forms with personal features。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">茶文化的形成和发展</p>
+        <p class="en">the formation and development <u>of</u> tea culture</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">自宋代以来，白酒成为中国人饮用的主要酒类。</p>
+        <p class="en">Since the Song Dynasty, white liquor has become the main liquor <u>consumed by Chinese people</u>.</p>
+      </div>
+      <div class="ex">
+        <p class="zh">他画的花、鸟、鱼、虾和虫受到广泛赞誉。</p>
+        <p class="en">The flowers, birds, fish, shrimp and insects <u>drawn by him</u> are widely acclaimed.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">冰灯是中国北方广泛创造的冬季艺术品。</p>
+        <p class="en">Ice lanterns are winter artworks <u>widely created in northern China</u>.</p>
+      </div>
+      <div class="ex">
+        <p class="zh">人民推动文化交流的重要载体</p>
+        <p class="en">an important carrier <u>for people to promote cultural exchanges</u></p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">齐白石……发展了一套具有个人特色的艺术形式。</p>
+        <p class="en">Qi Baishi developed a set of artistic forms <u>with personal characteristics</u> through long-term practice.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 11 -->
+  <article class="t" id="t11">
+    <div class="t-h"><span class="t-n">11</span><h2>时间 + 来</h2><span class="t-tag">for / since</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>「几千年来、数个世纪以来」是<b>时间段</b> → 用 <code>for</code>。</li>
+        <li>「自宋代以来、自 2003 年以来」是<b>时间点</b> → 用 <code>since</code>。</li>
+        <li>两种都配现在完成时。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">几千年来，……</p>
+        <p class="en"><u>For</u> thousands of years, …</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">自宋代以来，……</p>
+        <p class="en"><u>Since</u> the Song Dynasty, …</p>
+      </div>
+      <div class="warn"><b>易错：</b>since 后面接从句时用一般过去时 —— since tea was first discovered。</div>
+    </div>
+  </article>
+
+  <!-- 12 -->
+  <article class="t" id="t12">
+    <div class="t-h"><span class="t-n">12</span><h2>不仅……而且</h2><span class="t-tag">两种写法</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li><b>not only A but also B</b>：最稳，但要注意前后结构对称。</li>
+        <li><b>apart from + 动名词, 主句 also…</b>：更简洁，适合句首信息多的长句。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">如今，折扇不仅仅是中国文化的象征，也传播着中国传统艺术和美学。</p>
+        <p class="en">Nowadays, <u>apart from being the symbol of Chinese culture</u>, folding fans also spread traditional Chinese arts and aesthetics.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">它不仅在印章文化中扮演着重要角色，同时也被视为中国传统艺术的一部分。</p>
+        <p class="en"><u>Apart from playing an important role in seal-cutting culture</u>, it is also regarded as part of traditional Chinese arts.</p>
+      </div>
+      <div class="note"><b>apart from 后面接动词要用 V-ing：</b>apart from <u>being</u> / apart from <u>playing</u>，不能接原形。</div>
+    </div>
+  </article>
+
+  <!-- 13 -->
+  <article class="t" id="t13">
+    <div class="t-h"><span class="t-n">13</span><h2>定语从句：连接词四选一</h2><span class="t-tag">看先行词</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>先行词是<b>时间</b> → when；<b>地点</b> → where；<b>人</b> → who；<b>物</b> → which / that。</li>
+        <li>逗号后面的非限制性从句，只能用 which，不能用 that。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">这段历史可以追溯到唐朝，当时客家人从中国中部迁徙到福建。</p>
+        <p class="en">This history can date back to the Tang Dynasty <u>when</u> Hakkas migrated from central China to Fujian.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">中国结最早起源于古代，当时没有文字，人们便在一根绳子上盘上不同的结来记录重要事件。</p>
+        <p class="en">Chinese knots first originated in ancient times <u>when</u> there were no characters, so people tied different knots on a rope to record important events.</p>
+      </div>
+      <div class="ex">
+        <p class="zh">中国有很多优秀的白酒品牌，它们受到不同人群的喜爱。</p>
+        <p class="en">China is home to numerous excellent white liquor brands <u>that are favored by</u> different groups of people.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">1936 年元宵节期间，哈尔滨举办了首届冰灯博览会，在会上冰灯和冰花都由简单的工具制成，如结冰的盆和篮子。</p>
+        <p class="en">During the Lantern Festival in 1936, Harbin held the first Ice Lantern Expo <u>where</u> ice lanterns and ice flowers were made with simple tools, say, frozen pots and baskets.</p>
+      </div>
+      <div class="ex">
+        <p class="zh">文房四宝是中国文人不可缺少的工具，中国文人给予其深厚的文化内涵。</p>
+        <p class="en">The Four Treasures of the Study are essential tools for Chinese scholars, <u>who</u> endow them with profound cultural connotations.</p>
+      </div>
+      <div class="note"><b>考场小技巧：</b>「当时」→ when；「在会上 / 在那里」→ where；「其 / 它们」→ which；「他们」→ who。中文的指示词其实就是连接词的提示。</div>
+    </div>
+  </article>
+
+  <!-- 14 -->
+  <article class="t" id="t14">
+    <div class="t-h"><span class="t-n">14</span><h2>翻译不必逐字对照</h2><span class="t-tag">意合 → 形合</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>中文靠意合（短句并排、关系隐含），英文靠形合（连接词、从句、非谓语把关系写明）。</li>
+        <li>先想清楚「谁对谁做了什么」，再决定用 and、从句还是非谓语，不要按中文词序硬套。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">每个房前会有个池塘收集庭院中的水，而池塘里的水用于浇灌菜园。</p>
+        <p class="en">A pond in front of each house collects water in the courtyard, <u>and the water is used to irrigate the vegetable garden</u>.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">随着工业及运输业的不断发展，大量有害物质排放到空气中，使人们的健康受到威胁。</p>
+        <p class="en">Following the continuous boom of industry and transportation, numerous harmful substances are discharged into the air, <u>threatening people's health</u>.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 15 -->
+  <article class="t" id="t15">
+    <div class="t-h"><span class="t-n">15</span><h2>插入语</h2><span class="t-tag">轻量加分</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>中文的「在当代社会」这类状语，可以夹在主语和谓语之间，用<b>一对逗号</b>包住。</li>
+        <li>判断标准：把插入语整段去掉，句子依然成立、意思完整。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">在当代社会，饮酒文化得到了前所未有的丰富和发展。</p>
+        <p class="en">Liquor culture, <u>in contemporary society</u>, is enriched and developed as never before.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 16 -->
+  <article class="t" id="t16">
+    <div class="t-h"><span class="t-n">16</span><h2>one of + 复数名词，位置永远提前</h2><span class="t-tag">高频</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>写完主语、写完动词，<b>立刻</b>把「之一」补上；也可以整体提到句首作 As one of…。</li>
+        <li>one of 后面必须是<b>复数名词</b>；主句谓语随 one 用单数。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">齐白石是中国当代最伟大的艺术家之一，通过长期的练习，他发展了一套具有个人特色的艺术形式。</p>
+        <p class="en"><u>As one of the greatest artists in modern China</u>, Qi Baishi developed a set of artistic forms with personal characteristics through long-term practice.</p>
+      </div>
+      <div class="warn"><b>易错：</b>one of the greatest artist（缺 s）是最常见的扣分点，写完回头数一次名词。</div>
+    </div>
+  </article>
+
+  <!-- 17 -->
+  <article class="t" id="t17">
+    <div class="t-h"><span class="t-n">17</span><h2>专有名词大小写</h2><span class="t-tag">细节分</span></div>
+    <div class="t-b">
+      <div class="chips" style="margin-top:0">
+        <span class="chip">地名：China / New York / Hangzhou</span>
+        <span class="chip">人名：Li Ming / John</span>
+        <span class="chip">朝代：the Tang Dynasty</span>
+        <span class="chip">法律书名：the Law on Environmental Protection</span>
+        <span class="chip">文化宗教：Chinese culture / Confucianism</span>
+      </div>
+      <ul class="rules" style="margin-top:14px">
+        <li>书名、电影名、法律名：<b>实词首字母大写，虚词（on / of / the / and）小写</b>。</li>
+        <li>朝代、王朝要加 the，且 Dynasty 首字母大写。</li>
+      </ul>
+      <div class="warn"><b>易错：</b>the tang dynasty、chinese culture 这类全小写，属于白送分的错误。</div>
+    </div>
+  </article>
+
+  <!-- 18 -->
+  <article class="t" id="t18">
+    <div class="t-h"><span class="t-n">18</span><h2>形容词排序</h2><span class="t-tag">易错</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>顺序口诀：<b>观点 → 大小 → 年龄 → 形状 → 颜色 → 国籍 → 材料 → 名词</b>。</li>
+        <li>「中国传统文化」不是 Chinese traditional culture，而是 <b>traditional Chinese culture</b> —— 国籍永远靠近名词。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">中国传统文化 / 中国当代最伟大的艺术家</p>
+        <p class="en"><u>traditional Chinese</u> culture / the greatest artists in <u>modern China</u></p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">一套精美的中国传统木质家具</p>
+        <p class="en">a set of <u>exquisite traditional Chinese wooden</u> furniture</p>
+      </div>
+      <a class="lnk" href="https://b23.tv/34VH7Vx" target="_blank" rel="noopener">延伸：形容词排序讲解</a>
+    </div>
+  </article>
+
+  <!-- 19 -->
+  <article class="t" id="t19">
+    <div class="t-h"><span class="t-n">19</span><h2>指代还原</h2><span class="t-tag">中国式主语</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>中文的「我国、我国人民、其、该」在英文里不能直译，要<b>还原成具体名词</b>。</li>
+        <li>我国 → China；我国人民 → the Chinese people；其 → 主题词本身或 its。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">中国画是我国传统绘画形式，其历史源远流长。</p>
+        <p class="en">As a traditional painting form <u>in China</u>, traditional Chinese painting has a long-standing history.</p>
+      </div>
+      <div class="note"><b>为什么必须还原：</b>our country 在英文里指代不明，阅卷时会被视为「未完成翻译」；而 China 是唯一不会错的答案。</div>
+    </div>
+  </article>
+
+  <!-- 20 -->
+  <article class="t" id="t20">
+    <div class="t-h"><span class="t-n">20</span><h2>「等」的翻译</h2><span class="t-tag">三种处理</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>「等」前面已列 <b>3 项及以上</b>：直接<b>不译</b>，英文读者自然理解为举例未尽。</li>
+        <li>「等」前面 <b>不足 3 项</b>：译成 <code>and the like</code>。</li>
+        <li>「等」后面还有内容（等方面、等领域）：<code>and other + 复数名词</code>。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">在中国，结代表团结、友爱、和平和婚姻等。</p>
+        <p class="en">In China, knots stand for unity, friendship, peace and marriage.</p>
+      </div>
+      <div class="ex alt">
+        <p class="zh">中国画在内容和艺术创造上，体现了古人对自然、社会等方面的认识。</p>
+        <p class="en">Chinese painting showcases ancient people's insight into nature, society <u>and other aspects</u> in terms of content and artistic creation.</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- 21 -->
+  <article class="t" id="t21">
+    <div class="t-h"><span class="t-n">21</span><h2>同位语</h2><span class="t-tag">身份说明</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>中文的「A 市，B 省省会」这类身份说明，英文用<b>逗号 + 名词短语</b>作同位语，紧跟主语。</li>
+        <li>同位语不是句子，不能带谓语动词。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">黑龙江省省会哈尔滨市是中国冰雪艺术的发源地。</p>
+        <p class="en">Harbin, <u>the capital of Heilongjiang Province</u>, is the birthplace of ice and snow art in China.</p>
+      </div>
+      <div class="note"><b>与 as 结构的区别：</b>同位语是「补充说明身份」，as 是「以……的身份」，两者都能放在主语后，但同位语前必须有逗号。</div>
+    </div>
+  </article>
+
+  <!-- 22 -->
+  <article class="t" id="t22">
+    <div class="t-h"><span class="t-n">22</span><h2>冠词：最容易丢的分</h2><span class="t-tag">收尾检查</span></div>
+    <div class="t-b">
+      <ul class="rules">
+        <li>可数名词单数<b>不能裸奔</b>：要么加 a/an，要么加 the，要么变复数。</li>
+        <li>不可数名词（culture、history 作抽象义、innovation）不加 a/an。</li>
+        <li>特指、上文提过的用 the；泛指用 a/an。</li>
+      </ul>
+      <div class="ex">
+        <p class="zh">悠久的历史 / 越来越多的游客 / 重要作用</p>
+        <p class="en"><u>a</u> long-standing history / <u>a</u> growing number of tourists / <u>an</u> important role</p>
+      </div>
+      <div class="warn"><b>检查顺序：</b>交卷前扫一遍每个名词 —— 有没有冠词？该不该复数？两秒一个，能救回 1–2 分。</div>
+    </div>
+  </article>
+
+  <div class="empty" id="empty">没有匹配的讲解，换个关键词试试。</div>
+
+  </main>
+</div>
+</div>
+
+<footer class="wrap">
+  <span>邹老师四六级 · 翻译句式进阶 22 讲　｜　配套：<a href="translation-topics.html">六大主题常考词 + 14 个句型基础</a></span>
+  <span>例句中个别拼写与语法笔误（transitional→traditional、producted→produced、Lce→Ice 等）已按规范订正</span>
+</footer>
+
+<script>
+(function(){
+  const cards = Array.from(document.querySelectorAll('.t'));
+  const q = document.getElementById('q');
+  const empty = document.getElementById('empty');
+  const quiz = document.getElementById('quiz');
+  let timer = null;
+
+  const norm = s => (s||'').toLowerCase().replace(/\s+/g,' ').trim();
+  cards.forEach(c => c.dataset.text = norm(c.textContent));
+
+  /* 搜索 */
+  function run(){
+    const kw = norm(q.value);
+    document.querySelectorAll('aside.toc a').forEach(x => x.classList.remove('active'));
+    if(!kw){
+      cards.forEach(c => { c.style.display=''; c.classList.remove('hit'); });
+      empty.style.display='none';
+      return;
+    }
+    let n = 0;
+    cards.forEach(c => {
+      const ok = c.dataset.text.includes(kw);
+      c.style.display = ok ? '' : 'none';
+      c.classList.toggle('hit', ok);
+      if(ok) n++;
+    });
+    empty.style.display = n ? 'none' : 'block';
+  }
+  q.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(run, 120); });
+  q.addEventListener('keydown', e => { if(e.key==='Escape'){ q.value=''; run(); } });
+
+  /* 遮盖译文 */
+  quiz.addEventListener('click', () => {
+    const on = document.body.classList.toggle('hide');
+    quiz.classList.toggle('on', on);
+    quiz.lastChild.textContent = on ? '显示译文' : '遮盖译文自测';
+    document.querySelectorAll('.ex .en').forEach(e => e.classList.remove('open'));
+  });
+  document.addEventListener('click', e => {
+    if(!document.body.classList.contains('hide')) return;
+    const en = e.target.closest('.ex .en') || e.target.closest('.ex')?.querySelector('.en');
+    if(en) en.classList.toggle('open');
+  });
+
+  /* 目录高亮 */
+  const links = Array.from(document.querySelectorAll('aside.toc a'));
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if(en.isIntersecting){
+        links.forEach(a => a.classList.remove('active'));
+        map.get(en.target.id)?.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-90px 0px -72% 0px', threshold: 0 });
+  cards.forEach(c => io.observe(c));
+})();
+</script>
+</body>
+</html>
