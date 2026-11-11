@@ -609,15 +609,17 @@ const DATA = [{"c":"贫穷的","s":["poor","needy","impoverished","poverty-stric
 const tabs = document.querySelectorAll('.tab');
 const panes = {browse:document.getElementById('pane-browse'),cards:document.getElementById('pane-cards'),fix:document.getElementById('pane-fix')};
 const searchBox = document.querySelector('.search');
-if(location.hash==='#cards'||location.hash==='#fix'){
-  document.querySelector('[data-pane="'+location.hash.slice(1)+'"]').click();
-}
+
 tabs.forEach(t=>t.addEventListener('click',()=>{
   tabs.forEach(x=>x.classList.remove('on')); t.classList.add('on');
   Object.entries(panes).forEach(([k,el])=>el.classList.toggle('on',k===t.dataset.pane));
   searchBox.style.visibility = t.dataset.pane==='browse' ? 'visible' : 'hidden';
   window.scrollTo({top:0,behavior:'auto'});
 }));
+if(location.hash==='#cards'||location.hash==='#fix'){
+  const t=document.querySelector('[data-pane="'+location.hash.slice(1)+'"]');
+  if(t) t.click();
+}
 
 /* ---------- 搜索 ---------- */
 const rows = Array.from(document.querySelectorAll('.row'));
