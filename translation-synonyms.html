@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>四六级同义替换 · 312 条 + 抽卡自测</title>
+<style>
+:root{
+  --bg:#f5f3ee;--card:#fffdf8;--ink:#202733;--ink2:#56606d;--ink3:#8b929c;
+  --line:#e4dfd4;--en:#22354a;--ac:#2e5d73;--ac2:#3d7b93;
+  --shadow:0 1px 2px rgba(35,30,20,.05),0 9px 24px -14px rgba(35,30,20,.2);
+  --r:14px;--cn:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  --en-f:Charter,"Iowan Old Style",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--cn);font-size:16px;line-height:1.72;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+header.hero{padding:48px 0 28px;border-bottom:1px solid var(--line);background:
+  radial-gradient(900px 250px at 12% -10%,#e3ebee 0%,transparent 62%),
+  radial-gradient(760px 240px at 92% 0%,#eeeadd 0%,transparent 58%)}
+.kicker{font-size:12.5px;letter-spacing:.22em;color:#8c96a0;margin:0 0 12px;text-transform:uppercase}
+h1{font-size:clamp(25px,4vw,36px);line-height:1.28;margin:0 0 12px;font-weight:800;letter-spacing:-.5px}
+h1 em{font-style:normal;color:var(--ac)}
+.lede{color:var(--ink2);max-width:66ch;margin:0;font-size:15.5px}
+.stats{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap}
+.stat b{display:block;font-family:var(--en-f);font-size:24px;color:var(--ac);line-height:1.2}
+.stat span{font-size:12px;color:var(--ink3);letter-spacing:.05em}
+
+.tabs{position:sticky;top:0;z-index:40;background:rgba(245,243,238,.93);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)}
+.tabs-in{display:flex;gap:8px;align-items:center;padding:11px 0;overflow-x:auto;scrollbar-width:none}
+.tabs-in::-webkit-scrollbar{display:none}
+.tab{border:1px solid var(--line);background:#fffdf8;color:var(--ink2);border-radius:99px;padding:8px 16px;
+  font-size:14px;font-family:var(--cn);cursor:pointer;white-space:nowrap;transition:.15s}
+.tab:hover{border-color:#b9c9d0}
+.tab.on{background:var(--ac);color:#f7fbfc;border-color:var(--ac)}
+.tabs .sp{flex:1}
+.search{position:relative;min-width:180px;flex:0 1 320px}
+.search input{width:100%;padding:9px 13px 9px 35px;border:1px solid var(--line);border-radius:99px;
+  background:#fffdf8;font-family:var(--cn);font-size:13.5px;outline:none;color:var(--ink)}
+.search input:focus{border-color:#b9c9d0;box-shadow:0 0 0 3px rgba(46,93,115,.1)}
+.search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:15px;height:15px;
+  stroke:var(--ink3);fill:none;stroke-width:2}
+
+main{padding:26px 0 10px}
+.pane{display:none}
+.pane.on{display:block}
+
+/* 浏览 */
+.gnav{display:flex;gap:7px;overflow-x:auto;padding:0 0 16px;scrollbar-width:none}
+.gnav::-webkit-scrollbar{display:none}
+.gnav a{flex:0 0 auto;font-size:12.5px;color:var(--ink2);text-decoration:none;padding:5px 11px;
+  border:1px solid var(--line);border-radius:99px;background:#fffdf8}
+.gnav a:hover{background:var(--ac);color:#fff;border-color:var(--ac)}
+.grp{margin-bottom:26px}
+.gh{display:flex;align-items:baseline;gap:10px;margin:0 0 10px;font-size:15px;font-weight:700}
+.gh .gn{color:var(--ac)}
+.gh .gc{margin-left:auto;font-size:12px;color:var(--ink3);font-weight:400}
+.row{background:var(--card);border:1px solid var(--line);border-bottom:0;padding:9px 16px;
+  display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:baseline}
+.row:first-of-type{border-radius:12px 12px 0 0}
+.row:last-child{border-bottom:1px solid var(--line);border-radius:0 0 12px 12px}
+.row:nth-child(even){background:#fdfbf6}
+.row .cn{font-size:14.5px;font-weight:600}
+.row .sy{font-family:var(--en-f);font-size:15px;color:var(--en);line-height:1.75;word-break:break-word}
+.row .sy b{color:#1f4b5e;font-weight:600}
+.row .sep{color:#c2c8ce}
+.row .use{margin-top:3px;font-family:var(--cn)}
+.row .use summary{font-size:12px;color:var(--ac2);cursor:pointer;list-style:none;display:inline-flex;
+  align-items:center;gap:4px;border-bottom:1px dotted #a9c4cf}
+.row .use summary::-webkit-details-marker{display:none}
+.row .use summary::before{content:"▸";font-size:10px}
+.row .use[open] summary::before{content:"▾"}
+.row .use p{margin:6px 0 0;font-size:13px;color:#4d5b66;background:#f2f7f8;border-left:2px solid #a9c4cf;
+  border-radius:0 6px 6px 0;padding:7px 11px;line-height:1.65}
+.row.hit{outline:2px solid #cfe0e6;outline-offset:-1px}
+
+/* 抽卡 */
+.cardzone{max-width:640px;margin:10px auto 0}
+.scope{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:16px}
+.scope button{border:1px solid var(--line);background:#fffdf8;border-radius:99px;padding:5px 12px;
+  font-size:12.5px;color:var(--ink2);cursor:pointer;font-family:var(--cn)}
+.scope button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.bar{height:5px;background:#e6e1d6;border-radius:99px;overflow:hidden;margin-bottom:18px}
+.bar i{display:block;height:100%;width:0;background:var(--ac2);transition:width .3s}
+.fc{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);
+  padding:34px 26px 26px;text-align:center;min-height:250px;display:flex;flex-direction:column;
+  justify-content:center;gap:16px}
+.fc .q{font-size:30px;font-weight:800;letter-spacing:-.4px}
+.fc .qh{font-size:12px;color:var(--ink3);letter-spacing:.08em}
+.fc .a{font-family:var(--en-f);font-size:18px;color:var(--en);line-height:1.9;display:none}
+.fc .a b{color:#1f4b5e}
+.fc.open .a{display:block}
+.fc .an{display:none;font-family:var(--cn);font-size:13px;color:#4d5b66;background:#f2f7f8;
+  border-radius:8px;padding:9px 12px;text-align:left;line-height:1.6}
+.fc.open .an{display:block}
+.ops{display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+.ops button{border-radius:10px;padding:11px 22px;font-size:14.5px;font-family:var(--cn);cursor:pointer;
+  border:1px solid var(--line);background:#fffdf8;color:var(--ink);transition:.15s}
+.ops button.primary{background:var(--ac);color:#fff;border-color:var(--ac)}
+.ops button.good{border-color:#b7d8c5;color:#1f6b48;background:#f2faf5}
+.ops button.bad{border-color:#e9c9c2;color:#96402f;background:#fdf4f1}
+.ops button:hover{transform:translateY(-1px)}
+.meta{text-align:center;font-size:12.5px;color:var(--ink3);margin-top:14px}
+.done{text-align:center;padding:30px 10px}
+.done h3{margin:0 0 8px;font-size:20px}
+.done p{color:var(--ink2);margin:0 0 16px}
+.kbd{font-size:12px;color:var(--ink3);text-align:center;margin-top:10px}
+.kbd kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:0 5px;
+  font-family:var(--en-f);background:#fffdf8;font-size:11.5px}
+
+/* 订正 */
+.fixtbl{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);
+  border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.fixtbl th{text-align:left;font-size:11.5px;letter-spacing:.1em;color:#a08f74;font-weight:600;
+  background:#faf7f0;border-bottom:1px solid var(--line);padding:9px 12px;white-space:nowrap}
+.fixtbl td{padding:9px 12px;border-bottom:1px dashed #ece6d9;vertical-align:top;line-height:1.6}
+.fixtbl tr:last-child td{border-bottom:0}
+.fixtbl td.fc{font-weight:600;white-space:nowrap}
+.fixtbl td.fo{font-family:var(--en-f);color:#9a9282;text-decoration:line-through;text-decoration-color:#d9c7b8}
+.fixtbl td.fn{font-family:var(--en-f);color:#1c5a45;font-weight:600}
+.fixtbl td.fw{font-size:13px;color:var(--ink2)}
+
+footer{margin-top:36px;border-top:1px solid var(--line);padding:20px 0 52px;color:var(--ink3);
+  font-size:12.5px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;line-height:1.8}
+footer a{color:var(--ac);text-decoration:none}
+.empty{display:none;text-align:center;color:var(--ink3);font-size:14px;padding:40px 0}
+
+@media (max-width:720px){
+  .wrap{padding:0 15px}
+  .row{grid-template-columns:92px 1fr;gap:10px;padding:8px 12px}
+  .row .cn{font-size:13.8px}
+  .row .sy{font-size:14.2px}
+  .fc{padding:26px 16px 20px}
+  .fc .q{font-size:24px}
+  .fixtbl{font-size:13px}
+  .fixtbl td,.fixtbl th{padding:7px 9px}
+}
+@media print{
+  .tabs,.gnav,.search,.ops,.scope,.bar{display:none!important}
+  .pane{display:block!important}
+  body{background:#fff}
+  .row{break-inside:avoid}
+  .fixtbl tr{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">CET-4 / CET-6 · Synonym Replacement</p>
+    <h1>同义替换 <em>312 条</em> · 能查，也能抽</h1>
+    <p class="lede">把十组同义表达合并去重成 312 个中文词条，同义链按推荐度排序，附录里 38 条「用法差异」已拆到对应词条下。三种用法：浏览查词、抽卡自测、订正避坑。</p>
+    <div class="stats">
+      <div class="stat"><b>312</b><span>合并后词条</span></div>
+      <div class="stat"><b>10</b><span>原组别</span></div>
+      <div class="stat"><b>38</b><span>用法注释</span></div>
+      <div class="stat"><b>46</b><span>订正记录</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="wrap">
+    <div class="tabs-in">
+      <button class="tab on" data-pane="browse">浏览</button>
+      <button class="tab" data-pane="cards">抽卡自测</button>
+      <button class="tab" data-pane="fix">订正记录</button>
+      <span class="sp"></span>
+      <div class="search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="搜中文或英文，例如：象征 / convey / 提供" autocomplete="off">
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- 浏览 -->
+<div class="pane on" id="pane-browse">
+  <nav class="gnav">
+    <a href="#g1">01 基础高频</a><a href="#g2">02 动词</a><a href="#g3">03 动词短语</a>
+    <a href="#g4">04 词义辨析</a><a href="#g5">05 速记</a><a href="#g6">06 进阶一</a>
+    <a href="#g7">07 主题经济</a><a href="#g8">08 表达</a><a href="#g9">09 表达二</a><a href="#g10">10 分类</a>
+  </nav>
+<section class="grp" data-g="01 基础高频"><h2 class="gh"><span class="gn">01 基础高频</span><span class="gc">24 条</span></h2>
+<div class="row" data-s="贫穷的 poor needy impoverished poverty-stricken"><div class="cn">贫穷的</div><div class="sy"><b>poor</b><span class="sep"> / </span>needy<span class="sep"> / </span>impoverished<span class="sep"> / </span>poverty-stricken</div></div>
+<div class="row" data-s="富裕的 / 富有的 rich wealthy affluent well-to-do well-off"><div class="cn">富裕的 / 富有的</div><div class="sy"><b>rich</b><span class="sep"> / </span>wealthy<span class="sep"> / </span>affluent<span class="sep"> / </span>well-to-do<span class="sep"> / </span>well-off</div></div>
+<div class="row" data-s="优秀的 excellent eminent top outstanding exceptional brilliant impressive admirable"><div class="cn">优秀的</div><div class="sy"><b>excellent</b><span class="sep"> / </span>eminent<span class="sep"> / </span>top<span class="sep"> / </span>outstanding<span class="sep"> / </span>exceptional<span class="sep"> / </span>brilliant<span class="sep"> / </span>impressive<span class="sep"> / </span>admirable</div></div>
+<div class="row" data-s="积极的 / 好的 good conducive beneficial advantageous"><div class="cn">积极的 / 好的</div><div class="sy"><b>good</b><span class="sep"> / </span>conducive<span class="sep"> / </span>beneficial<span class="sep"> / </span>advantageous</div></div>
+<div class="row" data-s="消极的 / 不良的 bad detrimental baneful undesirable harmful negative damaging"><div class="cn">消极的 / 不良的</div><div class="sy"><b>bad</b><span class="sep"> / </span>detrimental<span class="sep"> / </span>baneful<span class="sep"> / </span>undesirable<span class="sep"> / </span>harmful<span class="sep"> / </span>negative<span class="sep"> / </span>damaging</div></div>
+<div class="row" data-s="有害的 harmful inhumane detrimental baneful"><div class="cn">有害的</div><div class="sy"><b>harmful</b><span class="sep"> / </span>inhumane<span class="sep"> / </span>detrimental<span class="sep"> / </span>baneful</div></div>
+<div class="row" data-s="明显的 obvious apparent evident manifest remarkable"><div class="cn">明显的</div><div class="sy"><b>obvious</b><span class="sep"> / </span>apparent<span class="sep"> / </span>evident<span class="sep"> / </span>manifest<span class="sep"> / </span>remarkable<details class="use"><summary>用法</summary><p>can see or notice them very easily</p></details></div></div>
+<div class="row" data-s="健康的 healthy robust sound wholesome"><div class="cn">健康的</div><div class="sy"><b>healthy</b><span class="sep"> / </span>robust<span class="sep"> / </span>sound<span class="sep"> / </span>wholesome</div></div>
+<div class="row" data-s="惊人的 surprising amazing extraordinary miraculous"><div class="cn">惊人的</div><div class="sy"><b>surprising</b><span class="sep"> / </span>amazing<span class="sep"> / </span>extraordinary<span class="sep"> / </span>miraculous</div></div>
+<div class="row" data-s="美丽的 beautiful attractive gorgeous eye-catching"><div class="cn">美丽的</div><div class="sy"><b>beautiful</b><span class="sep"> / </span>attractive<span class="sep"> / </span>gorgeous<span class="sep"> / </span>eye-catching</div></div>
+<div class="row" data-s="有活力的 energetic dynamic vigorous animated"><div class="cn">有活力的</div><div class="sy"><b>energetic</b><span class="sep"> / </span>dynamic<span class="sep"> / </span>vigorous<span class="sep"> / </span>animated</div></div>
+<div class="row" data-s="流行的 popular prevailing prevalent pervasive"><div class="cn">流行的</div><div class="sy"><b>popular</b><span class="sep"> / </span>prevailing<span class="sep"> / </span>prevalent<span class="sep"> / </span>pervasive</div></div>
+<div class="row" data-s="普遍的 everywhere widespread overflow rampant"><div class="cn">普遍的</div><div class="sy"><b>everywhere</b><span class="sep"> / </span>widespread<span class="sep"> / </span>overflow<span class="sep"> / </span>rampant</div></div>
+<div class="row" data-s="严重的 serious severe"><div class="cn">严重的</div><div class="sy"><b>serious</b><span class="sep"> / </span>severe</div></div>
+<div class="row" data-s="转折 But however moreover nevertheless nonetheless on the contrary on the other hand although even though though even if while as despite the fact that"><div class="cn">转折</div><div class="sy"><b>But</b><span class="sep"> / </span>however<span class="sep"> / </span>moreover<span class="sep"> / </span>nevertheless<span class="sep"> / </span>nonetheless<span class="sep"> / </span>on the contrary<span class="sep"> / </span>on the other hand<span class="sep"> / </span>although<span class="sep"> / </span>even though<span class="sep"> / </span>though<span class="sep"> / </span>even if<span class="sep"> / </span>while<span class="sep"> / </span>as<span class="sep"> / </span>despite the fact that</div></div>
+<div class="row" data-s="只有/仅仅 Only just merely barely singly solely rarely"><div class="cn">只有/仅仅</div><div class="sy"><b>Only</b><span class="sep"> / </span>just<span class="sep"> / </span>merely<span class="sep"> / </span>barely<span class="sep"> / </span>singly<span class="sep"> / </span>solely<span class="sep"> / </span>rarely<details class="use"><summary>用法</summary><p>the only one of its kind</p></details></div></div>
+<div class="row" data-s="非常 very extremely acutely decidedly deeply exceedingly greatly highly uncommonly profoundly unusually"><div class="cn">非常</div><div class="sy"><b>very</b><span class="sep"> / </span>extremely<span class="sep"> / </span>acutely<span class="sep"> / </span>decidedly<span class="sep"> / </span>deeply<span class="sep"> / </span>exceedingly<span class="sep"> / </span>greatly<span class="sep"> / </span>highly<span class="sep"> / </span>uncommonly<span class="sep"> / </span>profoundly<span class="sep"> / </span>unusually</div></div>
+<div class="row" data-s="首先 Firstly previously beforehand foremost initially originally principally mainly essentially basically generally commonly universally on the whole fundamentally to begin with to start with first of all at the outset"><div class="cn">首先</div><div class="sy"><b>Firstly</b><span class="sep"> / </span>previously<span class="sep"> / </span>beforehand<span class="sep"> / </span>foremost<span class="sep"> / </span>initially<span class="sep"> / </span>originally<span class="sep"> / </span>principally<span class="sep"> / </span>mainly<span class="sep"> / </span>essentially<span class="sep"> / </span>basically<span class="sep"> / </span>generally<span class="sep"> / </span>commonly<span class="sep"> / </span>universally<span class="sep"> / </span>on the whole<span class="sep"> / </span>fundamentally<span class="sep"> / </span>to begin with<span class="sep"> / </span>to start with<span class="sep"> / </span>first of all<span class="sep"> / </span>at the outset</div></div>
+<div class="row" data-s="然后 Then subsequently afterward thereafter after that succeeding secondarily what is more furthermore"><div class="cn">然后</div><div class="sy"><b>Then</b><span class="sep"> / </span>subsequently<span class="sep"> / </span>afterward<span class="sep"> / </span>thereafter<span class="sep"> / </span>after that<span class="sep"> / </span>succeeding<span class="sep"> / </span>secondarily<span class="sep"> / </span>what is more<span class="sep"> / </span>furthermore</div></div>
+<div class="row" data-s="最后 Lastly ultimately eventually in conclusion to conclude as a final point last of all last but not least finally"><div class="cn">最后</div><div class="sy"><b>Lastly</b><span class="sep"> / </span>ultimately<span class="sep"> / </span>eventually<span class="sep"> / </span>in conclusion<span class="sep"> / </span>to conclude<span class="sep"> / </span>as a final point<span class="sep"> / </span>last of all<span class="sep"> / </span>last but not least<span class="sep"> / </span>finally</div></div>
+<div class="row" data-s="也/太 Too as well in addition besides moreover additionally excessively also"><div class="cn">也/太</div><div class="sy"><b>Too</b><span class="sep"> / </span>as well<span class="sep"> / </span>in addition<span class="sep"> / </span>besides<span class="sep"> / </span>moreover<span class="sep"> / </span>additionally<span class="sep"> / </span>excessively<span class="sep"> / </span>also</div></div>
+<div class="row" data-s="和/并且 And plus as well as along with in addition bonus with"><div class="cn">和/并且</div><div class="sy"><b>And</b><span class="sep"> / </span>plus<span class="sep"> / </span>as well as<span class="sep"> / </span>along with<span class="sep"> / </span>in addition<span class="sep"> / </span>bonus<span class="sep"> / </span>with</div></div>
+<div class="row" data-s="或者 Or otherwise if not before or else"><div class="cn">或者</div><div class="sy"><b>Or</b><span class="sep"> / </span>otherwise<span class="sep"> / </span>if not<span class="sep"> / </span>before<span class="sep"> / </span>or else</div></div>
+<div class="row" data-s="所以 So therefore thus consequently accordingly as a result for that reason hence that's why"><div class="cn">所以</div><div class="sy"><b>So</b><span class="sep"> / </span>therefore<span class="sep"> / </span>thus<span class="sep"> / </span>consequently<span class="sep"> / </span>accordingly<span class="sep"> / </span>as a result<span class="sep"> / </span>for that reason<span class="sep"> / </span>hence<span class="sep"> / </span>that's why</div></div>
+</section>
+<section class="grp" data-g="02 动词"><h2 class="gh"><span class="gn">02 动词</span><span class="gc">28 条</span></h2>
+<div class="row" data-s="替代 replace stand for substitute for take the place of represent"><div class="cn">替代</div><div class="sy"><b>replace</b><span class="sep"> / </span>stand for<span class="sep"> / </span>substitute for<span class="sep"> / </span>take the place of<span class="sep"> / </span>represent</div></div>
+<div class="row" data-s="区分 identify distinguish...from distinguish the difference between...and"><div class="cn">区分</div><div class="sy"><b>identify</b><span class="sep"> / </span>distinguish...from<span class="sep"> / </span>distinguish the difference between...and</div></div>
+<div class="row" data-s="完成 fulfill accomplish finish complete get through with sth go through with sth achieve reach attain"><div class="cn">完成</div><div class="sy"><b>fulfill</b><span class="sep"> / </span>accomplish<span class="sep"> / </span>finish<span class="sep"> / </span>complete<span class="sep"> / </span>get through with sth<span class="sep"> / </span>go through with sth<span class="sep"> / </span>achieve<span class="sep"> / </span>reach<span class="sep"> / </span>attain</div></div>
+<div class="row" data-s="重视 pay more attention to lay emphasis on attach importance or significance to"><div class="cn">重视</div><div class="sy"><b>pay more attention to</b><span class="sep"> / </span>lay emphasis on<span class="sep"> / </span>attach importance or significance to</div></div>
+<div class="row" data-s="反对 be against oppose object to be opposed to argue against make a stand against"><div class="cn">反对</div><div class="sy"><b>be against</b><span class="sep"> / </span>oppose<span class="sep"> / </span>object to<span class="sep"> / </span>be opposed to<span class="sep"> / </span>argue against<span class="sep"> / </span>make a stand against</div></div>
+<div class="row" data-s="参加 take join in take part in get involved in participate in go in for"><div class="cn">参加</div><div class="sy"><b>take</b><span class="sep"> / </span>join in<span class="sep"> / </span>take part in<span class="sep"> / </span>get involved in<span class="sep"> / </span>participate in<span class="sep"> / </span>go in for</div></div>
+<div class="row" data-s="赞成 be for favor in favor of approve of be on one's side argue for take a stand for"><div class="cn">赞成</div><div class="sy"><b>be for</b><span class="sep"> / </span>favor<span class="sep"> / </span>in favor of<span class="sep"> / </span>approve of<span class="sep"> / </span>be on one's side<span class="sep"> / </span>argue for<span class="sep"> / </span>take a stand for</div></div>
+<div class="row" data-s="导致 cause lead to result in bring about contribute to account for give birth to give rise to"><div class="cn">导致</div><div class="sy"><b>cause</b><span class="sep"> / </span>lead to<span class="sep"> / </span>result in<span class="sep"> / </span>bring about<span class="sep"> / </span>contribute to<span class="sep"> / </span>account for<span class="sep"> / </span>give birth to<span class="sep"> / </span>give rise to</div></div>
+<div class="row" data-s="喜欢 be fond of enjoy take pleasure in be interested in take interest in be keen on be addicted to be hooked on have a passion for have a great enthusiasm for have a preference for"><div class="cn">喜欢</div><div class="sy"><b>be fond of</b><span class="sep"> / </span>enjoy<span class="sep"> / </span>take pleasure in<span class="sep"> / </span>be interested in<span class="sep"> / </span>take interest in<span class="sep"> / </span>be keen on<span class="sep"> / </span>be addicted to<span class="sep"> / </span>be hooked on<span class="sep"> / </span>have a passion for<span class="sep"> / </span>have a great enthusiasm for<span class="sep"> / </span>have a preference for</div></div>
+<div class="row" data-s="做调查 conduct or carry out a survey an investigation"><div class="cn">做调查</div><div class="sy"><b>conduct or carry out a survey</b><span class="sep"> / </span>an investigation</div></div>
+<div class="row" data-s="经历 undergo experience go through"><div class="cn">经历</div><div class="sy"><b>undergo</b><span class="sep"> / </span>experience<span class="sep"> / </span>go through</div></div>
+<div class="row" data-s="感激 appreciate be grateful to be thankful to"><div class="cn">感激</div><div class="sy"><b>appreciate</b><span class="sep"> / </span>be grateful to<span class="sep"> / </span>be thankful to</div></div>
+<div class="row" data-s="认为 / 宣称 believe insist maintain hold argue assert declare claim"><div class="cn">认为 / 宣称</div><div class="sy"><b>believe</b><span class="sep"> / </span>insist<span class="sep"> / </span>maintain<span class="sep"> / </span>hold<span class="sep"> / </span>argue<span class="sep"> / </span>assert<span class="sep"> / </span>declare<span class="sep"> / </span>claim</div></div>
+<div class="row" data-s="容纳 admit accommodate contain hold seat"><div class="cn">容纳</div><div class="sy"><b>admit</b><span class="sep"> / </span>accommodate<span class="sep"> / </span>contain<span class="sep"> / </span>hold<span class="sep"> / </span>seat</div></div>
+<div class="row" data-s="适合 be suited to be suitable for be fit for"><div class="cn">适合</div><div class="sy"><b>be suited to</b><span class="sep"> / </span>be suitable for<span class="sep"> / </span>be fit for</div></div>
+<div class="row" data-s="处理 deal with do with cope with handle"><div class="cn">处理</div><div class="sy"><b>deal with</b><span class="sep"> / </span>do with<span class="sep"> / </span>cope with<span class="sep"> / </span>handle</div></div>
+<div class="row" data-s="记住 bear sth. in mind learn sth. by heart"><div class="cn">记住</div><div class="sy"><b>bear sth. in mind</b><span class="sep"> / </span>learn sth. by heart</div></div>
+<div class="row" data-s="充当 act as serve as work as function as"><div class="cn">充当</div><div class="sy"><b>act as</b><span class="sep"> / </span>serve as<span class="sep"> / </span>work as<span class="sep"> / </span>function as</div></div>
+<div class="row" data-s="确保 see to it that make sure that ensure that"><div class="cn">确保</div><div class="sy"><b>see to it that</b><span class="sep"> / </span>make sure that<span class="sep"> / </span>ensure that</div></div>
+<div class="row" data-s="当心 watch out look out take care be careful"><div class="cn">当心</div><div class="sy"><b>watch out</b><span class="sep"> / </span>look out<span class="sep"> / </span>take care<span class="sep"> / </span>be careful</div></div>
+<div class="row" data-s="表明 indicate suggest show imply make clear demonstrate"><div class="cn">表明</div><div class="sy"><b>indicate</b><span class="sep"> / </span>suggest<span class="sep"> / </span>show<span class="sep"> / </span>imply<span class="sep"> / </span>make clear<span class="sep"> / </span>demonstrate<details class="use"><summary>用法</summary><p>to demonstrate a fact means to make it clear to people.</p></details></div></div>
+<div class="row" data-s="依靠 depend on rely on be dependent on count on"><div class="cn">依靠</div><div class="sy"><b>depend on</b><span class="sep"> / </span>rely on<span class="sep"> / </span>be dependent on<span class="sep"> / </span>count on</div></div>
+<div class="row" data-s="总计 total to come to amount to add up to reach"><div class="cn">总计</div><div class="sy"><b>total to</b><span class="sep"> / </span>come to<span class="sep"> / </span>amount to<span class="sep"> / </span>add up to<span class="sep"> / </span>reach</div></div>
+<div class="row" data-s="熬夜 stay up sit up be up late far deep into the night"><div class="cn">熬夜</div><div class="sy"><b>stay up</b><span class="sep"> / </span>sit up<span class="sep"> / </span>be up late<span class="sep"> / </span>far deep into the night</div></div>
+<div class="row" data-s="考虑 take account of take sth. into account take sth. into consideration consider take...into account"><div class="cn">考虑</div><div class="sy"><b>take account of</b><span class="sep"> / </span>take sth. into account<span class="sep"> / </span>take sth. into consideration<span class="sep"> / </span>consider<span class="sep"> / </span>take...into account</div></div>
+<div class="row" data-s="建立 establish found build create set up put up construct erect"><div class="cn">建立</div><div class="sy"><b>establish</b><span class="sep"> / </span>found<span class="sep"> / </span>build<span class="sep"> / </span>create<span class="sep"> / </span>set up<span class="sep"> / </span>put up<span class="sep"> / </span>construct<span class="sep"> / </span>erect<details class="use"><summary>用法</summary><p>you can erect something as buildings</p></details></div></div>
+<div class="row" data-s="说服 persuade sb. into doing sth persuade sb. to do sth"><div class="cn">说服</div><div class="sy"><b>persuade sb. into doing sth</b><span class="sep"> / </span>persuade sb. to do sth</div></div>
+<div class="row" data-s="厌烦 be bored with be fed up with be tired of be sick of"><div class="cn">厌烦</div><div class="sy"><b>be bored with</b><span class="sep"> / </span>be fed up with<span class="sep"> / </span>be tired of<span class="sep"> / </span>be sick of</div></div>
+</section>
+<section class="grp" data-g="03 动词短语"><h2 class="gh"><span class="gn">03 动词短语</span><span class="gc">28 条</span></h2>
+<div class="row" data-s="致力于 bend devote apply commit offer oneself to doing sth"><div class="cn">致力于</div><div class="sy"><b>bend</b><span class="sep"> / </span>devote<span class="sep"> / </span>apply<span class="sep"> / </span>commit<span class="sep"> / </span>offer oneself to doing sth</div></div>
+<div class="row" data-s="有益于 do good to benefit be of benefit to be beneficial to"><div class="cn">有益于</div><div class="sy"><b>do good to</b><span class="sep"> / </span>benefit<span class="sep"> / </span>be of benefit to<span class="sep"> / </span>be beneficial to</div></div>
+<div class="row" data-s="开始做 go about doing set about doing get down to doing set out to do"><div class="cn">开始做</div><div class="sy"><b>go about doing</b><span class="sep"> / </span>set about doing<span class="sep"> / </span>get down to doing<span class="sep"> / </span>set out to do</div></div>
+<div class="row" data-s="尽全力 do one's best spare no effort make every effort do everything that sb. can go all out strain every nerve"><div class="cn">尽全力</div><div class="sy"><b>do one's best</b><span class="sep"> / </span>spare no effort<span class="sep"> / </span>make every effort<span class="sep"> / </span>do everything that sb. can<span class="sep"> / </span>go all out<span class="sep"> / </span>strain every nerve</div></div>
+<div class="row" data-s="高度评价 speak highly of sing high praise for"><div class="cn">高度评价</div><div class="sy"><b>speak highly of</b><span class="sep"> / </span>sing high praise for</div></div>
+<div class="row" data-s="解决问题 solve settle fix work out the problem"><div class="cn">解决问题</div><div class="sy"><b>solve</b><span class="sep"> / </span>settle<span class="sep"> / </span>fix<span class="sep"> / </span>work out the problem</div></div>
+<div class="row" data-s="由……组成 consist of be made up of be composed of"><div class="cn">由……组成</div><div class="sy"><b>consist of</b><span class="sep"> / </span>be made up of<span class="sep"> / </span>be composed of</div></div>
+<div class="row" data-s="照顾 care for take care of look after attend to tend to take charge of watch over"><div class="cn">照顾</div><div class="sy"><b>care for</b><span class="sep"> / </span>take care of<span class="sep"> / </span>look after<span class="sep"> / </span>attend to<span class="sep"> / </span>tend to<span class="sep"> / </span>take charge of<span class="sep"> / </span>watch over</div></div>
+<div class="row" data-s="对……有影响 affect influence have an impact on have an effect on have an influence on"><div class="cn">对……有影响</div><div class="sy"><b>affect</b><span class="sep"> / </span>influence<span class="sep"> / </span>have an impact on<span class="sep"> / </span>have an effect on<span class="sep"> / </span>have an influence on</div></div>
+<div class="row" data-s="提出问题 bring forward put forward raise come up with bring up a problem"><div class="cn">提出问题</div><div class="sy"><b>bring forward</b><span class="sep"> / </span>put forward<span class="sep"> / </span>raise<span class="sep"> / </span>come up with<span class="sep"> / </span>bring up a problem</div></div>
+<div class="row" data-s="有吸引力 attract appeal to be appealing to be attractive to be attracted to"><div class="cn">有吸引力</div><div class="sy"><b>attract</b><span class="sep"> / </span>appeal to<span class="sep"> / </span>be appealing to<span class="sep"> / </span>be attractive to<span class="sep"> / </span>be attracted to</div></div>
+<div class="row" data-s="对……负责 be in charge of take charge of be responsible for take responsibility for"><div class="cn">对……负责</div><div class="sy"><b>be in charge of</b><span class="sep"> / </span>take charge of<span class="sep"> / </span>be responsible for<span class="sep"> / </span>take responsibility for</div></div>
+<div class="row" data-s="把……当成 see view regard treat consider think of...as"><div class="cn">把……当成</div><div class="sy"><b>see</b><span class="sep"> / </span>view<span class="sep"> / </span>regard<span class="sep"> / </span>treat<span class="sep"> / </span>consider<span class="sep"> / </span>think of...as</div></div>
+<div class="row" data-s="达成协议 make reach arrive at come to work out an agreement make terms come to terms"><div class="cn">达成协议</div><div class="sy"><b>make</b><span class="sep"> / </span>reach<span class="sep"> / </span>arrive at<span class="sep"> / </span>come to<span class="sep"> / </span>work out an agreement<span class="sep"> / </span>make terms<span class="sep"> / </span>come to terms</div></div>
+<div class="row" data-s="充分利用 make full use of make the most of take advantage of make the best of"><div class="cn">充分利用</div><div class="sy"><b>make full use of</b><span class="sep"> / </span>make the most of<span class="sep"> / </span>take advantage of<span class="sep"> / </span>make the best of</div></div>
+<div class="row" data-s="留下印象 impress sth. on sb impress sb. with make a deep impression on sb leave a deep impression on sb"><div class="cn">留下印象</div><div class="sy"><b>impress sth. on sb</b><span class="sep"> / </span>impress sb. with<span class="sep"> / </span>make a deep impression on sb<span class="sep"> / </span>leave a deep impression on sb</div></div>
+<div class="row" data-s="全神贯注 center on focus on concentrate on fix one's attention on put one's heart into be absorbed in be buried in be lost in be engaged in be occupied in"><div class="cn">全神贯注</div><div class="sy"><b>center on</b><span class="sep"> / </span>focus on<span class="sep"> / </span>concentrate on<span class="sep"> / </span>fix one's attention on<span class="sep"> / </span>put one's heart into<span class="sep"> / </span>be absorbed in<span class="sep"> / </span>be buried in<span class="sep"> / </span>be lost in<span class="sep"> / </span>be engaged in<span class="sep"> / </span>be occupied in</div></div>
+<div class="row" data-s="与……有联系 be associated with be linked with be connected with be related to have sth. to do with"><div class="cn">与……有联系</div><div class="sy"><b>be associated with</b><span class="sep"> / </span>be linked with<span class="sep"> / </span>be connected with<span class="sep"> / </span>be related to<span class="sep"> / </span>have sth. to do with</div></div>
+<div class="row" data-s="做事有困难 have difficulty (in) doing sth have trouble (in) doing sth have difficulty with sth have trouble with sth"><div class="cn">做事有困难</div><div class="sy"><b>have difficulty (in) doing sth</b><span class="sep"> / </span>have trouble (in) doing sth<span class="sep"> / </span>have difficulty with sth<span class="sep"> / </span>have trouble with sth</div></div>
+<div class="row" data-s="担心 be worried about be concerned about be anxious about"><div class="cn">担心</div><div class="sy"><b>be worried about</b><span class="sep"> / </span>be concerned about<span class="sep"> / </span>be anxious about<details class="use"><summary>用法</summary><p>if you fret about something, you worry about it</p></details></div></div>
+<div class="row" data-s="耗尽 use sth. up run out of sth sth. give out exhaust"><div class="cn">耗尽</div><div class="sy"><b>use sth. up</b><span class="sep"> / </span>run out of sth<span class="sep"> / </span>sth. give out<span class="sep"> / </span>exhaust</div></div>
+<div class="row" data-s="满足需求 meet one's need satisfy one's need suit one's need fulfill one's need cater to one's need"><div class="cn">满足需求</div><div class="sy"><b>meet one's need</b><span class="sep"> / </span>satisfy one's need<span class="sep"> / </span>suit one's need<span class="sep"> / </span>fulfill one's need<span class="sep"> / </span>cater to one's need</div></div>
+<div class="row" data-s="摆脱……的习惯 kick the habit of doing sth break the habit of doing sth get out of the habit of doing sth fall out of the habit of doing sth"><div class="cn">摆脱……的习惯</div><div class="sy"><b>kick the habit of doing sth</b><span class="sep"> / </span>break the habit of doing sth<span class="sep"> / </span>get out of the habit of doing sth<span class="sep"> / </span>fall out of the habit of doing sth</div></div>
+<div class="row" data-s="促进……的发展 accelerate the development of sth promote the development of sth stimulate the development of sth advance the development of sth"><div class="cn">促进……的发展</div><div class="sy"><b>accelerate the development of sth</b><span class="sep"> / </span>promote the development of sth<span class="sep"> / </span>stimulate the development of sth<span class="sep"> / </span>advance the development of sth</div></div>
+<div class="row" data-s="提高……的意识 raise people's awareness of increase people's awareness of sharpen people's awareness of strengthen people's awareness of awake people's awareness of arouse people's awareness of"><div class="cn">提高……的意识</div><div class="sy"><b>raise people's awareness of</b><span class="sep"> / </span>increase people's awareness of<span class="sep"> / </span>sharpen people's awareness of<span class="sep"> / </span>strengthen people's awareness of<span class="sep"> / </span>awake people's awareness of<span class="sep"> / </span>arouse people's awareness of</div></div>
+<div class="row" data-s="养成……的习惯 form the habit of doing sth fall into the habit of doing sth get into the habit of doing sth pick up the habit of doing sth develop the habit of doing sth slide into the habit of doing sth"><div class="cn">养成……的习惯</div><div class="sy"><b>form the habit of doing sth</b><span class="sep"> / </span>fall into the habit of doing sth<span class="sep"> / </span>get into the habit of doing sth<span class="sep"> / </span>pick up the habit of doing sth<span class="sep"> / </span>develop the habit of doing sth<span class="sep"> / </span>slide into the habit of doing sth</div></div>
+<div class="row" data-s="与……和谐相处 live in harmony with be at peace with live in peace with get on well with get along well with"><div class="cn">与……和谐相处</div><div class="sy"><b>live in harmony with</b><span class="sep"> / </span>be at peace with<span class="sep"> / </span>live in peace with<span class="sep"> / </span>get on well with<span class="sep"> / </span>get along well with</div></div>
+<div class="row" data-s="面临困难 be faced with face confront encounter difficulty"><div class="cn">面临困难</div><div class="sy"><b>be faced with</b><span class="sep"> / </span>face<span class="sep"> / </span>confront<span class="sep"> / </span>encounter difficulty</div></div>
+</section>
+<section class="grp" data-g="04 词义辨析"><h2 class="gh"><span class="gn">04 词义辨析</span><span class="gc">30 条</span></h2>
+<div class="row" data-s="坚持 stick adhere cling"><div class="cn">坚持</div><div class="sy"><b>stick</b><span class="sep"> / </span>adhere<span class="sep"> / </span>cling<details class="use"><summary>用法</summary><p>hold on something tightly</p></details></div></div>
+<div class="row" data-s="忽视 / 忽略 neglect ignore"><div class="cn">忽视 / 忽略</div><div class="sy"><b>neglect</b><span class="sep"> / </span>ignore<details class="use"><summary>用法</summary><p>difference: ignore means no attention; neglect means someone has not paid enough attention to something.</p></details></div></div>
+<div class="row" data-s="追求 / 寻求 pursue seek"><div class="cn">追求 / 寻求</div><div class="sy"><b>pursue</b><span class="sep"> / </span>seek<details class="use"><summary>用法</summary><p>if you seek sth., you try to obtain it.</p></details></div></div>
+<div class="row" data-s="责备 / 归咎于 blame condemn"><div class="cn">责备 / 归咎于</div><div class="sy"><b>blame</b><span class="sep"> / </span>condemn<details class="use"><summary>用法</summary><p>if you condemn something, you say it is very bad and unacceptable</p></details></div></div>
+<div class="row" data-s="侮辱 / 辱骂 insult humiliate"><div class="cn">侮辱 / 辱骂</div><div class="sy"><b>insult</b><span class="sep"> / </span>humiliate<details class="use"><summary>用法</summary><p>do something or say something which makes people feel ashamed or stupid</p></details></div></div>
+<div class="row" data-s="抱怨 complain grumble"><div class="cn">抱怨</div><div class="sy"><b>complain</b><span class="sep"> / </span>grumble<details class="use"><summary>用法</summary><p>complain something in a bad-tempered way</p></details></div></div>
+<div class="row" data-s="解除 / 减轻 relieve alleviate"><div class="cn">解除 / 减轻</div><div class="sy"><b>relieve</b><span class="sep"> / </span>alleviate<details class="use"><summary>用法</summary><p>alleviate means you make pain or sufferings less intense or severe</p></details></div></div>
+<div class="row" data-s="促使 / 强迫 force compel"><div class="cn">促使 / 强迫</div><div class="sy"><b>force</b><span class="sep"> / </span>compel</div></div>
+<div class="row" data-s="避开 / 避免 avoid shun escape"><div class="cn">避开 / 避免</div><div class="sy"><b>avoid</b><span class="sep"> / </span>shun<span class="sep"> / </span>escape<details class="use"><summary>用法</summary><p>if someone shuns something, she/he deliberately avoid that something or keep away from it.</p></details></div></div>
+<div class="row" data-s="毁灭 / 毁坏 ruin devastate"><div class="cn">毁灭 / 毁坏</div><div class="sy"><b>ruin</b><span class="sep"> / </span>devastate<details class="use"><summary>用法</summary><p>damage something very badly, or utterly destroy it.</p></details></div></div>
+<div class="row" data-s="使震惊 / 使惊奇 surprise startle astound astonish"><div class="cn">使震惊 / 使惊奇</div><div class="sy"><b>surprise</b><span class="sep"> / </span>startle<span class="sep"> / </span>astound<span class="sep"> / </span>astonish<details class="use"><summary>用法</summary><p>it means to surprise you slightly；surprise you to a large degree；the same as astound</p></details></div></div>
+<div class="row" data-s="重要的 important significant vital key crucial essential"><div class="cn">重要的</div><div class="sy"><b>important</b><span class="sep"> / </span>significant<span class="sep"> / </span>vital<span class="sep"> / </span>key<span class="sep"> / </span>crucial<span class="sep"> / </span>essential<details class="use"><summary>用法</summary><p>extremely important；amount or effect large enough to be important</p></details></div></div>
+<div class="row" data-s="古代的 / 陈旧的 ancient archaic antique aged"><div class="cn">古代的 / 陈旧的</div><div class="sy"><b>ancient</b><span class="sep"> / </span>archaic<span class="sep"> / </span>antique<span class="sep"> / </span>aged<details class="use"><summary>用法</summary><p>extremely old and extremely old-fashioned</p></details></div></div>
+<div class="row" data-s="充足的 / 丰富的 adequate abundant sufficient"><div class="cn">充足的 / 丰富的</div><div class="sy"><b>adequate</b><span class="sep"> / </span>abundant<span class="sep"> / </span>sufficient</div></div>
+<div class="row" data-s="大量的 a host of a vast number of a vast amount of a great deal of big massive tremendous"><div class="cn">大量的</div><div class="sy"><b>a host of</b><span class="sep"> / </span>a vast number of<span class="sep"> / </span>a vast amount of<span class="sep"> / </span>a great deal of<span class="sep"> / </span>big<span class="sep"> / </span>massive<span class="sep"> / </span>tremendous<details class="use"><summary>用法</summary><p>large in size, quantity, or extent</p></details></div></div>
+<div class="row" data-s="共同的 / 通用的 common universal"><div class="cn">共同的 / 通用的</div><div class="sy"><b>common</b><span class="sep"> / </span>universal</div></div>
+<div class="row" data-s="邻近的 near adjacent adjoin"><div class="cn">邻近的</div><div class="sy"><b>near</b><span class="sep"> / </span>adjacent<span class="sep"> / </span>adjoin<details class="use"><summary>用法</summary><p>two things next to each other；the same as adjacent</p></details></div></div>
+<div class="row" data-s="精确的 accurate precise exact"><div class="cn">精确的</div><div class="sy"><b>accurate</b><span class="sep"> / </span>precise<span class="sep"> / </span>exact<details class="use"><summary>用法</summary><p>precise is exact and accurate in all details</p></details></div></div>
+<div class="row" data-s="最高的 / 最优的 top peak summit"><div class="cn">最高的 / 最优的</div><div class="sy"><b>top</b><span class="sep"> / </span>peak<span class="sep"> / </span>summit</div></div>
+<div class="row" data-s="初级的 / 基本的 primary radical fundamental"><div class="cn">初级的 / 基本的</div><div class="sy"><b>primary</b><span class="sep"> / </span>radical<span class="sep"> / </span>fundamental<details class="use"><summary>用法</summary><p>very important and great in degree</p></details></div></div>
+<div class="row" data-s="勤勉的 hard-working industrious"><div class="cn">勤勉的</div><div class="sy"><b>hard-working</b><span class="sep"> / </span>industrious</div></div>
+<div class="row" data-s="费力的 difficult arduous"><div class="cn">费力的</div><div class="sy"><b>difficult</b><span class="sep"> / </span>arduous<details class="use"><summary>用法</summary><p>if something is arduous, it is difficult and tiring, and involves a lot of efforts</p></details></div></div>
+<div class="row" data-s="贫瘠的 poor barren infertile"><div class="cn">贫瘠的</div><div class="sy"><b>poor</b><span class="sep"> / </span>barren<span class="sep"> / </span>infertile<details class="use"><summary>用法</summary><p>soil；used to describe the soil is so poor that plants cannot be planted on it</p></details></div></div>
+<div class="row" data-s="易碎的 / 易受攻击的 fragile vulnerable"><div class="cn">易碎的 / 易受攻击的</div><div class="sy"><b>fragile</b><span class="sep"> / </span>vulnerable<details class="use"><summary>用法</summary><p>someone who is vulnerable is easily hurt emotionally or physically</p></details></div></div>
+<div class="row" data-s="公平的 fair impartial"><div class="cn">公平的</div><div class="sy"><b>fair</b><span class="sep"> / </span>impartial<details class="use"><summary>用法</summary><p>someone who is impartial is able to give a fair opinion or decision on something.</p></details></div></div>
+<div class="row" data-s="永久的 forever perpetual immutable"><div class="cn">永久的</div><div class="sy"><b>forever</b><span class="sep"> / </span>perpetual<span class="sep"> / </span>immutable<details class="use"><summary>用法</summary><p>a perpetual state never changes；something immutable will never change or be changed</p></details></div></div>
+<div class="row" data-s="沉闷的 / 乏味的 boring tedious"><div class="cn">沉闷的 / 乏味的</div><div class="sy"><b>boring</b><span class="sep"> / </span>tedious<details class="use"><summary>用法</summary><p>if you describe something tedious, you mean it is boring and frustrating</p></details></div></div>
+<div class="row" data-s="危险的 dangerous perilous hazard danger"><div class="cn">危险的</div><div class="sy"><b>dangerous</b><span class="sep"> / </span>perilous<span class="sep"> / </span>hazard<span class="sep"> / </span>danger<details class="use"><summary>用法</summary><p>very dangerous；dangerous, especially to people's safety and health</p></details></div></div>
+<div class="row" data-s="湿润的 / 潮湿的 wet moist damp humid"><div class="cn">湿润的 / 潮湿的</div><div class="sy"><b>wet</b><span class="sep"> / </span>moist<span class="sep"> / </span>damp<span class="sep"> / </span>humid<details class="use"><summary>用法</summary><p>slightly wet；slightly wet；very damp and hot</p></details></div></div>
+<div class="row" data-s="特别的 / 具体的 typical characteristic distinctive representative"><div class="cn">特别的 / 具体的</div><div class="sy"><b>typical</b><span class="sep"> / </span>characteristic<span class="sep"> / </span>distinctive<span class="sep"> / </span>representative</div></div>
+</section>
+<section class="grp" data-g="05 速记与扩展"><h2 class="gh"><span class="gn">05 速记与扩展</span><span class="gc">14 条</span></h2>
+<div class="row" data-s="攻击 / 袭击 attack assault"><div class="cn">攻击 / 袭击</div><div class="sy"><b>attack</b><span class="sep"> / </span>assault<details class="use"><summary>用法</summary><p>physically attack someone</p></details></div></div>
+<div class="row" data-s="讨厌 dislike hate"><div class="cn">讨厌</div><div class="sy"><b>dislike</b><span class="sep"> / </span>hate</div></div>
+<div class="row" data-s="固定 fix attach"><div class="cn">固定</div><div class="sy"><b>fix</b><span class="sep"> / </span>attach</div></div>
+<div class="row" data-s="一直 / 总是 always invariably"><div class="cn">一直 / 总是</div><div class="sy"><b>always</b><span class="sep"> / </span>invariably<details class="use"><summary>用法</summary><p>the same as always, but better than always</p></details></div></div>
+<div class="row" data-s="会议/会面 Meeting conference discussion assembly conclave congress convention gathering session assignation encounter confrontation argument controversy"><div class="cn">会议/会面</div><div class="sy"><b>Meeting</b><span class="sep"> / </span>conference<span class="sep"> / </span>discussion<span class="sep"> / </span>assembly<span class="sep"> / </span>conclave<span class="sep"> / </span>congress<span class="sep"> / </span>convention<span class="sep"> / </span>gathering<span class="sep"> / </span>session<span class="sep"> / </span>assignation<span class="sep"> / </span>encounter<span class="sep"> / </span>confrontation<span class="sep"> / </span>argument<span class="sep"> / </span>controversy</div></div>
+<div class="row" data-s="学习/研究 Study learning application lessons reading research school work examination analysis consideration contemplation inspection investigation knowledge scholarship"><div class="cn">学习/研究</div><div class="sy"><b>Study</b><span class="sep"> / </span>learning<span class="sep"> / </span>application<span class="sep"> / </span>lessons<span class="sep"> / </span>reading<span class="sep"> / </span>research<span class="sep"> / </span>school<span class="sep"> / </span>work<span class="sep"> / </span>examination<span class="sep"> / </span>analysis<span class="sep"> / </span>consideration<span class="sep"> / </span>contemplation<span class="sep"> / </span>inspection<span class="sep"> / </span>investigation<span class="sep"> / </span>knowledge<span class="sep"> / </span>scholarship</div></div>
+<div class="row" data-s="优势/好处 Advantage benefit dominance precedence profit superiority merit"><div class="cn">优势/好处</div><div class="sy"><b>Advantage</b><span class="sep"> / </span>benefit<span class="sep"> / </span>dominance<span class="sep"> / </span>precedence<span class="sep"> / </span>profit<span class="sep"> / </span>superiority<span class="sep"> / </span>merit</div></div>
+<div class="row" data-s="劣势/不足 Disadvantage shortcoming weakness inconvenience drawback deficiency flaw handicap downside limitation"><div class="cn">劣势/不足</div><div class="sy"><b>Disadvantage</b><span class="sep"> / </span>shortcoming<span class="sep"> / </span>weakness<span class="sep"> / </span>inconvenience<span class="sep"> / </span>drawback<span class="sep"> / </span>deficiency<span class="sep"> / </span>flaw<span class="sep"> / </span>handicap<span class="sep"> / </span>downside<span class="sep"> / </span>limitation</div></div>
+<div class="row" data-s="使印象深刻 Impress affect inspire engrave on imprint of"><div class="cn">使印象深刻</div><div class="sy"><b>Impress</b><span class="sep"> / </span>affect<span class="sep"> / </span>inspire<span class="sep"> / </span>engrave on<span class="sep"> / </span>imprint of</div></div>
+<div class="row" data-s="停止 Stop halt cease conclude desist end pause put an end to quit refrain shut down terminate"><div class="cn">停止</div><div class="sy"><b>Stop</b><span class="sep"> / </span>halt<span class="sep"> / </span>cease<span class="sep"> / </span>conclude<span class="sep"> / </span>desist<span class="sep"> / </span>end<span class="sep"> / </span>pause<span class="sep"> / </span>put an end to<span class="sep"> / </span>quit<span class="sep"> / </span>refrain<span class="sep"> / </span>shut down<span class="sep"> / </span>terminate<details class="use"><summary>用法</summary><p>if something ceases, it stops happening or existing</p></details></div></div>
+<div class="row" data-s="制造/使得 Make create assemble build construct form manufacture force cause compel constrain drive impel induce oblige prevail upon"><div class="cn">制造/使得</div><div class="sy"><b>Make</b><span class="sep"> / </span>create<span class="sep"> / </span>assemble<span class="sep"> / </span>build<span class="sep"> / </span>construct<span class="sep"> / </span>form<span class="sep"> / </span>manufacture<span class="sep"> / </span>force<span class="sep"> / </span>cause<span class="sep"> / </span>compel<span class="sep"> / </span>constrain<span class="sep"> / </span>drive<span class="sep"> / </span>impel<span class="sep"> / </span>induce<span class="sep"> / </span>oblige<span class="sep"> / </span>prevail upon</div></div>
+<div class="row" data-s="给予 Give present award contribute deliver donate grant hand over hand out provide supply"><div class="cn">给予</div><div class="sy"><b>Give</b><span class="sep"> / </span>present<span class="sep"> / </span>award<span class="sep"> / </span>contribute<span class="sep"> / </span>deliver<span class="sep"> / </span>donate<span class="sep"> / </span>grant<span class="sep"> / </span>hand over<span class="sep"> / </span>hand out<span class="sep"> / </span>provide<span class="sep"> / </span>supply</div></div>
+<div class="row" data-s="打破/分开 Break separate burst crack destroy disintegrate fracture fragment shatter smash snap"><div class="cn">打破/分开</div><div class="sy"><b>Break</b><span class="sep"> / </span>separate<span class="sep"> / </span>burst<span class="sep"> / </span>crack<span class="sep"> / </span>destroy<span class="sep"> / </span>disintegrate<span class="sep"> / </span>fracture<span class="sep"> / </span>fragment<span class="sep"> / </span>shatter<span class="sep"> / </span>smash<span class="sep"> / </span>snap</div></div>
+<div class="row" data-s="摧毁 Destroy ruin raze annihilate crush demolish devastate eradicate shatter wipe out wreck obliterate weaken undermine"><div class="cn">摧毁</div><div class="sy"><b>Destroy</b><span class="sep"> / </span>ruin<span class="sep"> / </span>raze<span class="sep"> / </span>annihilate<span class="sep"> / </span>crush<span class="sep"> / </span>demolish<span class="sep"> / </span>devastate<span class="sep"> / </span>eradicate<span class="sep"> / </span>shatter<span class="sep"> / </span>wipe out<span class="sep"> / </span>wreck<span class="sep"> / </span>obliterate<span class="sep"> / </span>weaken<span class="sep"> / </span>undermine</div></div>
+</section>
+<section class="grp" data-g="06 进阶一"><h2 class="gh"><span class="gn">06 进阶一</span><span class="gc">38 条</span></h2>
+<div class="row" data-s="分析 / 研究 analyze evaluate study"><div class="cn">分析 / 研究</div><div class="sy"><b>analyze</b><span class="sep"> / </span>evaluate<span class="sep"> / </span>study</div></div>
+<div class="row" data-s="贡献 contribute donate provide give"><div class="cn">贡献</div><div class="sy"><b>contribute</b><span class="sep"> / </span>donate<span class="sep"> / </span>provide<span class="sep"> / </span>give</div></div>
+<div class="row" data-s="描述 describe portray represent picture"><div class="cn">描述</div><div class="sy"><b>describe</b><span class="sep"> / </span>portray<span class="sep"> / </span>represent<span class="sep"> / </span>picture</div></div>
+<div class="row" data-s="职业 / 行业 profession occupation career trade"><div class="cn">职业 / 行业</div><div class="sy"><b>profession</b><span class="sep"> / </span>occupation<span class="sep"> / </span>career<span class="sep"> / </span>trade</div></div>
+<div class="row" data-s="自然地 naturally certainly surely indeed"><div class="cn">自然地</div><div class="sy"><b>naturally</b><span class="sep"> / </span>certainly<span class="sep"> / </span>surely<span class="sep"> / </span>indeed</div></div>
+<div class="row" data-s="全体人员 personnel staff faculty crew workers"><div class="cn">全体人员</div><div class="sy"><b>personnel</b><span class="sep"> / </span>staff<span class="sep"> / </span>faculty<span class="sep"> / </span>crew<span class="sep"> / </span>workers</div></div>
+<div class="row" data-s="适当 / 正确地 properly appropriately suitably correctly"><div class="cn">适当 / 正确地</div><div class="sy"><b>properly</b><span class="sep"> / </span>appropriately<span class="sep"> / </span>suitably<span class="sep"> / </span>correctly</div></div>
+<div class="row" data-s="扩大 widen broaden enlarge extend expand stretch"><div class="cn">扩大</div><div class="sy"><b>widen</b><span class="sep"> / </span>broaden<span class="sep"> / </span>enlarge<span class="sep"> / </span>extend<span class="sep"> / </span>expand<span class="sep"> / </span>stretch<details class="use"><summary>用法</summary><p>magnify means make something larger than it really is</p></details></div></div>
+<div class="row" data-s="方面 / 外观 aspect appearance look view"><div class="cn">方面 / 外观</div><div class="sy"><b>aspect</b><span class="sep"> / </span>appearance<span class="sep"> / </span>look<span class="sep"> / </span>view</div></div>
+<div class="row" data-s="性格 / 品质 character quality personality nature"><div class="cn">性格 / 品质</div><div class="sy"><b>character</b><span class="sep"> / </span>quality<span class="sep"> / </span>personality<span class="sep"> / </span>nature</div></div>
+<div class="row" data-s="总体 total entire overall sum up"><div class="cn">总体</div><div class="sy"><b>total</b><span class="sep"> / </span>entire<span class="sep"> / </span>overall<span class="sep"> / </span>sum up</div></div>
+<div class="row" data-s="无意识的 unconscious unaware absent-minded"><div class="cn">无意识的</div><div class="sy"><b>unconscious</b><span class="sep"> / </span>unaware<span class="sep"> / </span>absent-minded</div></div>
+<div class="row" data-s="愚笨的 clumsy awkward unskillful"><div class="cn">愚笨的</div><div class="sy"><b>clumsy</b><span class="sep"> / </span>awkward<span class="sep"> / </span>unskillful</div></div>
+<div class="row" data-s="怀疑的 doubtful suspicious questionable suspect"><div class="cn">怀疑的</div><div class="sy"><b>doubtful</b><span class="sep"> / </span>suspicious<span class="sep"> / </span>questionable<span class="sep"> / </span>suspect<details class="use"><summary>用法</summary><p>if you are skeptical about something, you have doubts on it</p></details></div></div>
+<div class="row" data-s="难以置信地 incredibly unbelievably unlikely"><div class="cn">难以置信地</div><div class="sy"><b>incredibly</b><span class="sep"> / </span>unbelievably<span class="sep"> / </span>unlikely</div></div>
+<div class="row" data-s="保护 protect defend guard shelter shield preserve safeguard"><div class="cn">保护</div><div class="sy"><b>protect</b><span class="sep"> / </span>defend<span class="sep"> / </span>guard<span class="sep"> / </span>shelter<span class="sep"> / </span>shield<span class="sep"> / </span>preserve<span class="sep"> / </span>safeguard</div></div>
+<div class="row" data-s="例外 exception exclusion"><div class="cn">例外</div><div class="sy"><b>exception</b><span class="sep"> / </span>exclusion</div></div>
+<div class="row" data-s="征募 recruit enroll enlist"><div class="cn">征募</div><div class="sy"><b>recruit</b><span class="sep"> / </span>enroll<span class="sep"> / </span>enlist</div></div>
+<div class="row" data-s="不确定的 unsure uncertain doubtful yet to be proved"><div class="cn">不确定的</div><div class="sy"><b>unsure</b><span class="sep"> / </span>uncertain<span class="sep"> / </span>doubtful<span class="sep"> / </span>yet to be proved</div></div>
+<div class="row" data-s="交流 communicate convey transmit inform"><div class="cn">交流</div><div class="sy"><b>communicate</b><span class="sep"> / </span>convey<span class="sep"> / </span>transmit<span class="sep"> / </span>inform</div></div>
+<div class="row" data-s="完全 / 彻底地 completely entirely utterly fully altogether thoroughly absolutely perfectly totally"><div class="cn">完全 / 彻底地</div><div class="sy"><b>completely</b><span class="sep"> / </span>entirely<span class="sep"> / </span>utterly<span class="sep"> / </span>fully<span class="sep"> / </span>altogether<span class="sep"> / </span>thoroughly<span class="sep"> / </span>absolutely<span class="sep"> / </span>perfectly<span class="sep"> / </span>totally</div></div>
+<div class="row" data-s="减少 reduce decrease lessen diminish cut"><div class="cn">减少</div><div class="sy"><b>reduce</b><span class="sep"> / </span>decrease<span class="sep"> / </span>lessen<span class="sep"> / </span>diminish<span class="sep"> / </span>cut</div></div>
+<div class="row" data-s="替换 replace substitute displace change"><div class="cn">替换</div><div class="sy"><b>replace</b><span class="sep"> / </span>substitute<span class="sep"> / </span>displace<span class="sep"> / </span>change</div></div>
+<div class="row" data-s="感觉 / 意识到 sense feel understand realize"><div class="cn">感觉 / 意识到</div><div class="sy"><b>sense</b><span class="sep"> / </span>feel<span class="sep"> / </span>understand<span class="sep"> / </span>realize</div></div>
+<div class="row" data-s="转换 change alter vary convert transform"><div class="cn">转换</div><div class="sy"><b>change</b><span class="sep"> / </span>alter<span class="sep"> / </span>vary<span class="sep"> / </span>convert<span class="sep"> / </span>transform</div></div>
+<div class="row" data-s="供给 supply stock provide furnish feed"><div class="cn">供给</div><div class="sy"><b>supply</b><span class="sep"> / </span>stock<span class="sep"> / </span>provide<span class="sep"> / </span>furnish<span class="sep"> / </span>feed</div></div>
+<div class="row" data-s="获取 derive obtain gain get"><div class="cn">获取</div><div class="sy"><b>derive</b><span class="sep"> / </span>obtain<span class="sep"> / </span>gain<span class="sep"> / </span>get</div></div>
+<div class="row" data-s="多样性 diversity variety multiplicity difference"><div class="cn">多样性</div><div class="sy"><b>diversity</b><span class="sep"> / </span>variety<span class="sep"> / </span>multiplicity<span class="sep"> / </span>difference</div></div>
+<div class="row" data-s="狭窄的 narrow limited restricted tighten"><div class="cn">狭窄的</div><div class="sy"><b>narrow</b><span class="sep"> / </span>limited<span class="sep"> / </span>restricted<span class="sep"> / </span>tighten</div></div>
+<div class="row" data-s="敏感的 sensitive delicate"><div class="cn">敏感的</div><div class="sy"><b>sensitive</b><span class="sep"> / </span>delicate</div></div>
+<div class="row" data-s="展示 display show exhibit demonstrate"><div class="cn">展示</div><div class="sy"><b>display</b><span class="sep"> / </span>show<span class="sep"> / </span>exhibit<span class="sep"> / </span>demonstrate</div></div>
+<div class="row" data-s="本质的 / 必要的 essential vital crucial critical indispensable"><div class="cn">本质的 / 必要的</div><div class="sy"><b>essential</b><span class="sep"> / </span>vital<span class="sep"> / </span>crucial<span class="sep"> / </span>critical<span class="sep"> / </span>indispensable</div></div>
+<div class="row" data-s="继续下去 proceed continue go on"><div class="cn">继续下去</div><div class="sy"><b>proceed</b><span class="sep"> / </span>continue<span class="sep"> / </span>go on</div></div>
+<div class="row" data-s="尊敬 respect honor regard admire"><div class="cn">尊敬</div><div class="sy"><b>respect</b><span class="sep"> / </span>honor<span class="sep"> / </span>regard<span class="sep"> / </span>admire</div></div>
+<div class="row" data-s="任务 / 使团 mission assignment duty task"><div class="cn">任务 / 使团</div><div class="sy"><b>mission</b><span class="sep"> / </span>assignment<span class="sep"> / </span>duty<span class="sep"> / </span>task</div></div>
+<div class="row" data-s="表演 / 业绩 / 执行 performance act achievement"><div class="cn">表演 / 业绩 / 执行</div><div class="sy"><b>performance</b><span class="sep"> / </span>act<span class="sep"> / </span>achievement</div></div>
+<div class="row" data-s="尤其 / 特别 / 专门 especially particularly primarily chiefly"><div class="cn">尤其 / 特别 / 专门</div><div class="sy"><b>especially</b><span class="sep"> / </span>particularly<span class="sep"> / </span>primarily<span class="sep"> / </span>chiefly</div></div>
+<div class="row" data-s="显著 / 非凡地 remarkably extraordinarily unusually"><div class="cn">显著 / 非凡地</div><div class="sy"><b>remarkably</b><span class="sep"> / </span>extraordinarily<span class="sep"> / </span>unusually</div></div>
+</section>
+<section class="grp" data-g="07 进阶二 · 主题经济"><h2 class="gh"><span class="gn">07 进阶二 · 主题经济</span><span class="gc">39 条</span></h2>
+<div class="row" data-s="呼吁 / 吸引力 appeal request attraction"><div class="cn">呼吁 / 吸引力</div><div class="sy"><b>appeal</b><span class="sep"> / </span>request<span class="sep"> / </span>attraction</div></div>
+<div class="row" data-s="提高 / 增强 enhance increase improve raise"><div class="cn">提高 / 增强</div><div class="sy"><b>enhance</b><span class="sep"> / </span>increase<span class="sep"> / </span>improve<span class="sep"> / </span>raise</div></div>
+<div class="row" data-s="阻碍 hinder prevent restrain stop"><div class="cn">阻碍</div><div class="sy"><b>hinder</b><span class="sep"> / </span>prevent<span class="sep"> / </span>restrain<span class="sep"> / </span>stop</div></div>
+<div class="row" data-s="需要 / 规定 require command demand ask"><div class="cn">需要 / 规定</div><div class="sy"><b>require</b><span class="sep"> / </span>command<span class="sep"> / </span>demand<span class="sep"> / </span>ask</div></div>
+<div class="row" data-s="催促 / 主张 urge push drive insist"><div class="cn">催促 / 主张</div><div class="sy"><b>urge</b><span class="sep"> / </span>push<span class="sep"> / </span>drive<span class="sep"> / </span>insist</div></div>
+<div class="row" data-s="巨大的 enormous huge vast great"><div class="cn">巨大的</div><div class="sy"><b>enormous</b><span class="sep"> / </span>huge<span class="sep"> / </span>vast<span class="sep"> / </span>great</div></div>
+<div class="row" data-s="源于 derive from originate from stem from come from"><div class="cn">源于</div><div class="sy"><b>derive from</b><span class="sep"> / </span>originate from<span class="sep"> / </span>stem from<span class="sep"> / </span>come from</div></div>
+<div class="row" data-s="失业 unemployment layoffs job losses"><div class="cn">失业</div><div class="sy"><b>unemployment</b><span class="sep"> / </span>layoffs<span class="sep"> / </span>job losses</div></div>
+<div class="row" data-s="简历 resume hand in"><div class="cn">简历</div><div class="sy"><b>resume</b><span class="sep"> / </span>hand in</div></div>
+<div class="row" data-s="人才 personnel talent human resources"><div class="cn">人才</div><div class="sy"><b>personnel</b><span class="sep"> / </span>talent<span class="sep"> / </span>human resources</div></div>
+<div class="row" data-s="职位 position post opening"><div class="cn">职位</div><div class="sy"><b>position</b><span class="sep"> / </span>post<span class="sep"> / </span>opening</div></div>
+<div class="row" data-s="创新 innovation creativity"><div class="cn">创新</div><div class="sy"><b>innovation</b><span class="sep"> / </span>creativity</div></div>
+<div class="row" data-s="破产 bankrupt shut down"><div class="cn">破产</div><div class="sy"><b>bankrupt</b><span class="sep"> / </span>shut down</div></div>
+<div class="row" data-s="剧降 decline drop fall"><div class="cn">剧降</div><div class="sy"><b>decline</b><span class="sep"> / </span>drop<span class="sep"> / </span>fall</div></div>
+<div class="row" data-s="恶化 deteriorate decline get worse"><div class="cn">恶化</div><div class="sy"><b>deteriorate</b><span class="sep"> / </span>decline<span class="sep"> / </span>get worse</div></div>
+<div class="row" data-s="灭绝 extinct die out"><div class="cn">灭绝</div><div class="sy"><b>extinct</b><span class="sep"> / </span>die out</div></div>
+<div class="row" data-s="可再生能源 renewables alternative energy clean energy"><div class="cn">可再生能源</div><div class="sy"><b>renewables</b><span class="sep"> / </span>alternative energy<span class="sep"> / </span>clean energy</div></div>
+<div class="row" data-s="二氧化碳 carbon dioxide greenhouse gas"><div class="cn">二氧化碳</div><div class="sy"><b>carbon dioxide</b><span class="sep"> / </span>greenhouse gas</div></div>
+<div class="row" data-s="加速 accelerate speed up"><div class="cn">加速</div><div class="sy"><b>accelerate</b><span class="sep"> / </span>speed up</div></div>
+<div class="row" data-s="进步 advance pace development"><div class="cn">进步</div><div class="sy"><b>advance</b><span class="sep"> / </span>pace<span class="sep"> / </span>development</div></div>
+<div class="row" data-s="经济危机 economic crisis financial difficulty recession"><div class="cn">经济危机</div><div class="sy"><b>economic crisis</b><span class="sep"> / </span>financial difficulty<span class="sep"> / </span>recession</div></div>
+<div class="row" data-s="反弹 / 恢复 rebound recovery"><div class="cn">反弹 / 恢复</div><div class="sy"><b>rebound</b><span class="sep"> / </span>recovery</div></div>
+<div class="row" data-s="必修课 compulsory course requirement optional elective courses"><div class="cn">必修课</div><div class="sy"><b>compulsory course</b><span class="sep"> / </span>requirement<span class="sep"> / </span>optional<span class="sep"> / </span>elective courses</div></div>
+<div class="row" data-s="学费 tuition educational expenses"><div class="cn">学费</div><div class="sy"><b>tuition</b><span class="sep"> / </span>educational expenses</div></div>
+<div class="row" data-s="学位 bachelor's degree master degree doctoral degree"><div class="cn">学位</div><div class="sy"><b>bachelor's degree</b><span class="sep"> / </span>master degree<span class="sep"> / </span>doctoral degree</div></div>
+<div class="row" data-s="研究生院 / 研究生 graduate school postgraduate"><div class="cn">研究生院 / 研究生</div><div class="sy"><b>graduate school</b><span class="sep"> / </span>postgraduate</div></div>
+<div class="row" data-s="导师 supervisor tutor"><div class="cn">导师</div><div class="sy"><b>supervisor</b><span class="sep"> / </span>tutor</div></div>
+<div class="row" data-s="课程 curriculum course program syllabus"><div class="cn">课程</div><div class="sy"><b>curriculum</b><span class="sep"> / </span>course<span class="sep"> / </span>program<span class="sep"> / </span>syllabus</div></div>
+<div class="row" data-s="哲学 / 心理学 philosophy psychology"><div class="cn">哲学 / 心理学</div><div class="sy"><b>philosophy</b><span class="sep"> / </span>psychology</div></div>
+<div class="row" data-s="传记 / 生物 biography biology"><div class="cn">传记 / 生物</div><div class="sy"><b>biography</b><span class="sep"> / </span>biology</div></div>
+<div class="row" data-s="老年人 senior citizen old people"><div class="cn">老年人</div><div class="sy"><b>senior citizen</b><span class="sep"> / </span>old people</div></div>
+<div class="row" data-s="被指控 be accused of be charged"><div class="cn">被指控</div><div class="sy"><b>be accused of</b><span class="sep"> / </span>be charged</div></div>
+<div class="row" data-s="药方 remedy prescription"><div class="cn">药方</div><div class="sy"><b>remedy</b><span class="sep"> / </span>prescription</div></div>
+<div class="row" data-s="素食者 vegetarian eat no meat"><div class="cn">素食者</div><div class="sy"><b>vegetarian</b><span class="sep"> / </span>eat no meat</div></div>
+<div class="row" data-s="治疗 therapy remedy treatment"><div class="cn">治疗</div><div class="sy"><b>therapy</b><span class="sep"> / </span>remedy<span class="sep"> / </span>treatment</div></div>
+<div class="row" data-s="和解 / 妥协 reconcile with compromise"><div class="cn">和解 / 妥协</div><div class="sy"><b>reconcile with</b><span class="sep"> / </span>compromise</div></div>
+<div class="row" data-s="有趣的 intriguing interesting enchanting appealing attractive"><div class="cn">有趣的</div><div class="sy"><b>intriguing</b><span class="sep"> / </span>interesting<span class="sep"> / </span>enchanting<span class="sep"> / </span>appealing<span class="sep"> / </span>attractive</div></div>
+<div class="row" data-s="足够的 sufficient adequate ample"><div class="cn">足够的</div><div class="sy"><b>sufficient</b><span class="sep"> / </span>adequate<span class="sep"> / </span>ample</div></div>
+<div class="row" data-s="缺乏 deficient lack"><div class="cn">缺乏</div><div class="sy"><b>deficient</b><span class="sep"> / </span>lack</div></div>
+</section>
+<section class="grp" data-g="08 进阶三 · 表达"><h2 class="gh"><span class="gn">08 进阶三 · 表达</span><span class="gc">40 条</span></h2>
+<div class="row" data-s="缺点 drawback weakness shortcoming"><div class="cn">缺点</div><div class="sy"><b>drawback</b><span class="sep"> / </span>weakness<span class="sep"> / </span>shortcoming</div></div>
+<div class="row" data-s="促进 stimulate promote boost facilitate"><div class="cn">促进</div><div class="sy"><b>stimulate</b><span class="sep"> / </span>promote<span class="sep"> / </span>boost<span class="sep"> / </span>facilitate</div></div>
+<div class="row" data-s="刻板印象 stereotype bias"><div class="cn">刻板印象</div><div class="sy"><b>stereotype</b><span class="sep"> / </span>bias</div></div>
+<div class="row" data-s="贷款 loans mortgage"><div class="cn">贷款</div><div class="sy"><b>loans</b><span class="sep"> / </span>mortgage</div></div>
+<div class="row" data-s="回馈 feedback opinion"><div class="cn">回馈</div><div class="sy"><b>feedback</b><span class="sep"> / </span>opinion</div></div>
+<div class="row" data-s="麻烦 nuisance headache trouble"><div class="cn">麻烦</div><div class="sy"><b>nuisance</b><span class="sep"> / </span>headache<span class="sep"> / </span>trouble</div></div>
+<div class="row" data-s="收入 revenue income salary pay"><div class="cn">收入</div><div class="sy"><b>revenue</b><span class="sep"> / </span>income<span class="sep"> / </span>salary<span class="sep"> / </span>pay</div></div>
+<div class="row" data-s="求职者 job seekers job hunters"><div class="cn">求职者</div><div class="sy"><b>job seekers</b><span class="sep"> / </span>job hunters</div></div>
+<div class="row" data-s="灾难 catastrophe disaster"><div class="cn">灾难</div><div class="sy"><b>catastrophe</b><span class="sep"> / </span>disaster</div></div>
+<div class="row" data-s="冲突 disputes conflicts collision"><div class="cn">冲突</div><div class="sy"><b>disputes</b><span class="sep"> / </span>conflicts<span class="sep"> / </span>collision</div></div>
+<div class="row" data-s="疫苗 vaccine shot"><div class="cn">疫苗</div><div class="sy"><b>vaccine</b><span class="sep"> / </span>shot</div></div>
+<div class="row" data-s="学期 semester term"><div class="cn">学期</div><div class="sy"><b>semester</b><span class="sep"> / </span>term</div></div>
+<div class="row" data-s="阻止 prevent stop ban prohibit sb. from doing sth"><div class="cn">阻止</div><div class="sy"><b>prevent</b><span class="sep"> / </span>stop<span class="sep"> / </span>ban<span class="sep"> / </span>prohibit sb. from doing sth</div></div>
+<div class="row" data-s="歧视 discrimination look down upon"><div class="cn">歧视</div><div class="sy"><b>discrimination</b><span class="sep"> / </span>look down upon</div></div>
+<div class="row" data-s="解散 / 开除 dismiss fire lay off"><div class="cn">解散 / 开除</div><div class="sy"><b>dismiss</b><span class="sep"> / </span>fire<span class="sep"> / </span>lay off</div></div>
+<div class="row" data-s="吸收 absorb assimilate"><div class="cn">吸收</div><div class="sy"><b>absorb</b><span class="sep"> / </span>assimilate</div></div>
+<div class="row" data-s="有保留地赞同 agree partly agree with reservation"><div class="cn">有保留地赞同</div><div class="sy"><b>agree partly</b><span class="sep"> / </span>agree with reservation</div></div>
+<div class="row" data-s="以此标准来算 by this criterion by this standard"><div class="cn">以此标准来算</div><div class="sy"><b>by this criterion</b><span class="sep"> / </span>by this standard</div></div>
+<div class="row" data-s="把……奉献于 / 专注于 devote to dedicate to"><div class="cn">把……奉献于 / 专注于</div><div class="sy"><b>devote to</b><span class="sep"> / </span>dedicate to</div></div>
+<div class="row" data-s="期望 / 预期 expect anticipate"><div class="cn">期望 / 预期</div><div class="sy"><b>expect</b><span class="sep"> / </span>anticipate</div></div>
+<div class="row" data-s="宣传 publicize propagandize"><div class="cn">宣传</div><div class="sy"><b>publicize</b><span class="sep"> / </span>propagandize</div></div>
+<div class="row" data-s="古老的 old ancient"><div class="cn">古老的</div><div class="sy"><b>old</b><span class="sep"> / </span>ancient</div></div>
+<div class="row" data-s="著名的 well-known famous prestigious celebrated renowned eminent"><div class="cn">著名的</div><div class="sy"><b>well-known</b><span class="sep"> / </span>famous<span class="sep"> / </span>prestigious<span class="sep"> / </span>celebrated<span class="sep"> / </span>renowned<span class="sep"> / </span>eminent</div></div>
+<div class="row" data-s="偏见 bias prejudice discrimination"><div class="cn">偏见</div><div class="sy"><b>bias</b><span class="sep"> / </span>prejudice<span class="sep"> / </span>discrimination</div></div>
+<div class="row" data-s="大都市 big city metropolis"><div class="cn">大都市</div><div class="sy"><b>big city</b><span class="sep"> / </span>metropolis</div></div>
+<div class="row" data-s="传统 / 习俗 custom convention tradition"><div class="cn">传统 / 习俗</div><div class="sy"><b>custom</b><span class="sep"> / </span>convention<span class="sep"> / </span>tradition</div></div>
+<div class="row" data-s="立法 lawmaking legislation"><div class="cn">立法</div><div class="sy"><b>lawmaking</b><span class="sep"> / </span>legislation</div></div>
+<div class="row" data-s="时不时 from time to time now and then once in a while"><div class="cn">时不时</div><div class="sy"><b>from time to time</b><span class="sep"> / </span>now and then<span class="sep"> / </span>once in a while</div></div>
+<div class="row" data-s="经常 often frequently repeatedly"><div class="cn">经常</div><div class="sy"><b>often</b><span class="sep"> / </span>frequently<span class="sep"> / </span>repeatedly</div></div>
+<div class="row" data-s="一再 time after time again and again"><div class="cn">一再</div><div class="sy"><b>time after time</b><span class="sep"> / </span>again and again</div></div>
+<div class="row" data-s="根据 according to on the basis of on the ground of in the light of in line with in accordance with"><div class="cn">根据</div><div class="sy"><b>according to</b><span class="sep"> / </span>on the basis of<span class="sep"> / </span>on the ground of<span class="sep"> / </span>in the light of<span class="sep"> / </span>in line with<span class="sep"> / </span>in accordance with</div></div>
+<div class="row" data-s="从古至今 from ancient times to the present day down through the ages"><div class="cn">从古至今</div><div class="sy"><b>from ancient times to the present day</b><span class="sep"> / </span>down through the ages</div></div>
+<div class="row" data-s="动力 impetus driving force momentum stimulus root origin factor reason"><div class="cn">动力</div><div class="sy"><b>impetus</b><span class="sep"> / </span>driving force<span class="sep"> / </span>momentum<span class="sep"> / </span>stimulus<span class="sep"> / </span>root<span class="sep"> / </span>origin<span class="sep"> / </span>factor<span class="sep"> / </span>reason</div></div>
+<div class="row" data-s="结果 result aftermath consequence"><div class="cn">结果</div><div class="sy"><b>result</b><span class="sep"> / </span>aftermath<span class="sep"> / </span>consequence<details class="use"><summary>用法</summary><p>the results or effects of something</p></details></div></div>
+<div class="row" data-s="简而言之 put simply in short in brief"><div class="cn">简而言之</div><div class="sy"><b>put simply</b><span class="sep"> / </span>in short<span class="sep"> / </span>in brief</div></div>
+<div class="row" data-s="行为 conduct behavior doings"><div class="cn">行为</div><div class="sy"><b>conduct</b><span class="sep"> / </span>behavior<span class="sep"> / </span>doings</div></div>
+<div class="row" data-s="观点 view viewpoint point of view idea assertion argument perspective"><div class="cn">观点</div><div class="sy"><b>view</b><span class="sep"> / </span>viewpoint<span class="sep"> / </span>point of view<span class="sep"> / </span>idea<span class="sep"> / </span>assertion<span class="sep"> / </span>argument<span class="sep"> / </span>perspective<details class="use"><summary>用法</summary><p>means looking at an event or situation in a particular way</p></details></div></div>
+<div class="row" data-s="来自 stem from come from result from flow from"><div class="cn">来自</div><div class="sy"><b>stem from</b><span class="sep"> / </span>come from<span class="sep"> / </span>result from<span class="sep"> / </span>flow from</div></div>
+<div class="row" data-s="暗淡的 gloomy dark dim"><div class="cn">暗淡的</div><div class="sy"><b>gloomy</b><span class="sep"> / </span>dark<span class="sep"> / </span>dim</div></div>
+<div class="row" data-s="迹象 hint clue a slight suggestion"><div class="cn">迹象</div><div class="sy"><b>hint</b><span class="sep"> / </span>clue<span class="sep"> / </span>a slight suggestion</div></div>
+</section>
+<section class="grp" data-g="09 进阶四 · 表达二"><h2 class="gh"><span class="gn">09 进阶四 · 表达二</span><span class="gc">28 条</span></h2>
+<div class="row" data-s="范围 scope field realm"><div class="cn">范围</div><div class="sy"><b>scope</b><span class="sep"> / </span>field<span class="sep"> / </span>realm</div></div>
+<div class="row" data-s="评估 assess evaluate"><div class="cn">评估</div><div class="sy"><b>assess</b><span class="sep"> / </span>evaluate</div></div>
+<div class="row" data-s="承认 admit acknowledge confess concede"><div class="cn">承认</div><div class="sy"><b>admit</b><span class="sep"> / </span>acknowledge<span class="sep"> / </span>confess<span class="sep"> / </span>concede</div></div>
+<div class="row" data-s="具体的 specific concrete tangible"><div class="cn">具体的</div><div class="sy"><b>specific</b><span class="sep"> / </span>concrete<span class="sep"> / </span>tangible</div></div>
+<div class="row" data-s="模糊的 ambiguous vague obscure"><div class="cn">模糊的</div><div class="sy"><b>ambiguous</b><span class="sep"> / </span>vague<span class="sep"> / </span>obscure<details class="use"><summary>用法</summary><p>unknown or known by only a few people</p></details></div></div>
+<div class="row" data-s="影响深远的 far-reaching profound"><div class="cn">影响深远的</div><div class="sy"><b>far-reaching</b><span class="sep"> / </span>profound</div></div>
+<div class="row" data-s="忍受 bear put up with endure stand"><div class="cn">忍受</div><div class="sy"><b>bear</b><span class="sep"> / </span>put up with<span class="sep"> / </span>endure<span class="sep"> / </span>stand</div></div>
+<div class="row" data-s="证据 evidence facts proof grounds"><div class="cn">证据</div><div class="sy"><b>evidence</b><span class="sep"> / </span>facts<span class="sep"> / </span>proof<span class="sep"> / </span>grounds</div></div>
+<div class="row" data-s="令人惊异的 amazing astonishing astounding"><div class="cn">令人惊异的</div><div class="sy"><b>amazing</b><span class="sep"> / </span>astonishing<span class="sep"> / </span>astounding</div></div>
+<div class="row" data-s="无法避免的 unavoidable inevitable"><div class="cn">无法避免的</div><div class="sy"><b>unavoidable</b><span class="sep"> / </span>inevitable</div></div>
+<div class="row" data-s="理解 understand comprehend catch the meaning of"><div class="cn">理解</div><div class="sy"><b>understand</b><span class="sep"> / </span>comprehend<span class="sep"> / </span>catch the meaning of</div></div>
+<div class="row" data-s="人口爆炸 population explosion population boom"><div class="cn">人口爆炸</div><div class="sy"><b>population explosion</b><span class="sep"> / </span>population boom</div></div>
+<div class="row" data-s="不恰当 inappropriate improper unsuitable"><div class="cn">不恰当</div><div class="sy"><b>inappropriate</b><span class="sep"> / </span>improper<span class="sep"> / </span>unsuitable</div></div>
+<div class="row" data-s="有意义的 meaningful fulfilling"><div class="cn">有意义的</div><div class="sy"><b>meaningful</b><span class="sep"> / </span>fulfilling</div></div>
+<div class="row" data-s="确切地说 to be exact to be precise precisely"><div class="cn">确切地说</div><div class="sy"><b>to be exact</b><span class="sep"> / </span>to be precise<span class="sep"> / </span>precisely</div></div>
+<div class="row" data-s="计划生育 family planning birth control"><div class="cn">计划生育</div><div class="sy"><b>family planning</b><span class="sep"> / </span>birth control</div></div>
+<div class="row" data-s="真正的 genuine authentic real"><div class="cn">真正的</div><div class="sy"><b>genuine</b><span class="sep"> / </span>authentic<span class="sep"> / </span>real</div></div>
+<div class="row" data-s="怪异的 eccentric peculiar odd"><div class="cn">怪异的</div><div class="sy"><b>eccentric</b><span class="sep"> / </span>peculiar<span class="sep"> / </span>odd</div></div>
+<div class="row" data-s="炫耀 boast about show off speak too highly of"><div class="cn">炫耀</div><div class="sy"><b>boast about</b><span class="sep"> / </span>show off<span class="sep"> / </span>speak too highly of</div></div>
+<div class="row" data-s="增长 increase grow climb mount"><div class="cn">增长</div><div class="sy"><b>increase</b><span class="sep"> / </span>grow<span class="sep"> / </span>climb<span class="sep"> / </span>mount</div></div>
+<div class="row" data-s="下降 decrease decline fall reduce"><div class="cn">下降</div><div class="sy"><b>decrease</b><span class="sep"> / </span>decline<span class="sep"> / </span>fall<span class="sep"> / </span>reduce</div></div>
+<div class="row" data-s="波动 go up and down rise and fall fluctuate"><div class="cn">波动</div><div class="sy"><b>go up and down</b><span class="sep"> / </span>rise and fall<span class="sep"> / </span>fluctuate</div></div>
+<div class="row" data-s="性别歧视 gender bias sexual discrimination"><div class="cn">性别歧视</div><div class="sy"><b>gender bias</b><span class="sep"> / </span>sexual discrimination</div></div>
+<div class="row" data-s="文明的社会 a civilized society an enlightened society"><div class="cn">文明的社会</div><div class="sy"><b>a civilized society</b><span class="sep"> / </span>an enlightened society</div></div>
+<div class="row" data-s="家庭暴力 domestic violence family violence"><div class="cn">家庭暴力</div><div class="sy"><b>domestic violence</b><span class="sep"> / </span>family violence</div></div>
+<div class="row" data-s="家庭情感纽带 family bonds family ties"><div class="cn">家庭情感纽带</div><div class="sy"><b>family bonds</b><span class="sep"> / </span>family ties</div></div>
+<div class="row" data-s="广泛使用 the proliferation of the wide use of"><div class="cn">广泛使用</div><div class="sy"><b>the proliferation of</b><span class="sep"> / </span>the wide use of</div></div>
+<div class="row" data-s="祖先 ancestor forefather"><div class="cn">祖先</div><div class="sy"><b>ancestor</b><span class="sep"> / </span>forefather</div></div>
+</section>
+<section class="grp" data-g="10 分类高频"><h2 class="gh"><span class="gn">10 分类高频</span><span class="gc">43 条</span></h2>
+<div class="row" data-s="差劲；弱；不擅长 poor bad not very good weak"><div class="cn">差劲；弱；不擅长</div><div class="sy"><b>poor</b><span class="sep"> / </span>bad<span class="sep"> / </span>not very good<span class="sep"> / </span>weak</div></div>
+<div class="row" data-s="最好的；无人能超越的 unsurpassed top greatest finest best"><div class="cn">最好的；无人能超越的</div><div class="sy"><b>unsurpassed</b><span class="sep"> / </span>top<span class="sep"> / </span>greatest<span class="sep"> / </span>finest<span class="sep"> / </span>best</div></div>
+<div class="row" data-s="惊讶的 astounded startled be taken aback astonished amazed surprised"><div class="cn">惊讶的</div><div class="sy"><b>astounded</b><span class="sep"> / </span>startled<span class="sep"> / </span>be taken aback<span class="sep"> / </span>astonished<span class="sep"> / </span>amazed<span class="sep"> / </span>surprised</div></div>
+<div class="row" data-s="工资；收入 earnings salary income pay wage"><div class="cn">工资；收入</div><div class="sy"><b>earnings</b><span class="sep"> / </span>salary<span class="sep"> / </span>income<span class="sep"> / </span>pay<span class="sep"> / </span>wage</div></div>
+<div class="row" data-s="愤怒；愤慨 rage indignation wrath anger"><div class="cn">愤怒；愤慨</div><div class="sy"><b>rage</b><span class="sep"> / </span>indignation<span class="sep"> / </span>wrath<span class="sep"> / </span>anger</div></div>
+<div class="row" data-s="损失；损坏 destruction loss"><div class="cn">损失；损坏</div><div class="sy"><b>destruction</b><span class="sep"> / </span>loss</div></div>
+<div class="row" data-s="对……有作用；促进 play a part in contribute to"><div class="cn">对……有作用；促进</div><div class="sy"><b>play a part in</b><span class="sep"> / </span>contribute to</div></div>
+<div class="row" data-s="交配 mating courtship"><div class="cn">交配</div><div class="sy"><b>mating</b><span class="sep"> / </span>courtship</div></div>
+<div class="row" data-s="加强；扩大 intensify expand widen"><div class="cn">加强；扩大</div><div class="sy"><b>intensify</b><span class="sep"> / </span>expand<span class="sep"> / </span>widen</div></div>
+<div class="row" data-s="过时的；传统的 unfashionable old-fashioned outmoded outdated traditional"><div class="cn">过时的；传统的</div><div class="sy"><b>unfashionable</b><span class="sep"> / </span>old-fashioned<span class="sep"> / </span>outmoded<span class="sep"> / </span>outdated<span class="sep"> / </span>traditional</div></div>
+<div class="row" data-s="不发达的 rudimentary degenerated underdeveloped"><div class="cn">不发达的</div><div class="sy"><b>rudimentary</b><span class="sep"> / </span>degenerated<span class="sep"> / </span>underdeveloped</div></div>
+<div class="row" data-s="面对；遇到 confront face encounter meet"><div class="cn">面对；遇到</div><div class="sy"><b>confront</b><span class="sep"> / </span>face<span class="sep"> / </span>encounter<span class="sep"> / </span>meet</div></div>
+<div class="row" data-s="指导；教导 instruct coach train teach"><div class="cn">指导；教导</div><div class="sy"><b>instruct</b><span class="sep"> / </span>coach<span class="sep"> / </span>train<span class="sep"> / </span>teach</div></div>
+<div class="row" data-s="责任；义务 accountability liability responsibility obligation duty"><div class="cn">责任；义务</div><div class="sy"><b>accountability</b><span class="sep"> / </span>liability<span class="sep"> / </span>responsibility<span class="sep"> / </span>obligation<span class="sep"> / </span>duty</div></div>
+<div class="row" data-s="改变 modify alter change"><div class="cn">改变</div><div class="sy"><b>modify</b><span class="sep"> / </span>alter<span class="sep"> / </span>change<details class="use"><summary>用法</summary><p>change into another form</p></details></div></div>
+<div class="row" data-s="查明；判断；鉴定 pinpoint diagnose identify"><div class="cn">查明；判断；鉴定</div><div class="sy"><b>pinpoint</b><span class="sep"> / </span>diagnose<span class="sep"> / </span>identify</div></div>
+<div class="row" data-s="持久的 prolonged enduring abiding lingering"><div class="cn">持久的</div><div class="sy"><b>prolonged</b><span class="sep"> / </span>enduring<span class="sep"> / </span>abiding<span class="sep"> / </span>lingering</div></div>
+<div class="row" data-s="长期的 chronic lasting long-standing long-running long-term"><div class="cn">长期的</div><div class="sy"><b>chronic</b><span class="sep"> / </span>lasting<span class="sep"> / </span>long-standing<span class="sep"> / </span>long-running<span class="sep"> / </span>long-term</div></div>
+<div class="row" data-s="联系 link to be connected to be linked to"><div class="cn">联系</div><div class="sy"><b>link to</b><span class="sep"> / </span>be connected to<span class="sep"> / </span>be linked to</div></div>
+<div class="row" data-s="跟踪；跟随 stalk track tail follow"><div class="cn">跟踪；跟随</div><div class="sy"><b>stalk</b><span class="sep"> / </span>track<span class="sep"> / </span>tail<span class="sep"> / </span>follow</div></div>
+<div class="row" data-s="最合适的；理想的 optimum ideal"><div class="cn">最合适的；理想的</div><div class="sy"><b>optimum</b><span class="sep"> / </span>ideal</div></div>
+<div class="row" data-s="相似的 resemble similar alike"><div class="cn">相似的</div><div class="sy"><b>resemble</b><span class="sep"> / </span>similar<span class="sep"> / </span>alike</div></div>
+<div class="row" data-s="上升 escalate climb grow increase rise go up"><div class="cn">上升</div><div class="sy"><b>escalate</b><span class="sep"> / </span>climb<span class="sep"> / </span>grow<span class="sep"> / </span>increase<span class="sep"> / </span>rise<span class="sep"> / </span>go up</div></div>
+<div class="row" data-s="多样的 varied wide-ranging diverse mixed"><div class="cn">多样的</div><div class="sy"><b>varied</b><span class="sep"> / </span>wide-ranging<span class="sep"> / </span>diverse<span class="sep"> / </span>mixed</div></div>
+<div class="row" data-s="天才；有天赋 genius be endowed with talent when one was born"><div class="cn">天才；有天赋</div><div class="sy"><b>genius</b><span class="sep"> / </span>be endowed with talent when one was born</div></div>
+<div class="row" data-s="不愿意 reluctant unwilling not willing drag one's feet be loath to do"><div class="cn">不愿意</div><div class="sy"><b>reluctant</b><span class="sep"> / </span>unwilling<span class="sep"> / </span>not willing<span class="sep"> / </span>drag one's feet<span class="sep"> / </span>be loath to do</div></div>
+<div class="row" data-s="咨询 consult seek advice"><div class="cn">咨询</div><div class="sy"><b>consult</b><span class="sep"> / </span>seek advice</div></div>
+<div class="row" data-s="发明 invent be the first one to create make"><div class="cn">发明</div><div class="sy"><b>invent</b><span class="sep"> / </span>be the first one to create<span class="sep"> / </span>make</div></div>
+<div class="row" data-s="错误观点 misconception mistaken view"><div class="cn">错误观点</div><div class="sy"><b>misconception</b><span class="sep"> / </span>mistaken view</div></div>
+<div class="row" data-s="忽略 pay no attention not pay any attention take no notice not take any notice ignore"><div class="cn">忽略</div><div class="sy"><b>pay no attention</b><span class="sep"> / </span>not pay any attention<span class="sep"> / </span>take no notice<span class="sep"> / </span>not take any notice<span class="sep"> / </span>ignore</div></div>
+<div class="row" data-s="容易达到的 accessible easy to reach"><div class="cn">容易达到的</div><div class="sy"><b>accessible</b><span class="sep"> / </span>easy to reach</div></div>
+<div class="row" data-s="地理位置 geographical location where"><div class="cn">地理位置</div><div class="sy"><b>geographical location</b><span class="sep"> / </span>where</div></div>
+<div class="row" data-s="媒体 media newspaper, television"><div class="cn">媒体</div><div class="sy"><b>media</b><span class="sep"> / </span>newspaper, television</div></div>
+<div class="row" data-s="自愿的；自主的 initiative on your own initiative on your own by yourself"><div class="cn">自愿的；自主的</div><div class="sy"><b>initiative</b><span class="sep"> / </span>on your own initiative<span class="sep"> / </span>on your own<span class="sep"> / </span>by yourself</div></div>
+<div class="row" data-s="双语的 bilingual to be able to speak two languages"><div class="cn">双语的</div><div class="sy"><b>bilingual</b><span class="sep"> / </span>to be able to speak two languages</div></div>
+<div class="row" data-s="年轻人 adolescent teenager youth young people"><div class="cn">年轻人</div><div class="sy"><b>adolescent</b><span class="sep"> / </span>teenager<span class="sep"> / </span>youth<span class="sep"> / </span>young people</div></div>
+<div class="row" data-s="不可避免的 inevitable certain to happen cannot avoid"><div class="cn">不可避免的</div><div class="sy"><b>inevitable</b><span class="sep"> / </span>certain to happen<span class="sep"> / </span>cannot avoid</div></div>
+<div class="row" data-s="支付得起 afford be able to pay"><div class="cn">支付得起</div><div class="sy"><b>afford</b><span class="sep"> / </span>be able to pay</div></div>
+<div class="row" data-s="居住地 habitat where to live"><div class="cn">居住地</div><div class="sy"><b>habitat</b><span class="sep"> / </span>where to live</div></div>
+<div class="row" data-s="全球变暖 global warming get warmer"><div class="cn">全球变暖</div><div class="sy"><b>global warming</b><span class="sep"> / </span>get warmer</div></div>
+<div class="row" data-s="存活 survive continue to exist"><div class="cn">存活</div><div class="sy"><b>survive</b><span class="sep"> / </span>continue to exist</div></div>
+<div class="row" data-s="失败 fruitless fail unsuccessful fall through not succeed"><div class="cn">失败</div><div class="sy"><b>fruitless</b><span class="sep"> / </span>fail<span class="sep"> / </span>unsuccessful<span class="sep"> / </span>fall through<span class="sep"> / </span>not succeed</div></div>
+<div class="row" data-s="研究；探查 probe make inquiries investigate look into"><div class="cn">研究；探查</div><div class="sy"><b>probe</b><span class="sep"> / </span>make inquiries<span class="sep"> / </span>investigate<span class="sep"> / </span>look into</div></div>
+</section>
+  <div class="empty" id="empty">没有匹配的词条，换个关键词试试。</div>
+</div>
+
+<!-- 抽卡 -->
+<div class="pane" id="pane-cards">
+  <div class="cardzone">
+    <div class="scope" id="scope"></div>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="fc" id="fc">
+      <div class="qh" id="qh">准备开始</div>
+      <div class="q" id="qcn">点击「开始」</div>
+      <div class="a" id="qen"></div>
+      <div class="an" id="qnote"></div>
+    </div>
+    <div class="ops" id="ops">
+      <button class="primary" id="start">开始抽卡</button>
+    </div>
+    <div class="meta" id="meta">先选范围，再开始；空格的按键可翻面</div>
+    <div class="kbd"><kbd>空格</kbd> 翻面　<kbd>1</kbd> 记住了　<kbd>2</kbd> 再说一遍</div>
+  </div>
+</div>
+
+<!-- 订正 -->
+<div class="pane" id="pane-fix">
+  <p class="lede" style="margin-bottom:14px">原稿保留在左列（划掉处为改动项），右列是订正写法与理由。同义替换用错比不用更扣分，这一页建议先扫一遍。</p>
+  <table class="fixtbl">
+    <tr><th>词条</th><th>原稿</th><th>订正</th><th>理由</th></tr>
+<tr><td class="fc">普遍的</td><td class="fo">everywhere = widespread = overflow = rampant</td><td class="fn">widespread / pervasive；rampant（多指负面）</td><td class="fw">everywhere 是副词；overflow 是「溢出」；rampant 带贬义</td></tr>
+<tr><td class="fc">Only（只有）</td><td class="fo">just / merely / barely / singly / solely / rarely</td><td class="fn">just / merely / solely</td><td class="fw">barely「几乎不」、rarely「很少」、singly「单个地」，都不是「只有」</td></tr>
+<tr><td class="fc">Firstly（首先）</td><td class="fo">previously / beforehand / foremost / initially</td><td class="fn">first of all / to begin with / initially</td><td class="fw">previously、beforehand 是「先前」，不是顺序上的「首先」</td></tr>
+<tr><td class="fc">Then（然后）</td><td class="fo">… secondarily / succeeding（adj.）/ what is more</td><td class="fn">subsequently / afterward / furthermore</td><td class="fw">secondarily 生僻；succeeding 是形容词，不能并列</td></tr>
+<tr><td class="fc">Lastly（最后）</td><td class="fo">ultimately / eventually / in conclusion</td><td class="fn">finally / in conclusion / last but not least</td><td class="fw">ultimately、eventually 强调「最终结果」，不是列举收尾</td></tr>
+<tr><td class="fc">And（和）</td><td class="fo">plus / as well as / along with / in addition / bonus / with</td><td class="fn">plus / as well as / in addition</td><td class="fw">bonus 是名词「额外好处」，不能当连词</td></tr>
+<tr><td class="fc">Or（或者）</td><td class="fo">otherwise / if not / before / or else</td><td class="fn">otherwise / or else</td><td class="fw">before 不表选择关系</td></tr>
+<tr><td class="fc">So（所以）</td><td class="fo">… hence / that's why</td><td class="fn">therefore / thus / consequently / hence</td><td class="fw">that's why 属口语，书面慎用</td></tr>
+<tr><td class="fc">有吸引力</td><td class="fo">attract / appeal to / be appealing to / be attractive to / be attracted to</td><td class="fn">be appealing to / be attractive to</td><td class="fw">be attracted to 是「被吸引」，主客颠倒</td></tr>
+<tr><td class="fc">邻近的</td><td class="fo">near / adjacent / adjoin</td><td class="fn">near / adjacent to</td><td class="fw">adjoin 是动词，且意为「毗连」</td></tr>
+<tr><td class="fc">永久的</td><td class="fo">forever / perpetual / immutable</td><td class="fn">permanent / perpetual / immutable</td><td class="fw">forever 是副词，不能作定语</td></tr>
+<tr><td class="fc">狭窄的</td><td class="fo">narrow = limited / restricted / tighten</td><td class="fn">narrow / limited / restricted</td><td class="fw">tighten 是动词「收紧」</td></tr>
+<tr><td class="fc">固定</td><td class="fo">fix = attach</td><td class="fn">fix / fasten / attach</td><td class="fw">attach 是「附上」，与「固定」不同义</td></tr>
+<tr><td class="fc">简历</td><td class="fo">resume = hand in</td><td class="fn">résumé / CV</td><td class="fw">hand in 是「上交」</td></tr>
+<tr><td class="fc">导师</td><td class="fo">supervisor = tutor = 负责人 in charge</td><td class="fn">supervisor / tutor / advisor</td><td class="fw">混入了中文释义，不成词条</td></tr>
+<tr><td class="fc">破产</td><td class="fo">bankrupt = shut down</td><td class="fn">go bankrupt / go out of business</td><td class="fw">bankrupt 是形容词/动词；shut down 是「关停」</td></tr>
+<tr><td class="fc">灭绝</td><td class="fo">extinct = die out</td><td class="fn">become extinct / die out</td><td class="fw">extinct 是形容词，不能与动词短语并列</td></tr>
+<tr><td class="fc">二氧化碳</td><td class="fo">carbon dioxide = greenhouse gas</td><td class="fn">carbon dioxide</td><td class="fw">二氧化碳只是温室气体的一种，不能划等号</td></tr>
+<tr><td class="fc">药方</td><td class="fo">remedy = prescription</td><td class="fn">prescription / remedy</td><td class="fw">prescription 是处方；remedy 是疗法</td></tr>
+<tr><td class="fc">反馈</td><td class="fo">feedback = opinion</td><td class="fn">feedback / response</td><td class="fw">opinion 只是「意见」，不含「反馈」义</td></tr>
+<tr><td class="fc">贷款</td><td class="fo">loans = mortgage</td><td class="fn">loan / mortgage</td><td class="fw">mortgage 专指抵押贷款、房贷</td></tr>
+<tr><td class="fc">歧视</td><td class="fo">discrimination = look down upon</td><td class="fn">discrimination / discriminate against</td><td class="fw">look down upon 是「看不起」，词性与程度都不同</td></tr>
+<tr><td class="fc">宣传</td><td class="fo">publicize = propagandize</td><td class="fn">publicize / promote</td><td class="fw">propagandize 带贬义，考试不宜</td></tr>
+<tr><td class="fc">结果</td><td class="fo">result = aftermath / consequence</td><td class="fn">result / consequence</td><td class="fw">aftermath 多指灾难、战乱后的后果</td></tr>
+<tr><td class="fc">动力</td><td class="fo">impetus = driving force / momentum</td><td class="fn">impetus / driving force</td><td class="fw">momentum 是「势头」，不是动力</td></tr>
+<tr><td class="fc">行为</td><td class="fo">conduct = behavior / doings</td><td class="fn">conduct / behavior</td><td class="fw">doings 少用且偏口语</td></tr>
+<tr><td class="fc">有意义的</td><td class="fo">meaningful = fulfilling</td><td class="fn">meaningful</td><td class="fw">fulfilling 指「让人有成就感的」</td></tr>
+<tr><td class="fc">性别歧视</td><td class="fo">gender bias = sexual discrimination</td><td class="fn">gender discrimination / sexism</td><td class="fw">固定说法是 gender discrimination</td></tr>
+<tr><td class="fc">计划生育</td><td class="fo">family planning = birth control</td><td class="fn">family planning</td><td class="fw">birth control 是「避孕」，范围不同</td></tr>
+<tr><td class="fc">广泛使用</td><td class="fo">the proliferation of = the wide use of</td><td class="fn">the wide use of / the spread of</td><td class="fw">proliferation 多指（负面）激增</td></tr>
+<tr><td class="fc">天才</td><td class="fo">genius = be endowed with talent when one was born</td><td class="fn">a born genius / be endowed with talent</td><td class="fw">原句语法不通、冗长难用</td></tr>
+<tr><td class="fc">地理位置</td><td class="fo">geographical location = where</td><td class="fn">geographical location / location</td><td class="fw">where 是疑问/关系副词，不能作名词</td></tr>
+<tr><td class="fc">媒体</td><td class="fo">media = newspaper, television</td><td class="fn">the media / news outlets</td><td class="fw">漏了广播与网络，且 media 通常带 the</td></tr>
+<tr><td class="fc">全球变暖</td><td class="fo">global warming = get warmer</td><td class="fn">global warming / climate warming</td><td class="fw">get warmer 是口语描述，不是术语</td></tr>
+<tr><td class="fc">居住地</td><td class="fo">habitat = where to live</td><td class="fn">habitat / living environment</td><td class="fw">where to live 不成短语</td></tr>
+<tr><td class="fc">发明</td><td class="fo">invent = be the first one to create / make</td><td class="fn">invent / devise / come up with</td><td class="fw">原解释不准确，也不是同义表达</td></tr>
+<tr><td class="fc">赞扬</td><td class="fo">praise = compliment（polite and political）</td><td class="fn">praise / compliment</td><td class="fw">political 疑为 polite 的笔误；compliment 是「恭维」</td></tr>
+<tr><td class="fc">竞争</td><td class="fo">competition = rival；opponent</td><td class="fn">competitor / rival / opponent</td><td class="fw">competition 是「比赛」，rival 才是「对手」</td></tr>
+<tr><td class="fc">初级的 / 基本的</td><td class="fo">primary / radical / fundamental</td><td class="fn">primary / fundamental / basic</td><td class="fw">radical 是「激进的；根本的」</td></tr>
+<tr><td class="fc">明显的</td><td class="fo">obvious / apparent / remarkable</td><td class="fn">obvious / apparent / evident</td><td class="fw">remarkable 是「显著的、了不起的」</td></tr>
+<tr><td class="fc">敏感的</td><td class="fo">sensitive = delicate</td><td class="fn">sensitive / delicate</td><td class="fw">delicate 多指「微妙的、易碎的」</td></tr>
+<tr><td class="fc">简洁的</td><td class="fo">concise / brief / succinct / compact</td><td class="fn">concise / brief / succinct</td><td class="fw">compact 指「紧凑、小巧」</td></tr>
+<tr><td class="fc">有害的</td><td class="fo">harmful = inhumane = detrimental = baneful</td><td class="fn">harmful / detrimental / harmful to health</td><td class="fw">inhumane 是「不人道的」，形容对待人的方式</td></tr>
+<tr><td class="fc">喜欢</td><td class="fo">… be addicted to / be hooked on</td><td class="fn">be fond of / be keen on / have a passion for</td><td class="fw">addicted to、hooked on 都含「上瘾」的贬义</td></tr>
+<tr><td class="fc">提高意识</td><td class="fo">awake people's awareness of</td><td class="fn">raise / arouse people's awareness of</td><td class="fw">awake 作动词是「醒来」，此处应为 awaken 或用 raise</td></tr>
+<tr><td class="fc">共同的</td><td class="fo">common = universal</td><td class="fn">common / shared</td><td class="fw">universal 是「普遍的、全体的」，与「共同的」不等义</td></tr>
+  </table>
+</div>
+
+</main>
+
+<footer class="wrap">
+  <span>四六级同义替换 · 十组合并 312 条　｜　系列：<a href="translation-topics.html">主题常考词</a> · <a href="translation-structures.html">句式 22 讲</a> · <a href="translation-advanced.html">高级加分词汇</a></span>
+  <span>用法注释取自原文「区分细节版」，订正见「订正记录」</span>
+</footer>
+
+<script>
+const DATA = [{"c":"贫穷的","s":["poor","needy","impoverished","poverty-stricken"],"g":"01 基础高频","n":""},{"c":"富裕的 / 富有的","s":["rich","wealthy","affluent","well-to-do","well-off"],"g":"01 基础高频","n":""},{"c":"优秀的","s":["excellent","eminent","top","outstanding","exceptional","brilliant","impressive","admirable"],"g":"01 基础高频","n":""},{"c":"积极的 / 好的","s":["good","conducive","beneficial","advantageous"],"g":"01 基础高频","n":""},{"c":"消极的 / 不良的","s":["bad","detrimental","baneful","undesirable","harmful","negative","damaging"],"g":"01 基础高频","n":""},{"c":"有害的","s":["harmful","inhumane","detrimental","baneful"],"g":"01 基础高频","n":""},{"c":"明显的","s":["obvious","apparent","evident","manifest","remarkable"],"g":"01 基础高频","n":"can see or notice them very easily"},{"c":"健康的","s":["healthy","robust","sound","wholesome"],"g":"01 基础高频","n":""},{"c":"惊人的","s":["surprising","amazing","extraordinary","miraculous"],"g":"01 基础高频","n":""},{"c":"美丽的","s":["beautiful","attractive","gorgeous","eye-catching"],"g":"01 基础高频","n":""},{"c":"有活力的","s":["energetic","dynamic","vigorous","animated"],"g":"01 基础高频","n":""},{"c":"流行的","s":["popular","prevailing","prevalent","pervasive"],"g":"01 基础高频","n":""},{"c":"普遍的","s":["everywhere","widespread","overflow","rampant"],"g":"01 基础高频","n":""},{"c":"严重的","s":["serious","severe"],"g":"01 基础高频","n":""},{"c":"转折","s":["But","however","moreover","nevertheless","nonetheless","on the contrary","on the other hand","although","even though","though","even if","while","as","despite the fact that"],"g":"01 基础高频","n":""},{"c":"只有/仅仅","s":["Only","just","merely","barely","singly","solely","rarely"],"g":"01 基础高频","n":"the only one of its kind"},{"c":"非常","s":["very","extremely","acutely","decidedly","deeply","exceedingly","greatly","highly","uncommonly","profoundly","unusually"],"g":"01 基础高频","n":""},{"c":"首先","s":["Firstly","previously","beforehand","foremost","initially","originally","principally","mainly","essentially","basically","generally","commonly","universally","on the whole","fundamentally","to begin with","to start with","first of all","at the outset"],"g":"01 基础高频","n":""},{"c":"然后","s":["Then","subsequently","afterward","thereafter","after that","succeeding","secondarily","what is more","furthermore"],"g":"01 基础高频","n":""},{"c":"最后","s":["Lastly","ultimately","eventually","in conclusion","to conclude","as a final point","last of all","last but not least","finally"],"g":"01 基础高频","n":""},{"c":"也/太","s":["Too","as well","in addition","besides","moreover","additionally","excessively","also"],"g":"01 基础高频","n":""},{"c":"和/并且","s":["And","plus","as well as","along with","in addition","bonus","with"],"g":"01 基础高频","n":""},{"c":"或者","s":["Or","otherwise","if not","before","or else"],"g":"01 基础高频","n":""},{"c":"所以","s":["So","therefore","thus","consequently","accordingly","as a result","for that reason","hence","that's why"],"g":"01 基础高频","n":""},{"c":"替代","s":["replace","stand for","substitute for","take the place of","represent"],"g":"02 动词","n":""},{"c":"区分","s":["identify","distinguish...from","distinguish the difference between...and"],"g":"02 动词","n":""},{"c":"完成","s":["fulfill","accomplish","finish","complete","get through with sth","go through with sth","achieve","reach","attain"],"g":"02 动词","n":""},{"c":"重视","s":["pay more attention to","lay emphasis on","attach importance or significance to"],"g":"02 动词","n":""},{"c":"反对","s":["be against","oppose","object to","be opposed to","argue against","make a stand against"],"g":"02 动词","n":""},{"c":"参加","s":["take","join in","take part in","get involved in","participate in","go in for"],"g":"02 动词","n":""},{"c":"赞成","s":["be for","favor","in favor of","approve of","be on one's side","argue for","take a stand for"],"g":"02 动词","n":""},{"c":"导致","s":["cause","lead to","result in","bring about","contribute to","account for","give birth to","give rise to"],"g":"02 动词","n":""},{"c":"喜欢","s":["be fond of","enjoy","take pleasure in","be interested in","take interest in","be keen on","be addicted to","be hooked on","have a passion for","have a great enthusiasm for","have a preference for"],"g":"02 动词","n":""},{"c":"做调查","s":["conduct or carry out a survey","an investigation"],"g":"02 动词","n":""},{"c":"经历","s":["undergo","experience","go through"],"g":"02 动词","n":""},{"c":"感激","s":["appreciate","be grateful to","be thankful to"],"g":"02 动词","n":""},{"c":"认为 / 宣称","s":["believe","insist","maintain","hold","argue","assert","declare","claim"],"g":"02 动词","n":""},{"c":"容纳","s":["admit","accommodate","contain","hold","seat"],"g":"02 动词","n":""},{"c":"适合","s":["be suited to","be suitable for","be fit for"],"g":"02 动词","n":""},{"c":"处理","s":["deal with","do with","cope with","handle"],"g":"02 动词","n":""},{"c":"记住","s":["bear sth. in mind","learn sth. by heart"],"g":"02 动词","n":""},{"c":"充当","s":["act as","serve as","work as","function as"],"g":"02 动词","n":""},{"c":"确保","s":["see to it that","make sure that","ensure that"],"g":"02 动词","n":""},{"c":"当心","s":["watch out","look out","take care","be careful"],"g":"02 动词","n":""},{"c":"表明","s":["indicate","suggest","show","imply","make clear","demonstrate"],"g":"02 动词","n":"to demonstrate a fact means to make it clear to people."},{"c":"依靠","s":["depend on","rely on","be dependent on","count on"],"g":"02 动词","n":""},{"c":"总计","s":["total to","come to","amount to","add up to","reach"],"g":"02 动词","n":""},{"c":"熬夜","s":["stay up","sit up","be up late","far deep into the night"],"g":"02 动词","n":""},{"c":"考虑","s":["take account of","take sth. into account","take sth. into consideration","consider","take...into account"],"g":"02 动词","n":""},{"c":"建立","s":["establish","found","build","create","set up","put up","construct","erect"],"g":"02 动词","n":"you can erect something as buildings"},{"c":"说服","s":["persuade sb. into doing sth","persuade sb. to do sth"],"g":"02 动词","n":""},{"c":"厌烦","s":["be bored with","be fed up with","be tired of","be sick of"],"g":"02 动词","n":""},{"c":"致力于","s":["bend","devote","apply","commit","offer oneself to doing sth"],"g":"03 动词短语","n":""},{"c":"有益于","s":["do good to","benefit","be of benefit to","be beneficial to"],"g":"03 动词短语","n":""},{"c":"开始做","s":["go about doing","set about doing","get down to doing","set out to do"],"g":"03 动词短语","n":""},{"c":"尽全力","s":["do one's best","spare no effort","make every effort","do everything that sb. can","go all out","strain every nerve"],"g":"03 动词短语","n":""},{"c":"高度评价","s":["speak highly of","sing high praise for"],"g":"03 动词短语","n":""},{"c":"解决问题","s":["solve","settle","fix","work out the problem"],"g":"03 动词短语","n":""},{"c":"由……组成","s":["consist of","be made up of","be composed of"],"g":"03 动词短语","n":""},{"c":"照顾","s":["care for","take care of","look after","attend to","tend to","take charge of","watch over"],"g":"03 动词短语","n":""},{"c":"对……有影响","s":["affect","influence","have an impact on","have an effect on","have an influence on"],"g":"03 动词短语","n":""},{"c":"提出问题","s":["bring forward","put forward","raise","come up with","bring up a problem"],"g":"03 动词短语","n":""},{"c":"有吸引力","s":["attract","appeal to","be appealing to","be attractive to","be attracted to"],"g":"03 动词短语","n":""},{"c":"对……负责","s":["be in charge of","take charge of","be responsible for","take responsibility for"],"g":"03 动词短语","n":""},{"c":"把……当成","s":["see","view","regard","treat","consider","think of...as"],"g":"03 动词短语","n":""},{"c":"达成协议","s":["make","reach","arrive at","come to","work out an agreement","make terms","come to terms"],"g":"03 动词短语","n":""},{"c":"充分利用","s":["make full use of","make the most of","take advantage of","make the best of"],"g":"03 动词短语","n":""},{"c":"留下印象","s":["impress sth. on sb","impress sb. with","make a deep impression on sb","leave a deep impression on sb"],"g":"03 动词短语","n":""},{"c":"全神贯注","s":["center on","focus on","concentrate on","fix one's attention on","put one's heart into","be absorbed in","be buried in","be lost in","be engaged in","be occupied in"],"g":"03 动词短语","n":""},{"c":"与……有联系","s":["be associated with","be linked with","be connected with","be related to","have sth. to do with"],"g":"03 动词短语","n":""},{"c":"做事有困难","s":["have difficulty (in) doing sth","have trouble (in) doing sth","have difficulty with sth","have trouble with sth"],"g":"03 动词短语","n":""},{"c":"担心","s":["be worried about","be concerned about","be anxious about"],"g":"03 动词短语","n":"if you fret about something, you worry about it"},{"c":"耗尽","s":["use sth. up","run out of sth","sth. give out","exhaust"],"g":"03 动词短语","n":""},{"c":"满足需求","s":["meet one's need","satisfy one's need","suit one's need","fulfill one's need","cater to one's need"],"g":"03 动词短语","n":""},{"c":"摆脱……的习惯","s":["kick the habit of doing sth","break the habit of doing sth","get out of the habit of doing sth","fall out of the habit of doing sth"],"g":"03 动词短语","n":""},{"c":"促进……的发展","s":["accelerate the development of sth","promote the development of sth","stimulate the development of sth","advance the development of sth"],"g":"03 动词短语","n":""},{"c":"提高……的意识","s":["raise people's awareness of","increase people's awareness of","sharpen people's awareness of","strengthen people's awareness of","awake people's awareness of","arouse people's awareness of"],"g":"03 动词短语","n":""},{"c":"养成……的习惯","s":["form the habit of doing sth","fall into the habit of doing sth","get into the habit of doing sth","pick up the habit of doing sth","develop the habit of doing sth","slide into the habit of doing sth"],"g":"03 动词短语","n":""},{"c":"与……和谐相处","s":["live in harmony with","be at peace with","live in peace with","get on well with","get along well with"],"g":"03 动词短语","n":""},{"c":"面临困难","s":["be faced with","face","confront","encounter difficulty"],"g":"03 动词短语","n":""},{"c":"坚持","s":["stick","adhere","cling"],"g":"04 词义辨析","n":"hold on something tightly"},{"c":"忽视 / 忽略","s":["neglect","ignore"],"g":"04 词义辨析","n":"difference: ignore means no attention; neglect means someone has not paid enough attention to something."},{"c":"追求 / 寻求","s":["pursue","seek"],"g":"04 词义辨析","n":"if you seek sth., you try to obtain it."},{"c":"责备 / 归咎于","s":["blame","condemn"],"g":"04 词义辨析","n":"if you condemn something, you say it is very bad and unacceptable"},{"c":"侮辱 / 辱骂","s":["insult","humiliate"],"g":"04 词义辨析","n":"do something or say something which makes people feel ashamed or stupid"},{"c":"抱怨","s":["complain","grumble"],"g":"04 词义辨析","n":"complain something in a bad-tempered way"},{"c":"解除 / 减轻","s":["relieve","alleviate"],"g":"04 词义辨析","n":"alleviate means you make pain or sufferings less intense or severe"},{"c":"促使 / 强迫","s":["force","compel"],"g":"04 词义辨析","n":""},{"c":"避开 / 避免","s":["avoid","shun","escape"],"g":"04 词义辨析","n":"if someone shuns something, she/he deliberately avoid that something or keep away from it."},{"c":"毁灭 / 毁坏","s":["ruin","devastate"],"g":"04 词义辨析","n":"damage something very badly, or utterly destroy it."},{"c":"使震惊 / 使惊奇","s":["surprise","startle","astound","astonish"],"g":"04 词义辨析","n":"it means to surprise you slightly；surprise you to a large degree；the same as astound"},{"c":"重要的","s":["important","significant","vital","key","crucial","essential"],"g":"04 词义辨析","n":"extremely important；amount or effect large enough to be important"},{"c":"古代的 / 陈旧的","s":["ancient","archaic","antique","aged"],"g":"04 词义辨析","n":"extremely old and extremely old-fashioned"},{"c":"充足的 / 丰富的","s":["adequate","abundant","sufficient"],"g":"04 词义辨析","n":""},{"c":"大量的","s":["a host of","a vast number of","a vast amount of","a great deal of","big","massive","tremendous"],"g":"04 词义辨析","n":"large in size, quantity, or extent"},{"c":"共同的 / 通用的","s":["common","universal"],"g":"04 词义辨析","n":""},{"c":"邻近的","s":["near","adjacent","adjoin"],"g":"04 词义辨析","n":"two things next to each other；the same as adjacent"},{"c":"精确的","s":["accurate","precise","exact"],"g":"04 词义辨析","n":"precise is exact and accurate in all details"},{"c":"最高的 / 最优的","s":["top","peak","summit"],"g":"04 词义辨析","n":""},{"c":"初级的 / 基本的","s":["primary","radical","fundamental"],"g":"04 词义辨析","n":"very important and great in degree"},{"c":"勤勉的","s":["hard-working","industrious"],"g":"04 词义辨析","n":""},{"c":"费力的","s":["difficult","arduous"],"g":"04 词义辨析","n":"if something is arduous, it is difficult and tiring, and involves a lot of efforts"},{"c":"贫瘠的","s":["poor","barren","infertile"],"g":"04 词义辨析","n":"soil；used to describe the soil is so poor that plants cannot be planted on it"},{"c":"易碎的 / 易受攻击的","s":["fragile","vulnerable"],"g":"04 词义辨析","n":"someone who is vulnerable is easily hurt emotionally or physically"},{"c":"公平的","s":["fair","impartial"],"g":"04 词义辨析","n":"someone who is impartial is able to give a fair opinion or decision on something."},{"c":"永久的","s":["forever","perpetual","immutable"],"g":"04 词义辨析","n":"a perpetual state never changes；something immutable will never change or be changed"},{"c":"沉闷的 / 乏味的","s":["boring","tedious"],"g":"04 词义辨析","n":"if you describe something tedious, you mean it is boring and frustrating"},{"c":"危险的","s":["dangerous","perilous","hazard","danger"],"g":"04 词义辨析","n":"very dangerous；dangerous, especially to people's safety and health"},{"c":"湿润的 / 潮湿的","s":["wet","moist","damp","humid"],"g":"04 词义辨析","n":"slightly wet；slightly wet；very damp and hot"},{"c":"特别的 / 具体的","s":["typical","characteristic","distinctive","representative"],"g":"04 词义辨析","n":""},{"c":"攻击 / 袭击","s":["attack","assault"],"g":"05 速记与扩展","n":"physically attack someone"},{"c":"讨厌","s":["dislike","hate"],"g":"05 速记与扩展","n":""},{"c":"固定","s":["fix","attach"],"g":"05 速记与扩展","n":""},{"c":"一直 / 总是","s":["always","invariably"],"g":"05 速记与扩展","n":"the same as always, but better than always"},{"c":"会议/会面","s":["Meeting","conference","discussion","assembly","conclave","congress","convention","gathering","session","assignation","encounter","confrontation","argument","controversy"],"g":"05 速记与扩展","n":""},{"c":"学习/研究","s":["Study","learning","application","lessons","reading","research","school","work","examination","analysis","consideration","contemplation","inspection","investigation","knowledge","scholarship"],"g":"05 速记与扩展","n":""},{"c":"优势/好处","s":["Advantage","benefit","dominance","precedence","profit","superiority","merit"],"g":"05 速记与扩展","n":""},{"c":"劣势/不足","s":["Disadvantage","shortcoming","weakness","inconvenience","drawback","deficiency","flaw","handicap","downside","limitation"],"g":"05 速记与扩展","n":""},{"c":"使印象深刻","s":["Impress","affect","inspire","engrave on","imprint of"],"g":"05 速记与扩展","n":""},{"c":"停止","s":["Stop","halt","cease","conclude","desist","end","pause","put an end to","quit","refrain","shut down","terminate"],"g":"05 速记与扩展","n":"if something ceases, it stops happening or existing"},{"c":"制造/使得","s":["Make","create","assemble","build","construct","form","manufacture","force","cause","compel","constrain","drive","impel","induce","oblige","prevail upon"],"g":"05 速记与扩展","n":""},{"c":"给予","s":["Give","present","award","contribute","deliver","donate","grant","hand over","hand out","provide","supply"],"g":"05 速记与扩展","n":""},{"c":"打破/分开","s":["Break","separate","burst","crack","destroy","disintegrate","fracture","fragment","shatter","smash","snap"],"g":"05 速记与扩展","n":""},{"c":"摧毁","s":["Destroy","ruin","raze","annihilate","crush","demolish","devastate","eradicate","shatter","wipe out","wreck","obliterate","weaken","undermine"],"g":"05 速记与扩展","n":""},{"c":"分析 / 研究","s":["analyze","evaluate","study"],"g":"06 进阶一","n":""},{"c":"贡献","s":["contribute","donate","provide","give"],"g":"06 进阶一","n":""},{"c":"描述","s":["describe","portray","represent","picture"],"g":"06 进阶一","n":""},{"c":"职业 / 行业","s":["profession","occupation","career","trade"],"g":"06 进阶一","n":""},{"c":"自然地","s":["naturally","certainly","surely","indeed"],"g":"06 进阶一","n":""},{"c":"全体人员","s":["personnel","staff","faculty","crew","workers"],"g":"06 进阶一","n":""},{"c":"适当 / 正确地","s":["properly","appropriately","suitably","correctly"],"g":"06 进阶一","n":""},{"c":"扩大","s":["widen","broaden","enlarge","extend","expand","stretch"],"g":"06 进阶一","n":"magnify means make something larger than it really is"},{"c":"方面 / 外观","s":["aspect","appearance","look","view"],"g":"06 进阶一","n":""},{"c":"性格 / 品质","s":["character","quality","personality","nature"],"g":"06 进阶一","n":""},{"c":"总体","s":["total","entire","overall","sum up"],"g":"06 进阶一","n":""},{"c":"无意识的","s":["unconscious","unaware","absent-minded"],"g":"06 进阶一","n":""},{"c":"愚笨的","s":["clumsy","awkward","unskillful"],"g":"06 进阶一","n":""},{"c":"怀疑的","s":["doubtful","suspicious","questionable","suspect"],"g":"06 进阶一","n":"if you are skeptical about something, you have doubts on it"},{"c":"难以置信地","s":["incredibly","unbelievably","unlikely"],"g":"06 进阶一","n":""},{"c":"保护","s":["protect","defend","guard","shelter","shield","preserve","safeguard"],"g":"06 进阶一","n":""},{"c":"例外","s":["exception","exclusion"],"g":"06 进阶一","n":""},{"c":"征募","s":["recruit","enroll","enlist"],"g":"06 进阶一","n":""},{"c":"不确定的","s":["unsure","uncertain","doubtful","yet to be proved"],"g":"06 进阶一","n":""},{"c":"交流","s":["communicate","convey","transmit","inform"],"g":"06 进阶一","n":""},{"c":"完全 / 彻底地","s":["completely","entirely","utterly","fully","altogether","thoroughly","absolutely","perfectly","totally"],"g":"06 进阶一","n":""},{"c":"减少","s":["reduce","decrease","lessen","diminish","cut"],"g":"06 进阶一","n":""},{"c":"替换","s":["replace","substitute","displace","change"],"g":"06 进阶一","n":""},{"c":"感觉 / 意识到","s":["sense","feel","understand","realize"],"g":"06 进阶一","n":""},{"c":"转换","s":["change","alter","vary","convert","transform"],"g":"06 进阶一","n":""},{"c":"供给","s":["supply","stock","provide","furnish","feed"],"g":"06 进阶一","n":""},{"c":"获取","s":["derive","obtain","gain","get"],"g":"06 进阶一","n":""},{"c":"多样性","s":["diversity","variety","multiplicity","difference"],"g":"06 进阶一","n":""},{"c":"狭窄的","s":["narrow","limited","restricted","tighten"],"g":"06 进阶一","n":""},{"c":"敏感的","s":["sensitive","delicate"],"g":"06 进阶一","n":""},{"c":"展示","s":["display","show","exhibit","demonstrate"],"g":"06 进阶一","n":""},{"c":"本质的 / 必要的","s":["essential","vital","crucial","critical","indispensable"],"g":"06 进阶一","n":""},{"c":"继续下去","s":["proceed","continue","go on"],"g":"06 进阶一","n":""},{"c":"尊敬","s":["respect","honor","regard","admire"],"g":"06 进阶一","n":""},{"c":"任务 / 使团","s":["mission","assignment","duty","task"],"g":"06 进阶一","n":""},{"c":"表演 / 业绩 / 执行","s":["performance","act","achievement"],"g":"06 进阶一","n":""},{"c":"尤其 / 特别 / 专门","s":["especially","particularly","primarily","chiefly"],"g":"06 进阶一","n":""},{"c":"显著 / 非凡地","s":["remarkably","extraordinarily","unusually"],"g":"06 进阶一","n":""},{"c":"呼吁 / 吸引力","s":["appeal","request","attraction"],"g":"07 进阶二 · 主题经济","n":""},{"c":"提高 / 增强","s":["enhance","increase","improve","raise"],"g":"07 进阶二 · 主题经济","n":""},{"c":"阻碍","s":["hinder","prevent","restrain","stop"],"g":"07 进阶二 · 主题经济","n":""},{"c":"需要 / 规定","s":["require","command","demand","ask"],"g":"07 进阶二 · 主题经济","n":""},{"c":"催促 / 主张","s":["urge","push","drive","insist"],"g":"07 进阶二 · 主题经济","n":""},{"c":"巨大的","s":["enormous","huge","vast","great"],"g":"07 进阶二 · 主题经济","n":""},{"c":"源于","s":["derive from","originate from","stem from","come from"],"g":"07 进阶二 · 主题经济","n":""},{"c":"失业","s":["unemployment","layoffs","job losses"],"g":"07 进阶二 · 主题经济","n":""},{"c":"简历","s":["resume","hand in"],"g":"07 进阶二 · 主题经济","n":""},{"c":"人才","s":["personnel","talent","human resources"],"g":"07 进阶二 · 主题经济","n":""},{"c":"职位","s":["position","post","opening"],"g":"07 进阶二 · 主题经济","n":""},{"c":"创新","s":["innovation","creativity"],"g":"07 进阶二 · 主题经济","n":""},{"c":"破产","s":["bankrupt","shut down"],"g":"07 进阶二 · 主题经济","n":""},{"c":"剧降","s":["decline","drop","fall"],"g":"07 进阶二 · 主题经济","n":""},{"c":"恶化","s":["deteriorate","decline","get worse"],"g":"07 进阶二 · 主题经济","n":""},{"c":"灭绝","s":["extinct","die out"],"g":"07 进阶二 · 主题经济","n":""},{"c":"可再生能源","s":["renewables","alternative energy","clean energy"],"g":"07 进阶二 · 主题经济","n":""},{"c":"二氧化碳","s":["carbon dioxide","greenhouse gas"],"g":"07 进阶二 · 主题经济","n":""},{"c":"加速","s":["accelerate","speed up"],"g":"07 进阶二 · 主题经济","n":""},{"c":"进步","s":["advance","pace","development"],"g":"07 进阶二 · 主题经济","n":""},{"c":"经济危机","s":["economic crisis","financial difficulty","recession"],"g":"07 进阶二 · 主题经济","n":""},{"c":"反弹 / 恢复","s":["rebound","recovery"],"g":"07 进阶二 · 主题经济","n":""},{"c":"必修课","s":["compulsory course","requirement","optional","elective courses"],"g":"07 进阶二 · 主题经济","n":""},{"c":"学费","s":["tuition","educational expenses"],"g":"07 进阶二 · 主题经济","n":""},{"c":"学位","s":["bachelor's degree","master degree","doctoral degree"],"g":"07 进阶二 · 主题经济","n":""},{"c":"研究生院 / 研究生","s":["graduate school","postgraduate"],"g":"07 进阶二 · 主题经济","n":""},{"c":"导师","s":["supervisor","tutor"],"g":"07 进阶二 · 主题经济","n":""},{"c":"课程","s":["curriculum","course","program","syllabus"],"g":"07 进阶二 · 主题经济","n":""},{"c":"哲学 / 心理学","s":["philosophy","psychology"],"g":"07 进阶二 · 主题经济","n":""},{"c":"传记 / 生物","s":["biography","biology"],"g":"07 进阶二 · 主题经济","n":""},{"c":"老年人","s":["senior citizen","old people"],"g":"07 进阶二 · 主题经济","n":""},{"c":"被指控","s":["be accused of","be charged"],"g":"07 进阶二 · 主题经济","n":""},{"c":"药方","s":["remedy","prescription"],"g":"07 进阶二 · 主题经济","n":""},{"c":"素食者","s":["vegetarian","eat no meat"],"g":"07 进阶二 · 主题经济","n":""},{"c":"治疗","s":["therapy","remedy","treatment"],"g":"07 进阶二 · 主题经济","n":""},{"c":"和解 / 妥协","s":["reconcile with","compromise"],"g":"07 进阶二 · 主题经济","n":""},{"c":"有趣的","s":["intriguing","interesting","enchanting","appealing","attractive"],"g":"07 进阶二 · 主题经济","n":""},{"c":"足够的","s":["sufficient","adequate","ample"],"g":"07 进阶二 · 主题经济","n":""},{"c":"缺乏","s":["deficient","lack"],"g":"07 进阶二 · 主题经济","n":""},{"c":"缺点","s":["drawback","weakness","shortcoming"],"g":"08 进阶三 · 表达","n":""},{"c":"促进","s":["stimulate","promote","boost","facilitate"],"g":"08 进阶三 · 表达","n":""},{"c":"刻板印象","s":["stereotype","bias"],"g":"08 进阶三 · 表达","n":""},{"c":"贷款","s":["loans","mortgage"],"g":"08 进阶三 · 表达","n":""},{"c":"回馈","s":["feedback","opinion"],"g":"08 进阶三 · 表达","n":""},{"c":"麻烦","s":["nuisance","headache","trouble"],"g":"08 进阶三 · 表达","n":""},{"c":"收入","s":["revenue","income","salary","pay"],"g":"08 进阶三 · 表达","n":""},{"c":"求职者","s":["job seekers","job hunters"],"g":"08 进阶三 · 表达","n":""},{"c":"灾难","s":["catastrophe","disaster"],"g":"08 进阶三 · 表达","n":""},{"c":"冲突","s":["disputes","conflicts","collision"],"g":"08 进阶三 · 表达","n":""},{"c":"疫苗","s":["vaccine","shot"],"g":"08 进阶三 · 表达","n":""},{"c":"学期","s":["semester","term"],"g":"08 进阶三 · 表达","n":""},{"c":"阻止","s":["prevent","stop","ban","prohibit sb. from doing sth"],"g":"08 进阶三 · 表达","n":""},{"c":"歧视","s":["discrimination","look down upon"],"g":"08 进阶三 · 表达","n":""},{"c":"解散 / 开除","s":["dismiss","fire","lay off"],"g":"08 进阶三 · 表达","n":""},{"c":"吸收","s":["absorb","assimilate"],"g":"08 进阶三 · 表达","n":""},{"c":"有保留地赞同","s":["agree partly","agree with reservation"],"g":"08 进阶三 · 表达","n":""},{"c":"以此标准来算","s":["by this criterion","by this standard"],"g":"08 进阶三 · 表达","n":""},{"c":"把……奉献于 / 专注于","s":["devote to","dedicate to"],"g":"08 进阶三 · 表达","n":""},{"c":"期望 / 预期","s":["expect","anticipate"],"g":"08 进阶三 · 表达","n":""},{"c":"宣传","s":["publicize","propagandize"],"g":"08 进阶三 · 表达","n":""},{"c":"古老的","s":["old","ancient"],"g":"08 进阶三 · 表达","n":""},{"c":"著名的","s":["well-known","famous","prestigious","celebrated","renowned","eminent"],"g":"08 进阶三 · 表达","n":""},{"c":"偏见","s":["bias","prejudice","discrimination"],"g":"08 进阶三 · 表达","n":""},{"c":"大都市","s":["big city","metropolis"],"g":"08 进阶三 · 表达","n":""},{"c":"传统 / 习俗","s":["custom","convention","tradition"],"g":"08 进阶三 · 表达","n":""},{"c":"立法","s":["lawmaking","legislation"],"g":"08 进阶三 · 表达","n":""},{"c":"时不时","s":["from time to time","now and then","once in a while"],"g":"08 进阶三 · 表达","n":""},{"c":"经常","s":["often","frequently","repeatedly"],"g":"08 进阶三 · 表达","n":""},{"c":"一再","s":["time after time","again and again"],"g":"08 进阶三 · 表达","n":""},{"c":"根据","s":["according to","on the basis of","on the ground of","in the light of","in line with","in accordance with"],"g":"08 进阶三 · 表达","n":""},{"c":"从古至今","s":["from ancient times to the present day","down through the ages"],"g":"08 进阶三 · 表达","n":""},{"c":"动力","s":["impetus","driving force","momentum","stimulus","root","origin","factor","reason"],"g":"08 进阶三 · 表达","n":""},{"c":"结果","s":["result","aftermath","consequence"],"g":"08 进阶三 · 表达","n":"the results or effects of something"},{"c":"简而言之","s":["put simply","in short","in brief"],"g":"08 进阶三 · 表达","n":""},{"c":"行为","s":["conduct","behavior","doings"],"g":"08 进阶三 · 表达","n":""},{"c":"观点","s":["view","viewpoint","point of view","idea","assertion","argument","perspective"],"g":"08 进阶三 · 表达","n":"means looking at an event or situation in a particular way"},{"c":"来自","s":["stem from","come from","result from","flow from"],"g":"08 进阶三 · 表达","n":""},{"c":"暗淡的","s":["gloomy","dark","dim"],"g":"08 进阶三 · 表达","n":""},{"c":"迹象","s":["hint","clue","a slight suggestion"],"g":"08 进阶三 · 表达","n":""},{"c":"范围","s":["scope","field","realm"],"g":"09 进阶四 · 表达二","n":""},{"c":"评估","s":["assess","evaluate"],"g":"09 进阶四 · 表达二","n":""},{"c":"承认","s":["admit","acknowledge","confess","concede"],"g":"09 进阶四 · 表达二","n":""},{"c":"具体的","s":["specific","concrete","tangible"],"g":"09 进阶四 · 表达二","n":""},{"c":"模糊的","s":["ambiguous","vague","obscure"],"g":"09 进阶四 · 表达二","n":"unknown or known by only a few people"},{"c":"影响深远的","s":["far-reaching","profound"],"g":"09 进阶四 · 表达二","n":""},{"c":"忍受","s":["bear","put up with","endure","stand"],"g":"09 进阶四 · 表达二","n":""},{"c":"证据","s":["evidence","facts","proof","grounds"],"g":"09 进阶四 · 表达二","n":""},{"c":"令人惊异的","s":["amazing","astonishing","astounding"],"g":"09 进阶四 · 表达二","n":""},{"c":"无法避免的","s":["unavoidable","inevitable"],"g":"09 进阶四 · 表达二","n":""},{"c":"理解","s":["understand","comprehend","catch the meaning of"],"g":"09 进阶四 · 表达二","n":""},{"c":"人口爆炸","s":["population explosion","population boom"],"g":"09 进阶四 · 表达二","n":""},{"c":"不恰当","s":["inappropriate","improper","unsuitable"],"g":"09 进阶四 · 表达二","n":""},{"c":"有意义的","s":["meaningful","fulfilling"],"g":"09 进阶四 · 表达二","n":""},{"c":"确切地说","s":["to be exact","to be precise","precisely"],"g":"09 进阶四 · 表达二","n":""},{"c":"计划生育","s":["family planning","birth control"],"g":"09 进阶四 · 表达二","n":""},{"c":"真正的","s":["genuine","authentic","real"],"g":"09 进阶四 · 表达二","n":""},{"c":"怪异的","s":["eccentric","peculiar","odd"],"g":"09 进阶四 · 表达二","n":""},{"c":"炫耀","s":["boast about","show off","speak too highly of"],"g":"09 进阶四 · 表达二","n":""},{"c":"增长","s":["increase","grow","climb","mount"],"g":"09 进阶四 · 表达二","n":""},{"c":"下降","s":["decrease","decline","fall","reduce"],"g":"09 进阶四 · 表达二","n":""},{"c":"波动","s":["go up and down","rise and fall","fluctuate"],"g":"09 进阶四 · 表达二","n":""},{"c":"性别歧视","s":["gender bias","sexual discrimination"],"g":"09 进阶四 · 表达二","n":""},{"c":"文明的社会","s":["a civilized society","an enlightened society"],"g":"09 进阶四 · 表达二","n":""},{"c":"家庭暴力","s":["domestic violence","family violence"],"g":"09 进阶四 · 表达二","n":""},{"c":"家庭情感纽带","s":["family bonds","family ties"],"g":"09 进阶四 · 表达二","n":""},{"c":"广泛使用","s":["the proliferation of","the wide use of"],"g":"09 进阶四 · 表达二","n":""},{"c":"祖先","s":["ancestor","forefather"],"g":"09 进阶四 · 表达二","n":""},{"c":"差劲；弱；不擅长","s":["poor","bad","not very good","weak"],"g":"10 分类高频","n":""},{"c":"最好的；无人能超越的","s":["unsurpassed","top","greatest","finest","best"],"g":"10 分类高频","n":""},{"c":"惊讶的","s":["astounded","startled","be taken aback","astonished","amazed","surprised"],"g":"10 分类高频","n":""},{"c":"工资；收入","s":["earnings","salary","income","pay","wage"],"g":"10 分类高频","n":""},{"c":"愤怒；愤慨","s":["rage","indignation","wrath","anger"],"g":"10 分类高频","n":""},{"c":"损失；损坏","s":["destruction","loss"],"g":"10 分类高频","n":""},{"c":"对……有作用；促进","s":["play a part in","contribute to"],"g":"10 分类高频","n":""},{"c":"交配","s":["mating","courtship"],"g":"10 分类高频","n":""},{"c":"加强；扩大","s":["intensify","expand","widen"],"g":"10 分类高频","n":""},{"c":"过时的；传统的","s":["unfashionable","old-fashioned","outmoded","outdated","traditional"],"g":"10 分类高频","n":""},{"c":"不发达的","s":["rudimentary","degenerated","underdeveloped"],"g":"10 分类高频","n":""},{"c":"面对；遇到","s":["confront","face","encounter","meet"],"g":"10 分类高频","n":""},{"c":"指导；教导","s":["instruct","coach","train","teach"],"g":"10 分类高频","n":""},{"c":"责任；义务","s":["accountability","liability","responsibility","obligation","duty"],"g":"10 分类高频","n":""},{"c":"改变","s":["modify","alter","change"],"g":"10 分类高频","n":"change into another form"},{"c":"查明；判断；鉴定","s":["pinpoint","diagnose","identify"],"g":"10 分类高频","n":""},{"c":"持久的","s":["prolonged","enduring","abiding","lingering"],"g":"10 分类高频","n":""},{"c":"长期的","s":["chronic","lasting","long-standing","long-running","long-term"],"g":"10 分类高频","n":""},{"c":"联系","s":["link to","be connected to","be linked to"],"g":"10 分类高频","n":""},{"c":"跟踪；跟随","s":["stalk","track","tail","follow"],"g":"10 分类高频","n":""},{"c":"最合适的；理想的","s":["optimum","ideal"],"g":"10 分类高频","n":""},{"c":"相似的","s":["resemble","similar","alike"],"g":"10 分类高频","n":""},{"c":"上升","s":["escalate","climb","grow","increase","rise","go up"],"g":"10 分类高频","n":""},{"c":"多样的","s":["varied","wide-ranging","diverse","mixed"],"g":"10 分类高频","n":""},{"c":"天才；有天赋","s":["genius","be endowed with talent when one was born"],"g":"10 分类高频","n":""},{"c":"不愿意","s":["reluctant","unwilling","not willing","drag one's feet","be loath to do"],"g":"10 分类高频","n":""},{"c":"咨询","s":["consult","seek advice"],"g":"10 分类高频","n":""},{"c":"发明","s":["invent","be the first one to create","make"],"g":"10 分类高频","n":""},{"c":"错误观点","s":["misconception","mistaken view"],"g":"10 分类高频","n":""},{"c":"忽略","s":["pay no attention","not pay any attention","take no notice","not take any notice","ignore"],"g":"10 分类高频","n":""},{"c":"容易达到的","s":["accessible","easy to reach"],"g":"10 分类高频","n":""},{"c":"地理位置","s":["geographical location","where"],"g":"10 分类高频","n":""},{"c":"媒体","s":["media","newspaper, television"],"g":"10 分类高频","n":""},{"c":"自愿的；自主的","s":["initiative","on your own initiative","on your own","by yourself"],"g":"10 分类高频","n":""},{"c":"双语的","s":["bilingual","to be able to speak two languages"],"g":"10 分类高频","n":""},{"c":"年轻人","s":["adolescent","teenager","youth","young people"],"g":"10 分类高频","n":""},{"c":"不可避免的","s":["inevitable","certain to happen","cannot avoid"],"g":"10 分类高频","n":""},{"c":"支付得起","s":["afford","be able to pay"],"g":"10 分类高频","n":""},{"c":"居住地","s":["habitat","where to live"],"g":"10 分类高频","n":""},{"c":"全球变暖","s":["global warming","get warmer"],"g":"10 分类高频","n":""},{"c":"存活","s":["survive","continue to exist"],"g":"10 分类高频","n":""},{"c":"失败","s":["fruitless","fail","unsuccessful","fall through","not succeed"],"g":"10 分类高频","n":""},{"c":"研究；探查","s":["probe","make inquiries","investigate","look into"],"g":"10 分类高频","n":""}];
+
+/* ---------- 分页签 ---------- */
+const tabs = document.querySelectorAll('.tab');
+const panes = {browse:document.getElementById('pane-browse'),cards:document.getElementById('pane-cards'),fix:document.getElementById('pane-fix')};
+const searchBox = document.querySelector('.search');
+if(location.hash==='#cards'||location.hash==='#fix'){
+  document.querySelector('[data-pane="'+location.hash.slice(1)+'"]').click();
+}
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  tabs.forEach(x=>x.classList.remove('on')); t.classList.add('on');
+  Object.entries(panes).forEach(([k,el])=>el.classList.toggle('on',k===t.dataset.pane));
+  searchBox.style.visibility = t.dataset.pane==='browse' ? 'visible' : 'hidden';
+  window.scrollTo({top:0,behavior:'auto'});
+}));
+
+/* ---------- 搜索 ---------- */
+const rows = Array.from(document.querySelectorAll('.row'));
+const empty = document.getElementById('empty');
+const q = document.getElementById('q');
+let tm=null;
+rows.forEach(r=>r.dataset.s=r.dataset.s.toLowerCase());
+function run(){
+  const kw=q.value.trim().toLowerCase();
+  if(!kw){rows.forEach(r=>{r.style.display='';r.classList.remove('hit')});
+    document.querySelectorAll('.grp').forEach(s=>s.style.display='');empty.style.display='none';return;}
+  let n=0;
+  rows.forEach(r=>{const ok=r.dataset.s.includes(kw);r.style.display=ok?'':'none';r.classList.toggle('hit',ok);if(ok)n++;});
+  document.querySelectorAll('.grp').forEach(s=>{
+    s.style.display=Array.from(s.querySelectorAll('.row')).some(r=>r.style.display!=='none')?'':'none';});
+  empty.style.display=n?'none':'block';
+}
+q.addEventListener('input',()=>{clearTimeout(tm);tm=setTimeout(run,120)});
+q.addEventListener('keydown',e=>{if(e.key==='Escape'){q.value='';run();}});
+
+/* ---------- 抽卡 ---------- */
+const GNAMES=[...new Set(DATA.map(d=>d.g))];
+let scope='all', queue=[], idx=0, revealed=false, stats={known:0,again:0};
+const elCN=document.getElementById('qcn'), elEN=document.getElementById('qen'),
+      elN=document.getElementById('qnote'), elH=document.getElementById('qh'),
+      elBar=document.getElementById('bar'), elMeta=document.getElementById('meta'),
+      elOps=document.getElementById('ops'), fc=document.getElementById('fc');
+
+const scopeBox=document.getElementById('scope');
+[['all','全部 '+DATA.length],...GNAMES.map(g=>[g,g.split(' ')[0]+' '+DATA.filter(d=>d.g===g).length])]
+  .forEach(([k,label])=>{
+    const b=document.createElement('button');
+    b.textContent=label; b.dataset.g=k; if(k==='all')b.classList.add('on');
+    b.onclick=()=>{scope=k;[...scopeBox.children].forEach(c=>c.classList.toggle('on',c.dataset.g===k));reset();};
+    scopeBox.appendChild(b);
+  });
+
+function pool(){return DATA.filter(d=>scope==='all'||d.g===scope);}
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function reset(){
+  queue=shuffle(pool().slice()); idx=0; stats={known:0,again:0};
+  fc.classList.remove('open'); elCN.textContent='点击「开始」'; elEN.textContent=''; elN.textContent='';
+  elH.textContent='准备开始'; elBar.style.width='0%'; elMeta.textContent='共 '+queue.length+' 条';
+  elOps.innerHTML='<button class="primary" id="start">开始抽卡</button>';
+  document.getElementById('start').onclick=start;
+}
+function start(){
+  queue=shuffle(pool().slice()); idx=0; stats={known:0,again:0};
+  elOps.innerHTML='<button class="primary" id="reveal">显示答案</button>'
+    +'<button class="good" id="known" style="display:none">记住了</button>'
+    +'<button class="bad" id="again" style="display:none">再说一遍</button>';
+  document.getElementById('reveal').onclick=reveal;
+  document.getElementById('known').onclick=()=>grade(true);
+  document.getElementById('again').onclick=()=>grade(false);
+  show();
+}
+function show(){
+  if(idx>=queue.length){finished();return;}
+  const d=queue[idx];
+  revealed=false; fc.classList.remove('open');
+  elCN.textContent=d.c; elH.textContent=d.g+' · '+(idx+1)+' / '+queue.length;
+  elEN.innerHTML=d.s.map((s,i)=>i===0?'<b>'+s+'</b>':s).join(' <span style="color:#c2c8ce">/</span> ');
+  elN.textContent=d.n||''; elN.style.display=d.n?'block':'none';
+  elBar.style.width=(idx/queue.length*100)+'%';
+  elMeta.textContent='已记住 '+stats.known+' · 待复习 '+Math.max(0,queue.length-idx);
+  document.getElementById('reveal').style.display='';
+  document.getElementById('known').style.display='none';
+  document.getElementById('again').style.display='none';
+}
+function reveal(){
+  fc.classList.add('open'); revealed=true;
+  document.getElementById('reveal').style.display='none';
+  document.getElementById('known').style.display='';
+  document.getElementById('again').style.display='';
+}
+function grade(ok){
+  if(!revealed){reveal();return;}
+  if(ok){stats.known++;idx++;}
+  else{stats.again++;queue.push(queue[idx]);idx++;}
+  show();
+}
+function finished(){
+  elBar.style.width='100%';
+  fc.classList.add('open');
+  elCN.textContent='这一轮结束';
+  elEN.innerHTML='<span style="font-family:var(--cn);font-size:15px">记住 '+stats.known+' 条，重复 '+stats.again+' 次</span>';
+  elN.textContent=''; elH.textContent=scope==='all'?'全部词条':scope;
+  elOps.innerHTML='<button class="primary" id="restart">再来一轮</button><button id="toBrowse">回到浏览</button>';
+  document.getElementById('restart').onclick=start;
+  document.getElementById('toBrowse').onclick=()=>document.querySelector('[data-pane="browse"]').click();
+}
+document.addEventListener('keydown',e=>{
+  if(!panes.cards.classList.contains('on'))return;
+  if(e.code==='Space'){e.preventDefault(); if(!revealed) reveal(); else grade(true);}
+  if(e.key==='1'&&revealed) grade(true);
+  if(e.key==='2'&&revealed) grade(false);
+});
+reset();
+</script>
+</body>
+</html>
