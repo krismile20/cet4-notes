@@ -205,6 +205,12 @@ body.searching .no-match{display:block}
 .xnav a{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;color:#2d5c50;
   text-decoration:none;border-bottom:1px dotted #9dbcb1;padding-bottom:2px;transition:.15s}
 .xnav a:hover{color:#1d3d35;border-bottom-color:#2d5c50}
+.tl .valt{font-family:var(--font-en);font-size:14.6px;line-height:1.62;margin:9px 0 0;color:#2a3f37;
+  padding-top:8px;border-top:1px dashed #d6e4dc}
+.tl .valt b{font-family:var(--font-cn);font-size:11px;font-weight:400;letter-spacing:.06em;color:#4d7a66;
+  border:1px solid #cfe0d6;background:#fff;border-radius:3px;padding:0 3px;margin-right:7px;vertical-align:1px}
+.tl .valt.safe{color:#5b5548;border-top-color:#ece6d9}
+.tl .valt.safe b{color:#8a6b2c;border-color:#e5d6ae}
 </style>
 </head>
 <body>
@@ -607,7 +613,8 @@ body.searching .no-match{display:block}
         <div class="tl"><span class="lbl">可写译文</span>
           <p>Lotus flowers, <u>one of the famous flowers in China</u>, are beloved by residents.</p>
           <p>Lotus flowers, <u>as one of the famous flowers in China</u>, are beloved by residents.</p>
-        </div>
+          <p class="valt"><b>新译</b>Lotus, one of China's most famous flowers, is deeply loved by people.</p>
+          <p class="valt safe"><b>兜底</b>Lotus is a famous flower in China. Many people like it.</p></div>
         <div class="warn"><b>例外：</b>句中若无动词，就不能用同位语或 as + n，只能让 be 自己当谓语 —— Lotus flowers <b>are</b> one of the famous flowers in China. / <b>stand as</b> one of…</div>
       </div>
     </div>
@@ -618,11 +625,17 @@ body.searching .no-match{display:block}
       <div class="tip-b">
         <div class="quote"><span class="lbl">原文</span>中国有 14 亿人口。四合院对中国文化的传承和中国历史的研究具有重要意义。对联通常书写在红纸上，在人们生活中有重要地位。</div>
         <p class="why"><b>①「有」在句首</b>（主语是地点词）→ 地点提后，用 there be：</p>
-        <div class="tl"><p>There is a population of 1.4 billion in China.</p></div>
+        <div class="tl"><p>There is a population of 1.4 billion in China.</p>
+          <p class="valt"><b>新译</b>China has a population of 1.4 billion.</p>
+          <p class="valt safe"><b>兜底</b>There are 1.4 billion people in China.</p></div>
         <p class="why" style="margin-top:14px"><b>②「有」在主语后面</b> → 用 boast：</p>
-        <div class="tl"><p>Siheyuan <u>boasts</u> important significance for the inheritance of Chinese culture and study <u>on</u> Chinese history.</p></div>
+        <div class="tl"><p>Siheyuan <u>boasts</u> important significance for the inheritance of Chinese culture and study <u>on</u> Chinese history.</p>
+          <p class="valt"><b>新译</b>Siheyuan is of great importance to the inheritance of Chinese culture and to the study of Chinese history.</p>
+          <p class="valt safe"><b>兜底</b>Siheyuan is very important for Chinese culture and history.</p></div>
         <p class="why" style="margin-top:14px"><b>③「有」在句子后面</b>（构成「句子，有……」）→ 用 with：</p>
-        <div class="tl"><p>Couplets are usually written on red paper, <u>with</u> a vital place in people's lives.</p></div>
+        <div class="tl"><p>Couplets are usually written on red paper, <u>with</u> a vital place in people's lives.</p>
+          <p class="valt"><b>新译</b>Couplets are usually written on red paper and hold an important place in people's lives.</p>
+          <p class="valt safe"><b>兜底</b>People write couplets on red paper, and they matter in daily life.</p></div>
         <div class="mini"><span class="chip">出题人爱把时间、地点词放句首 → 提到句尾</span><span class="chip">study on 比 study about 更正式</span></div>
       </div>
     </div>
@@ -657,7 +670,8 @@ body.searching .no-match{display:block}
         <p class="why"><b>加分点：</b>「随着」出现时，主句用现在完成时（have/has done）最讨喜；<b>但若随着结构里出现具体过去时间，就不能用完成时。</b></p>
         <div class="tl"><span class="lbl">参考译文</span>
           <p><u>Following</u> the rapid development of China's economy, people's living standards have constantly improved and more and more people have expected to receive higher education.</p>
-        </div>
+          <p class="valt"><b>新译</b>With China's economy growing rapidly, people's living standards have kept rising, and more people want to receive higher education.</p>
+          <p class="valt safe"><b>兜底</b>China's economy develops fast. People live better than before, and more people want to go to university.</p></div>
         <div class="mini"><span class="chip">我国 = 中国</span><span class="chip">我国人民 = 中国人民 —— 指代必须还原</span><span class="chip">是 higher education，不是 high education</span></div>
       </div>
     </div>
@@ -671,7 +685,8 @@ body.searching .no-match{display:block}
         <p class="why"><b>三个「是」只译一次动词：</b>第一个做成 as + n.，第二、三个合并用 stand as。</p>
         <div class="tl"><span class="lbl">参考译文</span>
           <p>Yangshan Port, <u>as a vital part of Shanghai Shipping Center</u>, <u>stands as</u> the first deepwater port in China and <u>one of the largest deepwater ports</u> in the world.</p>
-        </div>
+          <p class="valt"><b>新译</b>Yangshan Port, a key part of Shanghai's shipping center, is China's first deepwater port and one of the largest in the world.</p>
+          <p class="valt safe"><b>兜底</b>Yangshan Port is an important part of Shanghai's shipping center. It is China's first deepwater port and one of the biggest in the world.</p></div>
         <div class="mini"><span class="chip">面积大 / 规模大 = 大 → largest</span></div>
       </div>
     </div>
@@ -691,7 +706,8 @@ body.searching .no-match{display:block}
         <div class="quote" style="margin-top:14px"><span class="lbl">原文</span>云贵高原（the Yunnan-Guizhou Plateau）大部分位于云南、贵州省境内，总面积约 50 万平方公里，平均海拔 2000～4000 米。</div>
         <div class="tl"><span class="lbl">参考译文</span>
           <p>Mostly located in Yunnan and Guizhou, the Yunnan-Guizhou Plateau covers an area of around 500,000 square kilometers and is 2000–4000 meters high on average.</p>
-        </div>
+          <p class="valt"><b>新译</b>The Yunnan-Guizhou Plateau lies mostly in Yunnan and Guizhou, covering about 500,000 square kilometers at an average altitude of 2,000-4,000 meters.</p>
+          <p class="valt safe"><b>兜底</b>The Yunnan-Guizhou Plateau is mainly in Yunnan and Guizhou. It covers about 500,000 square kilometers, and its average height is 2,000-4,000 meters.</p></div>
         <div class="warn"><b>数字不会拼？</b>直接用阿拉伯数字，别硬写英文单词。</div>
       </div>
     </div>
@@ -704,7 +720,8 @@ body.searching .no-match{display:block}
         <p class="why"><b>永远先写主语，再写动词。</b>主谓之间任何修饰成分全部搬到句尾。中文原序：该系统 收集起来 将…雨水及积雪融水。</p>
         <div class="tl"><span class="lbl">参考译文</span>
           <p>The system collects a large amount of rainwater and melted snow water <u>that seep into</u> the ground in spring and summer.</p>
-        </div>
+          <p class="valt"><b>新译</b>The system collects the large amount of rainwater and melted snow that seeps into the ground in spring and summer.</p>
+          <p class="valt safe"><b>兜底</b>In spring and summer, rain and snow water go into the ground. The system collects this water.</p></div>
         <div class="warn"><b>注意：</b>that 从句的主语是「雨水 + 融水」两种事物，所以动词用原形 <b>seep</b>，不是 seeps。</div>
       </div>
     </div>
@@ -718,7 +735,8 @@ body.searching .no-match{display:block}
         <div class="tl"><span class="lbl">参考译文</span>
           <p>R&amp;D personnel have overcome a series of technological problems <u>through constant efforts</u>.</p>
           <p>The Beidou System has realized global coverage and high-precision positioning and <u>makes China one of a few countries</u> <u>where there is a global satellite navigation system independently</u> in the world.</p>
-        </div>
+          <p class="valt"><b>新译</b>After years of effort, researchers overcame a series of technical problems. The Beidou System finally achieved global coverage and high-precision positioning, making China one of the few countries with an independent global navigation satellite system.</p>
+          <p class="valt safe"><b>兜底</b>Researchers worked hard and solved many technical problems. The Beidou System now covers the whole world and positions accurately. China becomes one of the few countries with its own satellite navigation system.</p></div>
         <div class="warn"><b>make 用法：</b>make sb./sth. + adj./n. ——「成为」不必译出来。方式状语（through / via constant efforts）固定放句尾。</div>
       </div>
     </div>
@@ -755,10 +773,14 @@ body.searching .no-match{display:block}
       <div class="tip-b">
         <div class="quote"><span class="lbl">原文</span>竹子具有强大的生命力和适应能力，无论环境多么恶劣，都能够顽强生存，因而寓意坚韧不拔的精神。</div>
         <p class="why"><b>缺主语：</b>后两个分句没有主语，根据上下文补 bamboo。</p>
-        <div class="tl"><p>Bamboo <u>boasts</u> strong vitality and adaptability. <u>No matter how harsh the environment is</u>, bamboo can manage to survive, <u>thus implying</u> the spirit of perseverance.</p></div>
+        <div class="tl"><p>Bamboo <u>boasts</u> strong vitality and adaptability. <u>No matter how harsh the environment is</u>, bamboo can manage to survive, <u>thus implying</u> the spirit of perseverance.</p>
+          <p class="valt"><b>新译</b>Bamboo has strong vitality and adaptability. However harsh the environment is, it survives, which is why it stands for perseverance.</p>
+          <p class="valt safe"><b>兜底</b>Bamboo is strong and can live in hard conditions, so people think it means perseverance.</p></div>
         <div class="quote" style="margin-top:14px"><span class="lbl">原文</span>荷花花色鲜艳。</div>
         <p class="why"><b>缺动词：</b>中文「花色鲜艳」是形容词谓语句，英文必须补一个万能动词「有 / 具有」→ <span class="k">feature</span>。</p>
-        <div class="tl"><p>The lotus <u>features</u> bright colors.</p></div>
+        <div class="tl"><p>The lotus <u>features</u> bright colors.</p>
+          <p class="valt"><b>新译</b>Lotus flowers are bright in colour.</p>
+          <p class="valt safe"><b>兜底</b>The lotus has bright colours.</p></div>
         <div class="warn"><b>结果状语：</b>句子 + 所以 / 因此 / 因而 + V. → 句子, <b>thus doing</b>。</div>
       </div>
     </div>
@@ -769,7 +791,9 @@ body.searching .no-match{display:block}
       <div class="tip-b">
         <div class="quote"><span class="lbl">原文</span>《三国演义》是中国一部著名的历史小说，写于十四世纪。</div>
         <p class="why"><b>判断方法：</b>把每个句子的主语和动词勾出来，问自己「主语能不能发出这个动作」。书不会自己「写」，所以是被写 → be + Ved。</p>
-        <div class="tl"><p>Romance of the Three Kingdoms, <u>a famed historical novel in China</u>, <u>was written</u> in the 14<sup>th</sup> century.</p></div>
+        <div class="tl"><p>Romance of the Three Kingdoms, <u>a famed historical novel in China</u>, <u>was written</u> in the 14<sup>th</sup> century.</p>
+          <p class="valt"><b>新译</b>Romance of the Three Kingdoms, a famous historical novel in China, was written in the 14th century.</p>
+          <p class="valt safe"><b>兜底</b>Romance of the Three Kingdoms is a famous old novel in China. People wrote it in the 1300s.</p></div>
         <div class="warn"><b>世纪写法：</b>数字 + 序数词 —— 14th；特殊形式 1st / 2nd / 3rd / 21st / 22nd / 23rd。</div>
       </div>
     </div>
@@ -785,7 +809,8 @@ body.searching .no-match{display:block}
         <div class="tl"><span class="lbl">两种写法</span>
           <p>However, the hot weather at this time has not ended. High temperatures will usually last for a period of time, <u>known as / called "Autumn Tiger"</u>.</p>
           <p>…, <u>which are called "Autumn Tiger"</u>.</p>
-        </div>
+          <p class="valt"><b>新译</b>However, the hot weather has not completely ended. High temperatures usually last for a while, which people call "Autumn Tiger".</p>
+          <p class="valt safe"><b>兜底</b>But the hot weather is not over. It stays hot for some days, and people call this "Autumn Tiger".</p></div>
       </div>
     </div>
 
@@ -795,7 +820,9 @@ body.searching .no-match{display:block}
       <div class="tip-b">
         <div class="quote"><span class="lbl">原文</span>2003 年，神舟五号飞船发射成功，杨利伟成为第一个飞入太空的中国宇航员。</div>
         <p class="why"><b>两套主谓</b>不能挤在一个句子里，用 <span class="k">, with + 主语 + Ving/Ved</span> 挂上去。判断：第二部分主语能主动发出动作 → ing，不能 → ed。</p>
-        <div class="tl"><p>In 2003, the Shenzhou V spacecraft was successfully launched, <u>with Yang Liwei becoming</u> the first Chinese astronaut <u>who flew into / entered space</u>.</p></div>
+        <div class="tl"><p>In 2003, the Shenzhou V spacecraft was successfully launched, <u>with Yang Liwei becoming</u> the first Chinese astronaut <u>who flew into / entered space</u>.</p>
+          <p class="valt"><b>新译</b>In 2003, Shenzhou V was launched successfully, and Yang Liwei became the first Chinese astronaut to enter space.</p>
+          <p class="valt safe"><b>兜底</b>In 2003, Shenzhou V went into space. Yang Liwei was the first Chinese astronaut in space.</p></div>
         <div class="warn"><b>的字结构在此处：</b>「第一个飞入太空的中国宇航员」= 数字 + 名词 + 定从（先译 1「第一个」、3「中国宇航员」，最后挂 2「飞入太空」）。注意 that 既可指人也可指物。</div>
       </div>
     </div>
